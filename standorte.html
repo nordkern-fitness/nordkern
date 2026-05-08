@@ -7,7 +7,7 @@
   <title>NordFit – Standorte</title>
   <meta
     name="description"
-    content="NordFit Standorte: Studio Grevesmühlen und weitere Studios im Norden. Adresse, Studioinfos und Karte auf einen Blick."
+    content="NordFit Standorte: Studio Grevesmühlen und weitere Studios im Norden. Adresse, Studioinfos, Routenplanung und Karte auf einen Blick."
   />
 
   <link rel="stylesheet" href="css/style.css" />
@@ -252,6 +252,11 @@
       letter-spacing: -0.01em;
     }
 
+    .location-open-text {
+      color: var(--nf-green);
+      font-weight: 820;
+    }
+
     .location-city-line {
       color: var(--muted);
       font-size: 0.94rem;
@@ -265,17 +270,6 @@
       font-size: clamp(2.55rem, 4.75vw, 4.85rem);
       line-height: 0.94;
       letter-spacing: -0.06em;
-      font-weight: 760;
-      text-wrap: balance;
-    }
-
-    .location-info-card h3 {
-      max-width: 15ch;
-      margin-top: 1rem;
-      color: var(--text);
-      font-size: clamp(1.7rem, 2.7vw, 2.45rem);
-      line-height: 1.02;
-      letter-spacing: -0.055em;
       font-weight: 760;
       text-wrap: balance;
     }
@@ -358,6 +352,83 @@
       line-height: 1;
       letter-spacing: -0.055em;
       font-weight: 760;
+    }
+
+    .map-route-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.72rem;
+      margin: 1rem 0 1rem;
+    }
+
+    .map-route-button {
+      min-width: 174px;
+      min-height: 58px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.72rem;
+      padding: 0.72rem 0.96rem;
+      border-radius: 18px;
+      transition:
+        transform var(--fast),
+        opacity var(--fast),
+        box-shadow var(--fast),
+        border-color var(--fast);
+    }
+
+    .map-route-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .map-route-button-dark {
+      color: #ffffff;
+      background:
+        linear-gradient(180deg, #1d1d1f, #09090a);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 16px 34px rgba(0, 0, 0, 0.18);
+    }
+
+    .map-route-button-light {
+      color: var(--text);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.62));
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        0 16px 34px rgba(0, 0, 0, 0.055);
+      backdrop-filter: blur(24px) saturate(170%);
+      -webkit-backdrop-filter: blur(24px) saturate(170%);
+    }
+
+    .map-route-icon {
+      width: 28px;
+      flex: 0 0 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .map-route-text {
+      display: grid;
+      gap: 0.04rem;
+      line-height: 1.05;
+    }
+
+    .map-route-small {
+      font-size: 0.68rem;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+      opacity: 0.72;
+    }
+
+    .map-route-big {
+      font-size: 1.05rem;
+      font-weight: 820;
+      letter-spacing: -0.026em;
     }
 
     .location-map-frame-clean {
@@ -478,11 +549,6 @@
         font-size: clamp(2.35rem, 12vw, 3.65rem);
       }
 
-      .location-info-card h3 {
-        max-width: 14ch;
-        font-size: clamp(1.45rem, 7vw, 2rem);
-      }
-
       .location-facts-clean {
         grid-template-columns: 1fr;
         margin-top: 1.25rem;
@@ -504,6 +570,35 @@
       .map-card-head-clean {
         flex-direction: column;
         gap: 0.65rem;
+      }
+
+      .map-route-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.62rem;
+      }
+
+      .map-route-button {
+        width: 100%;
+        min-width: 0;
+        min-height: 50px;
+        padding: 0.58rem 0.7rem;
+        border-radius: 16px;
+        gap: 0.52rem;
+      }
+
+      .map-route-icon {
+        width: 22px;
+        flex-basis: 22px;
+        font-size: 1.12rem;
+      }
+
+      .map-route-small {
+        font-size: 0.58rem;
+      }
+
+      .map-route-big {
+        font-size: 0.88rem;
       }
 
       .location-map-frame-clean {
@@ -537,6 +632,11 @@
 
       .location-info-card h2 {
         font-size: clamp(2.05rem, 11.5vw, 3.05rem);
+      }
+
+      .map-route-actions {
+        width: 100%;
+        grid-template-columns: 1fr;
       }
 
       .location-map-frame-clean {
@@ -594,7 +694,7 @@
           </h1>
 
           <p class="locations-hero-text">
-            Starte in Grevesmühlen und sieh dir Studioinfos, Zugang und Karte an.
+            Starte in Grevesmühlen und sieh dir Studioinfos, Zugang, Karte und Route an.
             Weitere NordFit Studios im Norden folgen Schritt für Schritt.
           </p>
         </div>
@@ -650,26 +750,22 @@
 
           <div class="location-info-card">
             <div class="location-info-top">
-              <p class="location-status-pill-clean">Jetzt geöffnet</p>
+              <p class="location-status-pill-clean">Aktiver Standort</p>
               <p class="location-city-line">Grevesmühlen, Mecklenburg-Vorpommern</p>
             </div>
 
             <h2>Studio Grevesmühlen</h2>
 
-            <h3>
-              Ruhig gelegen. Klar aufgebaut. Digital zugänglich.
-            </h3>
-
             <p>
               Das NordFit Studio Grevesmühlen ist der erste NordFit Standort:
-              moderne Trainingsbereiche, digitaler Zugang über die App und ein ruhiges
-              Studioerlebnis ohne unnötige Ablenkung.
+              mit digitalem Zugang über die App, klaren Trainingsbereichen und einem
+              ruhigen Studioerlebnis ohne unnötige Ablenkung.
             </p>
 
             <div class="location-facts-clean">
               <div>
                 <span>Status</span>
-                <strong>Jetzt geöffnet</strong>
+                <strong class="location-open-text">Jetzt geöffnet</strong>
               </div>
 
               <div>
@@ -679,7 +775,7 @@
 
               <div>
                 <span>Bereiche</span>
-                <strong>Krafttraining, Cardio, Functional</strong>
+                <strong>Krafttraining, Cardio, Functional Training, Freihantel, Geräte, Mobility</strong>
               </div>
 
               <div>
@@ -708,7 +804,39 @@
                 <h2>Studio Grevesmühlen</h2>
               </div>
 
-              <p class="location-status-pill-clean">Jetzt geöffnet</p>
+              <p class="location-status-pill-clean">
+                <span class="location-open-text">Jetzt geöffnet</span>
+              </p>
+            </div>
+
+            <div class="map-route-actions" aria-label="Route zum Studio öffnen">
+              <a
+                class="map-route-button map-route-button-dark"
+                href="https://maps.apple.com/?q=Studio%20Grevesm%C3%BChlen%2C%20Grevesm%C3%BChlen%2C%20Mecklenburg-Vorpommern"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Route in Apple Karten öffnen"
+              >
+                <span class="map-route-icon" aria-hidden="true"></span>
+                <span class="map-route-text">
+                  <span class="map-route-small">Route öffnen in</span>
+                  <span class="map-route-big">Apple Karten</span>
+                </span>
+              </a>
+
+              <a
+                class="map-route-button map-route-button-light"
+                href="https://www.google.com/maps/dir/?api=1&destination=Grevesm%C3%BChlen%2C%20Mecklenburg-Vorpommern"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Route in Google Maps öffnen"
+              >
+                <span class="map-route-icon" aria-hidden="true">⌖</span>
+                <span class="map-route-text">
+                  <span class="map-route-small">Route öffnen in</span>
+                  <span class="map-route-big">Google Maps</span>
+                </span>
+              </a>
             </div>
 
             <div class="location-map-frame-clean">
