@@ -84,7 +84,7 @@
       top: -1.02rem;
       right: 2.35rem;
       z-index: 6;
-      min-width: 64px;
+      min-width: 72px;
       height: 52px;
       padding: 0 0.78rem;
       display: inline-flex;
@@ -130,10 +130,10 @@
     }
 
     .tariff-price-area {
+      min-height: 145px;
       display: grid;
       align-content: start;
       gap: 0.45rem;
-      min-height: 150px;
       margin-top: 2.35rem;
     }
 
@@ -226,8 +226,17 @@
       font-weight: 650;
     }
 
+    .tariff-bottom {
+      min-height: 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      padding-top: 1rem;
+    }
+
     .tariff-feature-block {
-      margin-top: 0.15rem;
+      min-height: 124px;
     }
 
     .tariff-checks {
@@ -263,20 +272,21 @@
 
     .tariff-extras {
       display: grid;
-      gap: 0.36rem;
-      margin-top: 0.8rem;
+      gap: 0.34rem;
+      margin-top: 0.72rem;
       padding-left: 0.6rem;
     }
 
     .tariff-extras li {
       position: relative;
+      display: flex;
+      align-items: center;
       min-height: 1.18rem;
       padding-left: 1.62rem;
       color: var(--text-soft);
       font-size: 0.95rem;
-      line-height: 1.35;
+      line-height: 1.32;
       letter-spacing: -0.008em;
-      white-space: nowrap;
     }
 
     .tariff-extras li::before {
@@ -298,16 +308,11 @@
     }
 
     .tariff-extra-row {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.7rem;
-      width: 100%;
-    }
-
-    .tariff-extra-text {
-      overflow: hidden;
-      text-overflow: ellipsis;
+      gap: 0.55rem;
       white-space: nowrap;
     }
 
@@ -351,15 +356,9 @@
       transform: translateY(-0.4px);
     }
 
-    .tariff-card-end {
-      display: grid;
-      gap: 0.9rem;
-      margin-top: auto;
-      padding-top: 1.35rem;
-    }
-
     .tariff-runtime {
       position: relative;
+      margin-top: auto;
       padding: 0.88rem 3.25rem 0.88rem 1rem;
       border-radius: 22px;
       background: rgba(46, 145, 63, 0.075);
@@ -436,7 +435,7 @@
       transform: translateY(-0.5px);
     }
 
-    .tariff-card-end .btn {
+    .tariff-bottom .btn {
       width: 100%;
       min-height: 52px;
     }
@@ -498,6 +497,7 @@
     .daypass-price-box-clean .discount-badge {
       top: -1.02rem;
       right: 2rem;
+      min-width: 64px;
     }
 
     .daypass-price-box-clean .tariff-price-area {
@@ -531,13 +531,13 @@
       font-size: 0.76rem;
     }
 
-    .daypass-price-box-clean .tariff-feature-block {
-      margin-top: 0;
+    .daypass-price-box-clean .tariff-bottom {
+      flex: initial;
+      padding-top: 0;
     }
 
-    .daypass-price-box-clean .tariff-card-end {
-      margin-top: 0;
-      padding-top: 0;
+    .daypass-price-box-clean .tariff-feature-block {
+      min-height: auto;
     }
 
     .daypass-price-box-clean .btn {
@@ -647,6 +647,14 @@
         min-height: auto;
       }
 
+      .tariff-price-area {
+        min-height: auto;
+      }
+
+      .tariff-feature-block {
+        min-height: auto;
+      }
+
       .daypass-card {
         grid-template-columns: 1fr;
       }
@@ -711,11 +719,15 @@
       }
 
       .discount-badge {
-        min-width: 58px;
+        min-width: 66px;
         height: 48px;
         top: -0.82rem;
         right: 1.6rem;
         font-size: 0.82rem;
+      }
+
+      .tariff-extra-row {
+        white-space: normal;
       }
 
       .daypass-card {
@@ -815,32 +827,31 @@
                 </div>
               </div>
 
-              <div class="tariff-feature-block">
-                <ul class="tariff-checks">
-                  <li>24/7-Zugang</li>
-                  <li>QR-Code-Zutritt über die App</li>
-                </ul>
+              <div class="tariff-bottom">
+                <div class="tariff-feature-block">
+                  <ul class="tariff-checks">
+                    <li>24/7-Zugang</li>
+                    <li>QR-Code-Zutritt über die App</li>
+                  </ul>
 
-                <ul class="tariff-extras">
-                  <li>
-                    <span class="tariff-extra-row">
-                      <span class="tariff-extra-text">5 Freigetränke à 330 ml / Monat</span>
+                  <ul class="tariff-extras">
+                    <li>
+                      <span class="tariff-extra-row">
+                        <span>3 Freigetränke à 330 ml / Monat</span>
+                        <button
+                          class="extra-info-button"
+                          type="button"
+                          aria-label="Information zu den Freigetränken"
+                          data-info-title="Wie funktionieren die Freigetränke?"
+                          data-info-text="Du erhältst jeden Monat 3 Freigetränke à 330 ml. Wenn du deine Freigetränke in einem Monat nicht alle nutzt, verfallen sie nicht. Die neuen Freigetränke des nächsten Monats werden einfach zusätzlich dazugebucht. Wenn deine Freigetränke aufgebraucht sind, kannst du weitere Getränke in der App kaufen und im Studio einlösen."
+                        >
+                          <span>?</span>
+                        </button>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
 
-                      <button
-                        class="extra-info-button"
-                        type="button"
-                        aria-label="Information zu den Freigetränken"
-                        data-info-title="Wie funktionieren die Freigetränke?"
-                        data-info-text="Du erhältst jeden Monat 5 Freigetränke à 330 ml. Wenn du deine Freigetränke in einem Monat nicht alle nutzt, verfallen sie nicht. Die neuen Freigetränke des nächsten Monats werden einfach zusätzlich dazugebucht. Wenn deine Freigetränke aufgebraucht sind, kannst du weitere Getränke in der App kaufen und im Studio einlösen."
-                      >
-                        <span>?</span>
-                      </button>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="tariff-card-end">
                 <div class="tariff-runtime">
                   <span>Mindestlaufzeit</span>
                   <strong>12 Monate</strong>
@@ -883,48 +894,46 @@
                 </div>
               </div>
 
-              <div class="tariff-feature-block">
-                <ul class="tariff-checks">
-                  <li>24/7-Zugang</li>
-                  <li>QR-Code-Zutritt über die App</li>
-                </ul>
+              <div class="tariff-bottom">
+                <div class="tariff-feature-block">
+                  <ul class="tariff-checks">
+                    <li>24/7-Zugang</li>
+                    <li>QR-Code-Zutritt über die App</li>
+                  </ul>
 
-                <ul class="tariff-extras">
-                  <li>
-                    <span class="tariff-extra-row">
-                      <span class="tariff-extra-text">10 Freigetränke à 330 ml / Monat</span>
+                  <ul class="tariff-extras">
+                    <li>
+                      <span class="tariff-extra-row">
+                        <span>6 Freigetränke à 330 ml / Monat</span>
+                        <button
+                          class="extra-info-button"
+                          type="button"
+                          aria-label="Information zu den Freigetränken"
+                          data-info-title="Wie funktionieren die Freigetränke?"
+                          data-info-text="Du erhältst jeden Monat 6 Freigetränke à 330 ml. Wenn du deine Freigetränke in einem Monat nicht alle nutzt, verfallen sie nicht. Die neuen Freigetränke des nächsten Monats werden einfach zusätzlich dazugebucht. Wenn deine Freigetränke aufgebraucht sind, kannst du weitere Getränke in der App kaufen und im Studio einlösen."
+                        >
+                          <span>?</span>
+                        </button>
+                      </span>
+                    </li>
 
-                      <button
-                        class="extra-info-button"
-                        type="button"
-                        aria-label="Information zu den Freigetränken"
-                        data-info-title="Wie funktionieren die Freigetränke?"
-                        data-info-text="Du erhältst jeden Monat 10 Freigetränke à 330 ml. Wenn du deine Freigetränke in einem Monat nicht alle nutzt, verfallen sie nicht. Die neuen Freigetränke des nächsten Monats werden einfach zusätzlich dazugebucht. Wenn deine Freigetränke aufgebraucht sind, kannst du weitere Getränke in der App kaufen und im Studio einlösen."
-                      >
-                        <span>?</span>
-                      </button>
-                    </span>
-                  </li>
+                    <li>
+                      <span class="tariff-extra-row">
+                        <span>Kreatin im Getränk wählbar</span>
+                        <button
+                          class="extra-info-button"
+                          type="button"
+                          aria-label="Information zu Kreatin im Getränk"
+                          data-info-title="Kreatin im Getränk"
+                          data-info-text="Mit NordFit Plus kannst du bei passenden Getränken zusätzlich Kreatin auswählen und direkt mit einmischen lassen. Die Menge soll später in der App bzw. am Getränkesystem auswählbar sein."
+                        >
+                          <span>?</span>
+                        </button>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
 
-                  <li>
-                    <span class="tariff-extra-row">
-                      <span class="tariff-extra-text">Kreatin im Getränk wählbar</span>
-
-                      <button
-                        class="extra-info-button"
-                        type="button"
-                        aria-label="Information zu Kreatin im Getränk"
-                        data-info-title="Kreatin im Getränk"
-                        data-info-text="Mit NordFit Plus kannst du bei passenden Getränken zusätzlich Kreatin auswählen und direkt mit einmischen lassen. Die Menge soll später in der App bzw. am Getränkesystem auswählbar sein."
-                      >
-                        <span>?</span>
-                      </button>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="tariff-card-end">
                 <div class="tariff-runtime">
                   <span>Mindestlaufzeit</span>
                   <strong>6 Monate</strong>
@@ -956,64 +965,61 @@
                 </div>
               </div>
 
-              <div class="tariff-feature-block">
-                <ul class="tariff-checks">
-                  <li>24/7-Zugang</li>
-                  <li>QR-Code-Zutritt über die App</li>
-                </ul>
+              <div class="tariff-bottom">
+                <div class="tariff-feature-block">
+                  <ul class="tariff-checks">
+                    <li>24/7-Zugang</li>
+                    <li>QR-Code-Zutritt über die App</li>
+                  </ul>
 
-                <ul class="tariff-extras">
-                  <li>
-                    <span class="tariff-extra-row">
-                      <span class="tariff-extra-text">15 Freigetränke à 330 ml / Monat</span>
+                  <ul class="tariff-extras">
+                    <li>
+                      <span class="tariff-extra-row">
+                        <span>9 Freigetränke à 330 ml / Monat</span>
+                        <button
+                          class="extra-info-button"
+                          type="button"
+                          aria-label="Information zu den Freigetränken"
+                          data-info-title="Wie funktionieren die Freigetränke?"
+                          data-info-text="Du erhältst jeden Monat 9 Freigetränke à 330 ml. Wenn du deine Freigetränke in einem Monat nicht alle nutzt, verfallen sie nicht. Die neuen Freigetränke des nächsten Monats werden einfach zusätzlich dazugebucht. Wenn deine Freigetränke aufgebraucht sind, kannst du weitere Getränke in der App kaufen und im Studio einlösen."
+                        >
+                          <span>?</span>
+                        </button>
+                      </span>
+                    </li>
 
-                      <button
-                        class="extra-info-button"
-                        type="button"
-                        aria-label="Information zu den Freigetränken"
-                        data-info-title="Wie funktionieren die Freigetränke?"
-                        data-info-text="Du erhältst jeden Monat 15 Freigetränke à 330 ml. Wenn du deine Freigetränke in einem Monat nicht alle nutzt, verfallen sie nicht. Die neuen Freigetränke des nächsten Monats werden einfach zusätzlich dazugebucht. Wenn deine Freigetränke aufgebraucht sind, kannst du weitere Getränke in der App kaufen und im Studio einlösen."
-                      >
-                        <span>?</span>
-                      </button>
-                    </span>
-                  </li>
+                    <li>
+                      <span class="tariff-extra-row">
+                        <span>Kreatin im Getränk wählbar</span>
+                        <button
+                          class="extra-info-button"
+                          type="button"
+                          aria-label="Information zu Kreatin im Getränk"
+                          data-info-title="Kreatin im Getränk"
+                          data-info-text="Mit NordFit Pro kannst du bei passenden Getränken zusätzlich Kreatin auswählen und direkt mit einmischen lassen. Die Menge soll später in der App bzw. am Getränkesystem auswählbar sein."
+                        >
+                          <span>?</span>
+                        </button>
+                      </span>
+                    </li>
 
-                  <li>
-                    <span class="tariff-extra-row">
-                      <span class="tariff-extra-text">Kreatin im Getränk wählbar</span>
+                    <li>
+                      <span class="tariff-extra-row">
+                        <span>2 weitere 500-ml-Freigetränke / Monat</span>
+                        <button
+                          class="extra-info-button"
+                          type="button"
+                          aria-label="Information zu den 500-Milliliter-Freigetränken"
+                          data-info-title="Zusätzliche 500-ml-Freigetränke"
+                          data-info-text="Zusätzlich zu deinen 9 Freigetränken à 330 ml erhältst du jeden Monat 2 weitere Freigetränke à 500 ml. 500-ml-Getränke können unabhängig davon auch regulär in der App gekauft und im Studio eingelöst werden."
+                        >
+                          <span>?</span>
+                        </button>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
 
-                      <button
-                        class="extra-info-button"
-                        type="button"
-                        aria-label="Information zu Kreatin im Getränk"
-                        data-info-title="Kreatin im Getränk"
-                        data-info-text="Mit NordFit Pro kannst du bei passenden Getränken zusätzlich Kreatin auswählen und direkt mit einmischen lassen. Die Menge soll später in der App bzw. am Getränkesystem auswählbar sein."
-                      >
-                        <span>?</span>
-                      </button>
-                    </span>
-                  </li>
-
-                  <li>
-                    <span class="tariff-extra-row">
-                      <span class="tariff-extra-text">3 weitere 500-ml-Freigetränke / Monat</span>
-
-                      <button
-                        class="extra-info-button"
-                        type="button"
-                        aria-label="Information zu den 500-Milliliter-Freigetränken"
-                        data-info-title="Zusätzliche 500-ml-Freigetränke"
-                        data-info-text="Zusätzlich zu deinen 15 Freigetränken à 330 ml erhältst du jeden Monat 3 weitere Freigetränke à 500 ml. 500-ml-Getränke können unabhängig davon auch regulär in der App gekauft und im Studio eingelöst werden."
-                      >
-                        <span>?</span>
-                      </button>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="tariff-card-end">
                 <div class="tariff-runtime">
                   <span>Mindestlaufzeit</span>
                   <strong>3 Monate</strong>
@@ -1069,32 +1075,31 @@
               </div>
             </div>
 
-            <div class="tariff-feature-block">
-              <ul class="tariff-checks">
-                <li>24 Stunden Zugang</li>
-                <li>QR-Code-Zutritt über die App</li>
-              </ul>
+            <div class="tariff-bottom">
+              <div class="tariff-feature-block">
+                <ul class="tariff-checks">
+                  <li>24 Stunden Zugang</li>
+                  <li>QR-Code-Zutritt über die App</li>
+                </ul>
 
-              <ul class="tariff-extras">
-                <li>
-                  <span class="tariff-extra-row">
-                    <span class="tariff-extra-text">1 Freigetränk à 330 ml</span>
+                <ul class="tariff-extras">
+                  <li>
+                    <span class="tariff-extra-row">
+                      <span>1 Freigetränk à 330 ml</span>
+                      <button
+                        class="extra-info-button"
+                        type="button"
+                        aria-label="Information zum Freigetränk"
+                        data-info-title="Freigetränk beim Tagespass"
+                        data-info-text="Mit dem Tagespass erhältst du für diesen Nutzungstag 1 Freigetränk à 330 ml. Weitere Getränke können zusätzlich in der App gekauft und im Studio eingelöst werden."
+                      >
+                        <span>?</span>
+                      </button>
+                    </span>
+                  </li>
+                </ul>
+              </div>
 
-                    <button
-                      class="extra-info-button"
-                      type="button"
-                      aria-label="Information zum Freigetränk"
-                      data-info-title="Freigetränk beim Tagespass"
-                      data-info-text="Mit dem Tagespass erhältst du für diesen Nutzungstag 1 Freigetränk à 330 ml. Weitere Getränke können zusätzlich in der App gekauft und im Studio eingelöst werden."
-                    >
-                      <span>?</span>
-                    </button>
-                  </span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="tariff-card-end">
               <div class="tariff-runtime">
                 <span>Zugang</span>
                 <strong>24 Stunden</strong>
