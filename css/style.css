@@ -66,6 +66,27 @@ body {
   font-synthesis-weight: none;
 }
 
+body.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+body.page-ready {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.42s var(--ease),
+    transform 0.42s var(--ease);
+}
+
+body.page-leaving {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.24s var(--ease),
+    transform 0.24s var(--ease);
+}
+
 body.nav-open,
 body.modal-open {
   overflow: hidden;
@@ -165,10 +186,16 @@ ul {
 /* Header */
 
 .site-header {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  inset: 0 0 auto;
   z-index: 9000;
   padding: 1rem 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.site-header .container {
+  pointer-events: none;
 }
 
 .site-header-inner {
@@ -188,7 +215,10 @@ ul {
   box-shadow: none;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
+  pointer-events: auto;
   transition:
+    width var(--medium),
+    min-height var(--medium),
     padding var(--medium),
     border-radius var(--medium),
     background var(--medium),
@@ -256,12 +286,14 @@ ul {
   transition:
     color var(--fast),
     background var(--fast),
-    opacity var(--fast);
+    opacity var(--fast),
+    transform var(--fast);
 }
 
 .site-nav a:hover {
   color: var(--text);
   background: rgba(255, 255, 255, 0.48);
+  transform: translateY(-1px);
 }
 
 .nav-link.active,
@@ -302,12 +334,14 @@ ul {
   -webkit-backdrop-filter: blur(24px) saturate(170%);
   transition:
     background var(--medium),
-    box-shadow var(--medium);
+    box-shadow var(--medium),
+    transform var(--fast);
 }
 
 .burger:hover {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.72));
+  transform: translateY(-1px);
 }
 
 .burger-lines {
@@ -431,7 +465,13 @@ ul {
     background-color var(--fast),
     color var(--fast),
     border-color var(--fast),
-    opacity var(--fast);
+    opacity var(--fast),
+    transform var(--fast),
+    box-shadow var(--fast);
+}
+
+.product-link:hover {
+  transform: translateY(-1px);
 }
 
 .product-link-primary {
@@ -442,6 +482,7 @@ ul {
 
 .product-link-primary:hover {
   opacity: 0.92;
+  box-shadow: 0 18px 40px rgba(46, 145, 63, 0.3);
 }
 
 .product-link-secondary {
@@ -470,7 +511,7 @@ ul {
 }
 
 .product-hero-main {
-  min-height: calc(100vh - 88px);
+  min-height: 100vh;
   background:
     radial-gradient(circle at 50% 78%, rgba(46, 145, 63, 0.13), transparent 32rem),
     linear-gradient(180deg, #fbfbfd 0%, #ffffff 50%, #f5f5f7 100%);
@@ -664,7 +705,13 @@ ul {
     background-color var(--fast),
     color var(--fast),
     border-color var(--fast),
-    opacity var(--fast);
+    opacity var(--fast),
+    transform var(--fast),
+    box-shadow var(--fast);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
 }
 
 .btn-primary {
@@ -675,6 +722,7 @@ ul {
 
 .btn-primary:hover {
   opacity: 0.92;
+  box-shadow: 0 20px 42px rgba(46, 145, 63, 0.28);
 }
 
 .btn-secondary {
@@ -1715,7 +1763,12 @@ iframe {
   transition:
     background-color var(--fast),
     border-color var(--fast),
-    opacity var(--fast);
+    opacity var(--fast),
+    transform var(--fast);
+}
+
+.store-badge:hover {
+  transform: translateY(-1px);
 }
 
 .store-badge-dark {
@@ -2179,11 +2232,13 @@ select:focus {
   -webkit-backdrop-filter: blur(22px) saturate(170%);
   transition:
     background-color var(--fast),
-    opacity var(--fast);
+    opacity var(--fast),
+    transform var(--fast);
 }
 
 .gallery-arrow:hover {
   background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
 }
 
 .gallery-arrow:disabled,
@@ -2224,6 +2279,9 @@ select:focus {
 .footer-links a {
   color: var(--muted);
   font-size: 0.95rem;
+  transition:
+    color var(--fast),
+    opacity var(--fast);
 }
 
 /* Reveal */
@@ -2382,8 +2440,8 @@ select:focus {
   }
 
   .site-header {
-    position: sticky;
-    top: 0;
+    position: fixed;
+    inset: 0 0 auto;
     z-index: 10000;
     padding: 0.95rem 0;
   }
@@ -2644,7 +2702,7 @@ select:focus {
   }
 
   .product-hero-main {
-    min-height: 88vh;
+    min-height: 100vh;
   }
 
   .product-copy h1,
@@ -3066,6 +3124,10 @@ select:focus {
 
   .product-hero {
     min-height: 82vh;
+  }
+
+  .product-hero-main {
+    min-height: 100vh;
   }
 
   .product-copy h1,
