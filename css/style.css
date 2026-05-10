@@ -2991,11 +2991,29 @@ select:focus {
   }
 
   .site-footer {
+    padding-top: 2rem;
     padding-bottom: 2.3rem;
+  }
+
+  .footer-row {
+    gap: 1.35rem;
   }
 
   .footer-row > .muted {
     max-width: 100%;
+    font-size: 0.92rem;
+  }
+
+  .footer-links {
+    width: 100%;
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .footer-links a {
+    width: fit-content;
+    font-size: 0.95rem;
+    line-height: 1.4;
   }
 }
 
