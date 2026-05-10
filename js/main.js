@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       window.setTimeout(() => {
         window.location.href = href;
-      }, 220);
+      }, 160);
     });
   });
 
@@ -99,12 +99,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* Header beim Scrollen */
 
+  let headerIsScrolled = false;
+
   const updateHeaderScrollState = () => {
     if (!headerInner) return;
 
-    if (window.scrollY > 8) {
+    const scrollY = window.scrollY;
+
+    if (!headerIsScrolled && scrollY > 24) {
+      headerIsScrolled = true;
       headerInner.classList.add("scrolled");
-    } else {
+    } else if (headerIsScrolled && scrollY < 6) {
+      headerIsScrolled = false;
       headerInner.classList.remove("scrolled");
     }
   };
