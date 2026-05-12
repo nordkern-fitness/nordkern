@@ -296,9 +296,9 @@
 
     .contact-phone-hours {
       display: grid;
-      gap: 0.5rem;
+      gap: 0.68rem;
       margin-top: 0.75rem;
-      padding-top: 0.9rem;
+      padding-top: 0.95rem;
       border-top: 1px solid rgba(0, 0, 0, 0.065);
     }
 
@@ -309,16 +309,29 @@
       letter-spacing: -0.015em;
     }
 
+    .contact-phone-hours-note {
+      max-width: 44rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+    }
+
     .contact-phone-hours-grid {
       display: grid;
-      gap: 0.38rem;
+      gap: 0.36rem;
+      margin-top: 0.1rem;
     }
 
     .contact-phone-hours-row {
-      display: flex;
+      display: grid;
+      grid-template-columns: minmax(7.5rem, 0.42fr) minmax(0, 1fr);
       align-items: center;
-      justify-content: space-between;
       gap: 1rem;
+      padding: 0.58rem 0.72rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(0, 0, 0, 0.035);
       color: var(--muted);
       font-size: 0.96rem;
       line-height: 1.35;
@@ -328,8 +341,13 @@
     .contact-phone-hours-row strong {
       color: var(--text-soft);
       font-size: 0.96rem;
-      font-weight: 710;
+      font-weight: 730;
       letter-spacing: -0.015em;
+    }
+
+    .contact-phone-hours-row p {
+      color: var(--muted);
+      text-align: left;
     }
 
     .contact-final-clean {
@@ -420,8 +438,7 @@
       }
 
       .contact-phone-hours-row {
-        align-items: flex-start;
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 0.08rem;
       }
 
@@ -707,40 +724,45 @@
               <div class="contact-phone-hours">
                 <p class="contact-phone-hours-title">Telefonzeiten</p>
 
+                <p class="contact-phone-hours-note">
+                  Telefonisch erreichbar zu folgenden Zeiten. Der Studiozugang bleibt unabhängig davon
+                  24/7 über die App möglich.
+                </p>
+
                 <div class="contact-phone-hours-grid">
                   <div class="contact-phone-hours-row">
                     <strong>Montag</strong>
-                    <p>09:00–11:00 Uhr · 14:00–15:00 Uhr</p>
+                    <p>09:00–11:00 Uhr</p>
                   </div>
 
                   <div class="contact-phone-hours-row">
                     <strong>Dienstag</strong>
-                    <p>09:00–11:00 Uhr · 14:00–15:00 Uhr</p>
+                    <p>09:00–11:00 Uhr</p>
                   </div>
 
                   <div class="contact-phone-hours-row">
                     <strong>Mittwoch</strong>
-                    <p>09:00–11:00 Uhr · 14:00–15:00 Uhr</p>
+                    <p>09:00–11:00 Uhr</p>
                   </div>
 
                   <div class="contact-phone-hours-row">
                     <strong>Donnerstag</strong>
-                    <p>09:00–11:00 Uhr · 14:00–15:00 Uhr</p>
+                    <p>09:00–11:00 Uhr</p>
                   </div>
 
                   <div class="contact-phone-hours-row">
                     <strong>Freitag</strong>
-                    <p>09:00–11:00 Uhr · 14:00–15:00 Uhr</p>
+                    <p>14:00–16:00 Uhr</p>
                   </div>
 
                   <div class="contact-phone-hours-row">
                     <strong>Samstag</strong>
-                    <p>09:00–10:00 Uhr · 13:00–14:00 Uhr</p>
+                    <p>14:00–16:00 Uhr</p>
                   </div>
 
                   <div class="contact-phone-hours-row">
                     <strong>Sonntag</strong>
-                    <p>/</p>
+                    <p>keine Telefonzeit</p>
                   </div>
                 </div>
               </div>
