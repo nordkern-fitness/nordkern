@@ -1877,8 +1877,7 @@ iframe {
 
 .contact-info-item a:hover,
 .legal-info-row a:hover,
-.feature-card a:hover,
-.footer-column a:hover {
+.feature-card a:hover {
   color: var(--nf-green);
 }
 
@@ -2254,148 +2253,135 @@ select:focus {
 
 .site-footer {
   margin-top: 0;
-  padding: 5.2rem 0 2.2rem;
-  background:
-    radial-gradient(circle at 12% 0%, rgba(46, 145, 63, 0.105), transparent 26rem),
-    radial-gradient(circle at 88% 12%, rgba(46, 145, 63, 0.075), transparent 24rem),
-    linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
-  border-top: 1px solid rgba(0, 0, 0, 0.045);
+  padding: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: #f5f5f7;
 }
 
-.footer-premium-shell {
-  display: grid;
-  gap: clamp(2rem, 4vw, 3.2rem);
+.footer-apple-shell {
+  padding: 2.35rem 0 1.7rem;
 }
 
-.footer-brand-block {
-  max-width: 720px;
+.footer-apple-top {
+  max-width: 780px;
+  margin-bottom: 1.95rem;
 }
 
-.footer-brand {
-  width: fit-content;
+.footer-apple-brand {
   display: inline-flex;
-  color: var(--text);
-  font-size: clamp(2.55rem, 5.8vw, 5.7rem);
-  line-height: 0.92;
-  letter-spacing: -0.065em;
-  font-weight: 780;
-}
-
-.footer-brand:hover {
-  color: var(--nf-green-dark);
-}
-
-.footer-brand-block p {
-  max-width: 680px;
-  margin-top: 0.95rem;
-  color: var(--text-soft);
-  font-size: clamp(1.02rem, 1.45vw, 1.22rem);
-  line-height: 1.48;
-  letter-spacing: -0.018em;
-  text-wrap: balance;
-}
-
-.footer-columns {
-  display: grid;
-  grid-template-columns: 1.05fr 0.92fr minmax(260px, 1.2fr) 0.78fr;
-  gap: 1rem;
-  align-items: start;
-}
-
-.footer-column {
-  min-height: 100%;
-  display: grid;
-  align-content: start;
-  gap: 0.82rem;
-  padding: 1.18rem;
-  border-radius: 28px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.58));
-  border: 1px solid rgba(255, 255, 255, 0.78);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.86),
-    0 16px 42px rgba(0, 0, 0, 0.045);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
-}
-
-.footer-column h2 {
-  color: var(--muted);
-  font-size: 0.76rem;
-  line-height: 1.2;
-  font-weight: 860;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.footer-column nav {
-  display: grid;
-  gap: 0.5rem;
-}
-
-.footer-column a,
-.footer-column p {
   width: fit-content;
-  color: var(--text-soft);
-  font-size: 0.98rem;
-  line-height: 1.35;
-  font-weight: 650;
-  letter-spacing: -0.012em;
+  color: var(--text);
+  font-size: 1.02rem;
+  line-height: 1.2;
+  font-weight: 760;
+  letter-spacing: -0.02em;
   transition:
     color var(--fast),
-    opacity var(--fast),
-    transform var(--fast);
+    opacity var(--fast);
 }
 
-.footer-column a:hover {
-  transform: translateX(2px);
-}
-
-.footer-contact-column {
-  gap: 0.72rem;
-}
-
-.footer-phone-hours {
-  width: 100%;
-  display: grid;
-  gap: 0.34rem;
-  margin-top: 0.22rem;
-  padding-top: 0.82rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.065);
-}
-
-.footer-phone-hours span {
+.footer-apple-brand:hover {
   color: var(--nf-green-dark);
-  font-size: 0.78rem;
-  line-height: 1.25;
-  font-weight: 850;
-  letter-spacing: 0.045em;
-  text-transform: uppercase;
 }
 
-.footer-phone-hours p {
-  width: auto;
+.footer-apple-top p {
+  max-width: 54ch;
+  margin-top: 0.42rem;
   color: var(--muted);
-  font-size: 0.93rem;
-  line-height: 1.38;
-  font-weight: 620;
+  font-size: 0.91rem;
+  line-height: 1.48;
+  letter-spacing: -0.01em;
 }
 
-.footer-bottom {
-  display: flex;
-  justify-content: flex-start;
-  padding-top: 1.35rem;
+.footer-apple-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding: 1.45rem 0 1.6rem;
   border-top: 1px solid rgba(0, 0, 0, 0.065);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.065);
 }
 
-.footer-bottom p {
+.footer-apple-column {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 0.42rem;
+}
+
+.footer-apple-column h2 {
+  margin-bottom: 0.18rem;
+  color: var(--text);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  font-weight: 760;
+  letter-spacing: -0.004em;
+}
+
+.footer-apple-column a,
+.footer-apple-column p {
+  width: fit-content;
+  max-width: 100%;
   color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.45;
+  font-size: 0.82rem;
+  line-height: 1.4;
   letter-spacing: -0.006em;
 }
 
-/* Legacy Footer Fallback */
+.footer-apple-column a {
+  transition:
+    color var(--fast),
+    opacity var(--fast);
+}
+
+.footer-apple-column a:hover {
+  color: var(--text);
+}
+
+.footer-apple-contact a {
+  color: var(--nf-green-dark);
+  word-break: break-word;
+}
+
+.footer-apple-contact a:hover {
+  color: var(--nf-green);
+}
+
+.footer-apple-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1.05rem;
+}
+
+.footer-apple-bottom p,
+.footer-apple-legal-links a {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  letter-spacing: -0.004em;
+}
+
+.footer-apple-legal-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.72rem;
+}
+
+.footer-apple-legal-links a {
+  transition:
+    color var(--fast),
+    opacity var(--fast);
+}
+
+.footer-apple-legal-links a:hover {
+  color: var(--text);
+}
+
+/* Alte Footer-Klassen als Fallback */
 
 .footer-row {
   align-items: center;
@@ -2423,6 +2409,10 @@ select:focus {
   transition:
     color var(--fast),
     opacity var(--fast);
+}
+
+.footer-links a:hover {
+  color: var(--nf-green);
 }
 
 /* Reveal */
@@ -2557,8 +2547,9 @@ select:focus {
     width: min(70vw, 520px);
   }
 
-  .footer-columns {
+  .footer-apple-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.65rem 3rem;
   }
 }
 
@@ -3204,51 +3195,40 @@ select:focus {
   }
 
   .site-footer {
-    padding: 4.3rem 0 2rem;
+    background: #f5f5f7;
   }
 
-  .footer-premium-shell {
-    gap: 2rem;
+  .footer-apple-shell {
+    padding: 2rem 0 1.45rem;
   }
 
-  .footer-brand {
-    font-size: clamp(2.5rem, 13vw, 4.2rem);
+  .footer-apple-top {
+    margin-bottom: 1.45rem;
   }
 
-  .footer-brand-block p {
-    max-width: 36ch;
-    font-size: 1rem;
+  .footer-apple-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.35rem 1.6rem;
+    padding: 1.25rem 0 1.35rem;
   }
 
-  .footer-columns {
-    grid-template-columns: 1fr;
-    gap: 0.85rem;
+  .footer-apple-column h2 {
+    font-size: 0.78rem;
   }
 
-  .footer-column {
-    border-radius: 24px;
-    padding: 1rem;
+  .footer-apple-column a,
+  .footer-apple-column p {
+    font-size: 0.82rem;
   }
 
-  .footer-column nav {
-    gap: 0.46rem;
+  .footer-apple-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.6rem;
   }
 
-  .footer-column a,
-  .footer-column p {
-    font-size: 0.96rem;
-  }
-
-  .footer-phone-hours p {
-    font-size: 0.9rem;
-  }
-
-  .footer-bottom {
-    padding-top: 1.05rem;
-  }
-
-  .footer-bottom p {
-    font-size: 0.88rem;
+  .footer-apple-legal-links {
+    gap: 0.62rem;
   }
 
   .footer-row {
@@ -3446,12 +3426,26 @@ select:focus {
     font-size: 0.94rem;
   }
 
-  .footer-brand-block p {
-    max-width: 100%;
+  .footer-apple-shell {
+    padding: 1.8rem 0 1.35rem;
   }
 
-  .footer-column {
-    border-radius: 22px;
+  .footer-apple-grid {
+    grid-template-columns: 1fr;
+    gap: 1.18rem;
+  }
+
+  .footer-apple-top p {
+    font-size: 0.88rem;
+  }
+
+  .footer-apple-column {
+    gap: 0.38rem;
+  }
+
+  .footer-apple-bottom p,
+  .footer-apple-legal-links a {
+    font-size: 0.76rem;
   }
 
   .footer-row {
