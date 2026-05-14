@@ -671,7 +671,7 @@
       }
 
       .pricing-page-intro {
-        margin-bottom: 2.4rem;
+        margin-bottom: 2rem;
       }
 
       .pricing-main-title {
@@ -686,7 +686,7 @@
         overflow-y: visible;
         scroll-snap-type: x mandatory;
         scroll-padding-inline: max(1rem, calc((100vw - 82vw) / 2));
-        padding: 1.25rem max(1rem, calc((100vw - 82vw) / 2)) 1.25rem;
+        padding: 1.05rem max(1rem, calc((100vw - 82vw) / 2)) 1.15rem;
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
       }
@@ -705,8 +705,9 @@
 
       .tariff-card {
         flex: 0 0 82vw;
-        min-height: 610px;
+        min-height: 540px;
         border-radius: 30px;
+        padding: 1.25rem;
         scroll-snap-align: center;
       }
 
@@ -714,8 +715,30 @@
         font-size: clamp(1.9rem, 8vw, 2.55rem);
       }
 
+      .tariff-price-area {
+        margin-top: 1.75rem;
+      }
+
       .tariff-price {
-        font-size: clamp(2.9rem, 13vw, 4rem);
+        font-size: clamp(2.75rem, 12vw, 3.8rem);
+      }
+
+      .tariff-price-unit {
+        font-size: 0.88rem;
+      }
+
+      .tariff-bottom {
+        gap: 0.82rem;
+        padding-top: 0.85rem;
+      }
+
+      .tariff-feature-block {
+        min-height: auto;
+      }
+
+      .tariff-checks,
+      .tariff-extras {
+        gap: 0.5rem;
       }
 
       .discount-badge {
@@ -730,16 +753,58 @@
         white-space: normal;
       }
 
+      .daypass-section {
+        padding-bottom: 4.7rem;
+      }
+
       .daypass-card {
         border-radius: 30px;
+        gap: 1.35rem;
+        padding: 1.28rem;
+        align-items: stretch;
+      }
+
+      .daypass-copy h2 {
+        font-size: clamp(2.05rem, 9.6vw, 3rem);
+        line-height: 0.98;
+      }
+
+      .daypass-copy p:not(.eyebrow) {
+        max-width: 34ch;
+        font-size: 0.98rem;
+        line-height: 1.48;
       }
 
       .daypass-price-box-clean {
         max-width: none;
+        gap: 1.05rem;
+        padding: 1.2rem;
+        border-radius: 26px;
+      }
+
+      .daypass-price-box-clean .discount-badge {
+        top: -0.8rem;
+        right: 1.35rem;
       }
 
       .daypass-price-box-clean .tariff-price {
-        font-size: clamp(2.9rem, 12vw, 4rem);
+        font-size: clamp(2.45rem, 10.5vw, 3.35rem);
+      }
+
+      .daypass-price-box-clean .tariff-price-unit {
+        font-size: 0.82rem;
+      }
+
+      .daypass-price-box-clean .tariff-discount-price {
+        font-size: clamp(1.42rem, 6.2vw, 1.8rem);
+      }
+
+      .daypass-price-box-clean .tariff-bottom {
+        gap: 0.9rem;
+      }
+
+      .daypass-price-box-clean .tariff-runtime {
+        margin-top: 0.25rem;
       }
 
       .tariff-info-box {
@@ -750,6 +815,7 @@
     @media (max-width: 480px) {
       .tariff-card {
         flex-basis: 84vw;
+        min-height: 525px;
       }
 
       .tariff-scroll-wrap {
@@ -757,12 +823,28 @@
         padding-inline: max(0.9rem, calc((100vw - 84vw) / 2));
       }
 
+      .tariff-price {
+        font-size: clamp(2.65rem, 12vw, 3.55rem);
+      }
+
+      .tariff-runtime {
+        padding: 0.78rem 3rem 0.78rem 0.9rem;
+      }
+
+      .daypass-card {
+        padding: 1.15rem;
+      }
+
+      .daypass-price-box-clean {
+        padding: 1.05rem;
+      }
+
       .daypass-price-box-clean .tariff-price {
-        font-size: clamp(2.75rem, 11vw, 3.7rem);
+        font-size: clamp(2.32rem, 10vw, 3.05rem);
       }
 
       .daypass-price-box-clean .tariff-price-unit {
-        font-size: 0.84rem;
+        font-size: 0.78rem;
       }
     }
   </style>
