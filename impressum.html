@@ -227,8 +227,8 @@
       word-break: break-word;
     }
 
-    .phone-hours {
-      width: min(100%, 420px);
+    .legal-support-box {
+      width: min(100%, 520px);
       display: grid;
       gap: 0.42rem;
       margin-top: 0.8rem;
@@ -236,17 +236,17 @@
       border-top: 1px solid rgba(0, 0, 0, 0.065);
     }
 
-    .phone-hours-title {
+    .legal-support-title {
       color: var(--text);
       font-size: 0.92rem;
       font-weight: 780;
       letter-spacing: -0.015em;
     }
 
-    .phone-hours-row {
+    .legal-support-row {
       display: grid;
-      grid-template-columns: minmax(110px, 0.78fr) minmax(0, 1fr);
-      align-items: center;
+      grid-template-columns: minmax(90px, 0.35fr) minmax(0, 1fr);
+      align-items: baseline;
       gap: 0.8rem;
       color: var(--muted);
       font-size: 0.96rem;
@@ -254,20 +254,14 @@
       letter-spacing: -0.015em;
     }
 
-    .phone-hours-row strong {
+    .legal-support-row strong {
       color: var(--text-soft);
       font-size: 0.96rem;
       font-weight: 710;
       letter-spacing: -0.015em;
     }
 
-    .phone-hours-row p {
-      margin: 0;
-      color: var(--muted);
-      text-align: left;
-    }
-
-    .phone-hours-note {
+    .legal-support-note {
       margin-top: 0.42rem;
       color: var(--muted);
       font-size: 0.9rem;
@@ -397,13 +391,13 @@
         padding: 1rem;
       }
 
-      .phone-hours {
+      .legal-support-box {
         width: 100%;
       }
 
-      .phone-hours-row {
-        grid-template-columns: minmax(96px, 0.7fr) minmax(0, 1fr);
-        gap: 0.65rem;
+      .legal-support-row {
+        grid-template-columns: 1fr;
+        gap: 0.04rem;
       }
     }
 
@@ -415,11 +409,6 @@
       .legal-document-head h2 {
         font-size: clamp(1.72rem, 7.8vw, 2.55rem);
         letter-spacing: -0.052em;
-      }
-
-      .phone-hours-row {
-        grid-template-columns: 1fr;
-        gap: 0.04rem;
       }
     }
   </style>
@@ -563,45 +552,20 @@
                 <p>
                   E-Mail:
                   <a href="mailto:nordgroup.business@gmail.com">nordgroup.business@gmail.com</a><br />
-                  Telefon: [Telefonnummer ergänzen, sobald verfügbar]
+                  Kontaktformular:
+                  <a href="kontakt.html">kontakt.html</a>
                 </p>
 
-                <div class="phone-hours">
-                  <p class="phone-hours-title">Telefonzeiten</p>
+                <div class="legal-support-box">
+                  <p class="legal-support-title">Supportzeiten</p>
 
-                  <div class="phone-hours-row">
-                    <strong>Montag</strong>
-                    <p>09:00–11:00 Uhr</p>
+                  <div class="legal-support-row">
+                    <strong>Mo–Fr</strong>
+                    <p>Antwort in der Regel innerhalb von 2–3 Werktagen</p>
                   </div>
 
-                  <div class="phone-hours-row">
-                    <strong>Dienstag</strong>
-                    <p>09:00–11:00 Uhr</p>
-                  </div>
-
-                  <div class="phone-hours-row">
-                    <strong>Mittwoch</strong>
-                    <p>09:00–11:00 Uhr</p>
-                  </div>
-
-                  <div class="phone-hours-row">
-                    <strong>Donnerstag</strong>
-                    <p>09:00–11:00 Uhr</p>
-                  </div>
-
-                  <div class="phone-hours-row">
-                    <strong>Freitag</strong>
-                    <p>14:00–16:00 Uhr</p>
-                  </div>
-
-                  <div class="phone-hours-row">
-                    <strong>Samstag</strong>
-                    <p>14:00–16:00 Uhr</p>
-                  </div>
-
-                  <p class="phone-hours-note">
-                    Die Angaben beziehen sich ausschließlich auf die telefonische Erreichbarkeit.
-                    Der digitale Studiozugang bleibt davon unabhängig.
+                  <p class="legal-support-note">
+                    Der Studiozugang ist davon unabhängig und läuft 24/7 digital über die NordFit App.
                   </p>
                 </div>
               </div>
@@ -658,7 +622,9 @@
                   [vollständiger Betreibername ergänzen]<br />
                   [Anschrift ergänzen]<br />
                   E-Mail:
-                  <a href="mailto:nordgroup.business@gmail.com">nordgroup.business@gmail.com</a>
+                  <a href="mailto:nordgroup.business@gmail.com">nordgroup.business@gmail.com</a><br />
+                  Kontaktformular:
+                  <a href="kontakt.html">kontakt.html</a>
                 </p>
               </section>
 
@@ -698,7 +664,7 @@
                   <li>E-Mail-Adresse</li>
                   <li>ausgewähltes Thema</li>
                   <li>Nachrichtentext</li>
-                  <li>freiwillige Angaben wie Telefonnummer, Postleitzahl, Straße oder Member-ID</li>
+                  <li>freiwillige Angaben wie Postleitzahl, Straße oder Member-ID</li>
                 </ul>
                 <p>
                   Bitte sende über das Formular keine besonders sensiblen Daten, zum Beispiel Gesundheitsdaten,
@@ -716,7 +682,16 @@
               </section>
 
               <section class="legal-text-card">
-                <h3>6. Externe Links und Dienste</h3>
+                <h3>6. Instagram</h3>
+                <p>
+                  NordFit kann auf Instagram vertreten sein. Wenn du Instagram nutzt oder über Instagram Kontakt
+                  aufnimmst, gelten zusätzlich die Datenschutzinformationen des jeweiligen Plattformanbieters.
+                  NordFit hat keinen vollständigen Einfluss auf die dortige Datenverarbeitung.
+                </p>
+              </section>
+
+              <section class="legal-text-card">
+                <h3>7. Externe Links und Dienste</h3>
                 <p>
                   Auf dieser Website können Links zu externen Angeboten eingebunden sein, zum Beispiel Instagram,
                   Google Maps, App Store oder Google Play. Beim Öffnen dieser Links verlässt du die NordFit-Website.
@@ -725,7 +700,7 @@
               </section>
 
               <section class="legal-text-card">
-                <h3>7. Google Maps</h3>
+                <h3>8. Google Maps</h3>
                 <p>
                   Auf der Standortseite kann eine Karte von Google Maps eingebunden sein. Beim Laden der Karte
                   können Daten an Google übertragen werden. Es muss rechtlich geprüft werden, ob und in welcher
@@ -734,7 +709,7 @@
               </section>
 
               <section class="legal-text-card">
-                <h3>8. Speicherdauer</h3>
+                <h3>9. Speicherdauer</h3>
                 <p>
                   Personenbezogene Daten werden nur so lange gespeichert, wie dies für den jeweiligen Zweck
                   erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen.
@@ -742,7 +717,7 @@
               </section>
 
               <section class="legal-text-card">
-                <h3>9. Rechte betroffener Personen</h3>
+                <h3>10. Rechte betroffener Personen</h3>
                 <p>
                   Betroffene Personen können nach Maßgabe der gesetzlichen Voraussetzungen Auskunft, Berichtigung,
                   Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen die
@@ -751,7 +726,7 @@
               </section>
 
               <section class="legal-text-card">
-                <h3>10. Beschwerderecht</h3>
+                <h3>11. Beschwerderecht</h3>
                 <p>
                   Wenn du der Ansicht bist, dass die Verarbeitung personenbezogener Daten gegen Datenschutzrecht
                   verstößt, kannst du dich bei einer zuständigen Datenschutzaufsichtsbehörde beschweren.
@@ -759,7 +734,7 @@
               </section>
 
               <section class="legal-text-card">
-                <h3>11. Änderungen</h3>
+                <h3>12. Änderungen</h3>
                 <p>
                   Diese Datenschutzinformationen können angepasst werden, wenn sich die Website, eingebundene Dienste
                   oder rechtliche Anforderungen ändern. Die Angaben müssen regelmäßig geprüft und bei Bedarf aktualisiert werden.
@@ -942,67 +917,79 @@
           <div class="footer-column">
             <p class="footer-column-title">Seiten</p>
 
-            <div class="footer-link-list">
+            <nav class="footer-link-list" aria-label="Footer Navigation">
               <a href="index.html">Startseite</a>
               <a href="mitgliedschaften.html">Tarife</a>
               <a href="standorte.html">Standorte</a>
               <a href="app.html">App</a>
               <a href="hausordnung.html">Hausordnung</a>
               <a href="kontakt.html">Kontakt</a>
-            </div>
+            </nav>
           </div>
 
           <div class="footer-column">
             <p class="footer-column-title">Rechtliches</p>
 
-            <div class="footer-link-list">
+            <nav class="footer-link-list" aria-label="Rechtliche Seiten">
               <a href="impressum.html">Impressum</a>
-              <a href="impressum.html">Datenschutz</a>
               <a href="impressum.html">AGB</a>
-            </div>
+              <a href="impressum.html">Datenschutz</a>
+            </nav>
           </div>
 
           <div class="footer-column">
-            <p class="footer-column-title">Kontakt</p>
+            <p class="footer-column-title">Kontakt & Support</p>
 
             <div class="footer-contact-list">
-              <a href="mailto:nordgroup.business@gmail.com">nordgroup.business@gmail.com</a>
-              <p>Telefon: bald verfügbar</p>
+              <a href="mailto:nordgroup.business@gmail.com">
+                nordgroup.business@gmail.com
+              </a>
+
+              <a href="kontakt.html">
+                Kontaktformular öffnen
+              </a>
             </div>
 
-            <div class="footer-phone-times">
-              <p class="footer-phone-title">Telefonzeiten</p>
+            <div class="footer-phone-times" aria-label="Supportzeiten">
+              <p class="footer-phone-title">Supportzeiten</p>
 
               <div class="footer-phone-row">
-                <span>Mo–Do</span>
-                <strong>09:00–11:00 Uhr</strong>
+                <span>Mo–Fr</span>
+                <strong>Antwort in der Regel innerhalb von 2–3 Werktagen</strong>
               </div>
+            </div>
+
+            <div class="footer-phone-times" aria-label="Öffnungszeiten">
+              <p class="footer-phone-title">Öffnungszeiten</p>
 
               <div class="footer-phone-row">
-                <span>Fr–Sa</span>
-                <strong>14:00–16:00 Uhr</strong>
+                <span>Studio</span>
+                <strong>24/7 per App</strong>
               </div>
-
-              <p class="footer-phone-note">
-                Der Studiozugang bleibt unabhängig davon jederzeit per App möglich.
-              </p>
             </div>
           </div>
 
           <div class="footer-column">
             <p class="footer-column-title">Social</p>
 
-            <div class="footer-link-list">
+            <nav class="footer-link-list" aria-label="Social Media">
               <a href="https://instagram.com/nordfit.business" target="_blank" rel="noopener noreferrer">
-                Instagram
+                Instagram – NordFit
               </a>
-            </div>
+
+              <a href="https://instagram.com/nordgroup.business" target="_blank" rel="noopener noreferrer">
+                Instagram – NordGroup
+              </a>
+            </nav>
           </div>
         </div>
 
         <div class="footer-bottom">
           <p>© 2029 NordFit / NordGroup. Alle Rechte vorbehalten.</p>
-          <p class="footer-bottom-note">Modernes Training im Norden.</p>
+
+          <p class="footer-bottom-note">
+            NordFit ist ein Projekt von NordGroup.
+          </p>
         </div>
       </div>
     </div>
