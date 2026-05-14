@@ -253,7 +253,7 @@ main > section:first-child {
 
 .logo img {
   width: auto;
-  height: 90px;
+  height: 105px;
   object-fit: contain;
 }
 
@@ -2571,7 +2571,7 @@ select:focus {
   }
 
   .logo img {
-    height: 34px;
+    height: 62px;
   }
 
   .burger {
@@ -3197,7 +3197,7 @@ select:focus {
   }
 
   .logo img {
-    height: 32px;
+    height: 54px;
   }
 
   .burger {
