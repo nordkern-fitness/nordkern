@@ -1,5 +1,49 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const body = document.body;
+
+  /* Komponenten laden: Header + Footer */
+
+  const includeComponent = async (selector, filePath) => {
+    const target = document.querySelector(selector);
+
+    if (!target) return;
+
+    try {
+      const response = await fetch(filePath);
+
+      if (!response.ok) {
+        throw new Error(`Komponente konnte nicht geladen werden: ${filePath}`);
+      }
+
+      const html = await response.text();
+      target.outerHTML = html;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  await Promise.all([
+    includeComponent('[data-include="header"]', "components/header.html"),
+    includeComponent('[data-include="footer"]', "components/footer.html")
+  ]);
+
+  /* Aktiven Navigationspunkt automatisch setzen */
+
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const navLinksForActiveState = document.querySelectorAll(".site-nav a");
+
+  navLinksForActiveState.forEach((link) => {
+    const href = link.getAttribute("href");
+
+    link.classList.remove("active");
+
+    if (href === currentPage) {
+      link.classList.add("active");
+    }
+  });
+
+  /* Elemente nach Komponenten-Ladevorgang neu holen */
+
   const headerInner = document.querySelector(".site-header-inner");
   const burger = document.getElementById("burger");
   const nav = document.querySelector(".site-nav");
@@ -73,6 +117,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const closeMobileMenu = () => setMenuState(false);
 
+  const closeAllModals = () => {
+    modals.forEach((modal) => {
+      modal.classList.remove("show");
+      modal.setAttribute("aria-hidden", "true");
+    });
+
+    body.classList.remove("modal-open");
+  };
+
   if (burger && nav) {
     burger.addEventListener("click", () => {
       const isOpen = nav.classList.contains("open");
@@ -138,10 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.setAttribute("aria-hidden", "true");
     body.classList.remove("modal-open");
   };
-
-  function closeAllModals() {
-    modals.forEach((modal) => closeModal(modal));
-  }
 
   modalTriggers.forEach((trigger) => {
     trigger.addEventListener("click", () => {
