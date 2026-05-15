@@ -261,14 +261,6 @@
       letter-spacing: -0.015em;
     }
 
-    .legal-support-note {
-      margin-top: 0.42rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.45;
-      letter-spacing: -0.01em;
-    }
-
     .legal-text-stack {
       display: grid;
       gap: 0.85rem;
@@ -519,6 +511,14 @@
                 <p>
                   E-Mail:
                   <a href="mailto:nordgroup.business@gmail.com">nordgroup.business@gmail.com</a><br />
+                  Instagram – NordFit:
+                  <a href="https://instagram.com/nordfit.business" target="_blank" rel="noopener noreferrer">
+                    @nordfit.business
+                  </a><br />
+                  Instagram – NordGroup:
+                  <a href="https://instagram.com/nordgroup.business" target="_blank" rel="noopener noreferrer">
+                    @nordgroup.business
+                  </a><br />
                   Kontaktformular:
                   <a href="kontakt.html">kontakt.html</a>
                 </p>
@@ -528,12 +528,8 @@
 
                   <div class="legal-support-row">
                     <strong>Mo–Fr</strong>
-                    <p>Antwort in der Regel innerhalb von 2–3 Werktagen</p>
+                    <p>Antwort in der Regel innerhalb von 2–3 Werktagen.</p>
                   </div>
-
-                  <p class="legal-support-note">
-                    Der Studiozugang ist davon unabhängig und läuft 24/7 digital über die NordFit App.
-                  </p>
                 </div>
               </div>
 
@@ -602,6 +598,7 @@
                   Dazu gehören insbesondere aufgerufene Seiten, Datum und Uhrzeit des Zugriffs, Browsertyp,
                   Betriebssystem, Referrer-URL und IP-Adresse.
                 </p>
+
                 <p>
                   Die Verarbeitung erfolgt, damit die Website technisch bereitgestellt, stabil betrieben
                   und vor Missbrauch geschützt werden kann.
@@ -614,6 +611,7 @@
                   Diese Website wird derzeit statisch über GitHub Pages bereitgestellt. Dabei können technische
                   Zugriffsdaten durch den Hosting-Anbieter verarbeitet werden.
                 </p>
+
                 <p>
                   Hosting, Anbieter, Speicherorte und Datenschutzinformationen müssen für eine echte geschäftliche
                   Nutzung rechtlich geprüft und vollständig ergänzt werden.
@@ -626,6 +624,7 @@
                   Wenn du das Kontaktformular nutzt, werden die eingegebenen Daten zur Bearbeitung deiner Anfrage
                   verarbeitet. Dazu gehören insbesondere:
                 </p>
+
                 <ul>
                   <li>Vorname und Nachname</li>
                   <li>E-Mail-Adresse</li>
@@ -633,6 +632,7 @@
                   <li>Nachrichtentext</li>
                   <li>freiwillige Angaben wie Postleitzahl, Straße oder Member-ID</li>
                 </ul>
+
                 <p>
                   Bitte sende über das Formular keine besonders sensiblen Daten, zum Beispiel Gesundheitsdaten,
                   Zahlungsdaten, Ausweisdaten oder private Unterlagen.
@@ -767,6 +767,7 @@
                   Der Zugang zum Studio kann digital über die NordFit App, einen QR-Code oder ein vergleichbares
                   Zugangssystem erfolgen. Zugangsdaten sind persönlich und dürfen nicht an andere Personen weitergegeben werden.
                 </p>
+
                 <p>
                   Eine Weitergabe von Zugangsdaten oder das Mitnehmen nicht berechtigter Personen kann zu einer Sperrung
                   des Zugangs und weiteren Maßnahmen führen.
@@ -885,15 +886,10 @@
     document.addEventListener("DOMContentLoaded", () => {
       const tabButtons = document.querySelectorAll(".legal-tab-button");
       const panels = document.querySelectorAll(".legal-panel");
-      const allowedTabs = ["impressum", "datenschutz", "agb"];
+      const validTabs = ["impressum", "datenschutz", "agb"];
 
-      const getTabFromHash = () => {
-        const hash = window.location.hash.replace("#", "").trim();
-        return allowedTabs.includes(hash) ? hash : "impressum";
-      };
-
-      const activateTab = (target, updateHash = false) => {
-        const safeTarget = allowedTabs.includes(target) ? target : "impressum";
+      const activateTab = (target, shouldUpdateHash = true) => {
+        const safeTarget = validTabs.includes(target) ? target : "impressum";
 
         tabButtons.forEach((button) => {
           const isActive = button.dataset.tab === safeTarget;
@@ -907,22 +903,25 @@
           panel.hidden = !isActive;
         });
 
-        if (updateHash) {
-          history.pushState(null, "", `#${safeTarget}`);
+        if (shouldUpdateHash) {
+          history.replaceState(null, "", `#${safeTarget}`);
         }
       };
 
-      activateTab(getTabFromHash());
+      const activateTabFromHash = () => {
+        const hashTarget = window.location.hash.replace("#", "");
+        activateTab(hashTarget || "impressum", false);
+      };
 
       tabButtons.forEach((button) => {
         button.addEventListener("click", () => {
-          activateTab(button.dataset.tab, true);
+          activateTab(button.dataset.tab);
         });
       });
 
-      window.addEventListener("hashchange", () => {
-        activateTab(getTabFromHash());
-      });
+      activateTabFromHash();
+
+      window.addEventListener("hashchange", activateTabFromHash);
     });
   </script>
 </body>
