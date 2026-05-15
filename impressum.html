@@ -885,25 +885,43 @@
     document.addEventListener("DOMContentLoaded", () => {
       const tabButtons = document.querySelectorAll(".legal-tab-button");
       const panels = document.querySelectorAll(".legal-panel");
+      const allowedTabs = ["impressum", "datenschutz", "agb"];
 
-      const activateTab = (target) => {
+      const getTabFromHash = () => {
+        const hash = window.location.hash.replace("#", "").trim();
+        return allowedTabs.includes(hash) ? hash : "impressum";
+      };
+
+      const activateTab = (target, updateHash = false) => {
+        const safeTarget = allowedTabs.includes(target) ? target : "impressum";
+
         tabButtons.forEach((button) => {
-          const isActive = button.dataset.tab === target;
+          const isActive = button.dataset.tab === safeTarget;
           button.classList.toggle("is-active", isActive);
           button.setAttribute("aria-selected", isActive ? "true" : "false");
         });
 
         panels.forEach((panel) => {
-          const isActive = panel.id === `panel-${target}`;
+          const isActive = panel.id === `panel-${safeTarget}`;
           panel.classList.toggle("is-active", isActive);
           panel.hidden = !isActive;
         });
+
+        if (updateHash) {
+          history.pushState(null, "", `#${safeTarget}`);
+        }
       };
+
+      activateTab(getTabFromHash());
 
       tabButtons.forEach((button) => {
         button.addEventListener("click", () => {
-          activateTab(button.dataset.tab);
+          activateTab(button.dataset.tab, true);
         });
+      });
+
+      window.addEventListener("hashchange", () => {
+        activateTab(getTabFromHash());
       });
     });
   </script>
