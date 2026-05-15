@@ -357,7 +357,6 @@
       }
 
       .legal-document {
-        width: min(100%, 100%);
         border-radius: 30px;
         padding: 1.12rem;
       }
@@ -370,7 +369,6 @@
         font-size: clamp(1.85rem, 8.3vw, 2.85rem);
         line-height: 1.02;
         letter-spacing: -0.055em;
-        max-width: 100%;
       }
 
       .legal-document-head p:not(.eyebrow) {
@@ -508,6 +506,7 @@
 
               <div class="legal-card">
                 <span class="legal-card-label">Kontakt</span>
+
                 <p>
                   E-Mail:
                   <a href="mailto:nordgroup.business@gmail.com">nordgroup.business@gmail.com</a><br />
@@ -886,42 +885,42 @@
     document.addEventListener("DOMContentLoaded", () => {
       const tabButtons = document.querySelectorAll(".legal-tab-button");
       const panels = document.querySelectorAll(".legal-panel");
-      const validTabs = ["impressum", "datenschutz", "agb"];
+      const allowedTabs = ["impressum", "datenschutz", "agb"];
 
-      const activateTab = (target, shouldUpdateHash = true) => {
-        const safeTarget = validTabs.includes(target) ? target : "impressum";
+      const activateTab = (tabName, updateHash) => {
+        const selectedTab = allowedTabs.includes(tabName) ? tabName : "impressum";
 
         tabButtons.forEach((button) => {
-          const isActive = button.dataset.tab === safeTarget;
+          const isActive = button.dataset.tab === selectedTab;
           button.classList.toggle("is-active", isActive);
-          button.setAttribute("aria-selected", isActive ? "true" : "false");
+          button.setAttribute("aria-selected", String(isActive));
         });
 
         panels.forEach((panel) => {
-          const isActive = panel.id === `panel-${safeTarget}`;
+          const isActive = panel.id === `panel-${selectedTab}`;
           panel.classList.toggle("is-active", isActive);
           panel.hidden = !isActive;
         });
 
-        if (shouldUpdateHash) {
-          history.replaceState(null, "", `#${safeTarget}`);
+        if (updateHash) {
+          window.location.hash = selectedTab;
         }
       };
 
-      const activateTabFromHash = () => {
-        const hashTarget = window.location.hash.replace("#", "");
-        activateTab(hashTarget || "impressum", false);
+      const readHash = () => {
+        const hash = window.location.hash.replace("#", "");
+        activateTab(hash || "impressum", false);
       };
 
       tabButtons.forEach((button) => {
         button.addEventListener("click", () => {
-          activateTab(button.dataset.tab);
+          activateTab(button.dataset.tab, true);
         });
       });
 
-      activateTabFromHash();
+      readHash();
 
-      window.addEventListener("hashchange", activateTabFromHash);
+      window.addEventListener("hashchange", readHash);
     });
   </script>
 </body>
