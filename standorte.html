@@ -7,7 +7,7 @@
   <title>NordFit – Standorte</title>
   <meta
     name="description"
-    content="NordFit Standorte: Studio Grevesmühlen und weitere Studios im Norden. Adresse, Studioinfos, Routenplanung und Karte auf einen Blick."
+    content="NordFit Standorte: Studio Grevesmühlen und weitere Studios im Norden. Studioinfos, Zugang, Routenplanung und Karte auf einen Blick."
   />
 
   <link rel="stylesheet" href="css/style.css" />
@@ -139,7 +139,8 @@
       color: rgba(255, 255, 255, 0.76);
     }
 
-    .location-choice-clean.is-planned {
+    .location-choice-clean.is-planned,
+    .location-choice-clean:disabled {
       cursor: not-allowed;
       opacity: 0.46;
       filter: grayscale(1);
@@ -436,6 +437,14 @@
       display: block;
     }
 
+    .location-map-note {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+    }
+
     @media (max-width: 1100px) {
       .location-picker-clean {
         justify-content: flex-start;
@@ -628,12 +637,12 @@
   <div data-header></div>
 
   <main class="locations-page">
-    <section class="locations-hero">
+    <section class="locations-hero" aria-labelledby="locations-page-title">
       <div class="container">
         <div class="locations-hero-inner">
           <p class="eyebrow">Standorte</p>
 
-          <h1 class="locations-hero-title">
+          <h1 class="locations-hero-title" id="locations-page-title">
             Dein Studio.<br />
             <span>Klar erreichbar.</span>
           </h1>
@@ -646,10 +655,10 @@
       </div>
     </section>
 
-    <section class="locations-content">
+    <section class="locations-content" aria-labelledby="location-current-title">
       <div class="container">
         <div class="location-picker-wrap">
-          <div class="location-picker-clean" aria-label="Standort auswählen">
+          <div class="location-picker-clean" role="group" aria-label="NordFit Standorte">
             <button
               class="location-choice-clean is-active"
               type="button"
@@ -659,33 +668,49 @@
               <small>Aktiver Standort</small>
             </button>
 
-            <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
+            <button
+              class="location-choice-clean is-planned"
+              type="button"
+              disabled
+            >
               <span>Studio Lübeck</span>
               <small>In Planung</small>
             </button>
 
-            <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
+            <button
+              class="location-choice-clean is-planned"
+              type="button"
+              disabled
+            >
               <span>Studio Wismar</span>
               <small>In Planung</small>
             </button>
 
-            <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
+            <button
+              class="location-choice-clean is-planned"
+              type="button"
+              disabled
+            >
               <span>Studio Schwerin</span>
               <small>In Planung</small>
             </button>
 
-            <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
+            <button
+              class="location-choice-clean is-planned"
+              type="button"
+              disabled
+            >
               <span>Studio Rostock</span>
               <small>In Planung</small>
             </button>
           </div>
         </div>
 
-        <section class="location-showcase-clean">
+        <section class="location-showcase-clean" aria-label="Informationen zum Standort Grevesmühlen">
           <div class="location-image-card">
             <img
               src="images/studio-grevesmuehlen.jpg"
-              alt="NordFit Studio Grevesmühlen"
+              alt="Trainingsbereich im NordFit Studio Grevesmühlen"
             />
 
             <span class="location-image-label-clean">
@@ -699,7 +724,7 @@
               <p class="location-city-line">Grevesmühlen, Mecklenburg-Vorpommern</p>
             </div>
 
-            <h2>Studio Grevesmühlen</h2>
+            <h2 id="location-current-title">Studio Grevesmühlen</h2>
 
             <p>
               Das NordFit Studio Grevesmühlen ist der erste NordFit Standort:
@@ -707,10 +732,10 @@
               ruhigen Studioerlebnis ohne unnötige Ablenkung.
             </p>
 
-            <div class="location-facts-clean">
+            <div class="location-facts-clean" aria-label="Standortdetails">
               <div>
                 <span>Status</span>
-                <strong class="location-open-text">Jetzt geöffnet</strong>
+                <strong class="location-open-text">Aktiver Standort</strong>
               </div>
 
               <div>
@@ -729,7 +754,7 @@
               </div>
             </div>
 
-            <div class="product-actions location-actions-clean">
+            <div class="product-actions location-actions-clean" aria-label="Links zu Tarifen und App">
               <a href="mitgliedschaften.html" class="product-link product-link-primary">
                 Tarife ansehen
               </a>
@@ -741,26 +766,26 @@
           </div>
         </section>
 
-        <section class="location-map-section-clean">
+        <section class="location-map-section-clean" aria-labelledby="location-map-title">
           <div class="map-card-clean">
             <div class="map-card-head-clean">
               <div>
                 <p class="eyebrow">Karte</p>
-                <h2>Studio Grevesmühlen</h2>
+                <h2 id="location-map-title">Studio Grevesmühlen</h2>
               </div>
 
               <p class="location-status-pill-clean">
-                <span class="location-open-text">Jetzt geöffnet</span>
+                <span class="location-open-text">Aktiver Standort</span>
               </p>
             </div>
 
-            <div class="map-route-actions" aria-label="Route zum Studio öffnen">
+            <div class="map-route-actions" aria-label="Route zum Standort öffnen">
               <a
                 class="map-route-button map-route-button-dark"
-                href="https://maps.apple.com/?q=Studio%20Grevesm%C3%BChlen%2C%20Grevesm%C3%BChlen%2C%20Mecklenburg-Vorpommern"
+                href="https://maps.apple.com/?q=Grevesm%C3%BChlen%2C%20Mecklenburg-Vorpommern"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Route in Apple Karten öffnen"
+                aria-label="Route nach Grevesmühlen in Apple Karten öffnen"
               >
                 <span class="map-route-icon" aria-hidden="true"></span>
                 <span class="map-route-text">
@@ -774,7 +799,7 @@
                 href="https://www.google.com/maps/dir/?api=1&destination=Grevesm%C3%BChlen%2C%20Mecklenburg-Vorpommern"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Route in Google Maps öffnen"
+                aria-label="Route nach Grevesmühlen in Google Maps öffnen"
               >
                 <span class="map-route-icon" aria-hidden="true">⌖</span>
                 <span class="map-route-text">
@@ -786,13 +811,18 @@
 
             <div class="location-map-frame-clean">
               <iframe
-                title="Karte: Studio Grevesmühlen"
+                title="Karte mit Standort Grevesmühlen in Mecklenburg-Vorpommern"
                 src="https://www.google.com/maps?q=Grevesm%C3%BChlen%2C%20Mecklenburg-Vorpommern&output=embed"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
                 allowfullscreen
               ></iframe>
             </div>
+
+            <p class="location-map-note">
+              Hinweis: Solange keine genaue Studioadresse hinterlegt ist, zeigt die Karte Grevesmühlen allgemein.
+              Die konkrete Adresse wird ergänzt, sobald der Standort final feststeht.
+            </p>
           </div>
         </section>
       </div>
