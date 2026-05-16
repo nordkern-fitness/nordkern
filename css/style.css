@@ -131,6 +131,7 @@ ul {
 
 .section {
   padding: 7rem 0;
+  background: #ffffff;
 }
 
 .section-tight {
@@ -142,7 +143,7 @@ ul {
 }
 
 .section-light {
-  background: var(--bg-soft);
+  background: #ffffff;
 }
 
 .section-final-cta {
@@ -522,6 +523,8 @@ main > section:first-child {
   background: rgba(255, 255, 255, 0.18);
 }
 
+/* Gewollter Fade 1: Startseite oben, grauer Fade von unten nach oben */
+
 .product-hero-main {
   min-height: 100vh;
   background:
@@ -544,6 +547,8 @@ main > section:first-child {
 .product-hero-light {
   background: #ffffff;
 }
+
+/* Gewollter Fade 2: Startseite zweite Box, grÃ¼ner Fade von oben nach unten */
 
 .product-hero-dark {
   min-height: 100vh;
@@ -670,7 +675,7 @@ main > section:first-child {
     drop-shadow(0 10px 22px rgba(0, 0, 0, 0.1));
 }
 
-/* Typo für Unterseiten */
+/* Typo fÃ¼r Unterseiten */
 
 .hero-title {
   font-size: clamp(3.4rem, 8vw, 7.2rem);
@@ -766,6 +771,7 @@ main > section:first-child {
 
 .home-hero-section {
   padding-top: 5rem;
+  background: #ffffff;
 }
 
 .home-hero {
@@ -800,7 +806,7 @@ main > section:first-child {
   letter-spacing: -0.014em;
 }
 
-/* Glass + Cards */
+/* Cards */
 
 .glass,
 .card {
@@ -1049,7 +1055,7 @@ main > section:first-child {
 }
 
 .pricing-check-list li::before {
-  content: "✓";
+  content: "âœ“";
   position: absolute;
   left: 0;
   top: 0.02rem;
@@ -2461,7 +2467,7 @@ select:focus {
   }
 }
 
-/* Apple-artiges Mobile-Menü */
+/* Apple-artiges Mobile-MenÃ¼ */
 
 @media (max-width: 980px) {
   body.nav-open::before {
