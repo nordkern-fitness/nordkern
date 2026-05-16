@@ -533,22 +533,22 @@ main > section:first-child {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -9rem;
+  bottom: -10rem;
   z-index: 1;
-  width: min(165vw, 1880px);
-  height: 52rem;
+  width: min(100% - 2rem, 1180px);
+  height: 44rem;
   transform: translateX(-50%);
   pointer-events: none;
   background:
     radial-gradient(
-      ellipse at center,
-      rgba(37, 40, 44, 0.42) 0%,
-      rgba(76, 80, 86, 0.34) 28%,
-      rgba(136, 140, 146, 0.24) 46%,
-      rgba(46, 145, 63, 0.055) 61%,
-      transparent 80%
+      ellipse at 50% 100%,
+      rgba(37, 40, 44, 0.38) 0%,
+      rgba(76, 80, 86, 0.3) 26%,
+      rgba(145, 149, 155, 0.2) 46%,
+      rgba(46, 145, 63, 0.045) 62%,
+      transparent 78%
     );
-  filter: blur(38px);
+  filter: blur(34px);
   opacity: 1;
 }
 
@@ -558,17 +558,17 @@ main > section:first-child {
   left: 50%;
   bottom: -1px;
   z-index: 1;
-  width: 100%;
-  height: 42rem;
+  width: min(100% - 2rem, 1180px);
+  height: 34rem;
   transform: translateX(-50%);
   pointer-events: none;
   background:
     linear-gradient(
       180deg,
       transparent 0%,
-      rgba(245, 245, 247, 0.18) 18%,
-      rgba(218, 221, 226, 0.42) 44%,
-      rgba(190, 194, 200, 0.7) 72%,
+      rgba(245, 245, 247, 0.12) 18%,
+      rgba(219, 222, 226, 0.34) 48%,
+      rgba(192, 196, 202, 0.58) 72%,
       rgba(245, 245, 247, 0.98) 100%
     );
 }
@@ -2858,30 +2858,31 @@ select:focus {
   }
 
   .product-hero-main::before {
-    bottom: -7.4rem;
-    height: 36rem;
-    width: min(175vw, 1500px);
-    filter: blur(32px);
+    bottom: -7rem;
+    width: min(100%, 1180px);
+    height: 31rem;
+    filter: blur(28px);
     background:
       radial-gradient(
-        ellipse at center,
-        rgba(37, 40, 44, 0.38) 0%,
-        rgba(76, 80, 86, 0.3) 30%,
-        rgba(136, 140, 146, 0.22) 48%,
-        rgba(46, 145, 63, 0.045) 62%,
+        ellipse at 50% 100%,
+        rgba(37, 40, 44, 0.34) 0%,
+        rgba(76, 80, 86, 0.26) 30%,
+        rgba(136, 140, 146, 0.18) 49%,
+        rgba(46, 145, 63, 0.04) 64%,
         transparent 80%
       );
   }
 
   .product-hero-main::after {
-    height: 29rem;
+    width: min(100%, 1180px);
+    height: 24rem;
     background:
       linear-gradient(
         180deg,
         transparent 0%,
-        rgba(245, 245, 247, 0.18) 18%,
-        rgba(218, 221, 226, 0.4) 46%,
-        rgba(190, 194, 200, 0.66) 74%,
+        rgba(245, 245, 247, 0.12) 18%,
+        rgba(218, 221, 226, 0.32) 48%,
+        rgba(190, 194, 200, 0.54) 74%,
         rgba(245, 245, 247, 0.96) 100%
       );
   }
