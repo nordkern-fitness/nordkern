@@ -525,8 +525,50 @@ main > section:first-child {
 .product-hero-main {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 50% 78%, rgba(46, 145, 63, 0.13), transparent 32rem),
+    radial-gradient(circle at 50% 78%, rgba(46, 145, 63, 0.1), transparent 32rem),
     linear-gradient(180deg, #fbfbfd 0%, #ffffff 50%, #f5f5f7 100%);
+}
+
+.product-hero-main::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -9rem;
+  z-index: 1;
+  width: min(150vw, 1680px);
+  height: 42rem;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(66, 70, 74, 0.24) 0%,
+      rgba(104, 108, 112, 0.16) 28%,
+      rgba(46, 145, 63, 0.045) 54%,
+      transparent 76%
+    );
+  filter: blur(34px);
+  opacity: 0.98;
+}
+
+.product-hero-main::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  z-index: 1;
+  width: 100%;
+  height: 32rem;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(245, 245, 247, 0.12) 28%,
+      rgba(226, 228, 231, 0.46) 72%,
+      rgba(245, 245, 247, 0.92) 100%
+    );
 }
 
 .product-hero-light {
@@ -2813,6 +2855,33 @@ select:focus {
     min-height: 100vh;
   }
 
+  .product-hero-main::before {
+    bottom: -7rem;
+    width: 155vw;
+    height: 32rem;
+    filter: blur(30px);
+    background:
+      radial-gradient(
+        ellipse at center,
+        rgba(66, 70, 74, 0.22) 0%,
+        rgba(104, 108, 112, 0.15) 30%,
+        rgba(46, 145, 63, 0.035) 56%,
+        transparent 76%
+      );
+  }
+
+  .product-hero-main::after {
+    height: 24rem;
+    background:
+      linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(245, 245, 247, 0.12) 26%,
+        rgba(226, 228, 231, 0.42) 72%,
+        rgba(245, 245, 247, 0.9) 100%
+      );
+  }
+
   .product-copy h1,
   .product-copy h2,
   .app-showcase-copy h2 {
@@ -3329,6 +3398,16 @@ select:focus {
 
   .product-hero-main {
     min-height: 100vh;
+  }
+
+  .product-hero-main::before {
+    bottom: -6.5rem;
+    height: 28rem;
+    filter: blur(28px);
+  }
+
+  .product-hero-main::after {
+    height: 21rem;
   }
 
   .product-copy h1,
