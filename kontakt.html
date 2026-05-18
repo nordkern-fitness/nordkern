@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>NordFit – Kontakt</title>
+  <title>Nordkern Fitness – Kontakt</title>
   <meta
     name="description"
-    content="Kontakt zu NordFit: Schreib uns über das Kontaktformular oder nutze E-Mail und Instagram. Antwort in der Regel innerhalb von 2–3 Werktagen."
+    content="Kontakt zu Nordkern Fitness: Schreib uns über das Kontaktformular oder nutze E-Mail und Instagram. Antwort in der Regel innerhalb von 2–3 Werktagen."
   />
 
   <link rel="stylesheet" href="css/style.css" />
@@ -271,6 +271,7 @@
     }
 
     .contact-method-card-clean a,
+    .contact-method-card-clean p,
     .contact-support-status {
       color: var(--nf-green-dark);
       font-size: clamp(1.05rem, 1.45vw, 1.22rem);
@@ -400,7 +401,7 @@
           </h1>
 
           <p class="contact-hero-text">
-            Fragen zu Mitgliedschaft, Tagespass, App, Standort oder NordFit allgemein?
+            Fragen zu Mitgliedschaft, Tagespass, App, Standort oder Nordkern Fitness allgemein?
             Schick dein Anliegen über das Formular oder nutze E-Mail und Instagram.
           </p>
         </div>
@@ -422,7 +423,7 @@
             </p>
           </div>
 
-          <form id="nordfit-contact-form" novalidate>
+          <form id="nordkern-contact-form" novalidate>
             <div class="contact-grid-clean">
               <div class="contact-field">
                 <label for="contact-firstname">Vorname <span>*</span></label>
@@ -539,7 +540,7 @@
                   id="contact-memberid"
                   name="contact-memberid"
                   type="text"
-                  placeholder="NF-12345"
+                  placeholder="NK-12345"
                   autocomplete="off"
                   maxlength="8"
                   aria-describedby="contact-error-box"
@@ -551,7 +552,7 @@
                 <textarea
                   id="contact-message"
                   name="contact-message"
-                  placeholder="Schreib hier deine Nachricht an NordFit..."
+                  placeholder="Schreib hier deine Nachricht an Nordkern Fitness..."
                   maxlength="4999"
                   aria-describedby="message-count contact-error-box"
                   required
@@ -594,7 +595,7 @@
             <h2 id="contact-methods-title">Auch ohne Formular erreichbar.</h2>
 
             <p>
-              Schreib uns direkt per E-Mail oder über Instagram. NordFit antwortet ruhig,
+              Schreib uns direkt per E-Mail oder über Instagram. Nordkern Fitness antwortet ruhig,
               gesammelt und ohne Telefonstress.
             </p>
           </article>
@@ -602,7 +603,7 @@
           <div class="contact-methods-list-clean">
             <article class="contact-method-card-clean">
               <span>E-Mail</span>
-              <a href="mailto:nordgroup.business@gmail.com">nordgroup.business@gmail.com</a>
+              <p>[E-Mail-Adresse ergänzen]</p>
             </article>
 
             <article class="contact-method-card-clean">
@@ -611,9 +612,9 @@
             </article>
 
             <article class="contact-method-card-clean">
-              <span>Instagram – NordFit</span>
-              <a href="https://instagram.com/nordfit.business" target="_blank" rel="noopener noreferrer">
-                @nordfit.business
+              <span>Instagram – Nordkern Fitness</span>
+              <a href="https://instagram.com/nordkern.fitness" target="_blank" rel="noopener noreferrer">
+                @nordkern.fitness
               </a>
             </article>
 
@@ -635,7 +636,7 @@
               </p>
 
               <p class="contact-support-note">
-                Der Studiozugang läuft unabhängig vom Support digital über die NordFit App.
+                Der Studiozugang läuft unabhängig vom Support digital über die Nordkern Fitness App.
               </p>
             </article>
           </div>
@@ -648,7 +649,7 @@
         <h2 id="contact-final-title">Schreib, wenn etwas offen ist.</h2>
 
         <p>
-          Ob Mitgliedschaft, Standort oder App: NordFit soll erreichbar bleiben,
+          Ob Mitgliedschaft, Standort oder App: Nordkern Fitness soll erreichbar bleiben,
           wenn du eine Frage hast oder etwas geklärt werden soll.
         </p>
 
@@ -671,11 +672,12 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("nordfit-contact-form");
+      const form = document.getElementById("nordkern-contact-form");
       const errorBox = document.getElementById("contact-error-box");
       const message = document.getElementById("contact-message");
       const messageCount = document.getElementById("message-count");
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const recipientEmail = "E-MAIL-ERGAENZEN";
 
       const fields = {
         firstName: document.getElementById("contact-firstname"),
@@ -790,7 +792,14 @@
         if (memberId && !isValidMemberId(memberId)) {
           errors.push({
             field: fields.memberId,
-            message: "Member-ID muss so aussehen: NF-12345."
+            message: "Member-ID muss so aussehen: NK-12345."
+          });
+        }
+
+        if (!isValidEmail(recipientEmail)) {
+          errors.push({
+            field: fields.message,
+            message: "Kontakt-E-Mail ist noch nicht hinterlegt. Bitte im Code recipientEmail ersetzen."
           });
         }
 
@@ -875,16 +884,16 @@
         });
 
         const subject = encodeURIComponent(
-          `NordFit Kontaktformular – ${topic} – ${firstName} ${lastName}`
+          `Nordkern Fitness Kontaktformular – ${topic} – ${firstName} ${lastName}`
         );
 
         const body = [
-          "NORDFIT KONTAKTANFRAGE",
+          "NORDKERN FITNESS KONTAKTANFRAGE",
           "==================================================",
           "",
           "ÜBERSICHT",
           "--------------------------------------------------",
-          "Eingang über: NordFit Website",
+          "Eingang über: Nordkern Fitness Website",
           `Zeitpunkt: ${sentAt}`,
           `Thema: ${topic}`,
           "Status: Neu",
@@ -904,11 +913,11 @@
           "==================================================",
           "INTERNER HINWEIS",
           "Bitte bei der Antwort die oben angegebene E-Mail-Adresse nutzen.",
-          "Diese Anfrage wurde über das NordFit Kontaktformular vorbereitet."
+          "Diese Anfrage wurde über das Nordkern Fitness Kontaktformular vorbereitet."
         ].join("\n");
 
         window.location.href =
-          `mailto:nordgroup.business@gmail.com?subject=${subject}&body=${encodeURIComponent(body)}`;
+          `mailto:${recipientEmail}?subject=${subject}&body=${encodeURIComponent(body)}`;
       });
     });
   </script>
