@@ -603,7 +603,7 @@
           <div class="contact-methods-list-clean">
             <article class="contact-method-card-clean">
               <span>E-Mail</span>
-              <p>[E-Mail-Adresse ergänzen]</p>
+              <a href="mailto:info@nordkern-fitness.de">info@nordkern-fitness.de</a>
             </article>
 
             <article class="contact-method-card-clean">
@@ -677,7 +677,7 @@
       const message = document.getElementById("contact-message");
       const messageCount = document.getElementById("message-count");
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-      const recipientEmail = "E-MAIL-ERGAENZEN";
+      const recipientEmail = "info@nordkern-fitness.de";
 
       const fields = {
         firstName: document.getElementById("contact-firstname"),
@@ -799,7 +799,7 @@
         if (!isValidEmail(recipientEmail)) {
           errors.push({
             field: fields.message,
-            message: "Kontakt-E-Mail ist noch nicht hinterlegt. Bitte im Code recipientEmail ersetzen."
+            message: "Kontakt-E-Mail ist noch nicht korrekt hinterlegt."
           });
         }
 
