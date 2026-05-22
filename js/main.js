@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   const body = document.body;
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+  const brand = {
+    name: "Nordkern Fitness",
+    contactEmail: "info@nordkern-fitness.de",
+    fallbackLocationName: "Nordkern Fitness Standort"
+  };
+
   const selectors = {
     headerSlot: "[data-header]",
     footerSlot: "[data-footer]",
@@ -12,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     modal: ".modal",
     modalTrigger: "[data-modal-target]",
     modalClose: ".modal-close",
-    contactFallbackForm: "[data-nordfit-contact-form]",
+    contactFallbackForm: "[data-nordkern-contact-form]",
     galleryRow: ".gallery-row",
     galleryArrow: "[data-gallery-target]",
     locationPicker: ".location-picker",
@@ -391,21 +397,29 @@ document.addEventListener("DOMContentLoaded", async () => {
       const memberId = String(formData.get("contact-memberid") || "").trim();
       const message = String(formData.get("contact-message") || "").trim();
 
-      const subject = encodeURIComponent(`NordFit Kontakt – ${topic || "Allgemeine Anfrage"}`);
+      const subject = encodeURIComponent(
+        `${brand.name} Kontakt – ${topic || "Allgemeine Anfrage"}`
+      );
 
       const bodyText = [
+        "NORDKERN FITNESS KONTAKTANFRAGE",
+        "==================================================",
+        "",
+        "KONTAKTDATEN",
+        "--------------------------------------------------",
         `Vorname: ${firstName}`,
         `Nachname: ${lastName}`,
-        `E-Mail: ${email}`,
+        `E-Mail für Rückantwort: ${email}`,
         `Thema: ${topic || "Nicht angegeben"}`,
         `Member-ID: ${memberId || "Nicht angegeben"}`,
         "",
-        "Nachricht:",
+        "NACHRICHT",
+        "--------------------------------------------------",
         message
       ].join("\n");
 
       window.location.href =
-        `mailto:nordgroup.business@gmail.com?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+        `mailto:${brand.contactEmail}?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
     });
   };
 
@@ -504,7 +518,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       if (elements.image) {
         elements.image.src = data.image || "";
-        elements.image.alt = data.name || "NordFit Standort";
+        elements.image.alt = data.name || brand.fallbackLocationName;
       }
 
       if (elements.imageLabel) elements.imageLabel.textContent = data.name || "";
@@ -524,7 +538,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       if (elements.map && data.map) {
         elements.map.src = data.map;
-        elements.map.title = `Karte: ${data.name || "NordFit Standort"}`;
+        elements.map.title = `Karte: ${data.name || brand.fallbackLocationName}`;
       }
 
       button.scrollIntoView({
