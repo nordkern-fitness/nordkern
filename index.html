@@ -15,8 +15,8 @@
   <style>
     .home-first-hero {
       min-height: auto;
-      padding-top: max(10.7rem, 15vh);
-      padding-bottom: 5.4rem;
+      padding-top: max(10.8rem, 15vh);
+      padding-bottom: 5.6rem;
       background: #ffffff;
     }
 
@@ -58,57 +58,59 @@
       margin-top: 2.35rem;
     }
 
-    .home-media-section {
-      padding: 0 0 6.2rem;
+    .home-wide-section {
+      width: 100%;
       background: #ffffff;
     }
 
-    .home-media-grid {
-      width: min(100% - 2rem, 1240px);
-      margin-inline: auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.34fr) minmax(320px, 0.66fr);
-      gap: 1rem;
-      align-items: stretch;
+    .home-studio-section {
+      padding: 0 0 0.75rem;
     }
 
-    .home-media-side {
+    .home-studio-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+      gap: 0.75rem;
+      align-items: stretch;
+      padding-inline: 0.75rem;
+    }
+
+    .home-studio-side {
       display: grid;
       grid-template-rows: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
+      gap: 0.75rem;
     }
 
-    .home-media-card {
+    .home-studio-card {
       position: relative;
       overflow: hidden;
       min-height: 300px;
-      border-radius: 26px;
+      border-radius: 0;
       background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.055);
-      box-shadow: none;
       isolation: isolate;
     }
 
-    .home-media-card-large {
-      min-height: clamp(460px, 41vw, 640px);
+    .home-studio-card-large {
+      min-height: clamp(520px, 43vw, 720px);
     }
 
-    .home-media-card-small {
+    .home-studio-card-small {
       min-height: 0;
     }
 
-    .home-media-card::before {
+    .home-studio-card::before {
       content: "";
       position: absolute;
       inset: 0;
       z-index: 0;
       pointer-events: none;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0) 44%),
-        linear-gradient(135deg, #f5f5f7 0%, #eeeeef 52%, #fbfbfd 100%);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0) 46%),
+        linear-gradient(135deg, #f5f5f7 0%, #ececef 54%, #fbfbfd 100%);
     }
 
-    .home-media-content {
+    .home-studio-content {
       position: relative;
       z-index: 2;
       min-height: 100%;
@@ -116,11 +118,11 @@
       flex-direction: column;
       justify-content: space-between;
       gap: 2rem;
-      padding: clamp(1.25rem, 2.4vw, 2rem);
+      padding: clamp(1.35rem, 2.6vw, 2.4rem);
       text-align: left;
     }
 
-    .home-media-kicker {
+    .home-studio-kicker {
       width: fit-content;
       display: inline-flex;
       align-items: center;
@@ -133,43 +135,43 @@
       text-transform: uppercase;
     }
 
-    .home-media-kicker::before {
+    .home-studio-kicker::before {
       content: "✦";
       color: var(--nf-green);
       font-size: 0.78rem;
       line-height: 1;
     }
 
-    .home-media-text {
+    .home-studio-text {
       display: grid;
       gap: 0.42rem;
-      max-width: 36ch;
+      max-width: 38ch;
     }
 
-    .home-media-text strong {
+    .home-studio-text strong {
       color: var(--text);
-      font-size: clamp(1.75rem, 3.2vw, 3rem);
+      font-size: clamp(1.85rem, 3.35vw, 3.15rem);
       line-height: 0.96;
       letter-spacing: -0.058em;
       font-weight: 760;
       text-wrap: balance;
     }
 
-    .home-media-card-small .home-media-text strong {
-      font-size: clamp(1.45rem, 2.1vw, 2rem);
+    .home-studio-card-small .home-studio-text strong {
+      font-size: clamp(1.55rem, 2.2vw, 2.12rem);
     }
 
-    .home-media-text span {
+    .home-studio-text span {
       color: var(--muted);
       font-size: 0.98rem;
       line-height: 1.42;
       letter-spacing: -0.014em;
     }
 
-    .home-media-placeholder-mark {
+    .home-studio-number {
       position: absolute;
-      right: clamp(1rem, 2vw, 1.6rem);
-      bottom: clamp(1rem, 2vw, 1.6rem);
+      right: clamp(1rem, 2vw, 1.7rem);
+      bottom: clamp(1rem, 2vw, 1.7rem);
       z-index: 1;
       color: rgba(29, 29, 31, 0.045);
       font-size: clamp(5rem, 12vw, 12rem);
@@ -181,25 +183,20 @@
     }
 
     .home-access-section {
-      padding: 6.8rem 0 7.4rem;
-      background:
-        linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
-    }
-
-    .home-access-shell {
-      width: min(100% - 2rem, 1240px);
-      margin-inline: auto;
+      min-height: 86vh;
       display: grid;
-      gap: 2.4rem;
+      place-items: center;
+      padding: 7rem 1.5rem;
+      background: #f5f5f7;
       text-align: center;
     }
 
-    .home-access-copy {
-      max-width: 900px;
+    .home-access-inner {
+      width: min(100%, 980px);
       margin-inline: auto;
     }
 
-    .home-access-copy .eyebrow {
+    .home-access-inner .eyebrow {
       margin-bottom: 0.78rem;
       color: var(--muted);
       font-size: 0.78rem;
@@ -207,57 +204,50 @@
       letter-spacing: 0.06em;
     }
 
-    .home-access-copy h2 {
+    .home-access-inner h2 {
       color: var(--text);
-      font-size: clamp(3.2rem, 6.4vw, 6.8rem);
+      font-size: clamp(3.4rem, 6.8vw, 7.2rem);
       line-height: 0.92;
-      letter-spacing: -0.072em;
+      letter-spacing: -0.074em;
       font-weight: 760;
       text-wrap: balance;
     }
 
-    .home-access-copy p {
-      max-width: 680px;
+    .home-access-inner p {
+      max-width: 700px;
       margin: 1.05rem auto 0;
       color: var(--text-soft);
-      font-size: clamp(1.04rem, 1.4vw, 1.24rem);
+      font-size: clamp(1.05rem, 1.45vw, 1.28rem);
       line-height: 1.45;
       letter-spacing: -0.018em;
       text-wrap: balance;
     }
 
-    .home-access-copy .product-actions {
+    .home-access-inner .product-actions {
       margin-top: 2.1rem;
     }
 
-    .home-access-visual {
-      min-height: clamp(360px, 38vw, 560px);
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      border-radius: 26px;
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.055);
-      box-shadow: none;
-    }
-
-    .home-access-visual-inner {
-      width: min(100% - 2rem, 760px);
+    .home-access-panel {
+      width: min(100%, 820px);
+      margin: 4.2rem auto 0;
       display: grid;
       grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
       gap: 1rem;
-      align-items: center;
+      align-items: stretch;
+    }
+
+    .home-access-qr,
+    .home-access-list {
+      min-height: 300px;
+      border-radius: 0;
+      background: #ffffff;
     }
 
     .home-access-qr {
-      aspect-ratio: 1;
       display: grid;
       place-items: center;
-      border-radius: 24px;
-      background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.055);
       color: var(--text);
-      font-size: clamp(3.2rem, 8vw, 5.8rem);
+      font-size: clamp(3.4rem, 8vw, 6rem);
       line-height: 1;
       letter-spacing: -0.06em;
       font-weight: 760;
@@ -265,7 +255,9 @@
 
     .home-access-list {
       display: grid;
+      align-content: center;
       gap: 0.65rem;
+      padding: clamp(1rem, 2vw, 1.4rem);
       text-align: left;
     }
 
@@ -274,9 +266,7 @@
       align-items: center;
       min-height: 58px;
       padding: 0.9rem 1rem;
-      border-radius: 18px;
       background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.045);
       color: var(--text-soft);
       font-size: 1rem;
       line-height: 1.35;
@@ -312,17 +302,17 @@
         text-wrap: balance;
       }
 
-      .home-media-grid {
+      .home-studio-grid {
         grid-template-columns: 1fr;
       }
 
-      .home-media-side {
+      .home-studio-side {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-template-rows: none;
       }
 
-      .home-media-card-small {
-        min-height: 280px;
+      .home-studio-card-small {
+        min-height: 300px;
       }
     }
 
@@ -353,72 +343,55 @@
         margin-top: 2rem;
       }
 
-      .home-media-section {
-        padding-bottom: 5.2rem;
+      .home-studio-grid {
+        gap: 0.65rem;
+        padding-inline: 0.65rem;
       }
 
-      .home-media-grid {
-        width: min(100% - 1.2rem, 1240px);
-        gap: 0.85rem;
-      }
-
-      .home-media-side {
+      .home-studio-side {
         grid-template-columns: 1fr;
-        gap: 0.85rem;
+        gap: 0.65rem;
       }
 
-      .home-media-card {
-        border-radius: 22px;
+      .home-studio-card-large {
+        min-height: 420px;
       }
 
-      .home-media-card-large {
-        min-height: 380px;
+      .home-studio-card-small {
+        min-height: 260px;
       }
 
-      .home-media-card-small {
-        min-height: 240px;
+      .home-studio-content {
+        padding: 1.2rem;
       }
 
-      .home-media-content {
-        padding: 1.15rem;
-      }
-
-      .home-media-text strong {
-        font-size: clamp(1.55rem, 8vw, 2.35rem);
+      .home-studio-text strong {
+        font-size: clamp(1.6rem, 8vw, 2.4rem);
       }
 
       .home-access-section {
-        padding: 5.8rem 0 6.2rem;
+        min-height: auto;
+        padding: 6rem 1rem;
       }
 
-      .home-access-shell {
-        width: min(100% - 1.2rem, 1240px);
-      }
-
-      .home-access-copy h2 {
+      .home-access-inner h2 {
         font-size: clamp(2.85rem, 13vw, 4.35rem);
         letter-spacing: -0.058em;
       }
 
-      .home-access-copy p {
+      .home-access-inner p {
         max-width: 34ch;
         font-size: 1.02rem;
       }
 
-      .home-access-visual {
-        min-height: auto;
-        padding: 1rem;
-        border-radius: 22px;
-      }
-
-      .home-access-visual-inner {
-        width: 100%;
+      .home-access-panel {
+        margin-top: 3.2rem;
         grid-template-columns: 1fr;
       }
 
-      .home-access-qr {
+      .home-access-qr,
+      .home-access-list {
         min-height: 260px;
-        border-radius: 20px;
       }
     }
 
@@ -431,24 +404,29 @@
         font-size: clamp(2.52rem, 13.5vw, 3.55rem);
       }
 
-      .home-media-grid,
-      .home-access-shell {
-        width: min(100% - 1rem, 1240px);
+      .home-studio-grid {
+        gap: 0.5rem;
+        padding-inline: 0.5rem;
       }
 
-      .home-media-card-large {
-        min-height: 330px;
+      .home-studio-side {
+        gap: 0.5rem;
       }
 
-      .home-media-card-small {
-        min-height: 220px;
+      .home-studio-card-large {
+        min-height: 350px;
       }
 
-      .home-access-copy h2 {
+      .home-studio-card-small {
+        min-height: 230px;
+      }
+
+      .home-access-inner h2 {
         font-size: clamp(2.52rem, 13.5vw, 3.55rem);
       }
 
-      .home-access-qr {
+      .home-access-qr,
+      .home-access-list {
         min-height: 230px;
       }
 
@@ -487,43 +465,43 @@
       </div>
     </section>
 
-    <section class="home-media-section" aria-label="Vorschau auf Nordkern Fitness Grevesmühlen">
-      <div class="home-media-grid">
-        <article class="home-media-card home-media-card-large">
-          <span class="home-media-placeholder-mark" aria-hidden="true">01</span>
+    <section class="home-wide-section home-studio-section" aria-label="Nordkern Fitness Studio Grevesmühlen">
+      <div class="home-studio-grid">
+        <article class="home-studio-card home-studio-card-large">
+          <span class="home-studio-number" aria-hidden="true">01</span>
 
-          <div class="home-media-content">
-            <span class="home-media-kicker">Studio Grevesmühlen</span>
+          <div class="home-studio-content">
+            <span class="home-studio-kicker">Studio Grevesmühlen</span>
 
-            <div class="home-media-text">
+            <div class="home-studio-text">
               <strong>Ruhige Trainingsfläche. Klarer Fokus.</strong>
-              <span>Platzhalter für das große Studio-Bild auf der Startseite.</span>
+              <span>Platzhalter für das erste Studio-Bild auf der Startseite.</span>
             </div>
           </div>
         </article>
 
-        <div class="home-media-side">
-          <article class="home-media-card home-media-card-small">
-            <span class="home-media-placeholder-mark" aria-hidden="true">02</span>
+        <div class="home-studio-side">
+          <article class="home-studio-card home-studio-card-small">
+            <span class="home-studio-number" aria-hidden="true">02</span>
 
-            <div class="home-media-content">
-              <span class="home-media-kicker">Zugang</span>
+            <div class="home-studio-content">
+              <span class="home-studio-kicker">Studio Grevesmühlen</span>
 
-              <div class="home-media-text">
-                <strong>24/7 per App.</strong>
-                <span>Platzhalter für QR-Code-Zutritt oder Eingang.</span>
+              <div class="home-studio-text">
+                <strong>Zweites Studio-Bild.</strong>
+                <span>Platzhalter für eine weitere Perspektive aus dem Studio.</span>
               </div>
             </div>
           </article>
 
-          <article class="home-media-card home-media-card-small">
-            <span class="home-media-placeholder-mark" aria-hidden="true">03</span>
+          <article class="home-studio-card home-studio-card-small">
+            <span class="home-studio-number" aria-hidden="true">03</span>
 
-            <div class="home-media-content">
-              <span class="home-media-kicker">Atmosphäre</span>
+            <div class="home-studio-content">
+              <span class="home-studio-kicker">Studio Grevesmühlen</span>
 
-              <div class="home-media-text">
-                <strong>Modern. Still. Stark.</strong>
+              <div class="home-studio-text">
+                <strong>Drittes Studio-Bild.</strong>
                 <span>Platzhalter für Detailaufnahme, Geräte oder Lichtstimmung.</span>
               </div>
             </div>
@@ -533,39 +511,35 @@
     </section>
 
     <section class="home-access-section" aria-labelledby="home-access-title">
-      <div class="home-access-shell">
-        <div class="home-access-copy">
-          <p class="eyebrow">24/7 Zugang</p>
+      <div class="home-access-inner">
+        <p class="eyebrow">24/7 Zugang</p>
 
-          <h2 id="home-access-title">Bereit, wenn du es bist.</h2>
+        <h2 id="home-access-title">Bereit, wenn du es bist.</h2>
 
-          <p>
-            Trainiere dann, wenn es in deinen Alltag passt. Früh, spät oder spontan —
-            dein Zugang läuft digital über die Nordkern Fitness App.
-          </p>
+        <p>
+          Trainiere dann, wenn es in deinen Alltag passt. Früh, spät oder spontan —
+          dein Zugang läuft digital über die Nordkern Fitness App.
+        </p>
 
-          <div class="product-actions" aria-label="Links zu App und Tarifen">
-            <a href="app.html" class="product-link product-link-primary">
-              App ansehen
-            </a>
+        <div class="product-actions" aria-label="Links zu App und Tarifen">
+          <a href="app.html" class="product-link product-link-primary">
+            App ansehen
+          </a>
 
-            <a href="mitgliedschaften.html" class="product-link product-link-secondary">
-              Tarife
-            </a>
-          </div>
+          <a href="mitgliedschaften.html" class="product-link product-link-secondary">
+            Tarife
+          </a>
         </div>
 
-        <div class="home-access-visual" aria-label="Vorschau auf den digitalen Zutritt">
-          <div class="home-access-visual-inner">
-            <div class="home-access-qr" aria-hidden="true">
-              QR
-            </div>
+        <div class="home-access-panel" aria-label="Vorschau auf den digitalen Zutritt">
+          <div class="home-access-qr" aria-hidden="true">
+            QR
+          </div>
 
-            <div class="home-access-list">
-              <span>Mitgliedschaft oder Tagespass in der App buchen</span>
-              <span>QR-Code für den Zutritt öffnen</span>
-              <span>24/7 Zugang je nach gebuchtem Tarif nutzen</span>
-            </div>
+          <div class="home-access-list">
+            <span>Mitgliedschaft oder Tagespass in der App buchen</span>
+            <span>QR-Code für den Zutritt öffnen</span>
+            <span>24/7 Zugang je nach gebuchtem Tarif nutzen</span>
           </div>
         </div>
       </div>
