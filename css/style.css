@@ -31,7 +31,7 @@
   --radius-pill: 999px;
 
   --max-width: 1240px;
-  --font-main: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-main: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --fast: 0.16s var(--ease);
@@ -439,6 +439,10 @@ main > section:first-child {
   margin-inline: auto;
 }
 
+.home-first-hero .product-copy {
+  max-width: min(100%, 1240px);
+}
+
 .product-copy h1,
 .product-copy h2,
 .app-showcase-copy h2 {
@@ -446,7 +450,18 @@ main > section:first-child {
   font-size: clamp(3.15rem, 7.7vw, 7.55rem);
   line-height: 0.91;
   letter-spacing: -0.064em;
+  font-weight: 760;
   text-wrap: balance;
+}
+
+.home-first-hero .product-copy h1 {
+  max-width: 1180px;
+  margin-inline: auto;
+  font-size: clamp(4.1rem, 6.35vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.072em;
+  white-space: nowrap;
+  text-wrap: nowrap;
 }
 
 .product-copy p,
@@ -460,6 +475,23 @@ main > section:first-child {
   text-wrap: balance;
 }
 
+.home-first-hero .product-copy > p:not(.eyebrow) {
+  max-width: 690px;
+  margin-top: 1rem;
+  color: var(--text-soft);
+  font-size: clamp(1.02rem, 1.32vw, 1.22rem);
+  line-height: 1.42;
+  letter-spacing: -0.018em;
+}
+
+.home-first-hero .eyebrow {
+  margin-bottom: 0.6rem;
+  color: var(--text-soft);
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.055em;
+}
+
 .product-actions {
   display: inline-flex;
   align-items: center;
@@ -467,6 +499,10 @@ main > section:first-child {
   gap: 0.75rem;
   flex-wrap: wrap;
   margin-top: 1.35rem;
+}
+
+.home-first-hero .product-actions {
+  margin-top: 2.05rem;
 }
 
 .product-link,
@@ -2710,11 +2746,30 @@ select[aria-invalid="true"] {
     letter-spacing: -0.056em;
   }
 
+  .home-first-hero .product-copy h1 {
+    max-width: 9.8ch;
+    font-size: clamp(2.85rem, 13vw, 4.35rem);
+    line-height: 0.94;
+    letter-spacing: -0.058em;
+    white-space: normal;
+    text-wrap: balance;
+  }
+
   .product-copy p,
   .app-showcase-copy p {
     max-width: 36ch;
     font-size: clamp(1.06rem, 4.2vw, 1.28rem);
     line-height: 1.34;
+  }
+
+  .home-first-hero .product-copy > p:not(.eyebrow) {
+    max-width: 34ch;
+    font-size: 1.02rem;
+    line-height: 1.42;
+  }
+
+  .home-first-hero .product-actions {
+    margin-top: 1.65rem;
   }
 
   .product-actions {
@@ -3203,6 +3258,10 @@ select[aria-invalid="true"] {
   .product-copy h1,
   .product-copy h2,
   .app-showcase-copy h2 {
+    font-size: clamp(2.52rem, 13.5vw, 3.55rem);
+  }
+
+  .home-first-hero .product-copy h1 {
     font-size: clamp(2.52rem, 13.5vw, 3.55rem);
   }
 
