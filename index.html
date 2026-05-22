@@ -15,8 +15,8 @@
   <style>
     .home-first-hero {
       min-height: auto;
-      padding-top: max(10.8rem, 15vh);
-      padding-bottom: 5.6rem;
+      padding-top: max(10.4rem, 15vh);
+      padding-bottom: 3.35rem;
       background: #ffffff;
     }
 
@@ -25,28 +25,23 @@
     }
 
     .home-first-hero .eyebrow {
-      margin-bottom: 0.78rem;
-      color: var(--text-soft);
-      font-size: 0.78rem;
-      font-weight: 860;
-      letter-spacing: 0.06em;
+      display: none;
     }
 
     .home-first-hero .product-copy h1 {
-      max-width: 1220px;
+      max-width: 1120px;
       margin-inline: auto;
       color: var(--text);
-      font-size: clamp(4rem, 6.25vw, 6.9rem);
-      line-height: 0.92;
-      letter-spacing: -0.074em;
+      font-size: clamp(4.2rem, 7vw, 7.35rem);
+      line-height: 0.91;
+      letter-spacing: -0.076em;
       font-weight: 760;
-      white-space: nowrap;
-      text-wrap: nowrap;
+      text-wrap: balance;
     }
 
     .home-first-hero .product-copy > p:not(.eyebrow) {
       max-width: 660px;
-      margin-top: 1.05rem;
+      margin-top: 1.12rem;
       color: var(--text-soft);
       font-size: clamp(1.02rem, 1.25vw, 1.17rem);
       line-height: 1.45;
@@ -55,7 +50,7 @@
     }
 
     .home-first-hero .product-actions {
-      margin-top: 2.35rem;
+      margin-top: 2.65rem;
     }
 
     .home-wide-section {
@@ -183,32 +178,42 @@
     }
 
     .home-access-section {
-      min-height: 86vh;
+      min-height: 94vh;
       display: grid;
       place-items: center;
-      padding: 7rem 1.5rem;
-      background: #f5f5f7;
+      padding: 7.4rem 1.5rem;
+      background:
+        linear-gradient(
+          180deg,
+          #f5f5f7 0%,
+          #eef6f0 20%,
+          #d6ecd9 43%,
+          #9fc9a7 64%,
+          #31463a 84%,
+          #0d100e 100%
+        );
       text-align: center;
+      color: #ffffff;
     }
 
     .home-access-inner {
-      width: min(100%, 980px);
+      width: min(100%, 1040px);
       margin-inline: auto;
     }
 
     .home-access-inner .eyebrow {
       margin-bottom: 0.78rem;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.78);
       font-size: 0.78rem;
       font-weight: 860;
       letter-spacing: 0.06em;
     }
 
     .home-access-inner h2 {
-      color: var(--text);
-      font-size: clamp(3.4rem, 6.8vw, 7.2rem);
-      line-height: 0.92;
-      letter-spacing: -0.074em;
+      color: #ffffff;
+      font-size: clamp(3.6rem, 7vw, 7.5rem);
+      line-height: 0.91;
+      letter-spacing: -0.076em;
       font-weight: 760;
       text-wrap: balance;
     }
@@ -216,7 +221,7 @@
     .home-access-inner p {
       max-width: 700px;
       margin: 1.05rem auto 0;
-      color: var(--text-soft);
+      color: rgba(255, 255, 255, 0.78);
       font-size: clamp(1.05rem, 1.45vw, 1.28rem);
       line-height: 1.45;
       letter-spacing: -0.018em;
@@ -227,79 +232,178 @@
       margin-top: 2.1rem;
     }
 
-    .home-access-panel {
-      width: min(100%, 820px);
-      margin: 4.2rem auto 0;
+    .home-access-inner .product-link-secondary {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.32);
+      box-shadow: none;
+      backdrop-filter: blur(18px) saturate(150%);
+      -webkit-backdrop-filter: blur(18px) saturate(150%);
+    }
+
+    .home-access-inner .product-link-secondary:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.42);
+    }
+
+    .home-access-preview {
+      width: min(100%, 900px);
+      margin: 4.4rem auto 0;
       display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: 1rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .home-access-preview-card {
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 0.55rem;
+      padding: 1.15rem;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(18px) saturate(145%);
+      -webkit-backdrop-filter: blur(18px) saturate(145%);
+    }
+
+    .home-access-preview-card span {
+      color: rgba(255, 255, 255, 0.64);
+      font-size: 0.72rem;
+      line-height: 1;
+      font-weight: 850;
+      letter-spacing: 0.055em;
+      text-transform: uppercase;
+    }
+
+    .home-access-preview-card strong {
+      color: #ffffff;
+      font-size: clamp(1.34rem, 2.2vw, 2rem);
+      line-height: 1;
+      letter-spacing: -0.052em;
+      font-weight: 760;
+      text-wrap: balance;
+    }
+
+    .home-app-section {
+      min-height: 92vh;
+      display: grid;
+      place-items: center;
+      padding: 7.2rem 1.5rem;
+      background: #f5f5f7;
+      text-align: center;
+    }
+
+    .home-app-inner {
+      width: min(100%, 1120px);
+      margin-inline: auto;
+    }
+
+    .home-app-inner .eyebrow {
+      margin-bottom: 0.78rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 860;
+      letter-spacing: 0.06em;
+    }
+
+    .home-app-inner h2 {
+      max-width: 920px;
+      margin-inline: auto;
+      color: var(--text);
+      font-size: clamp(3.4rem, 6.8vw, 7.2rem);
+      line-height: 0.92;
+      letter-spacing: -0.076em;
+      font-weight: 760;
+      text-wrap: balance;
+    }
+
+    .home-app-inner p {
+      max-width: 690px;
+      margin: 1.05rem auto 0;
+      color: var(--text-soft);
+      font-size: clamp(1.05rem, 1.45vw, 1.25rem);
+      line-height: 1.45;
+      letter-spacing: -0.018em;
+      text-wrap: balance;
+    }
+
+    .home-app-inner .product-actions {
+      margin-top: 2.1rem;
+    }
+
+    .home-app-preview {
+      width: min(100%, 980px);
+      margin: 4.4rem auto 0;
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+      gap: 0.75rem;
       align-items: stretch;
     }
 
-    .home-access-qr,
-    .home-access-list {
-      min-height: 300px;
-      border-radius: 0;
+    .home-app-phone,
+    .home-app-info {
+      min-height: 430px;
       background: #ffffff;
     }
 
-    .home-access-qr {
+    .home-app-phone {
       display: grid;
       place-items: center;
-      color: var(--text);
-      font-size: clamp(3.4rem, 8vw, 6rem);
-      line-height: 1;
-      letter-spacing: -0.06em;
-      font-weight: 760;
+      padding: 1.4rem;
     }
 
-    .home-access-list {
+    .home-app-phone-frame {
+      width: min(74%, 260px);
+      aspect-ratio: 9 / 18.5;
+      display: grid;
+      place-items: center;
+      border-radius: 34px;
+      color: var(--text);
+      background: #f5f5f7;
+      border: 8px solid #1d1d1f;
+      box-shadow: 0 22px 44px rgba(0, 0, 0, 0.14);
+      font-size: 1rem;
+      font-weight: 760;
+      letter-spacing: -0.02em;
+    }
+
+    .home-app-info {
       display: grid;
       align-content: center;
-      gap: 0.65rem;
-      padding: clamp(1rem, 2vw, 1.4rem);
+      gap: 0.8rem;
+      padding: clamp(1.25rem, 2.4vw, 2rem);
       text-align: left;
     }
 
-    .home-access-list span {
-      display: flex;
-      align-items: center;
-      min-height: 58px;
-      padding: 0.9rem 1rem;
+    .home-app-info-row {
+      padding: 1rem 1.05rem;
       background: #f5f5f7;
-      color: var(--text-soft);
-      font-size: 1rem;
-      line-height: 1.35;
-      letter-spacing: -0.014em;
-      font-weight: 650;
     }
 
-    .home-access-list span::before {
-      content: "✓";
-      width: 1.08rem;
-      height: 1.08rem;
-      margin-right: 0.62rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      color: #ffffff;
-      background: var(--nf-green);
-      font-size: 0.68rem;
-      line-height: 1;
-      font-weight: 900;
-      flex: 0 0 auto;
+    .home-app-info-row span {
+      display: block;
+      margin-bottom: 0.28rem;
+      color: var(--nf-green-dark);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.055em;
+      text-transform: uppercase;
     }
 
-    .app-showcase-section {
-      background: #ffffff;
+    .home-app-info-row strong {
+      display: block;
+      color: var(--text);
+      font-size: clamp(1.18rem, 1.6vw, 1.52rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      font-weight: 760;
     }
 
     @media (max-width: 1100px) {
       .home-first-hero .product-copy h1 {
         max-width: 10.5ch;
-        white-space: normal;
-        text-wrap: balance;
       }
 
       .home-studio-grid {
@@ -319,11 +423,7 @@
     @media (max-width: 768px) {
       .home-first-hero {
         padding-top: max(9.4rem, 16vh);
-        padding-bottom: 4.6rem;
-      }
-
-      .home-first-hero .eyebrow {
-        font-size: 0.72rem;
+        padding-bottom: 3.8rem;
       }
 
       .home-first-hero .product-copy h1 {
@@ -340,7 +440,7 @@
       }
 
       .home-first-hero .product-actions {
-        margin-top: 2rem;
+        margin-top: 2.1rem;
       }
 
       .home-studio-grid {
@@ -369,29 +469,45 @@
         font-size: clamp(1.6rem, 8vw, 2.4rem);
       }
 
-      .home-access-section {
+      .home-access-section,
+      .home-app-section {
         min-height: auto;
         padding: 6rem 1rem;
       }
 
-      .home-access-inner h2 {
+      .home-access-inner h2,
+      .home-app-inner h2 {
         font-size: clamp(2.85rem, 13vw, 4.35rem);
         letter-spacing: -0.058em;
       }
 
-      .home-access-inner p {
+      .home-access-inner p,
+      .home-app-inner p {
         max-width: 34ch;
         font-size: 1.02rem;
       }
 
-      .home-access-panel {
-        margin-top: 3.2rem;
+      .home-access-preview {
         grid-template-columns: 1fr;
+        margin-top: 3.2rem;
       }
 
-      .home-access-qr,
-      .home-access-list {
-        min-height: 260px;
+      .home-access-preview-card {
+        min-height: 150px;
+      }
+
+      .home-app-preview {
+        grid-template-columns: 1fr;
+        margin-top: 3.2rem;
+      }
+
+      .home-app-phone,
+      .home-app-info {
+        min-height: 320px;
+      }
+
+      .home-app-phone-frame {
+        width: min(58%, 220px);
       }
     }
 
@@ -421,18 +537,18 @@
         min-height: 230px;
       }
 
-      .home-access-inner h2 {
+      .home-access-inner h2,
+      .home-app-inner h2 {
         font-size: clamp(2.52rem, 13.5vw, 3.55rem);
       }
 
-      .home-access-qr,
-      .home-access-list {
-        min-height: 230px;
+      .home-app-phone,
+      .home-app-info {
+        min-height: 280px;
       }
 
-      .home-access-list span {
-        min-height: 54px;
-        font-size: 0.96rem;
+      .home-app-phone-frame {
+        width: min(70%, 200px);
       }
     }
   </style>
@@ -531,49 +647,69 @@
           </a>
         </div>
 
-        <div class="home-access-panel" aria-label="Vorschau auf den digitalen Zutritt">
-          <div class="home-access-qr" aria-hidden="true">
-            QR
-          </div>
+        <div class="home-access-preview" aria-label="Vorteile des digitalen Zugangs">
+          <article class="home-access-preview-card">
+            <span>01</span>
+            <strong>In der App buchen.</strong>
+          </article>
 
-          <div class="home-access-list">
-            <span>Mitgliedschaft oder Tagespass in der App buchen</span>
-            <span>QR-Code für den Zutritt öffnen</span>
-            <span>24/7 Zugang je nach gebuchtem Tarif nutzen</span>
-          </div>
+          <article class="home-access-preview-card">
+            <span>02</span>
+            <strong>QR-Code öffnen.</strong>
+          </article>
+
+          <article class="home-access-preview-card">
+            <span>03</span>
+            <strong>Studio betreten.</strong>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="app-showcase-section" aria-labelledby="home-app-title">
-      <div class="container app-showcase-container">
-        <div class="app-showcase-copy">
-          <p class="eyebrow">Nordkern Fitness App</p>
+    <section class="home-app-section" aria-labelledby="home-app-title">
+      <div class="home-app-inner">
+        <p class="eyebrow">Nordkern Fitness App</p>
 
-          <h2 id="home-app-title">Alles Wichtige in einer App.</h2>
+        <h2 id="home-app-title">Alles Wichtige in einer App.</h2>
 
-          <p>
-            Mitgliedschaft buchen, Tagespass aktivieren und per QR-Code ins Studio.
-            Klar gebündelt, damit dein Training nicht mit Papierkram beginnt.
-          </p>
+        <p>
+          Mitgliedschaft buchen, Tagespass aktivieren und per QR-Code ins Studio.
+          Klar gebündelt, damit dein Training nicht mit Papierkram beginnt.
+        </p>
 
-          <div class="product-actions app-showcase-actions" aria-label="Links zur App und zum Kontakt">
-            <a href="app.html" class="product-link product-link-primary">
-              Zur App
-            </a>
+        <div class="product-actions" aria-label="Links zur App und zum Kontakt">
+          <a href="app.html" class="product-link product-link-primary">
+            Zur App
+          </a>
 
-            <a href="kontakt.html" class="product-link product-link-secondary">
-              Kontakt
-            </a>
-          </div>
+          <a href="kontakt.html" class="product-link product-link-secondary">
+            Kontakt
+          </a>
         </div>
 
-        <div class="app-showcase-visual" aria-hidden="true">
-          <img
-            src="images/app-screen.png"
-            alt=""
-            class="app-showcase-image"
-          />
+        <div class="home-app-preview" aria-label="Vorschau auf die Nordkern Fitness App">
+          <div class="home-app-phone" aria-hidden="true">
+            <div class="home-app-phone-frame">
+              App Vorschau
+            </div>
+          </div>
+
+          <div class="home-app-info">
+            <div class="home-app-info-row">
+              <span>Buchen</span>
+              <strong>Mitgliedschaft oder Tagespass digital auswählen.</strong>
+            </div>
+
+            <div class="home-app-info-row">
+              <span>Zutritt</span>
+              <strong>QR-Code direkt in der App öffnen.</strong>
+            </div>
+
+            <div class="home-app-info-row">
+              <span>Übersicht</span>
+              <strong>Tarif, Laufzeit und Zugang klar gebündelt.</strong>
+            </div>
+          </div>
         </div>
       </div>
     </section>
