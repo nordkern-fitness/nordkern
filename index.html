@@ -14,12 +14,10 @@
 
   <style>
     .home-first-hero {
-      min-height: 100vh;
-      padding-top: max(10.8rem, 16vh);
-      padding-bottom: 5.8rem;
-      background:
-        radial-gradient(circle at 50% 28%, rgba(46, 145, 63, 0.045), transparent 34rem),
-        linear-gradient(180deg, #fbfbfd 0%, #ffffff 62%, #f5f5f7 100%);
+      min-height: auto;
+      padding-top: max(10.7rem, 15vh);
+      padding-bottom: 5.4rem;
+      background: #ffffff;
     }
 
     .home-first-hero .product-copy {
@@ -27,7 +25,7 @@
     }
 
     .home-first-hero .eyebrow {
-      margin-bottom: 0.72rem;
+      margin-bottom: 0.78rem;
       color: var(--text-soft);
       font-size: 0.78rem;
       font-weight: 860;
@@ -38,7 +36,7 @@
       max-width: 1220px;
       margin-inline: auto;
       color: var(--text);
-      font-size: clamp(4.1rem, 6.35vw, 7rem);
+      font-size: clamp(4rem, 6.25vw, 6.9rem);
       line-height: 0.92;
       letter-spacing: -0.074em;
       font-weight: 760;
@@ -47,281 +45,284 @@
     }
 
     .home-first-hero .product-copy > p:not(.eyebrow) {
-      max-width: 650px;
+      max-width: 660px;
       margin-top: 1.05rem;
       color: var(--text-soft);
-      font-size: clamp(1.02rem, 1.25vw, 1.18rem);
+      font-size: clamp(1.02rem, 1.25vw, 1.17rem);
       line-height: 1.45;
       letter-spacing: -0.018em;
       text-wrap: balance;
     }
 
     .home-first-hero .product-actions {
-      margin-top: 2.45rem;
+      margin-top: 2.35rem;
     }
 
-    .home-hero-media-grid {
-      position: relative;
-      z-index: 2;
-      width: min(100% - 2rem, 1180px);
-      min-height: clamp(410px, 38vw, 560px);
+    .home-media-section {
+      padding: 0 0 6.2rem;
+      background: #ffffff;
+    }
+
+    .home-media-grid {
+      width: min(100% - 2rem, 1240px);
+      margin-inline: auto;
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      grid-template-columns: minmax(0, 1.34fr) minmax(320px, 0.66fr);
       gap: 1rem;
-      margin: 5.6rem auto 0;
+      align-items: stretch;
     }
 
-    .home-hero-media-card {
+    .home-media-side {
+      display: grid;
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .home-media-card {
       position: relative;
       overflow: hidden;
+      min-height: 300px;
       border-radius: 26px;
-      background: linear-gradient(145deg, #f5f5f7 0%, #ececef 52%, #fafafa 100%);
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      box-shadow:
-        0 28px 70px rgba(0, 0, 0, 0.08),
-        0 0 0 1px rgba(255, 255, 255, 0.62);
+      background: #f5f5f7;
+      border: 1px solid rgba(0, 0, 0, 0.055);
+      box-shadow: none;
       isolation: isolate;
     }
 
-    .home-hero-media-card::before {
+    .home-media-card-large {
+      min-height: clamp(460px, 41vw, 640px);
+    }
+
+    .home-media-card-small {
+      min-height: 0;
+    }
+
+    .home-media-card::before {
       content: "";
       position: absolute;
       inset: 0;
       z-index: 0;
       pointer-events: none;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.62), transparent 42%),
-        radial-gradient(circle at 76% 20%, rgba(46, 145, 63, 0.08), transparent 20rem);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0) 44%),
+        linear-gradient(135deg, #f5f5f7 0%, #eeeeef 52%, #fbfbfd 100%);
     }
 
-    .home-hero-media-card-large {
-      min-height: inherit;
-    }
-
-    .home-hero-media-side {
-      display: grid;
-      grid-template-rows: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .home-hero-placeholder-content {
+    .home-media-content {
       position: relative;
       z-index: 2;
       min-height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: clamp(1.15rem, 2.2vw, 1.65rem);
+      gap: 2rem;
+      padding: clamp(1.25rem, 2.4vw, 2rem);
       text-align: left;
     }
 
-    .home-hero-placeholder-kicker {
+    .home-media-kicker {
       width: fit-content;
       display: inline-flex;
       align-items: center;
-      gap: 0.42rem;
-      padding: 0.35rem 0.6rem;
-      border-radius: 999px;
+      gap: 0.38rem;
       color: var(--muted);
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(255, 255, 255, 0.76);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.035);
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       line-height: 1;
-      font-weight: 820;
-      letter-spacing: 0.045em;
+      font-weight: 850;
+      letter-spacing: 0.055em;
       text-transform: uppercase;
     }
 
-    .home-hero-placeholder-kicker::before {
+    .home-media-kicker::before {
       content: "✦";
       color: var(--nf-green);
-      font-size: 0.74rem;
+      font-size: 0.78rem;
       line-height: 1;
     }
 
-    .home-hero-placeholder-text {
+    .home-media-text {
       display: grid;
-      gap: 0.38rem;
-      max-width: 34ch;
+      gap: 0.42rem;
+      max-width: 36ch;
     }
 
-    .home-hero-placeholder-text strong {
+    .home-media-text strong {
       color: var(--text);
-      font-size: clamp(1.42rem, 2.5vw, 2.35rem);
-      line-height: 1;
-      letter-spacing: -0.052em;
+      font-size: clamp(1.75rem, 3.2vw, 3rem);
+      line-height: 0.96;
+      letter-spacing: -0.058em;
       font-weight: 760;
       text-wrap: balance;
     }
 
-    .home-hero-media-card-small .home-hero-placeholder-text strong {
-      font-size: clamp(1.28rem, 1.85vw, 1.72rem);
+    .home-media-card-small .home-media-text strong {
+      font-size: clamp(1.45rem, 2.1vw, 2rem);
     }
 
-    .home-hero-placeholder-text span {
+    .home-media-text span {
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       line-height: 1.42;
       letter-spacing: -0.014em;
     }
 
-    .home-hero-placeholder-visual {
+    .home-media-placeholder-mark {
       position: absolute;
-      right: -3rem;
-      bottom: -3.5rem;
+      right: clamp(1rem, 2vw, 1.6rem);
+      bottom: clamp(1rem, 2vw, 1.6rem);
       z-index: 1;
-      width: clamp(190px, 24vw, 340px);
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(46, 145, 63, 0.10), rgba(46, 145, 63, 0.035) 48%, transparent 70%);
-      filter: blur(2px);
-    }
-
-    .home-hero-media-card-small .home-hero-placeholder-visual {
-      right: -3.6rem;
-      bottom: -4rem;
-      width: clamp(150px, 18vw, 250px);
-    }
-
-    .home-hero-placeholder-lines {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
+      color: rgba(29, 29, 31, 0.045);
+      font-size: clamp(5rem, 12vw, 12rem);
+      line-height: 0.8;
+      letter-spacing: -0.08em;
+      font-weight: 760;
       pointer-events: none;
-      opacity: 0.28;
-      background:
-        linear-gradient(90deg, transparent 0%, transparent 49.7%, rgba(46, 145, 63, 0.055) 49.7%, rgba(46, 145, 63, 0.055) 50.3%, transparent 50.3%),
-        linear-gradient(0deg, transparent 0%, transparent 49.7%, rgba(0, 0, 0, 0.025) 49.7%, rgba(0, 0, 0, 0.025) 50.3%, transparent 50.3%);
-      background-size: 68px 68px;
-      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.32), transparent 74%);
-      -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.32), transparent 74%);
+      user-select: none;
     }
 
     .home-access-section {
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
-      padding: 8rem 1.5rem;
-      text-align: center;
+      padding: 6.8rem 0 7.4rem;
       background:
-        linear-gradient(180deg, #f5f5f7 0%, #eef7f0 34%, #dff0e3 68%, #ffffff 100%);
+        linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
     }
 
-    .home-access-inner {
-      width: min(100%, 1180px);
+    .home-access-shell {
+      width: min(100% - 2rem, 1240px);
       margin-inline: auto;
       display: grid;
-      justify-items: center;
+      gap: 2.4rem;
+      text-align: center;
     }
 
-    .home-access-kicker {
-      margin-bottom: 0.75rem;
-      color: var(--nf-green-dark);
-      font-size: 0.8rem;
+    .home-access-copy {
+      max-width: 900px;
+      margin-inline: auto;
+    }
+
+    .home-access-copy .eyebrow {
+      margin-bottom: 0.78rem;
+      color: var(--muted);
+      font-size: 0.78rem;
       font-weight: 860;
       letter-spacing: 0.06em;
-      text-transform: uppercase;
     }
 
-    .home-access-title {
-      max-width: 980px;
+    .home-access-copy h2 {
       color: var(--text);
-      font-size: clamp(3.2rem, 7.4vw, 7.2rem);
+      font-size: clamp(3.2rem, 6.4vw, 6.8rem);
       line-height: 0.92;
       letter-spacing: -0.072em;
       font-weight: 760;
       text-wrap: balance;
     }
 
-    .home-access-text {
-      max-width: 650px;
-      margin-top: 1.05rem;
+    .home-access-copy p {
+      max-width: 680px;
+      margin: 1.05rem auto 0;
       color: var(--text-soft);
-      font-size: clamp(1.04rem, 1.35vw, 1.24rem);
+      font-size: clamp(1.04rem, 1.4vw, 1.24rem);
       line-height: 1.45;
       letter-spacing: -0.018em;
       text-wrap: balance;
     }
 
-    .home-access-actions {
-      margin-top: 2rem;
+    .home-access-copy .product-actions {
+      margin-top: 2.1rem;
     }
 
     .home-access-visual {
-      width: min(100%, 920px);
-      min-height: clamp(220px, 28vw, 390px);
-      margin-top: 4rem;
-      position: relative;
-      border-radius: 26px;
+      min-height: clamp(360px, 38vw, 560px);
+      display: grid;
+      place-items: center;
       overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.46)),
-        radial-gradient(circle at 50% 20%, rgba(46, 145, 63, 0.14), transparent 26rem),
-        linear-gradient(135deg, #f8f8fa, #edf5ef 52%, #ffffff);
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      box-shadow:
-        0 32px 90px rgba(0, 0, 0, 0.075),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      border-radius: 26px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.055);
+      box-shadow: none;
     }
 
-    .home-access-visual::before {
-      content: "QR";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: clamp(88px, 10vw, 138px);
-      height: clamp(88px, 10vw, 138px);
+    .home-access-visual-inner {
+      width: min(100% - 2rem, 760px);
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .home-access-qr {
+      aspect-ratio: 1;
       display: grid;
       place-items: center;
       border-radius: 24px;
+      background: #f5f5f7;
+      border: 1px solid rgba(0, 0, 0, 0.055);
       color: var(--text);
-      background: #ffffff;
-      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.08);
-      font-size: clamp(1.55rem, 2.4vw, 2.45rem);
-      font-weight: 780;
-      letter-spacing: -0.05em;
-      transform: translate(-50%, -50%);
+      font-size: clamp(3.2rem, 8vw, 5.8rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      font-weight: 760;
     }
 
-    .home-access-visual::after {
-      content: "Digitaler Zugang über die Nordkern Fitness App";
-      position: absolute;
-      left: 50%;
-      bottom: 1.35rem;
-      width: max-content;
-      max-width: calc(100% - 2rem);
-      color: var(--muted);
-      font-size: 0.9rem;
+    .home-access-list {
+      display: grid;
+      gap: 0.65rem;
+      text-align: left;
+    }
+
+    .home-access-list span {
+      display: flex;
+      align-items: center;
+      min-height: 58px;
+      padding: 0.9rem 1rem;
+      border-radius: 18px;
+      background: #f5f5f7;
+      border: 1px solid rgba(0, 0, 0, 0.045);
+      color: var(--text-soft);
+      font-size: 1rem;
       line-height: 1.35;
-      letter-spacing: -0.01em;
-      text-align: center;
-      transform: translateX(-50%);
+      letter-spacing: -0.014em;
+      font-weight: 650;
+    }
+
+    .home-access-list span::before {
+      content: "✓";
+      width: 1.08rem;
+      height: 1.08rem;
+      margin-right: 0.62rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      color: #ffffff;
+      background: var(--nf-green);
+      font-size: 0.68rem;
+      line-height: 1;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .app-showcase-section {
+      background: #ffffff;
     }
 
     @media (max-width: 1100px) {
       .home-first-hero .product-copy h1 {
-        font-size: clamp(3.2rem, 8vw, 5.8rem);
+        max-width: 10.5ch;
         white-space: normal;
         text-wrap: balance;
       }
 
-      .home-hero-media-grid {
+      .home-media-grid {
         grid-template-columns: 1fr;
-        min-height: auto;
       }
 
-      .home-hero-media-card-large {
-        min-height: 430px;
-      }
-
-      .home-hero-media-side {
+      .home-media-side {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-template-rows: none;
       }
 
-      .home-hero-media-card-small {
-        min-height: 260px;
+      .home-media-card-small {
+        min-height: 280px;
       }
     }
 
@@ -352,60 +353,72 @@
         margin-top: 2rem;
       }
 
-      .home-hero-media-grid {
-        width: min(100%, 1180px);
+      .home-media-section {
+        padding-bottom: 5.2rem;
+      }
+
+      .home-media-grid {
+        width: min(100% - 1.2rem, 1240px);
         gap: 0.85rem;
-        margin-top: 4.2rem;
       }
 
-      .home-hero-media-card {
-        border-radius: 22px;
-      }
-
-      .home-hero-media-card-large {
-        min-height: 360px;
-      }
-
-      .home-hero-media-side {
+      .home-media-side {
         grid-template-columns: 1fr;
         gap: 0.85rem;
       }
 
-      .home-hero-media-card-small {
-        min-height: 230px;
+      .home-media-card {
+        border-radius: 22px;
       }
 
-      .home-hero-placeholder-content {
+      .home-media-card-large {
+        min-height: 380px;
+      }
+
+      .home-media-card-small {
+        min-height: 240px;
+      }
+
+      .home-media-content {
         padding: 1.15rem;
       }
 
-      .home-hero-placeholder-text strong {
-        font-size: clamp(1.5rem, 8vw, 2.25rem);
-      }
-
-      .home-hero-media-card-small .home-hero-placeholder-text strong {
-        font-size: clamp(1.42rem, 7vw, 2rem);
+      .home-media-text strong {
+        font-size: clamp(1.55rem, 8vw, 2.35rem);
       }
 
       .home-access-section {
-        min-height: 86vh;
-        padding: 6.5rem 1rem;
+        padding: 5.8rem 0 6.2rem;
       }
 
-      .home-access-title {
-        font-size: clamp(2.85rem, 13vw, 4.4rem);
+      .home-access-shell {
+        width: min(100% - 1.2rem, 1240px);
+      }
+
+      .home-access-copy h2 {
+        font-size: clamp(2.85rem, 13vw, 4.35rem);
         letter-spacing: -0.058em;
       }
 
-      .home-access-text {
+      .home-access-copy p {
         max-width: 34ch;
         font-size: 1.02rem;
       }
 
       .home-access-visual {
-        margin-top: 3rem;
-        min-height: 260px;
+        min-height: auto;
+        padding: 1rem;
         border-radius: 22px;
+      }
+
+      .home-access-visual-inner {
+        width: 100%;
+        grid-template-columns: 1fr;
+      }
+
+      .home-access-qr {
+        min-height: 260px;
+        border-radius: 20px;
       }
     }
 
@@ -418,16 +431,30 @@
         font-size: clamp(2.52rem, 13.5vw, 3.55rem);
       }
 
-      .home-hero-media-card-large {
-        min-height: 320px;
+      .home-media-grid,
+      .home-access-shell {
+        width: min(100% - 1rem, 1240px);
       }
 
-      .home-hero-media-card-small {
-        min-height: 215px;
+      .home-media-card-large {
+        min-height: 330px;
       }
 
-      .home-access-visual {
-        min-height: 235px;
+      .home-media-card-small {
+        min-height: 220px;
+      }
+
+      .home-access-copy h2 {
+        font-size: clamp(2.52rem, 13.5vw, 3.55rem);
+      }
+
+      .home-access-qr {
+        min-height: 230px;
+      }
+
+      .home-access-list span {
+        min-height: 54px;
+        font-size: 0.96rem;
       }
     }
   </style>
@@ -458,45 +485,44 @@
           </a>
         </div>
       </div>
+    </section>
 
-      <div class="home-hero-media-grid" aria-label="Vorschau auf Nordkern Fitness Grevesmühlen">
-        <article class="home-hero-media-card home-hero-media-card-large">
-          <div class="home-hero-placeholder-lines" aria-hidden="true"></div>
-          <div class="home-hero-placeholder-visual" aria-hidden="true"></div>
+    <section class="home-media-section" aria-label="Vorschau auf Nordkern Fitness Grevesmühlen">
+      <div class="home-media-grid">
+        <article class="home-media-card home-media-card-large">
+          <span class="home-media-placeholder-mark" aria-hidden="true">01</span>
 
-          <div class="home-hero-placeholder-content">
-            <span class="home-hero-placeholder-kicker">Studio Grevesmühlen</span>
+          <div class="home-media-content">
+            <span class="home-media-kicker">Studio Grevesmühlen</span>
 
-            <div class="home-hero-placeholder-text">
+            <div class="home-media-text">
               <strong>Ruhige Trainingsfläche. Klarer Fokus.</strong>
               <span>Platzhalter für das große Studio-Bild auf der Startseite.</span>
             </div>
           </div>
         </article>
 
-        <div class="home-hero-media-side">
-          <article class="home-hero-media-card home-hero-media-card-small">
-            <div class="home-hero-placeholder-lines" aria-hidden="true"></div>
-            <div class="home-hero-placeholder-visual" aria-hidden="true"></div>
+        <div class="home-media-side">
+          <article class="home-media-card home-media-card-small">
+            <span class="home-media-placeholder-mark" aria-hidden="true">02</span>
 
-            <div class="home-hero-placeholder-content">
-              <span class="home-hero-placeholder-kicker">Zugang</span>
+            <div class="home-media-content">
+              <span class="home-media-kicker">Zugang</span>
 
-              <div class="home-hero-placeholder-text">
+              <div class="home-media-text">
                 <strong>24/7 per App.</strong>
                 <span>Platzhalter für QR-Code-Zutritt oder Eingang.</span>
               </div>
             </div>
           </article>
 
-          <article class="home-hero-media-card home-hero-media-card-small">
-            <div class="home-hero-placeholder-lines" aria-hidden="true"></div>
-            <div class="home-hero-placeholder-visual" aria-hidden="true"></div>
+          <article class="home-media-card home-media-card-small">
+            <span class="home-media-placeholder-mark" aria-hidden="true">03</span>
 
-            <div class="home-hero-placeholder-content">
-              <span class="home-hero-placeholder-kicker">Atmosphäre</span>
+            <div class="home-media-content">
+              <span class="home-media-kicker">Atmosphäre</span>
 
-              <div class="home-hero-placeholder-text">
+              <div class="home-media-text">
                 <strong>Modern. Still. Stark.</strong>
                 <span>Platzhalter für Detailaufnahme, Geräte oder Lichtstimmung.</span>
               </div>
@@ -507,29 +533,41 @@
     </section>
 
     <section class="home-access-section" aria-labelledby="home-access-title">
-      <div class="home-access-inner">
-        <p class="home-access-kicker">24/7 Zugang</p>
+      <div class="home-access-shell">
+        <div class="home-access-copy">
+          <p class="eyebrow">24/7 Zugang</p>
 
-        <h2 class="home-access-title" id="home-access-title">
-          Bereit, wenn du es bist.
-        </h2>
+          <h2 id="home-access-title">Bereit, wenn du es bist.</h2>
 
-        <p class="home-access-text">
-          Trainiere dann, wenn es in deinen Alltag passt. Früh, spät oder spontan —
-          dein Zugang läuft digital über die Nordkern Fitness App.
-        </p>
+          <p>
+            Trainiere dann, wenn es in deinen Alltag passt. Früh, spät oder spontan —
+            dein Zugang läuft digital über die Nordkern Fitness App.
+          </p>
 
-        <div class="product-actions home-access-actions" aria-label="Links zu App und Tarifen">
-          <a href="app.html" class="product-link product-link-primary">
-            App ansehen
-          </a>
+          <div class="product-actions" aria-label="Links zu App und Tarifen">
+            <a href="app.html" class="product-link product-link-primary">
+              App ansehen
+            </a>
 
-          <a href="mitgliedschaften.html" class="product-link product-link-secondary">
-            Tarife
-          </a>
+            <a href="mitgliedschaften.html" class="product-link product-link-secondary">
+              Tarife
+            </a>
+          </div>
         </div>
 
-        <div class="home-access-visual" aria-hidden="true"></div>
+        <div class="home-access-visual" aria-label="Vorschau auf den digitalen Zutritt">
+          <div class="home-access-visual-inner">
+            <div class="home-access-qr" aria-hidden="true">
+              QR
+            </div>
+
+            <div class="home-access-list">
+              <span>Mitgliedschaft oder Tagespass in der App buchen</span>
+              <span>QR-Code für den Zutritt öffnen</span>
+              <span>24/7 Zugang je nach gebuchtem Tarif nutzen</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
