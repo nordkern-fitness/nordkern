@@ -22,7 +22,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     galleryRow: ".gallery-row",
     galleryArrow: "[data-gallery-target]",
     locationPicker: ".location-picker",
-    locationButton: "[data-location-button]"
+    locationButton: "[data-location-button]",
+    tariffInfoModal: "#tariff-info-modal",
+    tariffInfoBox: ".tariff-info-box",
+    tariffInfoTitle: "#tariff-info-title",
+    tariffInfoText: "#tariff-info-text",
+    tariffInfoClose: ".tariff-info-close",
+    tariffInfoButton: ".runtime-info-button, .extra-info-button"
   };
 
   const keys = {
@@ -321,6 +327,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const closeAllModals = () => {
     modals.forEach((modal) => closeModal(modal));
+
+    const tariffInfoModal = document.querySelector(selectors.tariffInfoModal);
+
+    if (tariffInfoModal && tariffInfoModal.classList.contains("show")) {
+      tariffInfoModal.classList.remove("show");
+      tariffInfoModal.setAttribute("aria-hidden", "true");
+      body.classList.remove("modal-open");
+    }
   };
 
   const trapModalFocus = (event) => {
@@ -628,6 +642,98 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   };
 
+  const setupTariffInfoModal = () => {
+    const modal = document.querySelector(selectors.tariffInfoModal);
+    if (!modal) return;
+
+    const modalBox = modal.querySelector(selectors.tariffInfoBox);
+    const modalTitle = document.querySelector(selectors.tariffInfoTitle);
+    const modalText = document.querySelector(selectors.tariffInfoText);
+    const closeButton = document.querySelector(selectors.tariffInfoClose);
+    const infoButtons = document.querySelectorAll(selectors.tariffInfoButton);
+
+    let tariffLastFocusedElement = null;
+
+    const openTariffModal = (title, text, trigger) => {
+      if (!modal || !modalBox || !modalTitle || !modalText) return;
+
+      tariffLastFocusedElement = trigger || document.activeElement;
+
+      modalTitle.textContent = title || "Information";
+      modalText.textContent = text || "";
+      modal.classList.add("show");
+      modal.setAttribute("aria-hidden", "false");
+      body.classList.add("modal-open");
+
+      activeModal = modal;
+
+      window.setTimeout(() => {
+        closeButton?.focus({ preventScroll: true });
+      }, shouldReduceMotion() ? 0 : 80);
+    };
+
+    const closeTariffModal = () => {
+      modal.classList.remove("show");
+      modal.setAttribute("aria-hidden", "true");
+      body.classList.remove("modal-open");
+
+      if (tariffLastFocusedElement && typeof tariffLastFocusedElement.focus === "function") {
+        tariffLastFocusedElement.focus({ preventScroll: true });
+      }
+
+      tariffLastFocusedElement = null;
+
+      if (activeModal === modal) {
+        activeModal = null;
+      }
+    };
+
+    infoButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        openTariffModal(
+          button.dataset.infoTitle || "Information",
+          button.dataset.infoText || "",
+          button
+        );
+      });
+    });
+
+    if (closeButton) {
+      closeButton.addEventListener("click", closeTariffModal);
+    }
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeTariffModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!modal.classList.contains("show")) return;
+
+      if (event.key === keys.escape) {
+        closeTariffModal();
+        return;
+      }
+
+      if (event.key !== keys.tab) return;
+
+      const focusableElements = getFocusableElements(modal);
+      if (!focusableElements.length) return;
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    });
+  };
+
   const setupGalleryDrag = () => {
     const galleryRows = document.querySelectorAll(selectors.galleryRow);
 
@@ -799,6 +905,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupModals();
   setupGlobalKeyboardShortcuts();
   setupContactForm();
+  setupTariffInfoModal();
   setupGalleryDrag();
   setupGalleryArrows();
   setupLocationFallback();
