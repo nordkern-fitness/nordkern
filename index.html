@@ -13,6 +13,10 @@
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
+    .home-product-page {
+      background: #ffffff;
+    }
+
     .home-first-hero {
       min-height: auto;
       padding-top: max(10.4rem, 15vh);
@@ -59,7 +63,8 @@
     }
 
     .home-studio-section {
-      padding: 0 0 0.75rem;
+      padding: 0 0 0;
+      background: #ffffff;
     }
 
     .home-studio-grid {
@@ -69,6 +74,7 @@
       gap: 0.75rem;
       align-items: stretch;
       padding-inline: 0.75rem;
+      background: #ffffff;
     }
 
     .home-studio-side {
@@ -101,8 +107,8 @@
       z-index: 0;
       pointer-events: none;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0) 46%),
-        linear-gradient(135deg, #f5f5f7 0%, #ececef 54%, #fbfbfd 100%);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0) 44%),
+        linear-gradient(135deg, #f5f5f7 0%, #eeeeef 54%, #fbfbfd 100%);
     }
 
     .home-studio-content {
@@ -178,59 +184,61 @@
     }
 
     .home-access-section {
-      min-height: 92vh;
+      min-height: auto;
       display: grid;
       place-items: center;
-      padding: 7.5rem 1.5rem;
+      padding: 5.4rem 1.5rem 5.8rem;
       background:
         linear-gradient(
           180deg,
           #ffffff 0%,
-          #eef8f0 18%,
-          #c9e8cf 46%,
-          #98cf9f 68%,
-          #f7fbf8 100%
+          #f7fcf8 9%,
+          #e8f6eb 21%,
+          #cdebd2 45%,
+          #acdcb4 66%,
+          #eef8f0 88%,
+          #ffffff 100%
         );
       text-align: center;
       color: var(--text);
     }
 
     .home-access-inner {
-      width: min(100%, 1040px);
+      width: min(100%, 980px);
       margin-inline: auto;
     }
 
     .home-access-inner h2 {
-      max-width: 900px;
+      max-width: 820px;
       margin-inline: auto;
       color: var(--text);
-      font-size: clamp(3.6rem, 7vw, 7.5rem);
-      line-height: 0.91;
-      letter-spacing: -0.076em;
+      font-size: clamp(3.15rem, 6vw, 6.45rem);
+      line-height: 0.92;
+      letter-spacing: -0.074em;
       font-weight: 760;
       text-wrap: balance;
     }
 
     .home-access-inner p {
-      max-width: 720px;
-      margin: 1.15rem auto 0;
+      max-width: 670px;
+      margin: 1.05rem auto 0;
       color: var(--text-soft);
-      font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+      font-size: clamp(1.02rem, 1.32vw, 1.2rem);
       line-height: 1.46;
       letter-spacing: -0.018em;
       text-wrap: balance;
     }
 
     .home-access-inner .product-actions {
-      margin-top: 2.25rem;
+      margin-top: 2.1rem;
     }
 
     .home-app-section {
-      min-height: 92vh;
+      min-height: auto;
       display: grid;
       place-items: center;
-      padding: 7.2rem 1.5rem;
-      background: #f5f5f7;
+      padding: 6.4rem 1.5rem 7rem;
+      background: #ffffff;
       text-align: center;
     }
 
@@ -279,8 +287,7 @@
       place-items: center;
       margin: 4.4rem auto 0;
       overflow: hidden;
-      background:
-        linear-gradient(180deg, #ffffff 0%, #f7f7f8 100%);
+      background: #ffffff;
       border-radius: 0;
     }
 
@@ -361,10 +368,12 @@
         font-size: clamp(1.6rem, 8vw, 2.4rem);
       }
 
-      .home-access-section,
+      .home-access-section {
+        padding: 4.7rem 1rem 5rem;
+      }
+
       .home-app-section {
-        min-height: auto;
-        padding: 6rem 1rem;
+        padding: 5.6rem 1rem 6rem;
       }
 
       .home-access-inner h2,
