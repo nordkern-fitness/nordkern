@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     modal: ".modal",
     modalTrigger: "[data-modal-target]",
     modalClose: ".modal-close",
-    contactFallbackForm: "[data-nordkern-contact-form]",
+    contactForm: "[data-nordkern-contact-form]",
     galleryRow: ".gallery-row",
     galleryArrow: "[data-gallery-target]",
     locationPicker: ".location-picker",
@@ -380,42 +380,247 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   };
 
-  const setupContactFallbackForm = () => {
-    const contactForm = document.querySelector(selectors.contactFallbackForm);
-
+  const setupContactForm = () => {
+    const contactForm = document.querySelector(selectors.contactForm);
     if (!contactForm) return;
+
+    const errorBox = document.getElementById("contact-error-box");
+    const messageField = document.getElementById("contact-message");
+    const messageCount = document.getElementById("message-count");
+
+    const fields = {
+      firstName: document.getElementById("contact-firstname"),
+      lastName: document.getElementById("contact-lastname"),
+      email: document.getElementById("contact-email"),
+      postal: document.getElementById("contact-postal"),
+      street: document.getElementById("contact-street"),
+      topic: document.getElementById("contact-topic"),
+      memberId: document.getElementById("contact-memberid"),
+      message: document.getElementById("contact-message")
+    };
+
+    const setFieldState = (field, isInvalid) => {
+      if (!field) return;
+
+      if (isInvalid) {
+        field.setAttribute("aria-invalid", "true");
+      } else {
+        field.removeAttribute("aria-invalid");
+      }
+    };
+
+    const resetFieldStates = () => {
+      Object.values(fields).forEach((field) => setFieldState(field, false));
+    };
+
+    const showErrors = (errors) => {
+      if (!errorBox) return;
+
+      if (!errors.length) {
+        errorBox.classList.remove("show");
+        errorBox.textContent = "";
+        return;
+      }
+
+      const errorText = errors.map((error) => `• ${error.message}`).join("\n");
+
+      errorBox.textContent = `Bitte prüfe deine Angaben:\n${errorText}`;
+      errorBox.classList.add("show");
+      errorBox.scrollIntoView({
+        behavior: shouldReduceMotion() ? "auto" : "smooth",
+        block: "center"
+      });
+    };
+
+    const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+    const isValidPostalCode = (value) => /^[0-9]{5}$/.test(value);
+    const isValidStreet = (value) => /^[A-Za-zÄÖÜäöüß0-9 .,'’\-\/]{2,90}$/.test(value);
+    const isValidMemberId = (value) => /^[A-Za-z]{2}-[0-9]{5}$/.test(value);
+
+    const validateForm = () => {
+      const errors = [];
+
+      resetFieldStates();
+
+      const firstName = fields.firstName?.value.trim() || "";
+      const lastName = fields.lastName?.value.trim() || "";
+      const email = fields.email?.value.trim() || "";
+      const postal = fields.postal?.value.trim() || "";
+      const street = fields.street?.value.trim() || "";
+      const topic = fields.topic?.value.trim() || "";
+      const memberId = fields.memberId?.value.trim() || "";
+      const messageText = fields.message?.value.trim() || "";
+
+      if (firstName.length < 2) {
+        errors.push({
+          field: fields.firstName,
+          message: "Vorname fehlt oder ist zu kurz."
+        });
+      }
+
+      if (lastName.length < 2) {
+        errors.push({
+          field: fields.lastName,
+          message: "Nachname fehlt oder ist zu kurz."
+        });
+      }
+
+      if (!email || !isValidEmail(email)) {
+        errors.push({
+          field: fields.email,
+          message: "E-Mail fehlt oder ist nicht gültig."
+        });
+      }
+
+      if (!topic) {
+        errors.push({
+          field: fields.topic,
+          message: "Bitte wähle ein Thema aus."
+        });
+      }
+
+      if (!messageText) {
+        errors.push({
+          field: fields.message,
+          message: "Nachricht fehlt."
+        });
+      }
+
+      if (postal && !isValidPostalCode(postal)) {
+        errors.push({
+          field: fields.postal,
+          message: "Postleitzahl muss aus genau 5 Zahlen bestehen."
+        });
+      }
+
+      if (street && !isValidStreet(street)) {
+        errors.push({
+          field: fields.street,
+          message: "Straße und Hausnummer enthalten Zeichen, die nicht passen."
+        });
+      }
+
+      if (memberId && !isValidMemberId(memberId)) {
+        errors.push({
+          field: fields.memberId,
+          message: "Member-ID muss so aussehen: NK-12345."
+        });
+      }
+
+      if (!isValidEmail(brand.contactEmail)) {
+        errors.push({
+          field: fields.message,
+          message: "Kontakt-E-Mail ist noch nicht korrekt hinterlegt."
+        });
+      }
+
+      errors.forEach((error) => setFieldState(error.field, true));
+
+      return errors;
+    };
+
+    const autoResizeTextarea = () => {
+      if (!messageField) return;
+
+      messageField.style.height = "auto";
+      messageField.style.height = `${messageField.scrollHeight}px`;
+    };
+
+    const updateCounter = () => {
+      if (!messageField || !messageCount) return;
+
+      messageCount.textContent = String(messageField.value.length);
+    };
+
+    const liveValidate = () => {
+      if (!errorBox || !errorBox.classList.contains("show")) return;
+
+      const errors = validateForm();
+      showErrors(errors);
+    };
+
+    Object.values(fields).forEach((field) => {
+      if (!field) return;
+
+      field.addEventListener("input", liveValidate);
+      field.addEventListener("change", liveValidate);
+    });
+
+    if (messageField) {
+      autoResizeTextarea();
+      updateCounter();
+
+      messageField.addEventListener("input", () => {
+        autoResizeTextarea();
+        updateCounter();
+      });
+    }
 
     contactForm.addEventListener("submit", (event) => {
       event.preventDefault();
+
+      const errors = validateForm();
+
+      if (errors.length) {
+        showErrors(errors);
+
+        const firstInvalidField = errors[0].field;
+        if (firstInvalidField) {
+          firstInvalidField.focus({ preventScroll: true });
+        }
+
+        return;
+      }
+
+      showErrors([]);
 
       const formData = new FormData(contactForm);
 
       const firstName = String(formData.get("contact-firstname") || "").trim();
       const lastName = String(formData.get("contact-lastname") || "").trim();
       const email = String(formData.get("contact-email") || "").trim();
+      const postal = String(formData.get("contact-postal") || "").trim() || "Nicht angegeben";
+      const street = String(formData.get("contact-street") || "").trim() || "Nicht angegeben";
       const topic = String(formData.get("contact-topic") || "").trim();
-      const memberId = String(formData.get("contact-memberid") || "").trim();
+      const memberId = String(formData.get("contact-memberid") || "").trim() || "Nicht angegeben";
       const message = String(formData.get("contact-message") || "").trim();
 
+      const sentAt = new Date().toLocaleString("de-DE", {
+        dateStyle: "medium",
+        timeStyle: "short"
+      });
+
       const subject = encodeURIComponent(
-        `${brand.name} Kontakt – ${topic || "Allgemeine Anfrage"}`
+        `${brand.name} Kontaktformular – ${topic} – ${firstName} ${lastName}`
       );
 
       const bodyText = [
         "NORDKERN FITNESS KONTAKTANFRAGE",
         "==================================================",
         "",
+        "ÜBERSICHT",
+        "--------------------------------------------------",
+        `Eingang über: ${brand.name} Website`,
+        `Zeitpunkt: ${sentAt}`,
+        `Thema: ${topic}`,
+        "Status: Neu",
+        "",
         "KONTAKTDATEN",
         "--------------------------------------------------",
-        `Vorname: ${firstName}`,
-        `Nachname: ${lastName}`,
+        `Name: ${firstName} ${lastName}`,
         `E-Mail für Rückantwort: ${email}`,
-        `Thema: ${topic || "Nicht angegeben"}`,
-        `Member-ID: ${memberId || "Nicht angegeben"}`,
+        `Postleitzahl: ${postal}`,
+        `Straße und Hausnummer: ${street}`,
+        `Member-ID: ${memberId}`,
         "",
         "NACHRICHT",
         "--------------------------------------------------",
-        message
+        message,
+        "",
+        "==================================================",
+        "INTERNER HINWEIS",
+        "Bitte bei der Antwort die oben angegebene E-Mail-Adresse nutzen.",
+        `Diese Anfrage wurde über das ${brand.name} Kontaktformular vorbereitet.`
       ].join("\n");
 
       window.location.href =
@@ -593,7 +798,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupHeaderScrollState();
   setupModals();
   setupGlobalKeyboardShortcuts();
-  setupContactFallbackForm();
+  setupContactForm();
   setupGalleryDrag();
   setupGalleryArrows();
   setupLocationFallback();
