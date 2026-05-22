@@ -11,6 +11,309 @@
   />
 
   <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .home-first-hero {
+      min-height: 100vh;
+      padding-top: max(10.8rem, 16vh);
+      padding-bottom: 5.4rem;
+    }
+
+    .home-first-hero .product-copy {
+      max-width: min(100%, 1240px);
+    }
+
+    .home-first-hero .eyebrow {
+      margin-bottom: 0.72rem;
+      color: var(--text-soft);
+      font-size: 0.78rem;
+      font-weight: 860;
+      letter-spacing: 0.06em;
+    }
+
+    .home-first-hero .product-copy h1 {
+      max-width: 1220px;
+      margin-inline: auto;
+      color: var(--text);
+      font-size: clamp(4.1rem, 6.35vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: -0.074em;
+      font-weight: 760;
+      white-space: nowrap;
+      text-wrap: nowrap;
+    }
+
+    .home-first-hero .product-copy > p:not(.eyebrow) {
+      max-width: 650px;
+      margin-top: 1.05rem;
+      color: var(--text-soft);
+      font-size: clamp(1.02rem, 1.25vw, 1.18rem);
+      line-height: 1.45;
+      letter-spacing: -0.018em;
+      text-wrap: balance;
+    }
+
+    .home-first-hero .product-actions {
+      margin-top: 2.45rem;
+    }
+
+    .home-hero-media-grid {
+      position: relative;
+      z-index: 2;
+      width: min(100% - 2rem, 1180px);
+      min-height: clamp(410px, 38vw, 560px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      gap: 1rem;
+      margin: 5.4rem auto 0;
+    }
+
+    .home-hero-media-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 38px;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(46, 145, 63, 0.12), transparent 22rem),
+        linear-gradient(145deg, #f5f5f7 0%, #ececef 48%, #f8f8fa 100%);
+      border: 1px solid rgba(0, 0, 0, 0.045);
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.10),
+        0 0 0 1px rgba(255, 255, 255, 0.62);
+      isolation: isolate;
+    }
+
+    .home-hero-media-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.55), transparent 36%),
+        radial-gradient(circle at 70% 0%, rgba(255, 255, 255, 0.72), transparent 22rem);
+    }
+
+    .home-hero-media-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 1.25rem 1.25rem 1.25rem;
+      z-index: 1;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    .home-hero-media-card-large {
+      min-height: inherit;
+    }
+
+    .home-hero-media-side {
+      display: grid;
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .home-hero-placeholder-content {
+      position: relative;
+      z-index: 2;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(1.15rem, 2.2vw, 1.65rem);
+      text-align: left;
+    }
+
+    .home-hero-placeholder-kicker {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.42rem;
+      padding: 0.38rem 0.64rem;
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.76);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.045);
+      font-size: 0.72rem;
+      line-height: 1;
+      font-weight: 820;
+      letter-spacing: 0.045em;
+      text-transform: uppercase;
+    }
+
+    .home-hero-placeholder-kicker::before {
+      content: "✦";
+      color: var(--nf-green);
+      font-size: 0.78rem;
+      line-height: 1;
+    }
+
+    .home-hero-placeholder-text {
+      display: grid;
+      gap: 0.38rem;
+      max-width: 34ch;
+    }
+
+    .home-hero-placeholder-text strong {
+      color: var(--text);
+      font-size: clamp(1.42rem, 2.5vw, 2.35rem);
+      line-height: 1;
+      letter-spacing: -0.052em;
+      font-weight: 760;
+      text-wrap: balance;
+    }
+
+    .home-hero-media-card-small .home-hero-placeholder-text strong {
+      font-size: clamp(1.28rem, 1.85vw, 1.72rem);
+    }
+
+    .home-hero-placeholder-text span {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.42;
+      letter-spacing: -0.014em;
+    }
+
+    .home-hero-placeholder-visual {
+      position: absolute;
+      right: -3rem;
+      bottom: -3.5rem;
+      z-index: 1;
+      width: clamp(190px, 24vw, 340px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(46, 145, 63, 0.18), rgba(46, 145, 63, 0.055) 48%, transparent 70%);
+      filter: blur(2px);
+    }
+
+    .home-hero-media-card-small .home-hero-placeholder-visual {
+      right: -3.6rem;
+      bottom: -4rem;
+      width: clamp(150px, 18vw, 250px);
+    }
+
+    .home-hero-placeholder-lines {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.5;
+      background:
+        linear-gradient(90deg, transparent 0%, transparent 49.7%, rgba(46, 145, 63, 0.08) 49.7%, rgba(46, 145, 63, 0.08) 50.3%, transparent 50.3%),
+        linear-gradient(0deg, transparent 0%, transparent 49.7%, rgba(0, 0, 0, 0.035) 49.7%, rgba(0, 0, 0, 0.035) 50.3%, transparent 50.3%);
+      background-size: 68px 68px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 74%);
+      -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 74%);
+    }
+
+    @media (max-width: 1100px) {
+      .home-first-hero .product-copy h1 {
+        font-size: clamp(3.2rem, 8vw, 5.8rem);
+        white-space: normal;
+        text-wrap: balance;
+      }
+
+      .home-hero-media-grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .home-hero-media-card-large {
+        min-height: 430px;
+      }
+
+      .home-hero-media-side {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: none;
+      }
+
+      .home-hero-media-card-small {
+        min-height: 260px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .home-first-hero {
+        padding-top: max(9.4rem, 16vh);
+        padding-bottom: 4.4rem;
+      }
+
+      .home-first-hero .eyebrow {
+        font-size: 0.72rem;
+      }
+
+      .home-first-hero .product-copy h1 {
+        max-width: 9.8ch;
+        font-size: clamp(2.85rem, 13vw, 4.35rem);
+        line-height: 0.94;
+        letter-spacing: -0.058em;
+      }
+
+      .home-first-hero .product-copy > p:not(.eyebrow) {
+        max-width: 34ch;
+        font-size: 1.02rem;
+        line-height: 1.42;
+      }
+
+      .home-first-hero .product-actions {
+        margin-top: 2rem;
+      }
+
+      .home-hero-media-grid {
+        width: min(100%, 1180px);
+        gap: 0.85rem;
+        margin-top: 4.1rem;
+      }
+
+      .home-hero-media-card {
+        border-radius: 30px;
+      }
+
+      .home-hero-media-card-large {
+        min-height: 360px;
+      }
+
+      .home-hero-media-side {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+      }
+
+      .home-hero-media-card-small {
+        min-height: 230px;
+      }
+
+      .home-hero-placeholder-content {
+        padding: 1.15rem;
+      }
+
+      .home-hero-placeholder-text strong {
+        font-size: clamp(1.5rem, 8vw, 2.25rem);
+      }
+
+      .home-hero-media-card-small .home-hero-placeholder-text strong {
+        font-size: clamp(1.42rem, 7vw, 2rem);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .home-first-hero {
+        padding-top: max(8.9rem, 15vh);
+      }
+
+      .home-first-hero .product-copy h1 {
+        font-size: clamp(2.52rem, 13.5vw, 3.55rem);
+      }
+
+      .home-hero-media-card-large {
+        min-height: 320px;
+      }
+
+      .home-hero-media-card-small {
+        min-height: 215px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -39,12 +342,50 @@
         </div>
       </div>
 
-      <div class="home-hero-image-wrap">
-        <img
-          src="images/home-hero.jpeg"
-          alt="Modernes helles Fitnessstudio mit klarer Trainingsfläche und ruhiger Atmosphäre"
-          class="home-hero-image"
-        />
+      <div class="home-hero-media-grid" aria-label="Vorschau auf Nordkern Fitness Grevesmühlen">
+        <article class="home-hero-media-card home-hero-media-card-large">
+          <div class="home-hero-placeholder-lines" aria-hidden="true"></div>
+          <div class="home-hero-placeholder-visual" aria-hidden="true"></div>
+
+          <div class="home-hero-placeholder-content">
+            <span class="home-hero-placeholder-kicker">Studio Grevesmühlen</span>
+
+            <div class="home-hero-placeholder-text">
+              <strong>Ruhige Trainingsfläche. Klarer Fokus.</strong>
+              <span>Platzhalter für das große Studio-Bild auf der Startseite.</span>
+            </div>
+          </div>
+        </article>
+
+        <div class="home-hero-media-side">
+          <article class="home-hero-media-card home-hero-media-card-small">
+            <div class="home-hero-placeholder-lines" aria-hidden="true"></div>
+            <div class="home-hero-placeholder-visual" aria-hidden="true"></div>
+
+            <div class="home-hero-placeholder-content">
+              <span class="home-hero-placeholder-kicker">Zugang</span>
+
+              <div class="home-hero-placeholder-text">
+                <strong>24/7 per App.</strong>
+                <span>Platzhalter für QR-Code-Zutritt oder Eingang.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="home-hero-media-card home-hero-media-card-small">
+            <div class="home-hero-placeholder-lines" aria-hidden="true"></div>
+            <div class="home-hero-placeholder-visual" aria-hidden="true"></div>
+
+            <div class="home-hero-placeholder-content">
+              <span class="home-hero-placeholder-kicker">Atmosphäre</span>
+
+              <div class="home-hero-placeholder-text">
+                <strong>Modern. Still. Stark.</strong>
+                <span>Platzhalter für Detailaufnahme, Geräte oder Lichtstimmung.</span>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
