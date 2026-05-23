@@ -63,8 +63,8 @@
     .tariff-card {
       position: relative;
       min-height: 610px;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-rows: 105px 140px 1fr auto auto;
       padding: clamp(1.35rem, 2vw, 1.7rem);
       border-radius: 34px;
       overflow: visible;
@@ -116,6 +116,7 @@
     }
 
     .tariff-name {
+      align-self: start;
       padding-right: 4.4rem;
       color: var(--text);
       font-size: clamp(2.05rem, 2.8vw, 3rem);
@@ -130,11 +131,11 @@
     }
 
     .tariff-price-area {
-      min-height: 145px;
+      align-self: start;
       display: grid;
       align-content: start;
       gap: 0.45rem;
-      margin-top: 2.35rem;
+      margin-top: 0;
     }
 
     .tariff-price-row {
@@ -226,17 +227,9 @@
       font-weight: 650;
     }
 
-    .tariff-bottom {
-      min-height: 0;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-      padding-top: 1rem;
-    }
-
     .tariff-feature-block {
-      min-height: 124px;
+      align-self: start;
+      padding-top: 0.3rem;
     }
 
     .tariff-checks {
@@ -350,7 +343,8 @@
 
     .tariff-runtime {
       position: relative;
-      margin-top: auto;
+      align-self: end;
+      margin-top: 1.15rem;
       padding: 0.88rem 3.25rem 0.88rem 1rem;
       border-radius: 22px;
       background: rgba(255, 255, 255, 0.72);
@@ -417,9 +411,11 @@
       transform: translateY(-0.5px);
     }
 
-    .tariff-bottom .btn {
+    .tariff-card .btn {
       width: 100%;
       min-height: 52px;
+      align-self: end;
+      margin-top: 0.9rem;
     }
 
     .tariff-small-note {
@@ -440,8 +436,8 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
       gap: 1.25rem;
-      align-items: center;
-      min-height: 300px;
+      align-items: stretch;
+      min-height: 340px;
       padding: clamp(1.35rem, 3vw, 2rem);
       border-radius: 40px;
       overflow: visible;
@@ -450,6 +446,12 @@
       box-shadow: none;
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
+    }
+
+    .daypass-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .daypass-copy h2 {
@@ -478,7 +480,8 @@
     .daypass-price-box-clean {
       position: relative;
       display: grid;
-      gap: 1rem;
+      grid-template-rows: 112px 1fr auto auto;
+      gap: 0.9rem;
       padding: 1.35rem;
       border-radius: 30px;
       background: #ffffff;
@@ -524,18 +527,19 @@
       font-size: 0.76rem;
     }
 
-    .daypass-price-box-clean .tariff-bottom {
-      flex: initial;
+    .daypass-price-box-clean .tariff-feature-block {
+      align-self: start;
       padding-top: 0;
     }
 
-    .daypass-price-box-clean .tariff-feature-block {
-      min-height: auto;
+    .daypass-price-box-clean .tariff-runtime {
+      margin-top: 0.6rem;
     }
 
     .daypass-price-box-clean .btn {
       width: 100%;
       min-height: 52px;
+      margin-top: 0;
     }
 
     .tariff-info-modal {
@@ -631,14 +635,15 @@
 
       .tariff-card {
         min-height: auto;
+        grid-template-rows: auto auto auto auto auto;
       }
 
       .tariff-price-area {
-        min-height: auto;
+        margin-top: 1.8rem;
       }
 
       .tariff-feature-block {
-        min-height: auto;
+        margin-top: 0.4rem;
       }
 
       .daypass-card {
@@ -718,13 +723,8 @@
         font-size: 0.88rem;
       }
 
-      .tariff-bottom {
-        gap: 0.82rem;
-        padding-top: 0.85rem;
-      }
-
       .tariff-feature-block {
-        min-height: auto;
+        margin-top: 0.2rem;
       }
 
       .tariff-checks,
@@ -768,6 +768,7 @@
 
       .daypass-price-box-clean {
         max-width: none;
+        grid-template-rows: auto auto auto auto;
         gap: 1.05rem;
         padding: 1.2rem;
         border-radius: 26px;
@@ -788,10 +789,6 @@
 
       .daypass-price-box-clean .tariff-discount-price {
         font-size: clamp(1.42rem, 6.2vw, 1.8rem);
-      }
-
-      .daypass-price-box-clean .tariff-bottom {
-        gap: 0.9rem;
       }
 
       .daypass-price-box-clean .tariff-runtime {
@@ -871,50 +868,48 @@
                 </div>
               </div>
 
-              <div class="tariff-bottom">
-                <div class="tariff-feature-block">
-                  <ul class="tariff-checks">
-                    <li>24/7-Zugang</li>
-                    <li>QR-Code-Zutritt über die App</li>
-                  </ul>
+              <div class="tariff-feature-block">
+                <ul class="tariff-checks">
+                  <li>24/7-Zugang</li>
+                  <li>QR-Code-Zutritt über die App</li>
+                </ul>
 
-                  <ul class="tariff-extras">
-                    <li>
-                      <span class="tariff-extra-row">
-                        <span>3 Freigetränke à 330 ml / Monat</span>
-                        <button
-                          class="extra-info-button"
-                          type="button"
-                          aria-label="Information zu den Freigetränken im Basic-Tarif"
-                          data-info-title="Wie funktionieren die Freigetränke?"
-                          data-info-text="Du erhältst jeden Monat 3 Freigetränke à 330 ml. Wenn du deine Freigetränke in einem Monat nicht alle nutzt, verfallen sie nicht. Die neuen Freigetränke des nächsten Monats werden zusätzlich dazugebucht. Wenn deine Freigetränke aufgebraucht sind, kannst du weitere Getränke in der App kaufen und im Studio einlösen."
-                        >
-                          <span aria-hidden="true">?</span>
-                        </button>
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="tariff-runtime">
-                  <span>Mindestlaufzeit</span>
-                  <strong>12 Monate</strong>
-
-                  <button
-                    class="runtime-info-button"
-                    type="button"
-                    aria-label="Information zur Mindestlaufzeit im Basic-Tarif"
-                    data-info-title="Wie funktioniert die Mindestlaufzeit?"
-                    data-info-text="Die Mindestlaufzeit ist der Zeitraum, für den deine Mitgliedschaft mindestens läuft. Du kannst bereits während der Mindestlaufzeit kündigen; die Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit. Wenn du nicht kündigst, läuft die Mitgliedschaft nach der Mindestlaufzeit regulär weiter und kann dann monatlich gekündigt werden."
-                  >
-                    <span aria-hidden="true">?</span>
-                  </button>
-                </div>
-
-                <a href="app.html" class="btn btn-primary">
-                  In der App buchen
-                </a>
+                <ul class="tariff-extras">
+                  <li>
+                    <span class="tariff-extra-row">
+                      <span>3 Freigetränke à 330 ml / Monat</span>
+                      <button
+                        class="extra-info-button"
+                        type="button"
+                        aria-label="Information zu den Freigetränken im Basic-Tarif"
+                        data-info-title="Wie funktionieren die Freigetränke?"
+                        data-info-text="Du erhältst jeden Monat 3 Freigetränke à 330 ml. Wenn du deine Freigetränke in einem Monat nicht alle nutzt, verfallen sie nicht. Die neuen Freigetränke des nächsten Monats werden zusätzlich dazugebucht. Wenn deine Freigetränke aufgebraucht sind, kannst du weitere Getränke in der App kaufen und im Studio einlösen."
+                      >
+                        <span aria-hidden="true">?</span>
+                      </button>
+                    </span>
+                  </li>
+                </ul>
               </div>
+
+              <div class="tariff-runtime">
+                <span>Mindestlaufzeit</span>
+                <strong>12 Monate</strong>
+
+                <button
+                  class="runtime-info-button"
+                  type="button"
+                  aria-label="Information zur Mindestlaufzeit im Basic-Tarif"
+                  data-info-title="Wie funktioniert die Mindestlaufzeit?"
+                  data-info-text="Die Mindestlaufzeit ist der Zeitraum, für den deine Mitgliedschaft mindestens läuft. Du kannst bereits während der Mindestlaufzeit kündigen; die Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit. Wenn du nicht kündigst, läuft die Mitgliedschaft nach der Mindestlaufzeit regulär weiter und kann dann monatlich gekündigt werden."
+                >
+                  <span aria-hidden="true">?</span>
+                </button>
+              </div>
+
+              <a href="app.html" class="btn btn-primary">
+                In der App buchen
+              </a>
             </article>
 
             <article class="tariff-card is-plus" aria-labelledby="plus-title">
@@ -922,70 +917,68 @@
 
               <div class="tariff-price-area">
                 <div class="tariff-price-row">
-                  <p class="tariff-price">33,00 €</p>
+                  <p class="tariff-price">34,99 €</p>
                   <p class="tariff-price-unit">pro Monat</p>
                 </div>
               </div>
 
-              <div class="tariff-bottom">
-                <div class="tariff-feature-block">
-                  <ul class="tariff-checks">
-                    <li>24/7-Zugang</li>
-                    <li>QR-Code-Zutritt über die App</li>
-                  </ul>
+              <div class="tariff-feature-block">
+                <ul class="tariff-checks">
+                  <li>24/7-Zugang</li>
+                  <li>QR-Code-Zutritt über die App</li>
+                </ul>
 
-                  <ul class="tariff-extras">
-                    <li>
-                      <span class="tariff-extra-row">
-                        <span>6 Freigetränke à 330 ml / Monat</span>
-                        <button
-                          class="extra-info-button"
-                          type="button"
-                          aria-label="Information zu den Freigetränken im Plus-Tarif"
-                          data-info-title="Wie funktionieren die Freigetränke?"
-                          data-info-text="Du erhältst jeden Monat 6 Freigetränke à 330 ml. Wenn du deine Freigetränke in einem Monat nicht alle nutzt, verfallen sie nicht. Die neuen Freigetränke des nächsten Monats werden zusätzlich dazugebucht. Wenn deine Freigetränke aufgebraucht sind, kannst du weitere Getränke in der App kaufen und im Studio einlösen."
-                        >
-                          <span aria-hidden="true">?</span>
-                        </button>
-                      </span>
-                    </li>
+                <ul class="tariff-extras">
+                  <li>
+                    <span class="tariff-extra-row">
+                      <span>6 Freigetränke à 330 ml / Monat</span>
+                      <button
+                        class="extra-info-button"
+                        type="button"
+                        aria-label="Information zu den Freigetränken im Plus-Tarif"
+                        data-info-title="Wie funktionieren die Freigetränke?"
+                        data-info-text="Du erhältst jeden Monat 6 Freigetränke à 330 ml. Wenn du deine Freigetränke in einem Monat nicht alle nutzt, verfallen sie nicht. Die neuen Freigetränke des nächsten Monats werden zusätzlich dazugebucht. Wenn deine Freigetränke aufgebraucht sind, kannst du weitere Getränke in der App kaufen und im Studio einlösen."
+                      >
+                        <span aria-hidden="true">?</span>
+                      </button>
+                    </span>
+                  </li>
 
-                    <li>
-                      <span class="tariff-extra-row">
-                        <span>Kreatin im Getränk wählbar</span>
-                        <button
-                          class="extra-info-button"
-                          type="button"
-                          aria-label="Information zu Kreatin im Getränk im Plus-Tarif"
-                          data-info-title="Kreatin im Getränk"
-                          data-info-text="Mit Nordkern Plus kannst du bei passenden Getränken zusätzlich Kreatin auswählen und direkt mit einmischen lassen. Die Menge soll später in der App bzw. am Getränkesystem auswählbar sein."
-                        >
-                          <span aria-hidden="true">?</span>
-                        </button>
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="tariff-runtime">
-                  <span>Mindestlaufzeit</span>
-                  <strong>6 Monate</strong>
-
-                  <button
-                    class="runtime-info-button"
-                    type="button"
-                    aria-label="Information zur Mindestlaufzeit im Plus-Tarif"
-                    data-info-title="Wie funktioniert die Mindestlaufzeit?"
-                    data-info-text="Die Mindestlaufzeit ist der Zeitraum, für den deine Mitgliedschaft mindestens läuft. Du kannst bereits während der Mindestlaufzeit kündigen; die Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit. Wenn du nicht kündigst, läuft die Mitgliedschaft nach der Mindestlaufzeit regulär weiter und kann dann monatlich gekündigt werden."
-                  >
-                    <span aria-hidden="true">?</span>
-                  </button>
-                </div>
-
-                <a href="app.html" class="btn btn-primary">
-                  In der App buchen
-                </a>
+                  <li>
+                    <span class="tariff-extra-row">
+                      <span>Kreatin im Getränk wählbar</span>
+                      <button
+                        class="extra-info-button"
+                        type="button"
+                        aria-label="Information zu Kreatin im Getränk im Plus-Tarif"
+                        data-info-title="Kreatin im Getränk"
+                        data-info-text="Mit Nordkern Plus kannst du bei passenden Getränken zusätzlich Kreatin auswählen und direkt mit einmischen lassen. Die Menge soll später in der App bzw. am Getränkesystem auswählbar sein."
+                      >
+                        <span aria-hidden="true">?</span>
+                      </button>
+                    </span>
+                  </li>
+                </ul>
               </div>
+
+              <div class="tariff-runtime">
+                <span>Mindestlaufzeit</span>
+                <strong>6 Monate</strong>
+
+                <button
+                  class="runtime-info-button"
+                  type="button"
+                  aria-label="Information zur Mindestlaufzeit im Plus-Tarif"
+                  data-info-title="Wie funktioniert die Mindestlaufzeit?"
+                  data-info-text="Die Mindestlaufzeit ist der Zeitraum, für den deine Mitgliedschaft mindestens läuft. Du kannst bereits während der Mindestlaufzeit kündigen; die Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit. Wenn du nicht kündigst, läuft die Mitgliedschaft nach der Mindestlaufzeit regulär weiter und kann dann monatlich gekündigt werden."
+                >
+                  <span aria-hidden="true">?</span>
+                </button>
+              </div>
+
+              <a href="app.html" class="btn btn-primary">
+                In der App buchen
+              </a>
             </article>
 
             <article class="tariff-card" aria-labelledby="pro-title">
@@ -998,80 +991,78 @@
                 </div>
               </div>
 
-              <div class="tariff-bottom">
-                <div class="tariff-feature-block">
-                  <ul class="tariff-checks">
-                    <li>24/7-Zugang</li>
-                    <li>QR-Code-Zutritt über die App</li>
-                  </ul>
+              <div class="tariff-feature-block">
+                <ul class="tariff-checks">
+                  <li>24/7-Zugang</li>
+                  <li>QR-Code-Zutritt über die App</li>
+                </ul>
 
-                  <ul class="tariff-extras">
-                    <li>
-                      <span class="tariff-extra-row">
-                        <span>9 Freigetränke à 330 ml / Monat</span>
-                        <button
-                          class="extra-info-button"
-                          type="button"
-                          aria-label="Information zu den Freigetränken im Pro-Tarif"
-                          data-info-title="Wie funktionieren die Freigetränke?"
-                          data-info-text="Du erhältst jeden Monat 9 Freigetränke à 330 ml. Wenn du deine Freigetränke in einem Monat nicht alle nutzt, verfallen sie nicht. Die neuen Freigetränke des nächsten Monats werden zusätzlich dazugebucht. Wenn deine Freigetränke aufgebraucht sind, kannst du weitere Getränke in der App kaufen und im Studio einlösen."
-                        >
-                          <span aria-hidden="true">?</span>
-                        </button>
-                      </span>
-                    </li>
+                <ul class="tariff-extras">
+                  <li>
+                    <span class="tariff-extra-row">
+                      <span>9 Freigetränke à 330 ml / Monat</span>
+                      <button
+                        class="extra-info-button"
+                        type="button"
+                        aria-label="Information zu den Freigetränken im Pro-Tarif"
+                        data-info-title="Wie funktionieren die Freigetränke?"
+                        data-info-text="Du erhältst jeden Monat 9 Freigetränke à 330 ml. Wenn du deine Freigetränke in einem Monat nicht alle nutzt, verfallen sie nicht. Die neuen Freigetränke des nächsten Monats werden zusätzlich dazugebucht. Wenn deine Freigetränke aufgebraucht sind, kannst du weitere Getränke in der App kaufen und im Studio einlösen."
+                      >
+                        <span aria-hidden="true">?</span>
+                      </button>
+                    </span>
+                  </li>
 
-                    <li>
-                      <span class="tariff-extra-row">
-                        <span>Kreatin im Getränk wählbar</span>
-                        <button
-                          class="extra-info-button"
-                          type="button"
-                          aria-label="Information zu Kreatin im Getränk im Pro-Tarif"
-                          data-info-title="Kreatin im Getränk"
-                          data-info-text="Mit Nordkern Pro kannst du bei passenden Getränken zusätzlich Kreatin auswählen und direkt mit einmischen lassen. Die Menge soll später in der App bzw. am Getränkesystem auswählbar sein."
-                        >
-                          <span aria-hidden="true">?</span>
-                        </button>
-                      </span>
-                    </li>
+                  <li>
+                    <span class="tariff-extra-row">
+                      <span>Kreatin im Getränk wählbar</span>
+                      <button
+                        class="extra-info-button"
+                        type="button"
+                        aria-label="Information zu Kreatin im Getränk im Pro-Tarif"
+                        data-info-title="Kreatin im Getränk"
+                        data-info-text="Mit Nordkern Pro kannst du bei passenden Getränken zusätzlich Kreatin auswählen und direkt mit einmischen lassen. Die Menge soll später in der App bzw. am Getränkesystem auswählbar sein."
+                      >
+                        <span aria-hidden="true">?</span>
+                      </button>
+                    </span>
+                  </li>
 
-                    <li>
-                      <span class="tariff-extra-row">
-                        <span>2 weitere 500-ml-Freigetränke / Monat</span>
-                        <button
-                          class="extra-info-button"
-                          type="button"
-                          aria-label="Information zu den zusätzlichen 500-Milliliter-Freigetränken im Pro-Tarif"
-                          data-info-title="Zusätzliche 500-ml-Freigetränke"
-                          data-info-text="Zusätzlich zu deinen 9 Freigetränken à 330 ml erhältst du jeden Monat 2 weitere Freigetränke à 500 ml. 500-ml-Getränke können unabhängig davon auch regulär in der App gekauft und im Studio eingelöst werden."
-                        >
-                          <span aria-hidden="true">?</span>
-                        </button>
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="tariff-runtime">
-                  <span>Mindestlaufzeit</span>
-                  <strong>3 Monate</strong>
-
-                  <button
-                    class="runtime-info-button"
-                    type="button"
-                    aria-label="Information zur Mindestlaufzeit im Pro-Tarif"
-                    data-info-title="Wie funktioniert die Mindestlaufzeit?"
-                    data-info-text="Die Mindestlaufzeit ist der Zeitraum, für den deine Mitgliedschaft mindestens läuft. Du kannst bereits während der Mindestlaufzeit kündigen; die Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit. Wenn du nicht kündigst, läuft die Mitgliedschaft nach der Mindestlaufzeit regulär weiter und kann dann monatlich gekündigt werden."
-                  >
-                    <span aria-hidden="true">?</span>
-                  </button>
-                </div>
-
-                <a href="app.html" class="btn btn-primary">
-                  In der App buchen
-                </a>
+                  <li>
+                    <span class="tariff-extra-row">
+                      <span>2 weitere 500-ml-Freigetränke / Monat</span>
+                      <button
+                        class="extra-info-button"
+                        type="button"
+                        aria-label="Information zu den zusätzlichen 500-Milliliter-Freigetränken im Pro-Tarif"
+                        data-info-title="Zusätzliche 500-ml-Freigetränke"
+                        data-info-text="Zusätzlich zu deinen 9 Freigetränken à 330 ml erhältst du jeden Monat 2 weitere Freigetränke à 500 ml. 500-ml-Getränke können unabhängig davon auch regulär in der App gekauft und im Studio eingelöst werden."
+                      >
+                        <span aria-hidden="true">?</span>
+                      </button>
+                    </span>
+                  </li>
+                </ul>
               </div>
+
+              <div class="tariff-runtime">
+                <span>Mindestlaufzeit</span>
+                <strong>3 Monate</strong>
+
+                <button
+                  class="runtime-info-button"
+                  type="button"
+                  aria-label="Information zur Mindestlaufzeit im Pro-Tarif"
+                  data-info-title="Wie funktioniert die Mindestlaufzeit?"
+                  data-info-text="Die Mindestlaufzeit ist der Zeitraum, für den deine Mitgliedschaft mindestens läuft. Du kannst bereits während der Mindestlaufzeit kündigen; die Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit. Wenn du nicht kündigst, läuft die Mitgliedschaft nach der Mindestlaufzeit regulär weiter und kann dann monatlich gekündigt werden."
+                >
+                  <span aria-hidden="true">?</span>
+                </button>
+              </div>
+
+              <a href="app.html" class="btn btn-primary">
+                In der App buchen
+              </a>
             </article>
           </div>
         </div>
@@ -1114,50 +1105,48 @@
               </div>
             </div>
 
-            <div class="tariff-bottom">
-              <div class="tariff-feature-block">
-                <ul class="tariff-checks">
-                  <li>24 Stunden Zugang</li>
-                  <li>QR-Code-Zutritt über die App</li>
-                </ul>
+            <div class="tariff-feature-block">
+              <ul class="tariff-checks">
+                <li>24 Stunden Zugang</li>
+                <li>QR-Code-Zutritt über die App</li>
+              </ul>
 
-                <ul class="tariff-extras">
-                  <li>
-                    <span class="tariff-extra-row">
-                      <span>1 Freigetränk à 330 ml</span>
-                      <button
-                        class="extra-info-button"
-                        type="button"
-                        aria-label="Information zum Freigetränk beim Tagespass"
-                        data-info-title="Freigetränk beim Tagespass"
-                        data-info-text="Mit dem Tagespass erhältst du für diesen Nutzungstag 1 Freigetränk à 330 ml. Weitere Getränke können zusätzlich in der App gekauft und im Studio eingelöst werden."
-                      >
-                        <span aria-hidden="true">?</span>
-                      </button>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="tariff-runtime">
-                <span>Zugang</span>
-                <strong>24 Stunden</strong>
-
-                <button
-                  class="runtime-info-button"
-                  type="button"
-                  aria-label="Information zum Tagespass-Zugang"
-                  data-info-title="Wie funktioniert der Zugang?"
-                  data-info-text="Der Tagespass wird nach dem Kauf in deinem Profil hinterlegt und startet nicht sofort. Die 24 Stunden beginnen erst, wenn du den Tagespass beim Betreten des Studios über die Nordkern Fitness App aktivierst und den QR-Code für den Zutritt nutzt. Danach ist der Zugang 24 Stunden gültig und endet automatisch. Aus dem Tagespass entsteht keine Mitgliedschaft."
-                >
-                  <span aria-hidden="true">?</span>
-                </button>
-              </div>
-
-              <a href="app.html" class="btn btn-primary">
-                In der App buchen
-              </a>
+              <ul class="tariff-extras">
+                <li>
+                  <span class="tariff-extra-row">
+                    <span>1 Freigetränk à 330 ml</span>
+                    <button
+                      class="extra-info-button"
+                      type="button"
+                      aria-label="Information zum Freigetränk beim Tagespass"
+                      data-info-title="Freigetränk beim Tagespass"
+                      data-info-text="Mit dem Tagespass erhältst du für diesen Nutzungstag 1 Freigetränk à 330 ml. Weitere Getränke können zusätzlich in der App gekauft und im Studio eingelöst werden."
+                    >
+                      <span aria-hidden="true">?</span>
+                    </button>
+                  </span>
+                </li>
+              </ul>
             </div>
+
+            <div class="tariff-runtime">
+              <span>Zugang</span>
+              <strong>24 Stunden</strong>
+
+              <button
+                class="runtime-info-button"
+                type="button"
+                aria-label="Information zum Tagespass-Zugang"
+                data-info-title="Wie funktioniert der Zugang?"
+                data-info-text="Der Tagespass wird nach dem Kauf in deinem Profil hinterlegt und startet nicht sofort. Die 24 Stunden beginnen erst, wenn du den Tagespass beim Betreten des Studios über die Nordkern Fitness App aktivierst und den QR-Code für den Zutritt nutzt. Danach ist der Zugang 24 Stunden gültig und endet automatisch. Aus dem Tagespass entsteht keine Mitgliedschaft."
+              >
+                <span aria-hidden="true">?</span>
+              </button>
+            </div>
+
+            <a href="app.html" class="btn btn-primary">
+              In der App buchen
+            </a>
           </div>
         </div>
 
