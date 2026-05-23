@@ -64,7 +64,7 @@
       position: relative;
       min-height: 610px;
       display: grid;
-      grid-template-rows: 105px 140px 1fr auto auto;
+      grid-template-rows: 96px 140px 1fr auto auto;
       padding: clamp(1.35rem, 2vw, 1.7rem);
       border-radius: 34px;
       overflow: visible;
@@ -117,13 +117,14 @@
 
     .tariff-name {
       align-self: start;
-      padding-right: 4.4rem;
+      padding-right: 0;
       color: var(--text);
-      font-size: clamp(2.05rem, 2.8vw, 3rem);
+      font-size: clamp(1.95rem, 2.42vw, 2.62rem);
       line-height: 1;
       letter-spacing: -0.045em;
       font-weight: 760;
-      text-wrap: balance;
+      white-space: nowrap;
+      text-wrap: nowrap;
     }
 
     .tariff-name span {
@@ -638,6 +639,10 @@
         grid-template-rows: auto auto auto auto auto;
       }
 
+      .tariff-name {
+        font-size: clamp(2.05rem, 6vw, 3rem);
+      }
+
       .tariff-price-area {
         margin-top: 1.8rem;
       }
@@ -708,7 +713,8 @@
       }
 
       .tariff-name {
-        font-size: clamp(1.9rem, 8vw, 2.55rem);
+        font-size: clamp(1.72rem, 6.8vw, 2.28rem);
+        letter-spacing: -0.048em;
       }
 
       .tariff-price-area {
@@ -811,6 +817,10 @@
         padding-inline: max(0.9rem, calc((100vw - 84vw) / 2));
       }
 
+      .tariff-name {
+        font-size: clamp(1.48rem, 6.4vw, 1.92rem);
+      }
+
       .tariff-price {
         font-size: clamp(2.65rem, 12vw, 3.55rem);
       }
@@ -889,6 +899,21 @@
                       </button>
                     </span>
                   </li>
+
+                  <li>
+                    <span class="tariff-extra-row">
+                      <span>1 Kreatin-Auswahl inklusive / Monat</span>
+                      <button
+                        class="extra-info-button"
+                        type="button"
+                        aria-label="Information zur Kreatin-Auswahl im Basic-Tarif"
+                        data-info-title="Kreatin-Auswahl"
+                        data-info-text="Im Basic-Tarif ist 1 Kreatin-Auswahl pro Monat inklusive. Du kannst sie optional bei passenden Getränken auswählen. Wenn du mehr Kreatin-Auswahlen nutzen möchtest, sollen diese später zusätzlich in der App buchbar sein."
+                      >
+                        <span aria-hidden="true">?</span>
+                      </button>
+                    </span>
+                  </li>
                 </ul>
               </div>
 
@@ -946,13 +971,13 @@
 
                   <li>
                     <span class="tariff-extra-row">
-                      <span>Kreatin im Getränk wählbar</span>
+                      <span>3 Kreatin-Auswahlen inklusive / Monat</span>
                       <button
                         class="extra-info-button"
                         type="button"
-                        aria-label="Information zu Kreatin im Getränk im Plus-Tarif"
-                        data-info-title="Kreatin im Getränk"
-                        data-info-text="Mit Nordkern Plus kannst du bei passenden Getränken zusätzlich Kreatin auswählen und direkt mit einmischen lassen. Die Menge soll später in der App bzw. am Getränkesystem auswählbar sein."
+                        aria-label="Information zur Kreatin-Auswahl im Plus-Tarif"
+                        data-info-title="Kreatin-Auswahl"
+                        data-info-text="Im Plus-Tarif sind 3 Kreatin-Auswahlen pro Monat inklusive. Du kannst sie optional bei passenden Getränken auswählen. Wenn du mehr Kreatin-Auswahlen nutzen möchtest, sollen diese später zusätzlich in der App buchbar sein."
                       >
                         <span aria-hidden="true">?</span>
                       </button>
@@ -1015,13 +1040,13 @@
 
                   <li>
                     <span class="tariff-extra-row">
-                      <span>Kreatin im Getränk wählbar</span>
+                      <span>5 Kreatin-Auswahlen inklusive / Monat</span>
                       <button
                         class="extra-info-button"
                         type="button"
-                        aria-label="Information zu Kreatin im Getränk im Pro-Tarif"
-                        data-info-title="Kreatin im Getränk"
-                        data-info-text="Mit Nordkern Pro kannst du bei passenden Getränken zusätzlich Kreatin auswählen und direkt mit einmischen lassen. Die Menge soll später in der App bzw. am Getränkesystem auswählbar sein."
+                        aria-label="Information zur Kreatin-Auswahl im Pro-Tarif"
+                        data-info-title="Kreatin-Auswahl"
+                        data-info-text="Im Pro-Tarif sind 5 Kreatin-Auswahlen pro Monat inklusive. Du kannst sie optional bei passenden Getränken auswählen. Wenn du mehr Kreatin-Auswahlen nutzen möchtest, sollen diese später zusätzlich in der App buchbar sein."
                       >
                         <span aria-hidden="true">?</span>
                       </button>
@@ -1121,6 +1146,21 @@
                       aria-label="Information zum Freigetränk beim Tagespass"
                       data-info-title="Freigetränk beim Tagespass"
                       data-info-text="Mit dem Tagespass erhältst du für diesen Nutzungstag 1 Freigetränk à 330 ml. Weitere Getränke können zusätzlich in der App gekauft und im Studio eingelöst werden."
+                    >
+                      <span aria-hidden="true">?</span>
+                    </button>
+                  </span>
+                </li>
+
+                <li>
+                  <span class="tariff-extra-row">
+                    <span>1 Kreatin-Auswahl inklusive</span>
+                    <button
+                      class="extra-info-button"
+                      type="button"
+                      aria-label="Information zur Kreatin-Auswahl beim Tagespass"
+                      data-info-title="Kreatin-Auswahl"
+                      data-info-text="Beim Tagespass ist 1 Kreatin-Auswahl inklusive. Du kannst sie optional bei einem passenden Getränk auswählen. Weitere Kreatin-Auswahlen sollen später zusätzlich in der App buchbar sein."
                     >
                       <span aria-hidden="true">?</span>
                     </button>
