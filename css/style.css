@@ -2153,11 +2153,9 @@ select[aria-invalid="true"] {
   position: relative;
   margin-top: 0;
   padding: 0;
-  color: #ffffff;
-  background:
-    radial-gradient(circle at 18% 0%, rgba(46, 145, 63, 0.16), transparent 34rem),
-    radial-gradient(circle at 92% 18%, rgba(46, 145, 63, 0.10), transparent 30rem),
-    linear-gradient(180deg, #151615 0%, #101110 58%, #0b0c0b 100%);
+  color: var(--text);
+  background: #f5f5f7;
+  border-top: 12px solid #ffffff;
   overflow: hidden;
 }
 
@@ -2167,9 +2165,8 @@ select[aria-invalid="true"] {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(135deg, transparent 0%, transparent 54%, rgba(46, 145, 63, 0.055) 54%, rgba(46, 145, 63, 0.055) 66%, transparent 66%),
-    linear-gradient(155deg, transparent 0%, transparent 66%, rgba(255, 255, 255, 0.032) 66%, rgba(255, 255, 255, 0.032) 77%, transparent 77%);
-  opacity: 0.95;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(245, 245, 247, 0) 28%),
+    radial-gradient(circle at 22% 0%, rgba(46, 145, 63, 0.085), transparent 28rem);
 }
 
 .footer-inner {
@@ -2177,20 +2174,24 @@ select[aria-invalid="true"] {
   z-index: 1;
   width: min(100% - 2rem, var(--max-width));
   margin-inline: auto;
-  padding: clamp(4rem, 7vw, 6.2rem) 0 2rem;
+  padding: clamp(2.8rem, 5vw, 4.6rem) 0 1.7rem;
+}
+
+.footer-brand-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 520px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 .footer-top {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
-  gap: clamp(2rem, 6vw, 5.5rem);
-  align-items: start;
+  display: block;
 }
 
 .footer-brand {
-  max-width: 600px;
-  display: grid;
-  gap: 1.25rem;
+  max-width: none;
+  display: block;
 }
 
 .footer-logo {
@@ -2202,61 +2203,60 @@ select[aria-invalid="true"] {
 
 .footer-logo img {
   width: auto;
-  height: 78px;
-  max-width: 210px;
+  height: 62px;
+  max-width: 172px;
   object-fit: contain;
-  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.28));
+  filter: none;
 }
 
+.footer-brand-text,
 .footer-brand p {
-  max-width: 58ch;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: clamp(0.98rem, 1.35vw, 1.12rem);
-  line-height: 1.55;
+  max-width: 52ch;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.48;
   letter-spacing: -0.012em;
 }
 
 .footer-contact-card {
   display: grid;
   gap: 0.5rem;
-  padding: 1rem 1.05rem;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.055);
-  border: 1px solid rgba(255, 255, 255, 0.075);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.075),
-    0 20px 44px rgba(0, 0, 0, 0.16);
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .footer-contact-card a {
   width: fit-content;
   max-width: 100%;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.92rem;
+  color: var(--muted);
+  font-size: 0.9rem;
   line-height: 1.4;
   overflow-wrap: anywhere;
   transition:
     color var(--fast),
-    transform var(--fast);
+    opacity var(--fast);
 }
 
 .footer-contact-card a:hover,
 .footer-contact-card a:focus-visible {
-  color: #ffffff;
-  transform: translateX(2px);
+  color: var(--text);
+  transform: none;
 }
 
 .footer-divider {
   width: 100%;
   height: 1px;
-  margin: clamp(2rem, 5vw, 3.4rem) 0;
-  background: rgba(255, 255, 255, 0.09);
+  margin: clamp(1.55rem, 3vw, 2.4rem) 0;
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .footer-main {
   display: grid;
-  grid-template-columns: 1.15fr 1fr 1.15fr 1fr;
-  gap: clamp(1.5rem, 4.5vw, 4.8rem);
+  grid-template-columns: 1.05fr 1fr 1.2fr 1fr;
+  gap: clamp(1.4rem, 4vw, 4.8rem);
   align-items: start;
 }
 
@@ -2264,12 +2264,12 @@ select[aria-invalid="true"] {
   min-width: 0;
   display: grid;
   align-content: start;
-  gap: 0.78rem;
+  gap: 0.7rem;
 }
 
 .footer-column-title {
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 0.76rem;
+  color: var(--text);
+  font-size: 0.72rem;
   font-weight: 850;
   letter-spacing: 0.055em;
   text-transform: uppercase;
@@ -2277,14 +2277,14 @@ select[aria-invalid="true"] {
 
 .footer-link-list {
   display: grid;
-  gap: 0.52rem;
+  gap: 0.42rem;
 }
 
 .footer-link-list a,
 .footer-link-list p,
 .footer-bottom p {
-  color: rgba(255, 255, 255, 0.54);
-  font-size: 0.92rem;
+  color: var(--muted);
+  font-size: 0.88rem;
   line-height: 1.42;
   letter-spacing: -0.008em;
 }
@@ -2295,13 +2295,13 @@ select[aria-invalid="true"] {
   overflow-wrap: anywhere;
   transition:
     color var(--fast),
-    transform var(--fast);
+    opacity var(--fast);
 }
 
 .footer-link-list a:hover,
 .footer-link-list a:focus-visible {
-  color: #ffffff;
-  transform: translateX(2px);
+  color: var(--text);
+  transform: none;
 }
 
 .footer-bottom {
@@ -2313,11 +2313,11 @@ select[aria-invalid="true"] {
 }
 
 .footer-bottom p {
-  font-size: 0.84rem;
+  font-size: 0.82rem;
 }
 
 .footer-bottom-note {
-  color: rgba(255, 255, 255, 0.38) !important;
+  color: var(--muted) !important;
 }
 
 /* Reveal */
@@ -2452,12 +2452,9 @@ select[aria-invalid="true"] {
     width: min(70vw, 520px);
   }
 
-  .footer-top {
+  .footer-brand-row {
     grid-template-columns: 1fr;
-  }
-
-  .footer-contact-card {
-    max-width: 420px;
+    gap: 1rem;
   }
 
   .footer-main {
@@ -3100,73 +3097,61 @@ select[aria-invalid="true"] {
 
   .footer-inner {
     width: min(100% - 1.2rem, var(--max-width));
-    padding: 3.2rem 0 1.4rem;
+    padding: 2.7rem 0 1.25rem;
   }
 
-  .footer-top {
+  .footer-brand-row {
     grid-template-columns: 1fr;
-    gap: 1.3rem;
-  }
-
-  .footer-logo img {
-    height: 62px;
-    max-width: 166px;
-  }
-
-  .footer-brand {
     gap: 0.9rem;
   }
 
-  .footer-brand p {
-    font-size: 0.92rem;
+  .footer-logo img {
+    height: 56px;
+    max-width: 152px;
   }
 
-  .footer-contact-card {
-    max-width: none;
-    padding: 0.95rem;
-    border-radius: 22px;
+  .footer-brand-text,
+  .footer-brand p {
+    max-width: 42ch;
+    font-size: 0.9rem;
   }
 
   .footer-divider {
-    margin: 1.35rem 0;
+    margin: 1.3rem 0;
   }
 
   .footer-main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.72rem;
+    gap: 1.05rem 1.35rem;
   }
 
   .footer-column {
-    gap: 0.62rem;
-    padding: 0.95rem;
-    border-radius: 22px;
-    background: rgba(255, 255, 255, 0.048);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    gap: 0.55rem;
   }
 
   .footer-column-title {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
   }
 
   .footer-link-list {
-    gap: 0.36rem;
+    gap: 0.32rem;
   }
 
   .footer-link-list a,
   .footer-link-list p,
   .footer-contact-card a {
-    font-size: 0.88rem;
+    font-size: 0.86rem;
     line-height: 1.35;
   }
 
   .footer-bottom {
     align-items: flex-start;
     flex-direction: column;
-    gap: 0.36rem;
+    gap: 0.28rem;
   }
 
   .footer-bottom p {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     line-height: 1.4;
   }
 }
@@ -3383,33 +3368,27 @@ select[aria-invalid="true"] {
 
   .footer-inner {
     width: min(100% - 1rem, var(--max-width));
-    padding: 2.7rem 0 1.2rem;
+    padding: 2.35rem 0 1.1rem;
   }
 
   .footer-logo img {
-    height: 56px;
-    max-width: 152px;
+    height: 52px;
+    max-width: 142px;
   }
 
   .footer-main {
     grid-template-columns: 1fr;
-    gap: 0.62rem;
-  }
-
-  .footer-column,
-  .footer-contact-card {
-    padding: 0.86rem;
-    border-radius: 20px;
+    gap: 0.92rem;
   }
 
   .footer-column-title {
-    font-size: 0.7rem;
+    font-size: 0.69rem;
   }
 
   .footer-link-list a,
   .footer-link-list p,
   .footer-contact-card a {
-    font-size: 0.86rem;
+    font-size: 0.85rem;
   }
 }
 
