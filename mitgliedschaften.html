@@ -49,6 +49,10 @@
       letter-spacing: -0.012em;
     }
 
+    .tariff-mobile-hint {
+      display: none;
+    }
+
     .tariff-scroll-wrap {
       width: 100%;
     }
@@ -62,10 +66,10 @@
 
     .tariff-card {
       position: relative;
-      min-height: 610px;
+      min-height: 650px;
       display: grid;
-      grid-template-rows: 96px 140px 1fr auto auto;
-      padding: clamp(1.35rem, 2vw, 1.7rem);
+      grid-template-rows: 104px 150px 1fr auto auto;
+      padding: clamp(1.45rem, 2.1vw, 1.9rem);
       border-radius: 34px;
       overflow: visible;
       background: #f5f5f7;
@@ -119,7 +123,7 @@
       align-self: start;
       padding-right: 0;
       color: var(--text);
-      font-size: clamp(1.95rem, 2.42vw, 2.62rem);
+      font-size: clamp(1.88rem, 2.35vw, 2.52rem);
       line-height: 1;
       letter-spacing: -0.045em;
       font-weight: 760;
@@ -230,12 +234,12 @@
 
     .tariff-feature-block {
       align-self: start;
-      padding-top: 0.3rem;
+      padding-top: 0.15rem;
     }
 
     .tariff-checks {
       display: grid;
-      gap: 0.55rem;
+      gap: 0.58rem;
     }
 
     .tariff-checks li {
@@ -265,29 +269,29 @@
     }
 
     .tariff-extras-title {
-      margin-top: 1.05rem;
-      margin-bottom: 0.5rem;
-      padding-left: 0.08rem;
+      margin-top: 1.18rem;
+      margin-bottom: 0.56rem;
+      padding-left: 0.02rem;
       color: var(--text);
-      font-size: 0.78rem;
-      font-weight: 850;
+      font-size: 0.74rem;
+      font-weight: 860;
       line-height: 1;
-      letter-spacing: 0.045em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
     .tariff-extras {
       display: grid;
-      gap: 0.38rem;
+      gap: 0.46rem;
       margin-top: 0;
-      padding-left: 0.95rem;
+      padding-left: 0.38rem;
     }
 
     .tariff-extras li {
       position: relative;
       display: flex;
       align-items: center;
-      min-height: 1.18rem;
+      min-height: 1.22rem;
       padding-left: 1.62rem;
       color: var(--text-soft);
       font-size: 0.95rem;
@@ -357,7 +361,7 @@
     .tariff-runtime {
       position: relative;
       align-self: end;
-      margin-top: 1.15rem;
+      margin-top: 1.35rem;
       padding: 0.88rem 3.25rem 0.88rem 1rem;
       border-radius: 22px;
       background: rgba(255, 255, 255, 0.72);
@@ -679,7 +683,7 @@
       }
 
       .pricing-page-intro {
-        margin-bottom: 2rem;
+        margin-bottom: 1.25rem;
       }
 
       .pricing-main-title {
@@ -692,14 +696,37 @@
         font-size: 0.96rem;
       }
 
+      .tariff-mobile-hint {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.42rem;
+        width: fit-content;
+        margin: 0 auto 0.25rem;
+        padding: 0.48rem 0.76rem;
+        border-radius: 999px;
+        color: var(--nf-green-dark);
+        background: rgba(46, 145, 63, 0.08);
+        border: 1px solid rgba(46, 145, 63, 0.14);
+        font-size: 0.84rem;
+        font-weight: 740;
+        letter-spacing: -0.01em;
+      }
+
+      .tariff-mobile-hint::after {
+        content: "›";
+        font-size: 1rem;
+        line-height: 1;
+      }
+
       .tariff-scroll-wrap {
         width: auto;
         margin-inline: calc(50% - 50vw);
         overflow-x: auto;
         overflow-y: visible;
         scroll-snap-type: x mandatory;
-        scroll-padding-inline: max(1rem, calc((100vw - 82vw) / 2));
-        padding: 1.05rem max(1rem, calc((100vw - 82vw) / 2)) 1.15rem;
+        scroll-padding-inline: max(1rem, calc((100vw - 78vw) / 2));
+        padding: 1.05rem max(1rem, calc((100vw - 78vw) / 2)) 1.2rem;
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
       }
@@ -717,15 +744,15 @@
       }
 
       .tariff-card {
-        flex: 0 0 82vw;
-        min-height: 540px;
+        flex: 0 0 78vw;
+        min-height: 570px;
         border-radius: 30px;
-        padding: 1.25rem;
+        padding: 1.35rem;
         scroll-snap-align: center;
       }
 
       .tariff-name {
-        font-size: clamp(1.72rem, 6.8vw, 2.28rem);
+        font-size: clamp(1.72rem, 6.7vw, 2.28rem);
         letter-spacing: -0.048em;
       }
 
@@ -745,13 +772,17 @@
         margin-top: 0.2rem;
       }
 
-      .tariff-checks,
+      .tariff-checks {
+        gap: 0.56rem;
+      }
+
       .tariff-extras {
-        gap: 0.5rem;
+        gap: 0.48rem;
+        padding-left: 0.35rem;
       }
 
       .tariff-extras-title {
-        margin-top: 1rem;
+        margin-top: 1.12rem;
       }
 
       .discount-badge {
@@ -824,17 +855,17 @@
 
     @media (max-width: 480px) {
       .tariff-card {
-        flex-basis: 84vw;
-        min-height: 525px;
+        flex-basis: 82vw;
+        min-height: 560px;
       }
 
       .tariff-scroll-wrap {
-        scroll-padding-inline: max(0.9rem, calc((100vw - 84vw) / 2));
-        padding-inline: max(0.9rem, calc((100vw - 84vw) / 2));
+        scroll-padding-inline: max(0.9rem, calc((100vw - 82vw) / 2));
+        padding-inline: max(0.9rem, calc((100vw - 82vw) / 2));
       }
 
       .tariff-name {
-        font-size: clamp(1.48rem, 6.4vw, 1.92rem);
+        font-size: clamp(1.48rem, 6.35vw, 1.9rem);
       }
 
       .tariff-price {
@@ -881,6 +912,10 @@
             Wähle deinen Zugang digital in der Nordkern Fitness App. Preise, Laufzeiten und mögliche Aktionen werden vor der Buchung noch einmal klar angezeigt.
           </p>
         </div>
+
+        <p class="tariff-mobile-hint" aria-hidden="true">
+          Tarife seitlich vergleichen
+        </p>
 
         <div class="tariff-scroll-wrap" aria-label="Nordkern Fitness Mitgliedschaften">
           <div class="tariff-grid">
