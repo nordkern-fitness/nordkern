@@ -2165,8 +2165,8 @@ select[aria-invalid="true"] {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(245, 245, 247, 0) 28%),
-    radial-gradient(circle at 22% 0%, rgba(46, 145, 63, 0.085), transparent 28rem);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(245, 245, 247, 0) 30%),
+    radial-gradient(circle at 21% 0%, rgba(46, 145, 63, 0.125), transparent 30rem);
 }
 
 .footer-inner {
@@ -2178,11 +2178,9 @@ select[aria-invalid="true"] {
 }
 
 .footer-brand-row {
-  display: grid;
-  grid-template-columns: auto minmax(0, 520px);
+  display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  justify-content: flex-start;
 }
 
 .footer-top {
@@ -2211,11 +2209,7 @@ select[aria-invalid="true"] {
 
 .footer-brand-text,
 .footer-brand p {
-  max-width: 52ch;
-  color: var(--muted);
-  font-size: 0.94rem;
-  line-height: 1.48;
-  letter-spacing: -0.012em;
+  display: none;
 }
 
 .footer-contact-card {
@@ -2450,11 +2444,6 @@ select[aria-invalid="true"] {
 
   .app-showcase-image {
     width: min(70vw, 520px);
-  }
-
-  .footer-brand-row {
-    grid-template-columns: 1fr;
-    gap: 1rem;
   }
 
   .footer-main {
@@ -3100,20 +3089,9 @@ select[aria-invalid="true"] {
     padding: 2.7rem 0 1.25rem;
   }
 
-  .footer-brand-row {
-    grid-template-columns: 1fr;
-    gap: 0.9rem;
-  }
-
   .footer-logo img {
     height: 56px;
     max-width: 152px;
-  }
-
-  .footer-brand-text,
-  .footer-brand p {
-    max-width: 42ch;
-    font-size: 0.9rem;
   }
 
   .footer-divider {
