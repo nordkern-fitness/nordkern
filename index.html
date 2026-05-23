@@ -199,10 +199,9 @@
       background:
         linear-gradient(
           180deg,
-          #a8dfb2 0%,
-          #bce8c4 18%,
-          #d7f4dd 43%,
-          #f2fbf4 74%,
+          #95dca2 0%,
+          #b9e8c2 22%,
+          #def5e3 55%,
           #ffffff 100%
         );
       text-align: center;
@@ -247,20 +246,20 @@
     }
 
     .home-app-panel {
-      min-height: clamp(620px, 76vh, 820px);
+      min-height: clamp(720px, 86vh, 920px);
       display: grid;
       place-items: center;
-      padding: 6.2rem 1.5rem 6.5rem;
-      background: #f5f5f7;
+      padding: 6.8rem 1.5rem 7.2rem;
+      background: #eeeeef;
       overflow: hidden;
     }
 
     .home-app-inner {
       width: min(100%, 1180px);
       display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.8fr);
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.82fr);
       align-items: center;
-      gap: clamp(2.4rem, 5vw, 5.5rem);
+      gap: clamp(2.8rem, 6vw, 6.5rem);
       margin-inline: auto;
     }
 
@@ -269,7 +268,7 @@
     }
 
     .home-app-copy .eyebrow {
-      margin-bottom: 0.78rem;
+      margin-bottom: 0.82rem;
       color: var(--muted);
       font-size: 0.78rem;
       font-weight: 860;
@@ -279,7 +278,7 @@
     .home-app-copy h2 {
       max-width: 760px;
       color: var(--text);
-      font-size: clamp(3.15rem, 5.65vw, 6.25rem);
+      font-size: clamp(3.05rem, 5.35vw, 5.95rem);
       line-height: 0.92;
       letter-spacing: -0.076em;
       font-weight: 760;
@@ -288,7 +287,7 @@
 
     .home-app-copy p {
       max-width: 590px;
-      margin: 1.05rem 0 0;
+      margin: 1.15rem 0 0;
       color: var(--text-soft);
       font-size: clamp(1.05rem, 1.45vw, 1.25rem);
       line-height: 1.45;
@@ -298,22 +297,41 @@
 
     .home-app-copy .product-actions {
       justify-content: flex-start;
-      margin-top: 2.1rem;
+      margin-top: 2.25rem;
     }
 
     .home-app-visual {
-      min-height: 560px;
+      position: relative;
+      min-height: 600px;
       display: grid;
       place-items: center;
     }
 
+    .home-app-visual::before {
+      content: "";
+      position: absolute;
+      width: min(86%, 520px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.92) 0%,
+          rgba(255, 255, 255, 0.72) 36%,
+          rgba(255, 255, 255, 0) 70%
+        );
+      filter: blur(8px);
+    }
+
     .home-app-image {
-      width: min(36vw, 430px);
-      max-height: 680px;
+      position: relative;
+      z-index: 2;
+      width: min(35vw, 410px);
+      max-height: 700px;
       object-fit: contain;
       filter:
-        drop-shadow(0 36px 70px rgba(0, 0, 0, 0.16))
-        drop-shadow(0 10px 22px rgba(0, 0, 0, 0.08));
+        drop-shadow(0 38px 76px rgba(0, 0, 0, 0.18))
+        drop-shadow(0 12px 26px rgba(0, 0, 0, 0.10));
     }
 
     @media (max-width: 1100px) {
@@ -358,7 +376,7 @@
       }
 
       .home-app-image {
-        width: min(70vw, 420px);
+        width: min(70vw, 410px);
       }
     }
 
@@ -433,7 +451,8 @@
       }
 
       .home-app-panel {
-        padding: 5rem 1rem 5.5rem;
+        min-height: auto;
+        padding: 5.5rem 1rem 6rem;
       }
 
       .home-app-visual {
@@ -441,7 +460,7 @@
       }
 
       .home-app-image {
-        width: min(86vw, 390px);
+        width: min(86vw, 380px);
       }
     }
 
@@ -485,7 +504,7 @@
       }
 
       .home-app-image {
-        width: min(90vw, 330px);
+        width: min(90vw, 320px);
       }
     }
   </style>
@@ -596,11 +615,11 @@
           <div class="home-app-copy">
             <p class="eyebrow">Nordkern Fitness App</p>
 
-            <h2 id="home-app-title">Dein Zugang. Deine Tarife. Alles in einer App.</h2>
+            <h2 id="home-app-title">Buchen. Öffnen. Trainieren.</h2>
 
             <p>
-              Mitgliedschaft buchen, Tagespass aktivieren und per QR-Code ins Studio.
-              Klar gebündelt, damit dein Training nicht mit Papierkram beginnt.
+              Mitgliedschaft oder Tagespass auswählen, QR-Code öffnen und direkt ins Studio.
+              Alles klar gebündelt in der Nordkern Fitness App.
             </p>
 
             <div class="product-actions" aria-label="Links zur App und zum Kontakt">
