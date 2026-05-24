@@ -349,9 +349,8 @@
 
     .drink-info-card {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-columns: minmax(0, 1fr);
       align-items: center;
-      gap: 1.35rem;
       padding: clamp(1.25rem, 2.4vw, 1.8rem);
       border-radius: 32px;
       background: #f5f5f7;
@@ -375,8 +374,8 @@
     .drink-info-title-row {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
-      flex-wrap: wrap;
+      gap: 0.72rem;
+      flex-wrap: nowrap;
     }
 
     .drink-info-title {
@@ -392,68 +391,22 @@
       width: 34px;
       height: 34px;
       flex: 0 0 auto;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      color: var(--nf-green-dark);
       background: #ffffff;
-      border: 1px solid rgba(46, 145, 63, 0.18);
-      box-shadow: none;
-      transition:
-        background var(--fast),
-        transform var(--fast),
-        border-color var(--fast);
-    }
-
-    .drink-main-info-button:hover {
-      border-color: rgba(46, 145, 63, 0.32);
-      background: #ffffff;
-      transform: scale(1.035);
+      border-color: rgba(46, 145, 63, 0.18);
     }
 
     .drink-main-info-button span {
-      color: var(--nf-green-dark);
       font-size: 1rem;
-      line-height: 1;
       font-weight: 760;
-      transform: translateY(-0.5px);
     }
 
     .drink-info-text {
       max-width: 760px;
-      margin-top: 0.68rem;
+      margin-top: 0.72rem;
       color: var(--muted);
       font-size: 0.98rem;
       line-height: 1.48;
       letter-spacing: -0.01em;
-    }
-
-    .drink-info-mini {
-      display: grid;
-      gap: 0.32rem;
-      min-width: 190px;
-      padding: 1rem 1.05rem;
-      border-radius: 24px;
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-    }
-
-    .drink-info-mini span {
-      color: var(--nf-green-dark);
-      font-size: 0.7rem;
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: 0.065em;
-      text-transform: uppercase;
-    }
-
-    .drink-info-mini strong {
-      color: var(--text);
-      font-size: 1.02rem;
-      line-height: 1.25;
-      letter-spacing: -0.018em;
-      font-weight: 740;
     }
 
     .daypass-section {
@@ -741,25 +694,17 @@
       }
 
       .drink-info-card {
-        grid-template-columns: 1fr;
-        gap: 1.05rem;
         border-radius: 28px;
       }
 
       .drink-info-title-row {
         align-items: flex-start;
-        flex-wrap: nowrap;
       }
 
       .drink-main-info-button {
         width: 32px;
         height: 32px;
-        margin-top: 0.05rem;
-      }
-
-      .drink-info-mini {
-        width: 100%;
-        min-width: 0;
+        margin-top: 0.02rem;
       }
 
       .daypass-section {
@@ -824,6 +769,18 @@
 
       .tariff-runtime {
         padding: 0.78rem 3rem 0.78rem 0.9rem;
+      }
+
+      .drink-info-title-row {
+        gap: 0.55rem;
+      }
+
+      .drink-info-title {
+        font-size: clamp(1.72rem, 8vw, 2.25rem);
+      }
+
+      .drink-info-text {
+        font-size: 0.94rem;
       }
 
       .daypass-layout {
@@ -1101,7 +1058,7 @@
               </h2>
 
               <button
-                class="drink-main-info-button"
+                class="extra-info-button drink-main-info-button"
                 type="button"
                 aria-label="Information zum Getränkeautomaten"
                 data-info-title="So funktioniert der Getränkeautomat"
@@ -1112,13 +1069,8 @@
             </div>
 
             <p class="drink-info-text">
-              Du scannst deinen QR-Code, wählst dein Getränk und löst verfügbare Extras direkt über dein App-Konto ein.
+              Dein QR-Code verbindet den Automaten mit deinem App-Konto. So werden Freigetränke und Extras automatisch erkannt und sauber zugeordnet.
             </p>
-          </div>
-
-          <div class="drink-info-mini" aria-hidden="true">
-            <span>Prinzip</span>
-            <strong>Scannen. Auswählen. Einlösen.</strong>
           </div>
         </div>
       </div>
