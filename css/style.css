@@ -2298,6 +2298,45 @@ select[aria-invalid="true"] {
   transform: none;
 }
 
+.footer-support-list {
+  gap: 0.5rem;
+}
+
+.footer-support-note {
+  max-width: 26ch;
+  margin-bottom: 0.18rem;
+  padding: 0.72rem 0.85rem;
+  border-radius: 18px;
+  color: var(--muted) !important;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(0, 0, 0, 0.045);
+  line-height: 1.42 !important;
+}
+
+.footer-support-list p:not(.footer-support-note) {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.footer-support-list span {
+  color: var(--text-soft);
+  font-size: 0.88rem;
+  line-height: 1.42;
+  font-weight: 680;
+  letter-spacing: -0.008em;
+}
+
+.footer-support-list a {
+  color: var(--muted);
+}
+
+.footer-support-list a:hover,
+.footer-support-list a:focus-visible {
+  color: var(--text);
+}
+
 .footer-bottom {
   display: flex;
   align-items: center;
@@ -3117,9 +3156,15 @@ select[aria-invalid="true"] {
 
   .footer-link-list a,
   .footer-link-list p,
-  .footer-contact-card a {
+  .footer-contact-card a,
+  .footer-support-list span {
     font-size: 0.86rem;
     line-height: 1.35;
+  }
+
+  .footer-support-note {
+    max-width: 100%;
+    padding: 0.68rem 0.78rem;
   }
 
   .footer-bottom {
@@ -3365,7 +3410,8 @@ select[aria-invalid="true"] {
 
   .footer-link-list a,
   .footer-link-list p,
-  .footer-contact-card a {
+  .footer-contact-card a,
+  .footer-support-list span {
     font-size: 0.85rem;
   }
 }
