@@ -21,7 +21,7 @@
 
     .pricing-page-intro {
       max-width: 980px;
-      margin-bottom: clamp(3rem, 5vw, 4.5rem);
+      margin-bottom: clamp(2.6rem, 4.6vw, 4rem);
     }
 
     .pricing-page-intro .eyebrow {
@@ -49,10 +49,6 @@
       letter-spacing: -0.012em;
     }
 
-    .tariff-mobile-hint {
-      display: none;
-    }
-
     .tariff-scroll-wrap {
       width: 100%;
     }
@@ -66,10 +62,10 @@
 
     .tariff-card {
       position: relative;
-      min-height: 650px;
+      min-height: 610px;
       display: grid;
-      grid-template-rows: 104px 150px 1fr auto auto;
-      padding: clamp(1.45rem, 2.1vw, 1.9rem);
+      grid-template-rows: 96px 124px 1fr auto auto;
+      padding: clamp(1.35rem, 2vw, 1.7rem);
       border-radius: 34px;
       overflow: visible;
       background: #f5f5f7;
@@ -84,48 +80,13 @@
       box-shadow: 0 18px 44px rgba(46, 145, 63, 0.08);
     }
 
-    .discount-badge {
-      position: absolute;
-      top: -1.02rem;
-      right: 2.35rem;
-      z-index: 6;
-      min-width: 72px;
-      height: 52px;
-      padding: 0 0.78rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      color: #ffffff;
-      background: linear-gradient(180deg, #ff5a4f 0%, #d92d20 54%, #ad2218 100%);
-      border: 1px solid rgba(255, 255, 255, 0.42);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.24),
-        inset 0 -7px 14px rgba(89, 24, 18, 0.18),
-        0 12px 22px rgba(180, 35, 24, 0.22),
-        0 0 0 1px rgba(180, 35, 24, 0.08);
-      font-size: 0.9rem;
-      font-weight: 850;
-      line-height: 1;
-      letter-spacing: -0.012em;
-      text-align: center;
-      transform: rotate(-2deg);
-      white-space: nowrap;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .discount-badge > span {
-      display: inline-block;
-      transform: rotate(2deg);
-    }
-
     .tariff-name {
       align-self: start;
       padding-right: 0;
       color: var(--text);
-      font-size: clamp(1.88rem, 2.35vw, 2.52rem);
+      font-size: clamp(2.05rem, 2.45vw, 2.72rem);
       line-height: 1;
-      letter-spacing: -0.045em;
+      letter-spacing: -0.052em;
       font-weight: 760;
       white-space: nowrap;
       text-wrap: nowrap;
@@ -224,22 +185,15 @@
       white-space: nowrap;
     }
 
-    .tariff-discount-note {
-      color: #b42318;
-      font-size: 0.84rem;
-      line-height: 1.32;
-      letter-spacing: -0.006em;
-      font-weight: 650;
-    }
-
     .tariff-feature-block {
       align-self: start;
-      padding-top: 0.15rem;
+      padding-top: 0;
+      transform: translateY(-0.45rem);
     }
 
     .tariff-checks {
       display: grid;
-      gap: 0.58rem;
+      gap: 0.55rem;
     }
 
     .tariff-checks li {
@@ -268,30 +222,29 @@
       font-weight: 900;
     }
 
-    .tariff-extras-title {
-      margin-top: 1.18rem;
-      margin-bottom: 0.56rem;
-      padding-left: 0.02rem;
+    .tariff-extra-title {
+      margin-top: 0.78rem;
+      margin-bottom: 0.36rem;
+      padding-left: 0.08rem;
       color: var(--text);
       font-size: 0.74rem;
-      font-weight: 860;
       line-height: 1;
-      letter-spacing: 0.05em;
+      font-weight: 900;
+      letter-spacing: 0.065em;
       text-transform: uppercase;
     }
 
     .tariff-extras {
       display: grid;
-      gap: 0.46rem;
-      margin-top: 0;
-      padding-left: 0.38rem;
+      gap: 0.34rem;
+      padding-left: 0.6rem;
     }
 
     .tariff-extras li {
       position: relative;
       display: flex;
       align-items: center;
-      min-height: 1.22rem;
+      min-height: 1.18rem;
       padding-left: 1.62rem;
       color: var(--text-soft);
       font-size: 0.95rem;
@@ -361,7 +314,7 @@
     .tariff-runtime {
       position: relative;
       align-self: end;
-      margin-top: 1.35rem;
+      margin-top: 1.15rem;
       padding: 0.88rem 3.25rem 0.88rem 1rem;
       border-radius: 22px;
       background: rgba(255, 255, 255, 0.72);
@@ -507,10 +460,39 @@
       overflow: visible;
     }
 
-    .daypass-price-box-clean .discount-badge {
+    .discount-badge {
+      position: absolute;
       top: -1.02rem;
       right: 2rem;
+      z-index: 6;
       min-width: 64px;
+      height: 52px;
+      padding: 0 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      color: #ffffff;
+      background: linear-gradient(180deg, #ff5a4f 0%, #d92d20 54%, #ad2218 100%);
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.24),
+        inset 0 -7px 14px rgba(89, 24, 18, 0.18),
+        0 12px 22px rgba(180, 35, 24, 0.22),
+        0 0 0 1px rgba(180, 35, 24, 0.08);
+      font-size: 0.9rem;
+      font-weight: 850;
+      line-height: 1;
+      letter-spacing: -0.012em;
+      text-align: center;
+      transform: rotate(-2deg);
+      white-space: nowrap;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .discount-badge > span {
+      display: inline-block;
+      transform: rotate(2deg);
     }
 
     .daypass-price-box-clean .tariff-price-area {
@@ -547,6 +529,7 @@
     .daypass-price-box-clean .tariff-feature-block {
       align-self: start;
       padding-top: 0;
+      transform: none;
     }
 
     .daypass-price-box-clean .tariff-runtime {
@@ -656,15 +639,16 @@
       }
 
       .tariff-name {
-        font-size: clamp(2.05rem, 6vw, 3rem);
+        font-size: clamp(2.1rem, 5.2vw, 3rem);
       }
 
       .tariff-price-area {
-        margin-top: 1.8rem;
+        margin-top: 1.55rem;
       }
 
       .tariff-feature-block {
-        margin-top: 0.4rem;
+        margin-top: 0.15rem;
+        transform: none;
       }
 
       .daypass-card {
@@ -683,7 +667,7 @@
       }
 
       .pricing-page-intro {
-        margin-bottom: 1.25rem;
+        margin-bottom: 1.7rem;
       }
 
       .pricing-main-title {
@@ -696,39 +680,29 @@
         font-size: 0.96rem;
       }
 
-      .tariff-mobile-hint {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.42rem;
-        width: fit-content;
-        margin: 0 auto 0.25rem;
-        padding: 0.48rem 0.76rem;
-        border-radius: 999px;
-        color: var(--nf-green-dark);
-        background: rgba(46, 145, 63, 0.08);
-        border: 1px solid rgba(46, 145, 63, 0.14);
-        font-size: 0.84rem;
-        font-weight: 740;
-        letter-spacing: -0.01em;
-      }
-
-      .tariff-mobile-hint::after {
-        content: "›";
-        font-size: 1rem;
-        line-height: 1;
-      }
-
       .tariff-scroll-wrap {
+        position: relative;
         width: auto;
         margin-inline: calc(50% - 50vw);
         overflow-x: auto;
         overflow-y: visible;
         scroll-snap-type: x mandatory;
-        scroll-padding-inline: max(1rem, calc((100vw - 78vw) / 2));
-        padding: 1.05rem max(1rem, calc((100vw - 78vw) / 2)) 1.2rem;
+        scroll-padding-inline: max(1rem, calc((100vw - 82vw) / 2));
+        padding: 1.05rem max(1rem, calc((100vw - 82vw) / 2)) 1.15rem;
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
+      }
+
+      .tariff-scroll-wrap::after {
+        content: "";
+        position: sticky;
+        right: 0;
+        top: 0;
+        z-index: 3;
+        width: 42px;
+        flex: 0 0 42px;
+        pointer-events: none;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 82%);
       }
 
       .tariff-scroll-wrap::-webkit-scrollbar {
@@ -744,20 +718,20 @@
       }
 
       .tariff-card {
-        flex: 0 0 78vw;
-        min-height: 570px;
+        flex: 0 0 82vw;
+        min-height: 540px;
         border-radius: 30px;
-        padding: 1.35rem;
+        padding: 1.25rem;
         scroll-snap-align: center;
       }
 
       .tariff-name {
-        font-size: clamp(1.72rem, 6.7vw, 2.28rem);
-        letter-spacing: -0.048em;
+        font-size: clamp(2rem, 7.2vw, 2.55rem);
+        letter-spacing: -0.05em;
       }
 
       .tariff-price-area {
-        margin-top: 1.75rem;
+        margin-top: 1.55rem;
       }
 
       .tariff-price {
@@ -769,20 +743,16 @@
       }
 
       .tariff-feature-block {
-        margin-top: 0.2rem;
+        margin-top: 0.15rem;
       }
 
-      .tariff-checks {
-        gap: 0.56rem;
-      }
-
+      .tariff-checks,
       .tariff-extras {
-        gap: 0.48rem;
-        padding-left: 0.35rem;
+        gap: 0.5rem;
       }
 
-      .tariff-extras-title {
-        margin-top: 1.12rem;
+      .tariff-extra-title {
+        margin-top: 0.74rem;
       }
 
       .discount-badge {
@@ -855,17 +825,17 @@
 
     @media (max-width: 480px) {
       .tariff-card {
-        flex-basis: 82vw;
-        min-height: 560px;
+        flex-basis: 84vw;
+        min-height: 525px;
       }
 
       .tariff-scroll-wrap {
-        scroll-padding-inline: max(0.9rem, calc((100vw - 82vw) / 2));
-        padding-inline: max(0.9rem, calc((100vw - 82vw) / 2));
+        scroll-padding-inline: max(0.9rem, calc((100vw - 84vw) / 2));
+        padding-inline: max(0.9rem, calc((100vw - 84vw) / 2));
       }
 
       .tariff-name {
-        font-size: clamp(1.48rem, 6.35vw, 1.9rem);
+        font-size: clamp(1.78rem, 7.1vw, 2.22rem);
       }
 
       .tariff-price {
@@ -913,10 +883,6 @@
           </p>
         </div>
 
-        <p class="tariff-mobile-hint" aria-hidden="true">
-          Tarife seitlich vergleichen
-        </p>
-
         <div class="tariff-scroll-wrap" aria-label="Nordkern Fitness Mitgliedschaften">
           <div class="tariff-grid">
             <article class="tariff-card" aria-labelledby="basic-title">
@@ -935,12 +901,12 @@
                   <li>QR-Code-Zutritt über die App</li>
                 </ul>
 
-                <p class="tariff-extras-title">Getränkeautomat:</p>
+                <p class="tariff-extra-title">Getränkeautomat:</p>
 
                 <ul class="tariff-extras">
                   <li>
                     <span class="tariff-extra-row">
-                      <span>3 Freigetränke à 330 ml / Monat</span>
+                      <span>3× Freigetränke à 330 ml / Monat</span>
                       <button
                         class="extra-info-button"
                         type="button"
@@ -955,13 +921,13 @@
 
                   <li>
                     <span class="tariff-extra-row">
-                      <span>1 Kreatin-Auswahl inklusive / Monat</span>
+                      <span>1× Kreatin-Auswahl inklusive / Monat</span>
                       <button
                         class="extra-info-button"
                         type="button"
                         aria-label="Information zur Kreatin-Auswahl im Basic-Tarif"
                         data-info-title="Kreatin-Auswahl"
-                        data-info-text="Im Basic-Tarif ist 1 Kreatin-Auswahl pro Monat inklusive. Du kannst sie optional bei passenden Getränken auswählen. Wenn du mehr Kreatin-Auswahlen nutzen möchtest, sollen diese später zusätzlich in der App buchbar sein."
+                        data-info-text="Im Basic-Tarif ist 1 Kreatin-Auswahl pro Monat inklusive. Kreatin ist optional und wird nur ausgewählt, wenn du es bei einem passenden Getränk aktiv auswählst. Weitere Kreatin-Auswahlen können später zusätzlich in der App gekauft werden."
                       >
                         <span aria-hidden="true">?</span>
                       </button>
@@ -1006,12 +972,12 @@
                   <li>QR-Code-Zutritt über die App</li>
                 </ul>
 
-                <p class="tariff-extras-title">Getränkeautomat:</p>
+                <p class="tariff-extra-title">Getränkeautomat:</p>
 
                 <ul class="tariff-extras">
                   <li>
                     <span class="tariff-extra-row">
-                      <span>6 Freigetränke à 330 ml / Monat</span>
+                      <span>6× Freigetränke à 330 ml / Monat</span>
                       <button
                         class="extra-info-button"
                         type="button"
@@ -1026,13 +992,13 @@
 
                   <li>
                     <span class="tariff-extra-row">
-                      <span>3 Kreatin-Auswahlen inklusive / Monat</span>
+                      <span>3× Kreatin-Auswahlen inklusive / Monat</span>
                       <button
                         class="extra-info-button"
                         type="button"
-                        aria-label="Information zur Kreatin-Auswahl im Plus-Tarif"
-                        data-info-title="Kreatin-Auswahl"
-                        data-info-text="Im Plus-Tarif sind 3 Kreatin-Auswahlen pro Monat inklusive. Du kannst sie optional bei passenden Getränken auswählen. Wenn du mehr Kreatin-Auswahlen nutzen möchtest, sollen diese später zusätzlich in der App buchbar sein."
+                        aria-label="Information zu Kreatin-Auswahlen im Plus-Tarif"
+                        data-info-title="Kreatin-Auswahlen"
+                        data-info-text="Im Plus-Tarif sind 3 Kreatin-Auswahlen pro Monat inklusive. Kreatin ist optional und wird nur ausgewählt, wenn du es bei einem passenden Getränk aktiv auswählst. Weitere Kreatin-Auswahlen können später zusätzlich in der App gekauft werden."
                       >
                         <span aria-hidden="true">?</span>
                       </button>
@@ -1077,12 +1043,12 @@
                   <li>QR-Code-Zutritt über die App</li>
                 </ul>
 
-                <p class="tariff-extras-title">Getränkeautomat:</p>
+                <p class="tariff-extra-title">Getränkeautomat:</p>
 
                 <ul class="tariff-extras">
                   <li>
                     <span class="tariff-extra-row">
-                      <span>9 Freigetränke à 330 ml / Monat</span>
+                      <span>9× Freigetränke à 330 ml / Monat</span>
                       <button
                         class="extra-info-button"
                         type="button"
@@ -1097,13 +1063,13 @@
 
                   <li>
                     <span class="tariff-extra-row">
-                      <span>5 Kreatin-Auswahlen inklusive / Monat</span>
+                      <span>5× Kreatin-Auswahlen inklusive / Monat</span>
                       <button
                         class="extra-info-button"
                         type="button"
-                        aria-label="Information zur Kreatin-Auswahl im Pro-Tarif"
-                        data-info-title="Kreatin-Auswahl"
-                        data-info-text="Im Pro-Tarif sind 5 Kreatin-Auswahlen pro Monat inklusive. Du kannst sie optional bei passenden Getränken auswählen. Wenn du mehr Kreatin-Auswahlen nutzen möchtest, sollen diese später zusätzlich in der App buchbar sein."
+                        aria-label="Information zu Kreatin-Auswahlen im Pro-Tarif"
+                        data-info-title="Kreatin-Auswahlen"
+                        data-info-text="Im Pro-Tarif sind 5 Kreatin-Auswahlen pro Monat inklusive. Kreatin ist optional und wird nur ausgewählt, wenn du es bei einem passenden Getränk aktiv auswählst. Weitere Kreatin-Auswahlen können später zusätzlich in der App gekauft werden."
                       >
                         <span aria-hidden="true">?</span>
                       </button>
@@ -1112,12 +1078,12 @@
 
                   <li>
                     <span class="tariff-extra-row">
-                      <span>2 Freigetränke à 500 ml / Monat</span>
+                      <span>2× Freigetränke à 500 ml / Monat</span>
                       <button
                         class="extra-info-button"
                         type="button"
-                        aria-label="Information zu den 500-Milliliter-Freigetränken im Pro-Tarif"
-                        data-info-title="500-ml-Freigetränke"
+                        aria-label="Information zu den zusätzlichen 500-Milliliter-Freigetränken im Pro-Tarif"
+                        data-info-title="Zusätzliche 500-ml-Freigetränke"
                         data-info-text="Zusätzlich zu deinen 9 Freigetränken à 330 ml erhältst du jeden Monat 2 Freigetränke à 500 ml. 500-ml-Getränke können unabhängig davon auch regulär in der App gekauft und im Studio eingelöst werden."
                       >
                         <span aria-hidden="true">?</span>
@@ -1193,12 +1159,12 @@
                 <li>QR-Code-Zutritt über die App</li>
               </ul>
 
-              <p class="tariff-extras-title">Getränkeautomat:</p>
+              <p class="tariff-extra-title">Getränkeautomat:</p>
 
               <ul class="tariff-extras">
                 <li>
                   <span class="tariff-extra-row">
-                    <span>1 Freigetränk à 330 ml</span>
+                    <span>1× Freigetränk à 330 ml</span>
                     <button
                       class="extra-info-button"
                       type="button"
@@ -1213,13 +1179,13 @@
 
                 <li>
                   <span class="tariff-extra-row">
-                    <span>1 Kreatin-Auswahl inklusive</span>
+                    <span>1× Kreatin-Auswahl inklusive</span>
                     <button
                       class="extra-info-button"
                       type="button"
                       aria-label="Information zur Kreatin-Auswahl beim Tagespass"
                       data-info-title="Kreatin-Auswahl"
-                      data-info-text="Beim Tagespass ist 1 Kreatin-Auswahl inklusive. Du kannst sie optional bei einem passenden Getränk auswählen. Weitere Kreatin-Auswahlen sollen später zusätzlich in der App buchbar sein."
+                      data-info-text="Beim Tagespass ist 1 Kreatin-Auswahl inklusive. Kreatin ist optional und wird nur ausgewählt, wenn du es bei einem passenden Getränk aktiv auswählst. Weitere Kreatin-Auswahlen können später zusätzlich in der App gekauft werden."
                     >
                       <span aria-hidden="true">?</span>
                     </button>
