@@ -351,9 +351,9 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
-      gap: 1.5rem;
-      padding: clamp(1.2rem, 2.2vw, 1.6rem);
-      border-radius: 30px;
+      gap: 1.35rem;
+      padding: clamp(1.25rem, 2.4vw, 1.8rem);
+      border-radius: 32px;
       background: #f5f5f7;
       border: 1px solid rgba(0, 0, 0, 0.045);
     }
@@ -363,7 +363,7 @@
     }
 
     .drink-info-label {
-      margin-bottom: 0.42rem;
+      margin-bottom: 0.52rem;
       color: rgba(29, 29, 31, 0.72);
       font-size: 0.7rem;
       line-height: 1;
@@ -372,51 +372,88 @@
       text-transform: uppercase;
     }
 
+    .drink-info-title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
     .drink-info-title {
       color: var(--text);
-      font-size: clamp(1.65rem, 2.7vw, 2.45rem);
-      line-height: 1;
-      letter-spacing: -0.052em;
+      font-size: clamp(1.82rem, 3vw, 2.75rem);
+      line-height: 0.98;
+      letter-spacing: -0.058em;
       font-weight: 760;
       text-wrap: balance;
     }
 
+    .drink-main-info-button {
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      color: var(--nf-green-dark);
+      background: #ffffff;
+      border: 1px solid rgba(46, 145, 63, 0.18);
+      box-shadow: none;
+      transition:
+        background var(--fast),
+        transform var(--fast),
+        border-color var(--fast);
+    }
+
+    .drink-main-info-button:hover {
+      border-color: rgba(46, 145, 63, 0.32);
+      background: #ffffff;
+      transform: scale(1.035);
+    }
+
+    .drink-main-info-button span {
+      color: var(--nf-green-dark);
+      font-size: 1rem;
+      line-height: 1;
+      font-weight: 760;
+      transform: translateY(-0.5px);
+    }
+
     .drink-info-text {
-      max-width: 740px;
-      margin-top: 0.62rem;
+      max-width: 760px;
+      margin-top: 0.68rem;
       color: var(--muted);
       font-size: 0.98rem;
       line-height: 1.48;
       letter-spacing: -0.01em;
     }
 
-    .drink-info-button {
-      min-height: 44px;
-      padding: 0.72rem 1.05rem;
-      border-radius: 999px;
-      color: var(--nf-green-dark);
+    .drink-info-mini {
+      display: grid;
+      gap: 0.32rem;
+      min-width: 190px;
+      padding: 1rem 1.05rem;
+      border-radius: 24px;
       background: #ffffff;
-      border: 1px solid rgba(46, 145, 63, 0.16);
-      font-size: 0.94rem;
+      border: 1px solid rgba(0, 0, 0, 0.045);
+    }
+
+    .drink-info-mini span {
+      color: var(--nf-green-dark);
+      font-size: 0.7rem;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: 0.065em;
+      text-transform: uppercase;
+    }
+
+    .drink-info-mini strong {
+      color: var(--text);
+      font-size: 1.02rem;
+      line-height: 1.25;
+      letter-spacing: -0.018em;
       font-weight: 740;
-      letter-spacing: -0.012em;
-      white-space: nowrap;
-      transition:
-        background var(--fast),
-        color var(--fast),
-        border-color var(--fast),
-        transform var(--fast);
-    }
-
-    .drink-info-button::after {
-      content: "›";
-      padding-left: 0.28rem;
-    }
-
-    .drink-info-button:hover {
-      color: var(--nf-green);
-      border-color: rgba(46, 145, 63, 0.28);
-      transform: translateY(-1px);
     }
 
     .daypass-section {
@@ -705,12 +742,24 @@
 
       .drink-info-card {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.05rem;
         border-radius: 28px;
       }
 
-      .drink-info-button {
-        width: fit-content;
+      .drink-info-title-row {
+        align-items: flex-start;
+        flex-wrap: nowrap;
+      }
+
+      .drink-main-info-button {
+        width: 32px;
+        height: 32px;
+        margin-top: 0.05rem;
+      }
+
+      .drink-info-mini {
+        width: 100%;
+        min-width: 0;
       }
 
       .daypass-section {
@@ -1046,24 +1095,31 @@
           <div class="drink-info-copy">
             <p class="drink-info-label">Getränkeautomat</p>
 
-            <h2 class="drink-info-title" id="drink-info-title">
-              Ein QR-Code. Deine Getränke. Klare Kontrolle.
-            </h2>
+            <div class="drink-info-title-row">
+              <h2 class="drink-info-title" id="drink-info-title">
+                Wie funktioniert der Getränkeautomat?
+              </h2>
+
+              <button
+                class="drink-main-info-button"
+                type="button"
+                aria-label="Information zum Getränkeautomaten"
+                data-info-title="So funktioniert der Getränkeautomat"
+                data-info-text="Der Getränkeautomat soll später über deinen normalen Nordkern Fitness QR-Code laufen. Du scannst denselben QR-Code, den du auch für den Studio-Zutritt nutzt. Danach erkennt das System dein App-Konto und zeigt, welche Freigetränke und Extras in deinem Tarif noch verfügbar sind. Du wählst am Automaten Getränk, Größe, Geschmack und verfügbare Zusätze wie Kreatin aus. Inklusive Kontingente werden automatisch abgezogen. Wenn deine enthaltenen Getränke oder Zusätze aufgebraucht sind, kannst du weitere Getränke oder Extras in der App kaufen und anschließend am Automaten einlösen. Direkt am Automaten selbst soll kein Kauf nötig sein."
+              >
+                <span aria-hidden="true">?</span>
+              </button>
+            </div>
 
             <p class="drink-info-text">
-              Scanne deinen Nordkern QR-Code, wähle Größe, Geschmack und verfügbare Extras.
-              Inklusive Kontingente werden automatisch erkannt und direkt deinem App-Konto zugeordnet.
+              Du scannst deinen QR-Code, wählst dein Getränk und löst verfügbare Extras direkt über dein App-Konto ein.
             </p>
           </div>
 
-          <button
-            class="drink-info-button"
-            type="button"
-            data-info-title="So funktioniert der Getränkeautomat"
-            data-info-text="Der Getränkeautomat soll später mit deinem Nordkern Fitness QR-Code funktionieren. Du scannst denselben QR-Code, den du auch für den Studio-Zutritt nutzt. Danach erkennt das System, welche Freigetränke und Extras in deinem Tarif noch verfügbar sind. Getränke, Kreatin-Auswahlen oder weitere Extras können je nach Verfügbarkeit über die App gekauft und anschließend am Automaten eingelöst werden. Direkt am Automaten selbst soll kein Kauf nötig sein."
-          >
-            So funktioniert’s
-          </button>
+          <div class="drink-info-mini" aria-hidden="true">
+            <span>Prinzip</span>
+            <strong>Scannen. Auswählen. Einlösen.</strong>
+          </div>
         </div>
       </div>
     </section>
