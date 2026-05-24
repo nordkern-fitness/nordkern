@@ -132,59 +132,6 @@
       white-space: nowrap;
     }
 
-    .tariff-price-row.has-discount .tariff-price {
-      position: relative;
-      width: fit-content;
-    }
-
-    .tariff-price-row.has-discount .tariff-price::after {
-      content: "";
-      position: absolute;
-      left: -0.04em;
-      right: -0.04em;
-      top: 52%;
-      height: 3px;
-      border-radius: 999px;
-      background: #d92d20;
-      transform: rotate(-5deg);
-      transform-origin: center;
-    }
-
-    .tariff-discount {
-      display: grid;
-      gap: 0.12rem;
-      margin-top: 0.12rem;
-    }
-
-    .tariff-discount-row {
-      display: flex;
-      align-items: flex-end;
-      flex-wrap: nowrap;
-      gap: 0.34rem;
-      min-width: 0;
-    }
-
-    .tariff-discount-price {
-      color: #b42318;
-      font-size: clamp(1.38rem, 1.8vw, 1.82rem);
-      line-height: 1;
-      letter-spacing: -0.035em;
-      font-weight: 760;
-      font-variant-numeric: tabular-nums;
-      white-space: nowrap;
-    }
-
-    .tariff-discount-unit {
-      flex: 0 0 auto;
-      padding-bottom: 0.13rem;
-      color: #b42318;
-      font-size: 0.74rem;
-      line-height: 1.1;
-      letter-spacing: -0.006em;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
     .tariff-feature-block {
       align-self: start;
       padding-top: 0.35rem;
@@ -456,7 +403,7 @@
     .daypass-price-box-clean {
       position: relative;
       display: grid;
-      grid-template-rows: 112px 1fr auto auto;
+      grid-template-rows: 96px 1fr auto auto;
       gap: 0.9rem;
       padding: 1.35rem;
       border-radius: 30px;
@@ -466,41 +413,6 @@
       overflow: visible;
     }
 
-    .discount-badge {
-      position: absolute;
-      top: -1.02rem;
-      right: 2rem;
-      z-index: 6;
-      min-width: 64px;
-      height: 52px;
-      padding: 0 0.78rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      color: #ffffff;
-      background: linear-gradient(180deg, #ff5a4f 0%, #d92d20 54%, #ad2218 100%);
-      border: 1px solid rgba(255, 255, 255, 0.42);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.24),
-        inset 0 -7px 14px rgba(89, 24, 18, 0.18),
-        0 12px 22px rgba(180, 35, 24, 0.22),
-        0 0 0 1px rgba(180, 35, 24, 0.08);
-      font-size: 0.9rem;
-      font-weight: 850;
-      line-height: 1;
-      letter-spacing: -0.012em;
-      text-align: center;
-      transform: rotate(-2deg);
-      white-space: nowrap;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .discount-badge > span {
-      display: inline-block;
-      transform: rotate(2deg);
-    }
-
     .daypass-price-box-clean .tariff-price-area {
       min-height: auto;
       margin-top: 0;
@@ -508,8 +420,7 @@
       max-width: 100%;
     }
 
-    .daypass-price-box-clean .tariff-price-row,
-    .daypass-price-box-clean .tariff-discount-row {
+    .daypass-price-box-clean .tariff-price-row {
       flex-wrap: nowrap;
       width: 100%;
     }
@@ -521,15 +432,6 @@
     .daypass-price-box-clean .tariff-price-unit {
       padding-bottom: 0.36rem;
       font-size: 0.9rem;
-    }
-
-    .daypass-price-box-clean .tariff-discount-price {
-      font-size: clamp(1.55rem, 2vw, 1.95rem);
-    }
-
-    .daypass-price-box-clean .tariff-discount-unit {
-      padding-bottom: 0.15rem;
-      font-size: 0.76rem;
     }
 
     .daypass-price-box-clean .tariff-feature-block {
@@ -771,14 +673,6 @@
         margin-top: 0.9rem;
       }
 
-      .discount-badge {
-        min-width: 66px;
-        height: 48px;
-        top: -0.82rem;
-        right: 1.6rem;
-        font-size: 0.82rem;
-      }
-
       .tariff-extra-row {
         grid-template-columns: minmax(0, 1fr) 20px;
       }
@@ -813,21 +707,12 @@
         border-radius: 26px;
       }
 
-      .daypass-price-box-clean .discount-badge {
-        top: -0.8rem;
-        right: 1.35rem;
-      }
-
       .daypass-price-box-clean .tariff-price {
         font-size: clamp(2.45rem, 10.5vw, 3.35rem);
       }
 
       .daypass-price-box-clean .tariff-price-unit {
         font-size: 0.82rem;
-      }
-
-      .daypass-price-box-clean .tariff-discount-price {
-        font-size: clamp(1.42rem, 6.2vw, 1.8rem);
       }
 
       .daypass-price-box-clean .tariff-runtime {
@@ -1160,21 +1045,10 @@
           </div>
 
           <div class="daypass-price-box-clean">
-            <span class="discount-badge" aria-label="Rabatt: 2 Euro">
-              <span>-2 €</span>
-            </span>
-
             <div class="tariff-price-area">
-              <div class="tariff-price-row has-discount">
+              <div class="tariff-price-row">
                 <p class="tariff-price">9,00 €</p>
                 <p class="tariff-price-unit">einmalig</p>
-              </div>
-
-              <div class="tariff-discount">
-                <div class="tariff-discount-row">
-                  <p class="tariff-discount-price">7,00 €</p>
-                  <p class="tariff-discount-unit">einmalig</p>
-                </div>
               </div>
             </div>
 
