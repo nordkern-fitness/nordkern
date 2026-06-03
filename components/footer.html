@@ -51,7 +51,7 @@
 
   .footer-main {
     display: grid;
-    grid-template-columns: 1.15fr 0.95fr 1.18fr 0.95fr;
+    grid-template-columns: 1.25fr 0.9fr 1.15fr 0.9fr;
     gap: clamp(1.4rem, 4vw, 4.8rem);
     align-items: start;
   }
@@ -76,8 +76,28 @@
     gap: 0.42rem;
   }
 
+  .footer-general-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .footer-general-divider {
+    width: 1px;
+    height: 100%;
+    min-height: 7.8rem;
+    background: rgba(110, 110, 115, 0.34);
+  }
+
+  .footer-link-group {
+    display: grid;
+    gap: 0.42rem;
+  }
+
   .footer-link-list a,
   .footer-link-list p,
+  .footer-link-group a,
   .footer-bottom p {
     color: var(--muted);
     font-size: 0.88rem;
@@ -85,7 +105,8 @@
     letter-spacing: -0.008em;
   }
 
-  .footer-link-list a {
+  .footer-link-list a,
+  .footer-link-group a {
     width: fit-content;
     max-width: 100%;
     overflow-wrap: anywhere;
@@ -95,7 +116,9 @@
   }
 
   .footer-link-list a:hover,
-  .footer-link-list a:focus-visible {
+  .footer-link-list a:focus-visible,
+  .footer-link-group a:hover,
+  .footer-link-group a:focus-visible {
     color: var(--text);
     transform: none;
   }
@@ -200,12 +223,22 @@
       letter-spacing: 0.052em;
     }
 
-    .footer-link-list {
+    .footer-link-list,
+    .footer-link-group {
       gap: 0.28rem;
+    }
+
+    .footer-general-grid {
+      gap: 0.78rem;
+    }
+
+    .footer-general-divider {
+      min-height: 7.2rem;
     }
 
     .footer-link-list a,
     .footer-link-list p,
+    .footer-link-group a,
     .footer-support-note,
     .footer-support-contact a {
       font-size: 0.84rem;
@@ -252,8 +285,13 @@
       font-size: 0.66rem;
     }
 
+    .footer-general-grid {
+      gap: 0.65rem;
+    }
+
     .footer-link-list a,
     .footer-link-list p,
+    .footer-link-group a,
     .footer-support-note,
     .footer-support-contact a {
       font-size: 0.82rem;
@@ -273,6 +311,10 @@
     .footer-main {
       grid-template-columns: 1fr;
       gap: 1rem;
+    }
+
+    .footer-general-grid {
+      grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
     }
 
     .footer-support-note,
@@ -296,16 +338,23 @@
       <div class="footer-column">
         <p class="footer-column-title">Allgemeine Seiten</p>
 
-        <nav class="footer-link-list" aria-label="Allgemeine Seiten">
-          <a href="index.html">Startseite</a>
-          <a href="mitgliedschaften.html">Tarife</a>
-          <a href="standorte.html">Standorte</a>
-          <a href="app.html">App</a>
-          <a href="kontakt.html">Kontakt</a>
-          <a href="hausordnung.html">Hausordnung</a>
-          <a href="impressum.html#impressum">Impressum</a>
-          <a href="impressum.html#datenschutz">Datenschutz</a>
-          <a href="impressum.html#agb">AGB</a>
+        <nav class="footer-general-grid" aria-label="Allgemeine Seiten">
+          <div class="footer-link-group">
+            <a href="index.html">Startseite</a>
+            <a href="mitgliedschaften.html">Tarife</a>
+            <a href="standorte.html">Standorte</a>
+            <a href="app.html">App</a>
+            <a href="kontakt.html">Kontakt</a>
+          </div>
+
+          <span class="footer-general-divider" aria-hidden="true"></span>
+
+          <div class="footer-link-group">
+            <a href="hausordnung.html">Hausordnung</a>
+            <a href="impressum.html#impressum">Impressum</a>
+            <a href="impressum.html#datenschutz">Datenschutz</a>
+            <a href="impressum.html#agb">AGB</a>
+          </div>
         </nav>
       </div>
 
