@@ -88,6 +88,7 @@
     }
 
     .location-choice-clean {
+      position: relative;
       flex: 0 0 205px;
       min-height: 74px;
       display: grid;
@@ -101,6 +102,7 @@
       border: 1px solid rgba(0, 0, 0, 0.045);
       box-shadow: none;
       scroll-snap-align: center;
+      overflow: hidden;
       transition:
         background var(--fast),
         transform var(--fast),
@@ -111,6 +113,12 @@
     .location-choice-clean:hover {
       background: #eeeeef;
       transform: translateY(-1px);
+    }
+
+    .location-choice-clean span,
+    .location-choice-clean small {
+      position: relative;
+      z-index: 2;
     }
 
     .location-choice-clean span {
@@ -142,9 +150,36 @@
     .location-choice-clean.is-planned,
     .location-choice-clean:disabled {
       cursor: not-allowed;
-      opacity: 0.46;
+      opacity: 1;
       filter: grayscale(1);
       pointer-events: none;
+      color: rgba(29, 29, 31, 0.34);
+      background: rgba(255, 255, 255, 0.46);
+      border-color: rgba(0, 0, 0, 0.035);
+    }
+
+    .location-choice-clean.is-planned span,
+    .location-choice-clean:disabled span {
+      color: rgba(29, 29, 31, 0.38);
+    }
+
+    .location-choice-clean.is-planned small,
+    .location-choice-clean:disabled small {
+      color: rgba(110, 110, 115, 0.46);
+    }
+
+    .location-choice-clean.is-planned::after,
+    .location-choice-clean:disabled::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      left: -18%;
+      top: 50%;
+      width: 136%;
+      height: 2px;
+      background: rgba(29, 29, 31, 0.28);
+      transform: rotate(-12deg);
+      transform-origin: center;
     }
 
     .location-showcase-clean {
@@ -403,6 +438,13 @@
       line-height: 1;
     }
 
+    .map-route-icon svg {
+      width: 22px;
+      height: 22px;
+      display: block;
+      fill: currentColor;
+    }
+
     .map-route-text {
       display: grid;
       gap: 0.04rem;
@@ -574,6 +616,11 @@
         width: 22px;
         flex-basis: 22px;
         font-size: 1.12rem;
+      }
+
+      .map-route-icon svg {
+        width: 18px;
+        height: 18px;
       }
 
       .map-route-small {
@@ -773,7 +820,12 @@
                 rel="noopener noreferrer"
                 aria-label="Route nach Grevesmühlen in Google Maps öffnen"
               >
-                <span class="map-route-icon" aria-hidden="true">⌖</span>
+                <span class="map-route-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false" role="img" aria-label="">
+                    <path d="M12 2.25c-3.33 0-6.05 2.68-6.05 5.98 0 4.48 6.05 13.52 6.05 13.52s6.05-9.04 6.05-13.52c0-3.3-2.72-5.98-6.05-5.98Zm0 8.55a2.55 2.55 0 1 1 0-5.1 2.55 2.55 0 0 1 0 5.1Z"></path>
+                  </svg>
+                </span>
+
                 <span class="map-route-text">
                   <span class="map-route-small">Route öffnen in</span>
                   <span class="map-route-big">Google Maps</span>
