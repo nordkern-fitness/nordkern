@@ -152,10 +152,16 @@
       cursor: not-allowed;
       opacity: 1;
       filter: grayscale(1);
-      pointer-events: none;
       color: rgba(29, 29, 31, 0.34);
       background: rgba(255, 255, 255, 0.46);
       border-color: rgba(0, 0, 0, 0.035);
+    }
+
+    .location-choice-clean.is-planned:hover,
+    .location-choice-clean:disabled:hover {
+      cursor: not-allowed;
+      background: rgba(255, 255, 255, 0.54);
+      transform: translateY(-1px);
     }
 
     .location-choice-clean.is-planned span,
@@ -172,14 +178,15 @@
     .location-choice-clean:disabled::after {
       content: "";
       position: absolute;
-      z-index: 1;
-      left: -18%;
+      z-index: 3;
+      left: 0.8rem;
+      right: 0.8rem;
       top: 50%;
-      width: 136%;
       height: 2px;
-      background: rgba(29, 29, 31, 0.28);
-      transform: rotate(-12deg);
+      background: rgba(29, 29, 31, 0.24);
+      transform: rotate(-10deg);
       transform-origin: center;
+      pointer-events: none;
     }
 
     .location-showcase-clean {
