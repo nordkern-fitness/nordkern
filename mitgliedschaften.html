@@ -62,6 +62,7 @@
 
     .tariff-card {
       position: relative;
+      min-width: 0;
       min-height: 590px;
       display: grid;
       grid-template-rows: 58px 96px 1fr auto auto;
@@ -135,6 +136,7 @@
     .tariff-feature-block {
       align-self: start;
       padding-top: 0.35rem;
+      min-width: 0;
     }
 
     .tariff-checks {
@@ -185,10 +187,12 @@
     .tariff-extras {
       display: grid;
       gap: 0.5rem;
+      min-width: 0;
     }
 
     .tariff-extras li {
       position: relative;
+      min-width: 0;
       display: flex;
       align-items: center;
       min-height: 1.22rem;
@@ -197,7 +201,6 @@
       font-size: 0.84rem;
       line-height: 1.26;
       letter-spacing: -0.009em;
-      white-space: nowrap;
     }
 
     .tariff-extras li::before {
@@ -220,16 +223,18 @@
 
     .tariff-extra-row {
       width: 100%;
+      min-width: 0;
       display: grid;
       grid-template-columns: minmax(0, 1fr) 20px;
       align-items: center;
       gap: 0.46rem;
-      white-space: nowrap;
     }
 
     .tariff-extra-row > span {
       min-width: 0;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .extra-info-button {
@@ -417,13 +422,14 @@
 
     .daypass-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, 390px);
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 430px);
       gap: 1.25rem;
       align-items: stretch;
       padding: clamp(1.35rem, 3vw, 2rem);
       border-radius: 40px;
       background: #f5f5f7;
       border: 1px solid rgba(0, 0, 0, 0.045);
+      overflow: hidden;
     }
 
     .daypass-copy {
@@ -457,8 +463,21 @@
     }
 
     .daypass-layout .tariff-card {
+      width: 100%;
+      min-width: 0;
       min-height: 520px;
       background: #ffffff;
+      overflow: hidden;
+    }
+
+    .daypass-layout .tariff-name {
+      font-size: clamp(2.05rem, 3vw, 2.95rem);
+      white-space: normal;
+      text-wrap: balance;
+    }
+
+    .daypass-layout .tariff-price {
+      font-size: clamp(3rem, 4.1vw, 4.1rem);
     }
 
     .tariff-info-modal {
@@ -580,7 +599,7 @@
       }
 
       .daypass-layout .tariff-card {
-        max-width: 440px;
+        max-width: 460px;
         min-height: auto;
       }
     }
@@ -881,7 +900,7 @@
               </div>
 
               <a href="app.html" class="btn btn-primary">
-                In der App buchen
+                In der App ansehen
               </a>
             </article>
 
@@ -952,7 +971,7 @@
               </div>
 
               <a href="app.html" class="btn btn-primary">
-                In der App buchen
+                In der App ansehen
               </a>
             </article>
 
@@ -1038,7 +1057,7 @@
               </div>
 
               <a href="app.html" class="btn btn-primary">
-                In der App buchen
+                In der App ansehen
               </a>
             </article>
           </div>
@@ -1156,7 +1175,7 @@
             </div>
 
             <a href="app.html" class="btn btn-primary">
-              In der App buchen
+              In der App ansehen
             </a>
           </article>
         </div>
