@@ -422,7 +422,7 @@
 
     .daypass-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(300px, 430px);
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
       gap: 1.25rem;
       align-items: stretch;
       padding: clamp(1.35rem, 3vw, 2rem);
@@ -462,22 +462,48 @@
       letter-spacing: -0.008em;
     }
 
-    .daypass-layout .tariff-card {
+    .daypass-card {
       width: 100%;
       min-width: 0;
-      min-height: 520px;
+      min-height: auto;
+      display: flex;
+      flex-direction: column;
+      padding: clamp(1.45rem, 2.4vw, 1.75rem);
+      border-radius: 32px;
       background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.045);
       overflow: hidden;
     }
 
-    .daypass-layout .tariff-name {
-      font-size: clamp(2.05rem, 3vw, 2.95rem);
+    .daypass-card .tariff-name {
       white-space: normal;
       text-wrap: balance;
+      font-size: clamp(2rem, 3.15vw, 3rem);
+      line-height: 0.96;
+      letter-spacing: -0.058em;
     }
 
-    .daypass-layout .tariff-price {
-      font-size: clamp(3rem, 4.1vw, 4.1rem);
+    .daypass-card .tariff-price-area {
+      margin-top: 1.35rem;
+    }
+
+    .daypass-card .tariff-price {
+      font-size: clamp(3.2rem, 4.4vw, 4.35rem);
+    }
+
+    .daypass-card .tariff-feature-block {
+      margin-top: 1.6rem;
+      padding-top: 0;
+    }
+
+    .daypass-card .tariff-runtime {
+      margin-top: auto;
+    }
+
+    .daypass-card .btn {
+      width: 100%;
+      min-height: 52px;
+      margin-top: 0.9rem;
     }
 
     .tariff-info-modal {
@@ -598,9 +624,8 @@
         grid-template-columns: 1fr;
       }
 
-      .daypass-layout .tariff-card {
+      .daypass-card {
         max-width: 460px;
-        min-height: auto;
       }
     }
 
@@ -748,9 +773,13 @@
         line-height: 1.48;
       }
 
-      .daypass-layout .tariff-card {
+      .daypass-card {
         max-width: none;
-        min-height: 540px;
+        border-radius: 28px;
+      }
+
+      .daypass-card .tariff-name {
+        font-size: clamp(2rem, 9vw, 2.8rem);
       }
 
       .tariff-info-box {
@@ -806,8 +835,8 @@
         padding: 1.15rem;
       }
 
-      .daypass-layout .tariff-card {
-        min-height: 528px;
+      .daypass-card {
+        padding: 1.2rem;
       }
     }
   </style>
@@ -1108,7 +1137,7 @@
             </p>
           </div>
 
-          <article class="tariff-card" aria-labelledby="daypass-card-title">
+          <article class="daypass-card" aria-labelledby="daypass-card-title">
             <h3 class="tariff-name" id="daypass-card-title">Nordkern <span>Tagespass</span></h3>
 
             <div class="tariff-price-area">
