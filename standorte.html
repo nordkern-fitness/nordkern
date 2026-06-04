@@ -152,51 +152,75 @@
       cursor: not-allowed;
       opacity: 1;
       filter: grayscale(1);
-      color: rgba(29, 29, 31, 0.34);
-      background: rgba(255, 255, 255, 0.46);
-      border-color: rgba(0, 0, 0, 0.035);
+      color: rgba(29, 29, 31, 0.24);
+      background: rgba(255, 255, 255, 0.38);
+      border-color: rgba(0, 0, 0, 0.028);
     }
 
     .location-choice-clean.is-planned:hover,
     .location-choice-clean:disabled:hover {
       cursor: not-allowed;
-      background: rgba(255, 255, 255, 0.54);
+      background: rgba(255, 255, 255, 0.46);
       transform: translateY(-1px);
     }
 
-    .location-choice-clean.is-planned span,
-    .location-choice-clean.is-planned small,
-    .location-choice-clean:disabled span,
-    .location-choice-clean:disabled small {
-      display: block;
-      width: fit-content;
-      transform: rotate(-8deg);
-      transform-origin: center;
-    }
-
-    .location-choice-clean.is-planned span,
-    .location-choice-clean:disabled span {
-      color: rgba(29, 29, 31, 0.38);
+    .location-choice-clean.is-planned span:not(.planned-stamp),
+    .location-choice-clean:disabled span:not(.planned-stamp) {
+      color: rgba(29, 29, 31, 0.22);
     }
 
     .location-choice-clean.is-planned small,
     .location-choice-clean:disabled small {
-      color: rgba(110, 110, 115, 0.46);
-      margin-top: 0.08rem;
+      color: rgba(110, 110, 115, 0.26);
     }
 
-    .location-choice-clean.is-planned::after,
-    .location-choice-clean:disabled::after {
+    .location-choice-clean.is-planned::before,
+    .location-choice-clean:disabled::before {
       content: "";
       position: absolute;
-      z-index: 3;
-      left: 0.68rem;
-      right: 0.68rem;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0)),
+        rgba(245, 245, 247, 0.36);
+      pointer-events: none;
+    }
+
+    .planned-stamp {
+      position: absolute !important;
+      z-index: 4 !important;
+      left: 50%;
+      top: 50%;
+      width: max-content;
+      max-width: calc(100% - 1.4rem);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.18rem 0.55rem 0.22rem;
+      border-radius: 999px;
+      color: rgba(29, 29, 31, 0.42);
+      background: rgba(255, 255, 255, 0.34);
+      border: 1px solid rgba(29, 29, 31, 0.08);
+      font-size: 0.82rem;
+      line-height: 1;
+      font-weight: 850;
+      letter-spacing: -0.018em;
+      transform: translate(-50%, -50%) rotate(9deg);
+      transform-origin: center;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .planned-stamp::after {
+      content: "";
+      position: absolute;
+      left: -0.45rem;
+      right: -0.45rem;
       top: 50%;
       height: 2px;
-      background: rgba(29, 29, 31, 0.26);
-      transform: rotate(-13deg);
-      transform-origin: center;
+      background: rgba(29, 29, 31, 0.28);
+      transform: translateY(-50%);
       pointer-events: none;
     }
 
@@ -242,17 +266,23 @@
       z-index: 2;
       max-width: calc(100% - 2.2rem);
       display: inline-flex;
-      padding: 0.6rem 0.88rem;
+      align-items: center;
+      gap: 0.34rem;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.62rem;
+      line-height: 1;
+      font-weight: 760;
+      letter-spacing: 0.095em;
+      text-transform: uppercase;
+    }
+
+    .location-image-label-clean::before {
+      content: "";
+      width: 0.32rem;
+      height: 0.32rem;
       border-radius: 999px;
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.78);
-      border: 1px solid rgba(255, 255, 255, 0.78);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-      backdrop-filter: blur(20px) saturate(160%);
-      -webkit-backdrop-filter: blur(20px) saturate(160%);
-      font-size: 0.84rem;
-      font-weight: 790;
-      letter-spacing: -0.012em;
+      background: rgba(255, 255, 255, 0.62);
+      flex: 0 0 auto;
     }
 
     .location-info-card {
@@ -559,6 +589,10 @@
         font-size: 0.8rem;
       }
 
+      .planned-stamp {
+        font-size: 0.8rem;
+      }
+
       .location-showcase-clean {
         gap: 1rem;
       }
@@ -569,6 +603,7 @@
       }
 
       .location-image-label-clean {
+        left: 1rem;
         bottom: 1rem;
       }
 
@@ -669,6 +704,10 @@
         flex-basis: 220px;
       }
 
+      .planned-stamp {
+        font-size: 0.78rem;
+      }
+
       .location-image-card {
         min-height: 360px;
         border-radius: 30px;
@@ -724,21 +763,25 @@
             <button class="location-choice-clean is-planned" type="button" disabled>
               <span>Studio Lübeck</span>
               <small>In Planung</small>
+              <span class="planned-stamp" aria-hidden="true">In Planung</span>
             </button>
 
             <button class="location-choice-clean is-planned" type="button" disabled>
               <span>Studio Wismar</span>
               <small>In Planung</small>
+              <span class="planned-stamp" aria-hidden="true">In Planung</span>
             </button>
 
             <button class="location-choice-clean is-planned" type="button" disabled>
               <span>Studio Schwerin</span>
               <small>In Planung</small>
+              <span class="planned-stamp" aria-hidden="true">In Planung</span>
             </button>
 
             <button class="location-choice-clean is-planned" type="button" disabled>
               <span>Studio Rostock</span>
               <small>In Planung</small>
+              <span class="planned-stamp" aria-hidden="true">In Planung</span>
             </button>
           </div>
         </div>
