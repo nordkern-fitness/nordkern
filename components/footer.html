@@ -51,7 +51,7 @@
 
   .footer-main {
     display: grid;
-    grid-template-columns: 1.25fr 0.9fr 1.15fr 0.9fr;
+    grid-template-columns: 1.25fr 0.9fr 1.18fr 0.9fr;
     gap: clamp(1.4rem, 4vw, 4.8rem);
     align-items: start;
   }
@@ -125,12 +125,12 @@
 
   .footer-support-card {
     display: grid;
-    gap: 0.7rem;
+    gap: 0.78rem;
     max-width: 25rem;
   }
 
   .footer-support-note {
-    max-width: 28ch;
+    max-width: 31ch;
     color: var(--muted);
     font-size: 0.88rem;
     line-height: 1.42;
@@ -138,45 +138,70 @@
   }
 
   .footer-support-note strong {
-    color: var(--text-soft);
-    font-weight: 720;
+    color: var(--text);
+    font-weight: 760;
+  }
+
+  .footer-support-status {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.42rem;
+    padding: 0.46rem 0.7rem;
+    border-radius: 999px;
+    color: var(--nf-green-dark);
+    background: rgba(46, 145, 63, 0.08);
+    border: 1px solid rgba(46, 145, 63, 0.15);
+    font-size: 0.78rem;
+    line-height: 1.1;
+    font-weight: 820;
+    letter-spacing: -0.01em;
+  }
+
+  .footer-support-status::before {
+    content: "";
+    width: 0.42rem;
+    height: 0.42rem;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    background: var(--nf-green);
+    box-shadow: 0 0 0 3px rgba(46, 145, 63, 0.1);
   }
 
   .footer-support-contact {
-    display: grid;
-    gap: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
   }
 
-  .footer-support-row {
-    display: grid;
-    gap: 0.1rem;
-  }
-
-  .footer-support-label {
-    color: var(--text);
-    font-size: 0.7rem;
-    line-height: 1.2;
-    font-weight: 820;
-    letter-spacing: 0.052em;
-    text-transform: uppercase;
-  }
-
-  .footer-support-contact a {
-    width: fit-content;
-    max-width: 100%;
+  .footer-support-link {
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.58rem 0.78rem;
+    border-radius: 999px;
     color: var(--muted);
-    font-size: 0.88rem;
-    line-height: 1.38;
-    letter-spacing: -0.008em;
+    background: rgba(255, 255, 255, 0.56);
+    border: 1px solid rgba(0, 0, 0, 0.045);
+    font-size: 0.84rem;
+    line-height: 1.15;
+    font-weight: 710;
+    letter-spacing: -0.01em;
     overflow-wrap: anywhere;
     transition:
       color var(--fast),
-      opacity var(--fast);
+      background var(--fast),
+      border-color var(--fast),
+      transform var(--fast);
   }
 
-  .footer-support-contact a:hover,
-  .footer-support-contact a:focus-visible {
+  .footer-support-link:hover,
+  .footer-support-link:focus-visible {
     color: var(--text);
+    background: rgba(255, 255, 255, 0.88);
+    border-color: rgba(46, 145, 63, 0.16);
+    transform: translateY(-1px);
   }
 
   .footer-bottom {
@@ -246,22 +271,28 @@
     .footer-link-list a,
     .footer-link-list p,
     .footer-link-group a,
-    .footer-support-note,
-    .footer-support-contact a {
+    .footer-support-note {
       font-size: 0.84rem;
       line-height: 1.34;
     }
 
     .footer-support-card {
-      gap: 0.58rem;
+      gap: 0.62rem;
+    }
+
+    .footer-support-status {
+      padding: 0.42rem 0.62rem;
+      font-size: 0.74rem;
     }
 
     .footer-support-contact {
-      gap: 0.38rem;
+      gap: 0.46rem;
     }
 
-    .footer-support-label {
-      font-size: 0.66rem;
+    .footer-support-link {
+      min-height: 36px;
+      padding: 0.54rem 0.68rem;
+      font-size: 0.8rem;
     }
 
     .footer-bottom {
@@ -303,18 +334,25 @@
     .footer-link-list a,
     .footer-link-list p,
     .footer-link-group a,
-    .footer-support-note,
-    .footer-support-contact a {
+    .footer-support-note {
       font-size: 0.82rem;
       line-height: 1.32;
     }
 
     .footer-support-note {
-      max-width: 19ch;
+      max-width: 20ch;
     }
 
-    .footer-support-contact a {
+    .footer-support-contact {
+      display: grid;
+      gap: 0.42rem;
+    }
+
+    .footer-support-link {
+      width: fit-content;
       max-width: 17ch;
+      justify-content: flex-start;
+      border-radius: 16px;
     }
   }
 
@@ -329,7 +367,7 @@
     }
 
     .footer-support-note,
-    .footer-support-contact a {
+    .footer-support-link {
       max-width: 100%;
     }
   }
@@ -381,21 +419,21 @@
         <p class="footer-column-title">Support</p>
 
         <div class="footer-support-card">
+          <span class="footer-support-status">2–4 Werktage</span>
+
           <p class="footer-support-note">
-            Wir lesen Anfragen gesammelt und antworten in der Regel innerhalb von
-            <strong>2–4 Werktagen.</strong>
+            Fragen zu Vertrag, App oder Standort? Schreib uns gesammelt —
+            wir antworten ruhig und sauber.
           </p>
 
-          <div class="footer-support-contact">
-            <p class="footer-support-row">
-              <span class="footer-support-label">Mail</span>
-              <a href="mailto:info@nordkern-fitness.de">info@nordkern-fitness.de</a>
-            </p>
+          <div class="footer-support-contact" aria-label="Support Kontakt">
+            <a class="footer-support-link" href="mailto:info@nordkern-fitness.de">
+              Mail schreiben
+            </a>
 
-            <p class="footer-support-row">
-              <span class="footer-support-label">Kontakt</span>
-              <a href="kontakt.html">Formular öffnen</a>
-            </p>
+            <a class="footer-support-link" href="kontakt.html">
+              Formular öffnen
+            </a>
           </div>
         </div>
       </div>
