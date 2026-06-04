@@ -147,81 +147,73 @@
       color: rgba(255, 255, 255, 0.76);
     }
 
-    .location-choice-clean.is-planned,
-    .location-choice-clean:disabled {
+    .location-choice-clean.is-planned {
       cursor: not-allowed;
-      opacity: 1;
-      filter: grayscale(1);
-      color: rgba(29, 29, 31, 0.24);
-      background: rgba(255, 255, 255, 0.38);
+      color: rgba(29, 29, 31, 0.2);
+      background: rgba(255, 255, 255, 0.34);
       border-color: rgba(0, 0, 0, 0.028);
+      filter: grayscale(1);
     }
 
-    .location-choice-clean.is-planned:hover,
-    .location-choice-clean:disabled:hover {
+    .location-choice-clean.is-planned:hover {
       cursor: not-allowed;
-      background: rgba(255, 255, 255, 0.46);
+      background: rgba(255, 255, 255, 0.42);
       transform: translateY(-1px);
     }
 
-    .location-choice-clean.is-planned span:not(.planned-stamp),
-    .location-choice-clean:disabled span:not(.planned-stamp) {
+    .location-choice-clean.is-planned span:not(.planned-stamp) {
       color: rgba(29, 29, 31, 0.22);
     }
 
-    .location-choice-clean.is-planned small,
-    .location-choice-clean:disabled small {
-      color: rgba(110, 110, 115, 0.26);
+    .location-choice-clean.is-planned small {
+      color: rgba(110, 110, 115, 0.28);
     }
 
-    .location-choice-clean.is-planned::before,
-    .location-choice-clean:disabled::before {
+    .location-choice-clean.is-planned::before {
       content: "";
       position: absolute;
       inset: 0;
       z-index: 1;
       background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0)),
-        rgba(245, 245, 247, 0.36);
+        linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0)),
+        repeating-linear-gradient(
+          135deg,
+          rgba(29, 29, 31, 0.018) 0,
+          rgba(29, 29, 31, 0.018) 7px,
+          rgba(255, 255, 255, 0) 7px,
+          rgba(255, 255, 255, 0) 15px
+        ),
+        rgba(245, 245, 247, 0.54);
       pointer-events: none;
     }
 
-    .planned-stamp {
-      position: absolute !important;
-      z-index: 4 !important;
+    .location-choice-clean.is-planned::after {
+      content: "IN PLANUNG";
+      position: absolute;
+      z-index: 4;
       left: 50%;
       top: 50%;
       width: max-content;
-      max-width: calc(100% - 1.4rem);
+      max-width: calc(100% - 1.2rem);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.18rem 0.55rem 0.22rem;
+      padding: 0.2rem 0.58rem 0.22rem;
       border-radius: 999px;
-      color: rgba(29, 29, 31, 0.42);
-      background: rgba(255, 255, 255, 0.34);
-      border: 1px solid rgba(29, 29, 31, 0.08);
-      font-size: 0.82rem;
+      color: rgba(29, 29, 31, 0.44);
+      background: rgba(255, 255, 255, 0.58);
+      border: 1px solid rgba(29, 29, 31, 0.09);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.035);
+      font-size: 0.68rem;
       line-height: 1;
-      font-weight: 850;
-      letter-spacing: -0.018em;
-      transform: translate(-50%, -50%) rotate(9deg);
+      font-weight: 900;
+      letter-spacing: 0.075em;
+      text-transform: uppercase;
+      transform: translate(-50%, -50%) rotate(10deg);
       transform-origin: center;
       pointer-events: none;
       user-select: none;
       white-space: nowrap;
-    }
-
-    .planned-stamp::after {
-      content: "";
-      position: absolute;
-      left: -0.45rem;
-      right: -0.45rem;
-      top: 50%;
-      height: 2px;
-      background: rgba(29, 29, 31, 0.28);
-      transform: translateY(-50%);
-      pointer-events: none;
     }
 
     .location-showcase-clean {
@@ -589,8 +581,8 @@
         font-size: 0.8rem;
       }
 
-      .planned-stamp {
-        font-size: 0.8rem;
+      .location-choice-clean.is-planned::after {
+        font-size: 0.66rem;
       }
 
       .location-showcase-clean {
@@ -704,8 +696,8 @@
         flex-basis: 220px;
       }
 
-      .planned-stamp {
-        font-size: 0.78rem;
+      .location-choice-clean.is-planned::after {
+        font-size: 0.64rem;
       }
 
       .location-image-card {
@@ -760,28 +752,24 @@
               <small>Aktiver Standort</small>
             </button>
 
-            <button class="location-choice-clean is-planned" type="button" disabled>
+            <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
               <span>Studio Lübeck</span>
               <small>In Planung</small>
-              <span class="planned-stamp" aria-hidden="true">In Planung</span>
             </button>
 
-            <button class="location-choice-clean is-planned" type="button" disabled>
+            <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
               <span>Studio Wismar</span>
               <small>In Planung</small>
-              <span class="planned-stamp" aria-hidden="true">In Planung</span>
             </button>
 
-            <button class="location-choice-clean is-planned" type="button" disabled>
+            <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
               <span>Studio Schwerin</span>
               <small>In Planung</small>
-              <span class="planned-stamp" aria-hidden="true">In Planung</span>
             </button>
 
-            <button class="location-choice-clean is-planned" type="button" disabled>
+            <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
               <span>Studio Rostock</span>
               <small>In Planung</small>
-              <span class="planned-stamp" aria-hidden="true">In Planung</span>
             </button>
           </div>
         </div>
