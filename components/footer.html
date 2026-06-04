@@ -123,8 +123,10 @@
     transform: none;
   }
 
-  .footer-support-list {
-    gap: 0.5rem;
+  .footer-support-card {
+    display: grid;
+    gap: 0.7rem;
+    max-width: 25rem;
   }
 
   .footer-support-note {
@@ -135,17 +137,22 @@
     letter-spacing: -0.008em;
   }
 
+  .footer-support-note strong {
+    color: var(--text-soft);
+    font-weight: 720;
+  }
+
   .footer-support-contact {
     display: grid;
-    gap: 0.42rem;
+    gap: 0.5rem;
   }
 
-  .footer-support-contact p {
+  .footer-support-row {
     display: grid;
-    gap: 0.06rem;
+    gap: 0.1rem;
   }
 
-  .footer-support-contact span {
+  .footer-support-label {
     color: var(--text);
     font-size: 0.7rem;
     line-height: 1.2;
@@ -245,11 +252,15 @@
       line-height: 1.34;
     }
 
-    .footer-support-contact {
-      gap: 0.34rem;
+    .footer-support-card {
+      gap: 0.58rem;
     }
 
-    .footer-support-contact span {
+    .footer-support-contact {
+      gap: 0.38rem;
+    }
+
+    .footer-support-label {
       font-size: 0.66rem;
     }
 
@@ -299,7 +310,7 @@
     }
 
     .footer-support-note {
-      max-width: 20ch;
+      max-width: 19ch;
     }
 
     .footer-support-contact a {
@@ -369,19 +380,20 @@
       <div class="footer-column">
         <p class="footer-column-title">Support</p>
 
-        <div class="footer-link-list footer-support-list">
+        <div class="footer-support-card">
           <p class="footer-support-note">
-            Antwort in der Regel innerhalb von 2–4 Werktagen.
+            Wir lesen Anfragen gesammelt und antworten in der Regel innerhalb von
+            <strong>2–4 Werktagen.</strong>
           </p>
 
           <div class="footer-support-contact">
-            <p>
-              <span>Mail</span>
+            <p class="footer-support-row">
+              <span class="footer-support-label">Mail</span>
               <a href="mailto:info@nordkern-fitness.de">info@nordkern-fitness.de</a>
             </p>
 
-            <p>
-              <span>Kontakt</span>
+            <p class="footer-support-row">
+              <span class="footer-support-label">Kontakt</span>
               <a href="kontakt.html">Formular öffnen</a>
             </p>
           </div>
