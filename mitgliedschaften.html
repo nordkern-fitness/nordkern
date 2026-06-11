@@ -49,6 +49,10 @@
       letter-spacing: -0.012em;
     }
 
+    .tariff-mobile-hint {
+      display: none;
+    }
+
     .tariff-scroll-wrap {
       width: 100%;
     }
@@ -660,7 +664,7 @@
       }
 
       .pricing-page-intro {
-        margin-bottom: 1.7rem;
+        margin-bottom: 1.2rem;
       }
 
       .pricing-main-title {
@@ -671,6 +675,40 @@
       .pricing-page-note {
         max-width: 34ch;
         font-size: 0.96rem;
+      }
+
+      .tariff-mobile-hint {
+        width: fit-content;
+        max-width: calc(100vw - 2rem);
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        margin: 1.2rem auto 0.1rem;
+        padding: 0.55rem 0.78rem;
+        border-radius: 999px;
+        color: var(--nf-green-dark);
+        background: rgba(46, 145, 63, 0.08);
+        border: 1px solid rgba(46, 145, 63, 0.16);
+        font-size: 0.82rem;
+        line-height: 1.1;
+        font-weight: 760;
+        letter-spacing: -0.012em;
+      }
+
+      .tariff-mobile-hint::before,
+      .tariff-mobile-hint::after {
+        color: rgba(46, 145, 63, 0.9);
+        font-size: 1rem;
+        line-height: 1;
+        font-weight: 900;
+      }
+
+      .tariff-mobile-hint::before {
+        content: "‹";
+      }
+
+      .tariff-mobile-hint::after {
+        content: "›";
       }
 
       .tariff-scroll-wrap {
@@ -834,6 +872,11 @@
         padding-inline: max(0.9rem, calc((100vw - 84vw) / 2));
       }
 
+      .tariff-mobile-hint {
+        font-size: 0.8rem;
+        padding: 0.52rem 0.72rem;
+      }
+
       .tariff-name {
         font-size: clamp(1.78rem, 7.1vw, 2.22rem);
       }
@@ -894,6 +937,10 @@
           <p class="pricing-page-note">
             Wähle deinen Zugang digital in der Nordkern Fitness App. Preise, Laufzeiten und mögliche Aktionen werden vor der Buchung noch einmal klar angezeigt.
           </p>
+
+          <div class="tariff-mobile-hint" aria-hidden="true">
+            Wischen für Plus und Pro
+          </div>
         </div>
 
         <div class="tariff-scroll-wrap" aria-label="Nordkern Fitness Mitgliedschaften">
