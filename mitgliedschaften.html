@@ -78,7 +78,6 @@
       box-shadow: none;
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
-      scroll-margin-top: 6rem;
     }
 
     .tariff-card.is-plus {
@@ -679,6 +678,9 @@
       }
 
       .tariff-mobile-nav {
+        --indicator-left: 0.34rem;
+        --indicator-width: 33.333%;
+        position: relative;
         width: min(100%, 390px);
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -688,9 +690,27 @@
         border-radius: 999px;
         background: #f5f5f7;
         border: 1px solid rgba(0, 0, 0, 0.045);
+        overflow: hidden;
       }
 
-      .tariff-mobile-nav a {
+      .tariff-mobile-nav::before {
+        content: "";
+        position: absolute;
+        top: 0.34rem;
+        bottom: 0.34rem;
+        left: var(--indicator-left);
+        width: var(--indicator-width);
+        border-radius: 999px;
+        background: linear-gradient(180deg, var(--nf-green-light), var(--nf-green));
+        box-shadow: 0 10px 24px rgba(46, 145, 63, 0.18);
+        transition:
+          left 0.28s var(--ease),
+          width 0.28s var(--ease);
+      }
+
+      .tariff-mobile-nav button {
+        position: relative;
+        z-index: 2;
         min-height: 38px;
         display: inline-flex;
         align-items: center;
@@ -704,27 +724,16 @@
         letter-spacing: -0.012em;
         transition:
           color var(--fast),
-          background var(--fast),
           transform var(--fast);
       }
 
-      .tariff-mobile-nav a:first-child {
+      .tariff-mobile-nav button.is-active {
         color: #ffffff;
-        background: linear-gradient(180deg, var(--nf-green-light), var(--nf-green));
-        box-shadow: 0 10px 24px rgba(46, 145, 63, 0.18);
       }
 
-      .tariff-mobile-nav a:hover,
-      .tariff-mobile-nav a:focus-visible {
-        color: var(--text);
-        background: #ffffff;
+      .tariff-mobile-nav button:hover,
+      .tariff-mobile-nav button:focus-visible {
         transform: translateY(-1px);
-      }
-
-      .tariff-mobile-nav a:first-child:hover,
-      .tariff-mobile-nav a:first-child:focus-visible {
-        color: #ffffff;
-        background: linear-gradient(180deg, var(--nf-green-light), var(--nf-green));
       }
 
       .tariff-scroll-wrap {
@@ -909,7 +918,7 @@
         width: min(100%, 340px);
       }
 
-      .tariff-mobile-nav a {
+      .tariff-mobile-nav button {
         min-height: 36px;
         font-size: 0.78rem;
       }
@@ -979,16 +988,24 @@
             Wähle deinen Zugang digital in der Nordkern Fitness App. Preise, Laufzeiten und mögliche Aktionen werden vor der Buchung noch einmal klar angezeigt.
           </p>
 
-          <nav class="tariff-mobile-nav" aria-label="Tarife schnell auswählen">
-            <a href="#basic-title">Basic</a>
-            <a href="#plus-title">Plus</a>
-            <a href="#pro-title">Pro</a>
-          </nav>
+          <div class="tariff-mobile-nav" aria-label="Tarife schnell auswählen">
+            <button class="is-active" type="button" data-tariff-target="basic-card">
+              Basic
+            </button>
+
+            <button type="button" data-tariff-target="plus-card">
+              Plus
+            </button>
+
+            <button type="button" data-tariff-target="pro-card">
+              Pro
+            </button>
+          </div>
         </div>
 
         <div class="tariff-scroll-wrap" aria-label="Nordkern Fitness Mitgliedschaften">
           <div class="tariff-grid">
-            <article class="tariff-card" aria-labelledby="basic-title">
+            <article class="tariff-card" id="basic-card" aria-labelledby="basic-title">
               <h2 class="tariff-name" id="basic-title">Nordkern <span>Basic</span></h2>
 
               <div class="tariff-price-area">
@@ -1059,7 +1076,7 @@
               </a>
             </article>
 
-            <article class="tariff-card is-plus" aria-labelledby="plus-title">
+            <article class="tariff-card is-plus" id="plus-card" aria-labelledby="plus-title">
               <h2 class="tariff-name" id="plus-title">Nordkern <span>Plus</span></h2>
 
               <div class="tariff-price-area">
@@ -1130,7 +1147,7 @@
               </a>
             </article>
 
-            <article class="tariff-card" aria-labelledby="pro-title">
+            <article class="tariff-card" id="pro-card" aria-labelledby="pro-title">
               <h2 class="tariff-name" id="pro-title">Nordkern <span>Pro</span></h2>
 
               <div class="tariff-price-area">
@@ -1369,5 +1386,101 @@
   <div data-footer></div>
 
   <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tariffNav = document.querySelector(".tariff-mobile-nav");
+      const tariffScrollWrap = document.querySelector(".tariff-scroll-wrap");
+      const tariffCards = Array.from(document.querySelectorAll(".tariff-card"));
+      const tariffButtons = Array.from(document.querySelectorAll(".tariff-mobile-nav button"));
+
+      if (!tariffNav || !tariffScrollWrap || tariffCards.length === 0 || tariffButtons.length === 0) return;
+
+      let isButtonScroll = false;
+      let scrollTimeout;
+
+      const moveIndicator = (button) => {
+        if (!button) return;
+
+        tariffNav.style.setProperty("--indicator-left", `${button.offsetLeft}px`);
+        tariffNav.style.setProperty("--indicator-width", `${button.offsetWidth}px`);
+      };
+
+      const setActiveButton = (targetId) => {
+        tariffButtons.forEach((button) => {
+          const isActive = button.dataset.tariffTarget === targetId;
+          button.classList.toggle("is-active", isActive);
+        });
+
+        const activeButton = tariffButtons.find((button) => button.dataset.tariffTarget === targetId);
+        moveIndicator(activeButton);
+      };
+
+      const getClosestCard = () => {
+        const wrapRect = tariffScrollWrap.getBoundingClientRect();
+        const wrapCenter = wrapRect.left + wrapRect.width / 2;
+
+        return tariffCards.reduce((closest, card) => {
+          const cardRect = card.getBoundingClientRect();
+          const cardCenter = cardRect.left + cardRect.width / 2;
+          const distance = Math.abs(cardCenter - wrapCenter);
+
+          if (!closest || distance < closest.distance) {
+            return { card, distance };
+          }
+
+          return closest;
+        }, null)?.card;
+      };
+
+      const updateActiveByScroll = () => {
+        const closestCard = getClosestCard();
+        if (!closestCard) return;
+
+        setActiveButton(closestCard.id);
+      };
+
+      const scrollToCard = (targetId) => {
+        const targetCard = document.getElementById(targetId);
+        if (!targetCard) return;
+
+        isButtonScroll = true;
+
+        const targetLeft =
+          targetCard.offsetLeft -
+          (tariffScrollWrap.clientWidth - targetCard.offsetWidth) / 2;
+
+        tariffScrollWrap.scrollTo({
+          left: targetLeft,
+          behavior: "smooth"
+        });
+
+        setActiveButton(targetId);
+
+        window.clearTimeout(scrollTimeout);
+        scrollTimeout = window.setTimeout(() => {
+          isButtonScroll = false;
+          updateActiveByScroll();
+        }, 520);
+      };
+
+      tariffButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          scrollToCard(button.dataset.tariffTarget);
+        });
+      });
+
+      tariffScrollWrap.addEventListener("scroll", () => {
+        if (isButtonScroll) return;
+
+        window.clearTimeout(scrollTimeout);
+        scrollTimeout = window.setTimeout(updateActiveByScroll, 80);
+      }, { passive: true });
+
+      window.addEventListener("resize", updateActiveByScroll);
+
+      updateActiveByScroll();
+    });
+  </script>
 </body>
 </html>
