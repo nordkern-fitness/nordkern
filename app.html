@@ -7,7 +7,7 @@
   <title>Nordkern Fitness – App</title>
   <meta
     name="description"
-    content="Die Nordkern Fitness App bündelt Zugang, Mitgliedschaften und Tagespass. QR-Code öffnen, Studio betreten und Training starten."
+    content="Die Nordkern Fitness App bündelt Zugang, Mitgliedschaften, Tagespass, QR-Code-Zutritt und Kontingente für Freigetränke und Kreatin-Auswahlen."
   />
 
   <link rel="stylesheet" href="css/style.css" />
@@ -274,24 +274,24 @@
 
     .app-flow-list {
       display: grid;
-      gap: 0.85rem;
-      margin-top: 1.6rem;
+      gap: 1rem;
+      margin-top: 1.9rem;
     }
 
     .app-flow-item {
       display: grid;
-      grid-template-columns: 34px 1fr;
-      gap: 0.82rem;
+      grid-template-columns: 38px 1fr;
+      gap: 0.92rem;
       align-items: start;
-      padding: 1rem;
-      border-radius: 24px;
+      padding: 1.12rem;
+      border-radius: 26px;
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.045);
     }
 
     .app-flow-dot {
-      width: 34px;
-      height: 34px;
+      width: 38px;
+      height: 38px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -299,14 +299,14 @@
       color: #ffffff;
       background: linear-gradient(180deg, var(--nf-green-light), var(--nf-green));
       box-shadow: 0 10px 22px rgba(46, 145, 63, 0.18);
-      font-size: 0.82rem;
+      font-size: 0.86rem;
       font-weight: 850;
     }
 
     .app-flow-item strong {
       display: block;
       color: var(--text);
-      font-size: 1rem;
+      font-size: 1.04rem;
       line-height: 1.25;
       letter-spacing: -0.018em;
       font-weight: 760;
@@ -314,10 +314,10 @@
 
     .app-flow-item span:not(.app-flow-dot) {
       display: block;
-      margin-top: 0.2rem;
+      margin-top: 0.28rem;
       color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.42;
+      font-size: 0.96rem;
+      line-height: 1.46;
       letter-spacing: -0.01em;
     }
 
@@ -532,7 +532,21 @@
       }
 
       .app-flow-list {
+        gap: 0.85rem;
+        margin-top: 1.5rem;
         text-align: left;
+      }
+
+      .app-flow-item {
+        grid-template-columns: 36px 1fr;
+        gap: 0.82rem;
+        padding: 1rem;
+        border-radius: 24px;
+      }
+
+      .app-flow-dot {
+        width: 36px;
+        height: 36px;
       }
 
       .app-flow-visual {
@@ -618,8 +632,7 @@
           </h1>
 
           <p class="app-hero-text">
-            Mitgliedschaft buchen, Tagespass vorbereiten und per QR-Code ins Studio.
-            Klar, digital und ohne Papierkram.
+            Mitgliedschaft buchen, Tagespass aktivieren, QR-Code öffnen und Kontingente für Freigetränke oder Kreatin-Auswahlen im Blick behalten.
           </p>
 
           <div class="app-store-row-clean" aria-label="Nordkern Fitness App suchen">
@@ -665,12 +678,12 @@
           <p class="eyebrow">Funktionen</p>
 
           <h2 class="app-section-title" id="app-features-title">
-            Alles für deinen Start im Studio.
+            Alles für dein Studio-Erlebnis.
           </h2>
 
           <p>
-            Die App hält deinen Zugang, deine Buchung und deinen Status an einem Ort.
-            Du musst nichts ausdrucken, nichts suchen und nichts kompliziert erklären.
+            Die App verbindet Zugang, Tarif, Tagespass und Getränkeautomat an einem Ort.
+            So bleibt dein Training klar, digital und ohne unnötigen Papierkram.
           </p>
         </div>
 
@@ -679,11 +692,11 @@
             <div>
               <span class="app-feature-number">01</span>
 
-              <h3>Reinkommen ohne Umwege.</h3>
+              <h3>QR-Code für Studio und Automat.</h3>
 
               <p>
-                Dein QR-Code liegt direkt in der App bereit. Öffnen, scannen,
-                Studio betreten und loslegen.
+                Dein QR-Code dient für den Studio-Zutritt und später auch für den Getränkeautomaten.
+                Öffnen, scannen und dein Konto wird automatisch erkannt.
               </p>
             </div>
           </article>
@@ -692,11 +705,11 @@
             <div>
               <span class="app-feature-number">02</span>
 
-              <h3>Dein Tarif im Blick.</h3>
+              <h3>Tarif und Kontingente im Blick.</h3>
 
               <p>
-                Mitgliedschaft, Zugang und wichtige Informationen bleiben übersichtlich.
-                So weißt du jederzeit, womit du trainierst.
+                Du siehst deinen Tarif, deinen Zugang und verfügbare Extras wie Freigetränke,
+                Getränkengrößen oder Kreatin-Auswahlen übersichtlich in deinem App-Konto.
               </p>
             </div>
           </article>
@@ -705,11 +718,11 @@
             <div>
               <span class="app-feature-number">03</span>
 
-              <h3>Flexibel per Tagespass.</h3>
+              <h3>Tagespass ohne Mitgliedschaft.</h3>
 
               <p>
-                Bereite deinen Tagespass digital vor und nutze ihn dann, wenn du wirklich
-                ins Studio möchtest.
+                Bereite deinen Tagespass digital vor, aktiviere ihn erst beim Eintritt
+                und teste Nordkern Fitness für 24 Stunden ohne laufenden Vertrag.
               </p>
             </div>
           </article>
@@ -724,36 +737,42 @@
             <p class="eyebrow">Ablauf</p>
 
             <h2 id="app-flow-title">
-              Vorbereiten. Einchecken. Trainieren.
+              Buchen. Einchecken. Einlösen.
             </h2>
 
             <p>
-              Nordkern Fitness soll sich ruhig und klar anfühlen – auch digital.
-              Du bereitest deinen Zugang in der App vor und gehst im Studio direkt ins Training.
+              Nordkern Fitness soll ruhig und klar funktionieren. Du bereitest deinen Zugang digital vor,
+              kommst per QR-Code ins Studio und behältst deine Extras direkt in der App im Blick.
             </p>
 
             <div class="app-flow-list" aria-label="Ablauf in der Nordkern Fitness App">
               <div class="app-flow-item">
                 <span class="app-flow-dot" aria-hidden="true">1</span>
                 <div>
-                  <strong>Zugang vorbereiten</strong>
-                  <span>Wähle deine Mitgliedschaft oder deinen Tagespass und richte alles digital ein.</span>
+                  <strong>Tarif oder Tagespass wählen</strong>
+                  <span>
+                    Wähle Basic, Plus, Pro oder einen Tagespass. Preise, Laufzeiten und enthaltene Leistungen werden vor der Buchung klar angezeigt.
+                  </span>
                 </div>
               </div>
 
               <div class="app-flow-item">
                 <span class="app-flow-dot" aria-hidden="true">2</span>
                 <div>
-                  <strong>QR-Code öffnen</strong>
-                  <span>Beim Studioeingang öffnest du deinen QR-Code direkt in der App.</span>
+                  <strong>QR-Code am Eingang nutzen</strong>
+                  <span>
+                    Beim Studioeingang öffnest du deinen QR-Code in der App. Dein Zugang wird geprüft und du kannst direkt ins Training.
+                  </span>
                 </div>
               </div>
 
               <div class="app-flow-item">
                 <span class="app-flow-dot" aria-hidden="true">3</span>
                 <div>
-                  <strong>Training starten</strong>
-                  <span>Du gehst rein, trainierst in Ruhe und behältst alles Weitere in der App im Blick.</span>
+                  <strong>Freigetränke und Extras einlösen</strong>
+                  <span>
+                    Am Getränkeautomaten erkennt dein App-Konto verfügbare Freigetränke, Größen und Kreatin-Auswahlen. Verbrauchte Kontingente werden automatisch abgezogen.
+                  </span>
                 </div>
               </div>
             </div>
@@ -771,8 +790,8 @@
         <h2 id="app-final-title">Bereit, wenn du es bist.</h2>
 
         <p>
-          Wenn die App verfügbar ist, kannst du deinen Zugang digital vorbereiten
-          und dein Training genau dann starten, wenn es für dich passt.
+          Sobald die App verfügbar ist, kannst du deinen Zugang digital vorbereiten,
+          dein Training starten und deine Nordkern-Fitness-Vorteile sauber verwalten.
         </p>
 
         <div class="app-store-row-clean" aria-label="Nordkern Fitness App in Stores suchen">
