@@ -495,6 +495,7 @@
     .daypass-card-details {
       display: flex;
       flex-direction: column;
+      gap: 1.15rem;
     }
 
     .daypass-card .tariff-name {
@@ -519,7 +520,7 @@
     }
 
     .daypass-card .tariff-extra-title {
-      margin-top: 3rem;
+      margin-top: 2.35rem;
     }
 
     .daypass-card .tariff-runtime {
@@ -531,7 +532,7 @@
     .daypass-card .btn {
       width: 100%;
       min-height: 52px;
-      margin-top: 0.9rem;
+      margin-top: 0;
     }
 
     .tariff-info-modal {
@@ -865,6 +866,7 @@
         flex-direction: column;
         border-radius: 28px;
         padding: 1.25rem;
+        gap: 1.65rem;
       }
 
       .daypass-card-main {
@@ -874,7 +876,8 @@
       .daypass-card-details {
         display: flex;
         flex-direction: column;
-        min-height: 420px;
+        gap: 1.25rem;
+        min-height: auto;
       }
 
       .daypass-card .tariff-name {
@@ -882,20 +885,20 @@
       }
 
       .daypass-card .tariff-feature-block {
-        margin-top: 1.25rem;
+        margin-top: 0;
       }
 
       .daypass-card .tariff-extra-title {
-        margin-top: 2.7rem;
+        margin-top: 2.25rem;
       }
 
       .daypass-card .tariff-runtime {
-        margin-top: auto;
-        margin-bottom: 0.35rem;
+        margin-top: 1rem;
+        margin-bottom: 0;
       }
 
       .daypass-card .btn {
-        margin-top: 1.05rem;
+        margin-top: 0.1rem;
       }
 
       .tariff-info-box {
@@ -961,11 +964,12 @@
       }
 
       .daypass-card {
-        padding: 1.2rem;
+        padding: 1.25rem;
+        gap: 1.7rem;
       }
 
       .daypass-card-details {
-        min-height: 435px;
+        gap: 1.28rem;
       }
     }
   </style>
@@ -1032,7 +1036,7 @@
                         type="button"
                         aria-label="Information zu 3× Freigetränke im Basic-Tarif"
                         data-info-title="3× Freigetränke à 330 ml"
-                        data-info-text="Im Basic-Tarif sind jeden Monat 3× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen. Weitere Getränke kannst du später zusätzlich in der App kaufen und im Studio einlösen."
+                        data-info-text="Im Basic-Tarif sind jeden Monat 3× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen. Weitere Getränke kannst du zusätzlich in der App kaufen und im Studio einlösen."
                       >
                         <span aria-hidden="true">?</span>
                       </button>
@@ -1047,7 +1051,7 @@
                         type="button"
                         aria-label="Information zu 1× Kreatin-Auswahl im Basic-Tarif"
                         data-info-title="1× Kreatin-Auswahl inklusive"
-                        data-info-text="Im Basic-Tarif ist jeden Monat 1× Kreatin-Auswahl inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst. Weitere Kreatin-Auswahlen können später zusätzlich in der App gekauft werden."
+                        data-info-text="Im Basic-Tarif ist jeden Monat 1× Kreatin-Auswahl inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst. Weitere Kreatin-Auswahlen können zusätzlich in der App gekauft werden."
                       >
                         <span aria-hidden="true">?</span>
                       </button>
@@ -1103,7 +1107,7 @@
                         type="button"
                         aria-label="Information zu 6× Freigetränke im Plus-Tarif"
                         data-info-title="6× Freigetränke à 330 ml"
-                        data-info-text="Im Plus-Tarif sind jeden Monat 6× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen. Weitere Getränke kannst du später zusätzlich in der App kaufen und im Studio einlösen."
+                        data-info-text="Im Plus-Tarif sind jeden Monat 6× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen. Weitere Getränke kannst du zusätzlich in der App kaufen und im Studio einlösen."
                       >
                         <span aria-hidden="true">?</span>
                       </button>
@@ -1118,7 +1122,7 @@
                         type="button"
                         aria-label="Information zu 3× Kreatin-Auswahlen im Plus-Tarif"
                         data-info-title="3× Kreatin-Auswahlen inklusive"
-                        data-info-text="Im Plus-Tarif sind jeden Monat 3× Kreatin-Auswahlen inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst. Weitere Kreatin-Auswahlen können später zusätzlich in der App gekauft werden."
+                        data-info-text="Im Plus-Tarif sind jeden Monat 3× Kreatin-Auswahlen inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst. Weitere Kreatin-Auswahlen können zusätzlich in der App gekauft werden."
                       >
                         <span aria-hidden="true">?</span>
                       </button>
@@ -1129,14 +1133,14 @@
 
               <div class="tariff-runtime">
                 <span>Mindestlaufzeit</span>
-                <strong>6 Monate</strong>
+                <strong>8 Monate</strong>
 
                 <button
                   class="runtime-info-button"
                   type="button"
                   aria-label="Information zur Mindestlaufzeit im Plus-Tarif"
-                  data-info-title="Mindestlaufzeit: 6 Monate"
-                  data-info-text="Der Plus-Tarif hat eine Mindestlaufzeit von 6 Monaten. Du kannst schon während dieser Zeit kündigen; deine Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit. Wenn du nicht kündigst, läuft sie danach regulär weiter und kann anschließend monatlich gekündigt werden."
+                  data-info-title="Mindestlaufzeit: 8 Monate"
+                  data-info-text="Der Plus-Tarif hat eine Mindestlaufzeit von 8 Monaten. Du kannst schon während dieser Zeit kündigen; deine Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit. Wenn du nicht kündigst, läuft sie danach regulär weiter und kann anschließend monatlich gekündigt werden."
                 >
                   <span aria-hidden="true">?</span>
                 </button>
@@ -1174,7 +1178,7 @@
                         type="button"
                         aria-label="Information zu 9× Freigetränke im Pro-Tarif"
                         data-info-title="9× Freigetränke à 330 ml"
-                        data-info-text="Im Pro-Tarif sind jeden Monat 9× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen. Weitere Getränke kannst du später zusätzlich in der App kaufen und im Studio einlösen."
+                        data-info-text="Im Pro-Tarif sind jeden Monat 9× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen. Weitere Getränke kannst du zusätzlich in der App kaufen und im Studio einlösen."
                       >
                         <span aria-hidden="true">?</span>
                       </button>
@@ -1189,7 +1193,7 @@
                         type="button"
                         aria-label="Information zu 5× Kreatin-Auswahlen im Pro-Tarif"
                         data-info-title="5× Kreatin-Auswahlen inklusive"
-                        data-info-text="Im Pro-Tarif sind jeden Monat 5× Kreatin-Auswahlen inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst. Weitere Kreatin-Auswahlen können später zusätzlich in der App gekauft werden."
+                        data-info-text="Im Pro-Tarif sind jeden Monat 5× Kreatin-Auswahlen inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst. Weitere Kreatin-Auswahlen können zusätzlich in der App gekauft werden."
                       >
                         <span aria-hidden="true">?</span>
                       </button>
@@ -1215,14 +1219,14 @@
 
               <div class="tariff-runtime">
                 <span>Mindestlaufzeit</span>
-                <strong>3 Monate</strong>
+                <strong>4 Monate</strong>
 
                 <button
                   class="runtime-info-button"
                   type="button"
                   aria-label="Information zur Mindestlaufzeit im Pro-Tarif"
-                  data-info-title="Mindestlaufzeit: 3 Monate"
-                  data-info-text="Der Pro-Tarif hat eine Mindestlaufzeit von 3 Monaten. Du kannst schon während dieser Zeit kündigen; deine Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit. Wenn du nicht kündigst, läuft sie danach regulär weiter und kann anschließend monatlich gekündigt werden."
+                  data-info-title="Mindestlaufzeit: 4 Monate"
+                  data-info-text="Der Pro-Tarif hat eine Mindestlaufzeit von 4 Monaten. Du kannst schon während dieser Zeit kündigen; deine Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit. Wenn du nicht kündigst, läuft sie danach regulär weiter und kann anschließend monatlich gekündigt werden."
                 >
                   <span aria-hidden="true">?</span>
                 </button>
@@ -1253,14 +1257,14 @@
                 type="button"
                 aria-label="Information zum Getränkeautomaten"
                 data-info-title="So funktioniert der Getränkeautomat"
-                data-info-text="Der Getränkeautomat soll später über deinen normalen Nordkern Fitness QR-Code laufen. Du scannst denselben QR-Code, den du auch für den Studio-Zutritt nutzt. Danach erkennt das System dein App-Konto und zeigt, welche Freigetränke und Extras in deinem Tarif noch verfügbar sind. Du wählst am Automaten Getränk, Größe, Geschmack und verfügbare Zusätze wie Kreatin aus. Inklusive Kontingente werden automatisch abgezogen. Wenn deine enthaltenen Getränke oder Zusätze aufgebraucht sind, kannst du weitere Getränke oder Extras in der App kaufen und anschließend am Automaten einlösen. Direkt am Automaten selbst soll kein Kauf nötig sein."
+                data-info-text="Der Getränkeautomat läuft über deinen normalen Nordkern Fitness QR-Code. Du scannst denselben QR-Code, den du auch für den Studio-Zutritt nutzt. Danach erkennt das System dein App-Konto und zeigt, welche Freigetränke und Extras in deinem Tarif noch verfügbar sind. Du wählst Getränk, Größe, Geschmack und verfügbare Zusätze wie Kreatin aus. Inklusive Kontingente werden automatisch abgezogen. Wenn deine enthaltenen Getränke oder Zusätze aufgebraucht sind, kannst du weitere Getränke oder Extras in der App kaufen und anschließend am Automaten einlösen."
               >
                 <span aria-hidden="true">?</span>
               </button>
             </div>
 
             <p class="drink-info-text">
-              Dein QR-Code verbindet den Automaten mit deinem App-Konto. So werden Freigetränke und Extras automatisch erkannt und sauber zugeordnet.
+              Dein QR-Code verbindet den Automaten mit deinem App-Konto. So werden Freigetränke, Größen und Extras automatisch erkannt und sauber zugeordnet.
             </p>
           </div>
         </div>
@@ -1276,7 +1280,7 @@
             <h2 id="daypass-title">Nordkern <span>Tagespass</span></h2>
 
             <p>
-              Zum Testen: einmal trainieren, 24 Stunden Zugang nutzen und Nordkern Fitness kennenlernen.
+              Zum Testen: einmal trainieren, 24 Stunden Zugang nutzen, ein Freigetränk einlösen und Nordkern Fitness kennenlernen.
             </p>
           </div>
 
@@ -1310,7 +1314,7 @@
                         type="button"
                         aria-label="Information zu 1× Freigetränk beim Tagespass"
                         data-info-title="1× Freigetränk à 330 ml"
-                        data-info-text="Beim Tagespass ist 1× Freigetränk à 330 ml enthalten. Das Freigetränk wird über deinen QR-Code am Getränkeautomaten eingelöst. Weitere Getränke kannst du später zusätzlich in der App kaufen und im Studio einlösen."
+                        data-info-text="Beim Tagespass ist 1× Freigetränk à 330 ml enthalten. Das Freigetränk wird über deinen QR-Code am Getränkeautomaten eingelöst. Weitere Getränke kannst du zusätzlich in der App kaufen und im Studio einlösen."
                       >
                         <span aria-hidden="true">?</span>
                       </button>
@@ -1325,7 +1329,7 @@
                         type="button"
                         aria-label="Information zu 1× Kreatin-Auswahl beim Tagespass"
                         data-info-title="1× Kreatin-Auswahl inklusive"
-                        data-info-text="Beim Tagespass ist 1× Kreatin-Auswahl inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst. Weitere Kreatin-Auswahlen können später zusätzlich in der App gekauft werden."
+                        data-info-text="Beim Tagespass ist 1× Kreatin-Auswahl inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst. Weitere Kreatin-Auswahlen können zusätzlich in der App gekauft werden."
                       >
                         <span aria-hidden="true">?</span>
                       </button>
