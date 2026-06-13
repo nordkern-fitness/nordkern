@@ -152,6 +152,11 @@
       letter-spacing: -0.01em;
     }
 
+    .contact-field small.is-limit {
+      color: #b42318;
+      font-weight: 720;
+    }
+
     .contact-form-bottom-clean {
       display: flex;
       align-items: center;
@@ -542,13 +547,14 @@
                   id="contact-message"
                   name="contact-message"
                   placeholder="Schreib hier deine Nachricht an Nordkern Fitness..."
-                  maxlength="4999"
+                  maxlength="2400"
+                  data-maxlength="2400"
                   aria-describedby="message-count contact-error-box"
                   required
                 ></textarea>
 
                 <small>
-                  <span id="message-count">0</span>/4999 Zeichen
+                  <span id="message-count">0</span>/2400 Zeichen
                 </small>
               </div>
             </div>
@@ -621,5 +627,41 @@
   <div data-footer></div>
 
   <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const messageField = document.getElementById("contact-message");
+      const messageCount = document.getElementById("message-count");
+
+      if (!messageField || !messageCount) return;
+
+      const maxLength = Number(messageField.dataset.maxlength || messageField.maxLength || 2400);
+      const countWrap = messageCount.closest("small");
+
+      const updateMessageCount = () => {
+        if (messageField.value.length > maxLength) {
+          messageField.value = messageField.value.slice(0, maxLength);
+        }
+
+        messageCount.textContent = String(messageField.value.length);
+
+        if (countWrap) {
+          countWrap.classList.toggle("is-limit", messageField.value.length >= maxLength);
+        }
+      };
+
+      messageField.addEventListener("input", updateMessageCount);
+
+      messageField.addEventListener("paste", () => {
+        window.setTimeout(updateMessageCount, 0);
+      });
+
+      messageField.addEventListener("drop", () => {
+        window.setTimeout(updateMessageCount, 0);
+      });
+
+      updateMessageCount();
+    });
+  </script>
 </body>
 </html>
