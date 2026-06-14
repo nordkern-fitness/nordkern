@@ -15,7 +15,7 @@
   <style>
     .pricing-page-section {
       padding-top: 5.4rem;
-      padding-bottom: 4.2rem;
+      padding-bottom: 3.8rem;
       background: #ffffff;
     }
 
@@ -67,31 +67,33 @@
     .tariff-card {
       position: relative;
       min-width: 0;
-      min-height: 610px;
+      min-height: 590px;
       display: grid;
-      grid-template-rows: 58px 106px 1fr auto auto;
-      padding: clamp(1.38rem, 2vw, 1.7rem);
+      grid-template-rows: auto auto 1fr auto auto;
+      padding: clamp(1.5rem, 2.15vw, 1.85rem);
       border-radius: 34px;
-      overflow: visible;
-      background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      box-shadow: none;
+      overflow: hidden;
+      background: linear-gradient(180deg, #f7f7f9 0%, #f3f4f5 100%);
+      border: 1px solid rgba(0, 0, 0, 0.055);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.035);
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
     }
 
     .tariff-card.is-plus {
-      border-color: rgba(46, 145, 63, 0.18);
-      box-shadow: 0 18px 44px rgba(46, 145, 63, 0.08);
+      border-color: rgba(46, 145, 63, 0.22);
+      box-shadow:
+        0 22px 52px rgba(46, 145, 63, 0.08),
+        0 18px 44px rgba(0, 0, 0, 0.025);
     }
 
     .tariff-name {
       align-self: start;
       padding-right: 0;
       color: var(--text);
-      font-size: clamp(2.18rem, 2.72vw, 3rem);
+      font-size: clamp(2.02rem, 2.58vw, 2.72rem);
       line-height: 0.98;
-      letter-spacing: -0.06em;
+      letter-spacing: -0.062em;
       font-weight: 760;
       white-space: nowrap;
       text-wrap: nowrap;
@@ -106,32 +108,32 @@
       display: grid;
       align-content: start;
       gap: 0.45rem;
-      margin-top: 0.35rem;
+      margin-top: 1.15rem;
     }
 
     .tariff-price-row {
       display: flex;
       align-items: flex-end;
       flex-wrap: nowrap;
-      gap: 0.46rem;
+      gap: 0.5rem;
       min-width: 0;
     }
 
     .tariff-price {
       color: var(--text);
-      font-size: clamp(3rem, 4.05vw, 4.25rem);
+      font-size: clamp(3.1rem, 4.25vw, 4.45rem);
       line-height: 0.9;
-      letter-spacing: -0.058em;
-      font-weight: 560;
+      letter-spacing: -0.062em;
+      font-weight: 540;
       font-variant-numeric: tabular-nums;
       white-space: nowrap;
     }
 
     .tariff-price-unit {
       flex: 0 0 auto;
-      padding-bottom: 0.4rem;
+      padding-bottom: 0.42rem;
       color: var(--muted);
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       line-height: 1.1;
       letter-spacing: -0.008em;
       white-space: nowrap;
@@ -139,18 +141,18 @@
 
     .tariff-feature-block {
       align-self: start;
-      padding-top: 0.8rem;
+      padding-top: 2.4rem;
       min-width: 0;
     }
 
     .tariff-checks {
       display: grid;
-      gap: 0.58rem;
+      gap: 0.62rem;
     }
 
     .tariff-checks li {
       position: relative;
-      padding-left: 1.52rem;
+      padding-left: 1.55rem;
       color: var(--text-soft);
       font-size: 0.92rem;
       line-height: 1.32;
@@ -177,20 +179,20 @@
 
     .tariff-extra-title {
       width: fit-content;
-      margin-top: 3.25rem;
-      margin-bottom: 0.62rem;
-      color: rgba(29, 29, 31, 0.78);
+      margin-top: 3.05rem;
+      margin-bottom: 0.7rem;
+      color: rgba(29, 29, 31, 0.72);
       font-size: 0.68rem;
       line-height: 1;
       font-weight: 900;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.075em;
       text-transform: uppercase;
       white-space: nowrap;
     }
 
     .tariff-extras {
       display: grid;
-      gap: 0.5rem;
+      gap: 0.52rem;
       min-width: 0;
     }
 
@@ -200,7 +202,7 @@
       display: flex;
       align-items: center;
       min-height: 1.22rem;
-      padding-left: 1.52rem;
+      padding-left: 1.55rem;
       color: var(--text-soft);
       font-size: 0.84rem;
       line-height: 1.26;
@@ -250,7 +252,7 @@
       justify-content: center;
       border-radius: 999px;
       color: var(--nf-green-dark);
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.88);
       border: 1px solid rgba(46, 145, 63, 0.14);
       box-shadow: none;
       transition:
@@ -277,19 +279,19 @@
       position: relative;
       align-self: end;
       width: 100%;
-      margin-top: 1.45rem;
-      padding: 0.88rem 3.25rem 0.88rem 1rem;
+      margin-top: 1.55rem;
+      padding: 0.86rem 3.25rem 0.86rem 1rem;
       border-radius: 22px;
-      background: rgba(255, 255, 255, 0.74);
+      background: rgba(255, 255, 255, 0.72);
       border: 1px solid rgba(0, 0, 0, 0.045);
     }
 
     .tariff-runtime span {
       display: block;
       color: var(--nf-green-dark);
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 850;
-      letter-spacing: 0.045em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
@@ -297,7 +299,7 @@
       display: block;
       margin-top: 0.18rem;
       color: var(--text);
-      font-size: 1.02rem;
+      font-size: 1rem;
       line-height: 1.35;
       letter-spacing: -0.012em;
       font-weight: 720;
@@ -353,16 +355,17 @@
 
     .drink-info-section {
       padding-top: 0;
-      padding-bottom: 4.2rem;
+      padding-bottom: 3.2rem;
       background: #ffffff;
     }
 
     .drink-info-card {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
+      display: flex;
       align-items: center;
-      padding: clamp(1.25rem, 2.4vw, 1.8rem);
-      border-radius: 32px;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: clamp(1rem, 1.75vw, 1.25rem) clamp(1.1rem, 2.4vw, 1.75rem);
+      border-radius: 28px;
       background: #f5f5f7;
       border: 1px solid rgba(0, 0, 0, 0.045);
     }
@@ -372,12 +375,12 @@
     }
 
     .drink-info-label {
-      margin-bottom: 0.52rem;
-      color: rgba(29, 29, 31, 0.72);
-      font-size: 0.7rem;
+      margin-bottom: 0.45rem;
+      color: rgba(29, 29, 31, 0.68);
+      font-size: 0.68rem;
       line-height: 1;
       font-weight: 900;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.075em;
       text-transform: uppercase;
     }
 
@@ -390,47 +393,47 @@
 
     .drink-info-title {
       color: var(--text);
-      font-size: clamp(1.82rem, 3vw, 2.75rem);
-      line-height: 0.98;
+      font-size: clamp(1.65rem, 2.55vw, 2.35rem);
+      line-height: 1;
       letter-spacing: -0.058em;
       font-weight: 760;
       text-wrap: balance;
     }
 
     .drink-main-info-button {
-      width: 34px;
-      height: 34px;
+      width: 32px;
+      height: 32px;
       flex: 0 0 auto;
       background: #ffffff;
       border-color: rgba(46, 145, 63, 0.18);
     }
 
     .drink-main-info-button span {
-      font-size: 1rem;
+      font-size: 0.96rem;
       font-weight: 760;
     }
 
     .drink-info-text {
       max-width: 760px;
-      margin-top: 0.72rem;
+      margin-top: 0.5rem;
       color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.48;
+      font-size: 0.94rem;
+      line-height: 1.42;
       letter-spacing: -0.01em;
     }
 
     .daypass-section {
-      padding-top: 0;
+      padding-top: 0.6rem;
       padding-bottom: 5.5rem;
       background: #ffffff;
     }
 
     .daypass-layout {
       display: grid;
-      grid-template-columns: minmax(0, 0.78fr) minmax(560px, 1.22fr);
-      gap: 1.25rem;
+      grid-template-columns: minmax(0, 0.82fr) minmax(560px, 1.18fr);
+      gap: 1.15rem;
       align-items: stretch;
-      padding: clamp(1.35rem, 3vw, 2rem);
+      padding: clamp(1.4rem, 3vw, 2.15rem);
       border-radius: 40px;
       background: #f5f5f7;
       border: 1px solid rgba(0, 0, 0, 0.045);
@@ -442,6 +445,7 @@
       flex-direction: column;
       justify-content: center;
       min-width: 0;
+      padding-right: clamp(0rem, 1.6vw, 1.4rem);
     }
 
     .daypass-copy h2 {
@@ -449,7 +453,7 @@
       color: var(--text);
       font-size: clamp(2.35rem, 4.25vw, 4.55rem);
       line-height: 0.96;
-      letter-spacing: -0.048em;
+      letter-spacing: -0.055em;
       font-weight: 760;
       text-wrap: balance;
     }
@@ -460,7 +464,7 @@
 
     .daypass-copy p:not(.eyebrow) {
       max-width: 540px;
-      margin-top: 0.8rem;
+      margin-top: 0.85rem;
       color: var(--muted);
       font-size: 1.02rem;
       line-height: 1.48;
@@ -471,13 +475,14 @@
       width: 100%;
       min-width: 0;
       display: grid;
-      grid-template-columns: minmax(0, 0.86fr) minmax(280px, 1fr);
-      gap: clamp(1.1rem, 2vw, 1.75rem);
+      grid-template-columns: minmax(0, 0.92fr) minmax(280px, 1fr);
+      gap: clamp(1rem, 2vw, 1.65rem);
       align-items: stretch;
       padding: clamp(1.45rem, 2.4vw, 1.85rem);
       border-radius: 32px;
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.045);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.025);
       overflow: hidden;
     }
 
@@ -495,7 +500,8 @@
     .daypass-card-details {
       display: flex;
       flex-direction: column;
-      gap: 1.15rem;
+      justify-content: center;
+      gap: 1.25rem;
     }
 
     .daypass-card .tariff-name {
@@ -507,7 +513,7 @@
     }
 
     .daypass-card .tariff-price-area {
-      margin-top: 1.45rem;
+      margin-top: 1.35rem;
     }
 
     .daypass-card .tariff-price {
@@ -516,16 +522,16 @@
 
     .daypass-card .tariff-feature-block {
       margin-top: 0;
-      padding-top: 0.15rem;
+      padding-top: 0;
     }
 
     .daypass-card .tariff-extra-title {
-      margin-top: 2.35rem;
+      margin-top: 2.15rem;
     }
 
     .daypass-card .tariff-runtime {
       width: 100%;
-      margin-top: auto;
+      margin-top: 0;
       background: rgba(245, 245, 247, 0.82);
     }
 
@@ -641,6 +647,7 @@
 
       .tariff-feature-block {
         margin-top: 1.35rem;
+        padding-top: 0;
         transform: none;
       }
 
@@ -822,11 +829,14 @@
       }
 
       .drink-info-section {
-        padding-bottom: 3.4rem;
+        padding-bottom: 3rem;
       }
 
       .drink-info-card {
-        border-radius: 28px;
+        align-items: flex-start;
+        flex-direction: column;
+        border-radius: 26px;
+        padding: 1.05rem 1.1rem;
       }
 
       .drink-info-title-row {
