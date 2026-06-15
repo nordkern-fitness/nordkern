@@ -185,11 +185,11 @@
 
     .home-access-panel {
       position: relative;
-      min-height: clamp(560px, 74vh, 760px);
+      min-height: clamp(500px, 58vh, 620px);
       display: grid;
-      place-items: start center;
+      place-items: center;
       margin-inline: 0.75rem;
-      padding: clamp(4.8rem, 7vw, 6.6rem) 1.5rem;
+      padding: clamp(4.2rem, 6vw, 5.8rem) 1.5rem;
       overflow: hidden;
       text-align: center;
       color: var(--text);
@@ -237,7 +237,7 @@
       content: "";
       position: absolute;
       left: 50%;
-      bottom: -36%;
+      bottom: -38%;
       z-index: -1;
       width: min(94vw, 1180px);
       height: 58%;
@@ -485,9 +485,9 @@
       }
 
       .home-access-panel {
-        min-height: 560px;
+        min-height: clamp(500px, 58vh, 620px);
         margin-inline: 0.65rem;
-        padding: 4.4rem 1rem;
+        padding: 4.2rem 1rem;
       }
 
       .home-access-inner h2 {
@@ -506,9 +506,9 @@
       }
 
       .home-app-panel {
-        min-height: auto;
+        min-height: clamp(500px, 58vh, 620px);
         margin-inline: 0.65rem;
-        padding: 4.2rem 1rem 4.6rem;
+        padding: 4.2rem 1rem;
       }
 
       .home-app-inner {
@@ -588,7 +588,7 @@
       }
 
       .home-access-panel {
-        min-height: 520px;
+        min-height: 500px;
         margin-inline: 0.5rem;
         padding-top: 4rem;
         padding-bottom: 4rem;
@@ -599,7 +599,10 @@
       }
 
       .home-app-panel {
+        min-height: 500px;
         margin-inline: 0.5rem;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
       }
 
       .home-app-logo-wrap {
