@@ -184,28 +184,41 @@
     }
 
     .home-access-panel {
-      min-height: clamp(520px, 62vh, 680px);
+      position: relative;
+      min-height: clamp(560px, 68vh, 760px);
       display: grid;
       place-items: center;
       margin-inline: 0.75rem;
-      padding: 5rem 1.5rem;
+      padding: clamp(5.2rem, 8vw, 7.4rem) 1.5rem;
       background:
         radial-gradient(
           circle at 50% 0%,
-          rgba(101, 194, 118, 0.34) 0%,
-          rgba(101, 194, 118, 0.20) 26%,
-          rgba(101, 194, 118, 0) 58%
+          rgba(114, 213, 132, 0.46) 0%,
+          rgba(114, 213, 132, 0.26) 25%,
+          rgba(114, 213, 132, 0.08) 48%,
+          rgba(255, 255, 255, 0) 70%
         ),
         linear-gradient(
           180deg,
-          rgba(46, 145, 63, 0.44) 0%,
-          rgba(101, 194, 118, 0.28) 24%,
-          rgba(245, 245, 247, 0.96) 70%,
+          rgba(232, 248, 236, 1) 0%,
+          rgba(245, 250, 247, 1) 48%,
           #f5f5f7 100%
         );
       text-align: center;
       color: var(--text);
       overflow: hidden;
+      isolation: isolate;
+    }
+
+    .home-access-panel::before {
+      content: "";
+      position: absolute;
+      inset: auto 8% -34%;
+      z-index: -1;
+      height: 58%;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      filter: blur(48px);
     }
 
     .home-access-inner {
@@ -213,29 +226,72 @@
       margin-inline: auto;
     }
 
+    .home-access-kicker {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.05rem;
+      padding: 0.48rem 0.78rem;
+      border-radius: 999px;
+      color: var(--nf-green-dark);
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(46, 145, 63, 0.14);
+      font-size: 0.78rem;
+      line-height: 1;
+      font-weight: 820;
+      letter-spacing: -0.01em;
+    }
+
     .home-access-inner h2 {
-      max-width: 820px;
+      max-width: 860px;
       margin-inline: auto;
       color: var(--text);
-      font-size: clamp(3.1rem, 5.8vw, 6.1rem);
-      line-height: 0.92;
-      letter-spacing: -0.074em;
+      font-size: clamp(3.25rem, 6.2vw, 6.55rem);
+      line-height: 0.9;
+      letter-spacing: -0.078em;
       font-weight: 760;
       text-wrap: balance;
     }
 
     .home-access-inner p {
-      max-width: 670px;
-      margin: 1.05rem auto 0;
+      max-width: 690px;
+      margin: 1.2rem auto 0;
       color: var(--text-soft);
-      font-size: clamp(1.02rem, 1.32vw, 1.2rem);
-      line-height: 1.46;
-      letter-spacing: -0.018em;
+      font-size: clamp(1.06rem, 1.38vw, 1.26rem);
+      line-height: 1.48;
+      letter-spacing: -0.019em;
       text-wrap: balance;
     }
 
+    .home-access-highlights {
+      width: min(100%, 650px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 1.45rem auto 0;
+    }
+
+    .home-access-highlights span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 0.44rem 0.72rem;
+      border-radius: 999px;
+      color: rgba(29, 29, 31, 0.72);
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(0, 0, 0, 0.045);
+      font-size: 0.86rem;
+      line-height: 1.1;
+      font-weight: 680;
+      letter-spacing: -0.012em;
+    }
+
     .home-access-inner .product-actions {
-      margin-top: 2.1rem;
+      margin-top: 2.15rem;
     }
 
     .home-app-panel {
@@ -445,9 +501,9 @@
       }
 
       .home-access-panel {
-        min-height: 500px;
+        min-height: 560px;
         margin-inline: 0.65rem;
-        padding: 4.4rem 1rem;
+        padding: 4.9rem 1rem;
       }
 
       .home-access-inner h2 {
@@ -458,6 +514,15 @@
       .home-access-inner p {
         max-width: 34ch;
         font-size: 1.02rem;
+      }
+
+      .home-access-highlights {
+        max-width: 34ch;
+      }
+
+      .home-access-highlights span {
+        min-height: 32px;
+        font-size: 0.82rem;
       }
 
       .home-app-panel {
@@ -504,6 +569,15 @@
         font-size: clamp(2.52rem, 13.5vw, 3.55rem);
       }
 
+      .home-first-hero .product-actions {
+        width: min(100%, 310px);
+        margin-inline: auto;
+      }
+
+      .home-first-hero .product-link {
+        flex: 1 1 100%;
+      }
+
       .home-studio-grid {
         gap: 0.5rem;
         padding-inline: 0.5rem;
@@ -534,7 +608,7 @@
       }
 
       .home-access-panel {
-        min-height: 460px;
+        min-height: 540px;
         margin-inline: 0.5rem;
       }
 
@@ -572,6 +646,10 @@
 
           <a href="standorte.html" class="product-link product-link-secondary">
             Standort ansehen
+          </a>
+
+          <a href="app.html" class="product-link product-link-secondary">
+            App ansehen
           </a>
         </div>
       </div>
@@ -633,13 +711,20 @@
     <section class="home-access-section" aria-labelledby="home-access-title">
       <div class="home-access-panel">
         <div class="home-access-inner">
-          <h2 id="home-access-title">Bereit, wenn du es bist.</h2>
+          <p class="home-access-kicker">24/7 Zugang per App</p>
+
+          <h2 id="home-access-title">Komm rein, wenn es für dich passt.</h2>
 
           <p>
-            Früh, spät oder spontan: Dein Training richtet sich nach deinem Alltag.
-            Mit der Nordkern Fitness App öffnest du dein Studio digital per QR-Code —
-            je nach Tarif rund um die Uhr.
+            Kein Stress, kein Umweg, kein Papierkram. Du öffnest dein Studio einfach mit der App —
+            morgens, abends oder genau dann, wenn dein Kopf frei ist.
           </p>
+
+          <div class="home-access-highlights" aria-label="Nordkern Fitness Vorteile">
+            <span>QR-Code-Zutritt</span>
+            <span>Klare Tarife</span>
+            <span>Tagespass möglich</span>
+          </div>
 
           <div class="product-actions" aria-label="Links zu App und Tarifen">
             <a href="app.html" class="product-link product-link-primary">
