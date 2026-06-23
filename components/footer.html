@@ -23,7 +23,7 @@
 
   .footer-main {
     display: grid;
-    grid-template-columns: minmax(18rem, 1.25fr) minmax(10rem, 0.72fr) minmax(10rem, 0.72fr) minmax(16rem, 1fr);
+    grid-template-columns: minmax(18rem, 1.25fr) minmax(22rem, 1.25fr) minmax(16rem, 1fr);
     gap: clamp(2rem, 4.6vw, 5rem);
     align-items: start;
     padding-bottom: clamp(3rem, 4.8vw, 4.4rem);
@@ -125,6 +125,12 @@
     color: #ffffff;
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(143, 211, 74, 0.68);
+  }
+
+  .footer-link-area {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.4rem, 3vw, 2.4rem);
   }
 
   .footer-column {
@@ -275,7 +281,7 @@
 
   @media (max-width: 1120px) {
     .footer-main {
-      grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr) minmax(0, 0.82fr);
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     }
 
     .footer-column-contact {
@@ -291,13 +297,12 @@
     }
 
     .footer-main {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.6rem 1.35rem;
+      grid-template-columns: 1fr;
+      gap: 1.45rem;
       padding-bottom: 1.7rem;
     }
 
     .footer-brand {
-      grid-column: 1 / -1;
       grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
       align-items: center;
       gap: 0.82rem 1rem;
@@ -344,6 +349,24 @@
       letter-spacing: 0.06em;
     }
 
+    .footer-link-area {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0;
+      overflow: hidden;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.075);
+    }
+
+    .footer-link-area .footer-column {
+      padding: 1rem;
+    }
+
+    .footer-link-area .footer-column + .footer-column {
+      border-left: 1px solid rgba(255, 255, 255, 0.075);
+    }
+
     .footer-column {
       gap: 1.08rem;
     }
@@ -363,13 +386,14 @@
     }
 
     .footer-link-list a {
-      font-size: 0.86rem;
-      line-height: 1.27;
+      font-size: 0.84rem;
+      line-height: 1.25;
     }
 
     .footer-column-contact {
-      grid-column: 1 / -1;
+      grid-column: auto;
       max-width: 100%;
+      padding-top: 0.1rem;
     }
 
     .footer-contact-list {
@@ -422,8 +446,7 @@
     }
 
     .footer-main {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.3rem 1.05rem;
+      gap: 1.25rem;
       padding-bottom: 1.35rem;
     }
 
@@ -458,12 +481,16 @@
       letter-spacing: 0.052em;
     }
 
+    .footer-link-area .footer-column {
+      padding: 0.9rem 0.82rem;
+    }
+
     .footer-column {
       gap: 0.98rem;
     }
 
     .footer-column-title {
-      font-size: 0.68rem;
+      font-size: 0.66rem;
     }
 
     .footer-link-list {
@@ -471,12 +498,8 @@
     }
 
     .footer-link-list a {
-      font-size: 0.83rem;
-      line-height: 1.25;
-    }
-
-    .footer-column-contact {
-      grid-column: 1 / -1;
+      font-size: 0.8rem;
+      line-height: 1.24;
     }
 
     .footer-contact-list {
@@ -513,9 +536,13 @@
       grid-template-columns: 1fr;
     }
 
-    .footer-main {
+    .footer-link-area {
       grid-template-columns: 1fr;
-      gap: 1.2rem;
+    }
+
+    .footer-link-area .footer-column + .footer-column {
+      border-left: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.075);
     }
   }
 </style>
@@ -549,28 +576,30 @@
         </div>
       </div>
 
-      <div class="footer-column">
-        <p class="footer-column-title">Seiten</p>
+      <div class="footer-link-area">
+        <div class="footer-column">
+          <p class="footer-column-title">Seiten</p>
 
-        <nav class="footer-link-list" aria-label="Allgemeine Seiten">
-          <a href="index.html">Startseite</a>
-          <a href="mitgliedschaften.html">Mitgliedschaften</a>
-          <a href="standorte.html">Standorte</a>
-          <a href="app.html">App</a>
-          <a href="kontakt.html#faq">Kontakt / FAQ</a>
-          <a href="hausordnung.html">Hausordnung</a>
-        </nav>
-      </div>
+          <nav class="footer-link-list" aria-label="Allgemeine Seiten">
+            <a href="index.html">Startseite</a>
+            <a href="mitgliedschaften.html">Mitgliedschaften</a>
+            <a href="standorte.html">Standorte</a>
+            <a href="app.html">App</a>
+            <a href="kontakt.html#faq">Kontakt / FAQ</a>
+            <a href="hausordnung.html">Hausordnung</a>
+          </nav>
+        </div>
 
-      <div class="footer-column">
-        <p class="footer-column-title">Rechtliches</p>
+        <div class="footer-column">
+          <p class="footer-column-title">Rechtliches</p>
 
-        <nav class="footer-link-list" aria-label="Rechtliche Seiten">
-          <a href="impressum.html#impressum">Impressum</a>
-          <a href="impressum.html#datenschutz">Datenschutz</a>
-          <a href="impressum.html#agb">AGB</a>
-          <a href="hausordnung.html">Hausordnung</a>
-        </nav>
+          <nav class="footer-link-list" aria-label="Rechtliche Seiten">
+            <a href="impressum.html#impressum">Impressum</a>
+            <a href="impressum.html#datenschutz">Datenschutz</a>
+            <a href="impressum.html#agb">AGB</a>
+            <a href="hausordnung.html">Hausordnung</a>
+          </nav>
+        </div>
       </div>
 
       <div class="footer-column footer-column-contact">
