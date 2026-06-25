@@ -18,127 +18,121 @@
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
-    .pricing-page {
+    .pricing-page-v3 {
+      background: #ffffff;
+    }
+
+    .pricing-hero-v3 {
+      min-height: 72vh;
       display: grid;
-      gap: 0;
-      background: #ffffff;
-    }
-
-    .pricing-hero {
-      padding: max(9rem, 13vh) 0 clamp(3.6rem, 6vw, 5.6rem);
-      background: #ffffff;
+      place-items: center;
+      padding: max(9rem, 14vh) 1rem clamp(4rem, 6vw, 6rem);
       text-align: center;
+      background: #ffffff;
     }
 
-    .pricing-hero-inner {
-      max-width: 1040px;
+    .pricing-hero-inner-v3 {
+      width: min(100%, 980px);
       margin-inline: auto;
     }
 
-    .pricing-main-title {
-      max-width: 980px;
-      margin-inline: auto;
+    .pricing-hero-v3 h1 {
       color: var(--text);
-      font-size: clamp(3.2rem, 6.2vw, 6.35rem);
+      font-size: clamp(3.6rem, 6.8vw, 7rem);
       line-height: 0.92;
-      letter-spacing: -0.068em;
+      letter-spacing: -0.074em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .pricing-hero-text {
+    .pricing-hero-v3 p:not(.eyebrow) {
       max-width: 720px;
       margin: 1rem auto 0;
       color: var(--text-soft);
-      font-size: clamp(1.04rem, 1.36vw, 1.22rem);
+      font-size: clamp(1.05rem, 1.32vw, 1.22rem);
       line-height: 1.48;
       letter-spacing: -0.018em;
       text-wrap: balance;
     }
 
-    .pricing-module-section {
-      padding: 0.75rem;
+    .pricing-section-v3 {
+      padding: 0 0.75rem 0.75rem;
       background: #ffffff;
     }
 
-    .pricing-module {
-      min-height: clamp(680px, 74vh, 860px);
+    .pricing-stage-v3 {
+      min-height: clamp(700px, 78vh, 900px);
       display: grid;
-      align-items: center;
-      padding: clamp(1.25rem, 2.8vw, 2.1rem);
-      border-radius: var(--module-radius);
+      align-content: center;
+      padding: clamp(2.8rem, 5vw, 5.4rem) clamp(1.25rem, 3vw, 2.4rem);
       background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.045);
       overflow: hidden;
     }
 
-    .pricing-tabs-wrap {
+    .pricing-tabs-wrap-v3 {
       display: flex;
       justify-content: center;
-      margin-bottom: clamp(1.5rem, 3vw, 2.3rem);
+      margin-bottom: clamp(2.2rem, 4vw, 3.7rem);
     }
 
     .pricing-tabs {
       --active-left: 0px;
       --active-width: 0px;
       position: relative;
+      width: min(100%, 540px);
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      width: min(100%, 560px);
-      gap: 0.32rem;
-      padding: 0.34rem;
+      gap: 0;
+      padding: 0.28rem;
       border-radius: 999px;
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.055);
-      box-shadow: none;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(0, 0, 0, 0.06);
       overflow: hidden;
     }
 
     .pricing-tabs::before {
       content: "";
       position: absolute;
-      top: 0.34rem;
-      bottom: 0.34rem;
+      top: 0.28rem;
+      bottom: 0.28rem;
       left: var(--active-left);
       width: var(--active-width);
       border-radius: 999px;
-      background: linear-gradient(180deg, var(--nf-green-light), var(--nf-green));
-      box-shadow: 0 12px 28px rgba(46, 145, 63, 0.18);
+      background: #1d1d1f;
       transition:
-        left 0.32s var(--ease),
-        width 0.32s var(--ease);
+        left 0.52s cubic-bezier(0.16, 1, 0.3, 1),
+        width 0.52s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .pricing-tab-button {
       position: relative;
       z-index: 2;
-      min-height: 42px;
+      min-height: 38px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       border-radius: 999px;
       color: rgba(29, 29, 31, 0.72);
-      font-size: 0.94rem;
+      font-size: 0.9rem;
       line-height: 1;
-      font-weight: 760;
+      font-weight: 680;
       letter-spacing: -0.016em;
       transition:
-        color var(--fast),
-        transform var(--fast);
+        color 0.24s var(--ease),
+        opacity 0.24s var(--ease);
     }
 
     .pricing-tab-button:hover,
     .pricing-tab-button:focus-visible {
-      transform: translateY(-1px);
+      color: var(--text);
     }
 
     .pricing-tab-button.is-active {
       color: #ffffff;
     }
 
-    .pricing-stage {
-      position: relative;
-      width: min(100%, 1120px);
+    .pricing-panels-v3 {
+      width: min(100%, 1080px);
       margin-inline: auto;
     }
 
@@ -148,99 +142,90 @@
 
     .pricing-plan.is-active {
       display: block;
-      animation: pricingPlanIn 0.34s var(--ease) both;
+      animation: planFadeV3 0.52s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
-    @keyframes pricingPlanIn {
+    @keyframes planFadeV3 {
       from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(14px);
+        filter: blur(3px);
       }
 
       to {
         opacity: 1;
         transform: translateY(0);
+        filter: blur(0);
       }
     }
 
-    .pricing-plan-card {
+    .pricing-plan-layout-v3 {
       display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.72fr);
-      gap: 0.9rem;
-      align-items: stretch;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.42fr);
+      gap: clamp(2.2rem, 4vw, 4.2rem);
+      align-items: center;
     }
 
-    .pricing-plan-copy,
-    .pricing-plan-details {
+    .pricing-plan-main-v3 {
       min-width: 0;
-      border-radius: var(--card-radius);
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
+      text-align: left;
     }
 
-    .pricing-plan-copy {
-      min-height: 540px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: clamp(1.4rem, 3vw, 2.15rem);
-      overflow: hidden;
-    }
-
-    .pricing-plan-kicker {
+    .pricing-plan-kicker-v3 {
       margin-bottom: 0.65rem;
       color: var(--muted);
-      font-size: 0.76rem;
-      font-weight: 860;
-      letter-spacing: 0.055em;
+      font-size: 0.75rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
     }
 
-    .pricing-plan-title {
-      max-width: 10ch;
+    .pricing-plan-main-v3 h2 {
+      max-width: 740px;
       color: var(--text);
-      font-size: clamp(3.25rem, 6.4vw, 6.2rem);
+      font-size: clamp(4rem, 7.2vw, 7.5rem);
       line-height: 0.9;
-      letter-spacing: -0.074em;
+      letter-spacing: -0.078em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .pricing-plan-title span {
+    .pricing-plan-main-v3 h2 span {
       color: var(--nf-green);
     }
 
-    .pricing-plan-description {
-      max-width: 650px;
-      margin-top: 1rem;
+    .pricing-plan-main-v3 > p {
+      max-width: 660px;
+      margin-top: 1.1rem;
       color: var(--text-soft);
-      font-size: clamp(1.02rem, 1.35vw, 1.18rem);
-      line-height: 1.54;
-      letter-spacing: -0.014em;
+      font-size: clamp(1.06rem, 1.35vw, 1.22rem);
+      line-height: 1.52;
+      letter-spacing: -0.018em;
+      text-wrap: balance;
     }
 
-    .pricing-price-block {
-      margin-top: clamp(2.5rem, 6vw, 5rem);
+    .pricing-price-area-v3 {
+      margin-top: clamp(2.4rem, 5vw, 4.6rem);
     }
 
-    .pricing-price-row {
+    .pricing-price-row-v3 {
       display: flex;
       align-items: flex-end;
       gap: 0.55rem;
       flex-wrap: wrap;
     }
 
-    .pricing-price {
+    .pricing-price-v3 {
       color: var(--text);
-      font-size: clamp(3.2rem, 6vw, 6rem);
-      line-height: 0.86;
-      letter-spacing: -0.075em;
+      font-size: clamp(4rem, 6.4vw, 6.6rem);
+      line-height: 0.84;
+      letter-spacing: -0.078em;
       font-weight: 560;
       font-variant-numeric: tabular-nums;
     }
 
-    .pricing-price-unit {
-      padding-bottom: 0.44rem;
+    .pricing-price-unit-v3 {
+      padding-bottom: 0.48rem;
       color: var(--muted);
       font-size: 1rem;
       line-height: 1.1;
@@ -251,194 +236,156 @@
       width: fit-content;
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
+      justify-content: center;
       margin-top: 1rem;
-      padding: 0.52rem 0.78rem;
+      padding: 0.54rem 0.8rem;
       border-radius: 999px;
       color: var(--nf-green-dark);
       background: rgba(46, 145, 63, 0.09);
       border: 1px solid rgba(46, 145, 63, 0.18);
       font-size: 0.86rem;
-      font-weight: 760;
+      font-weight: 720;
       letter-spacing: -0.012em;
     }
 
-    .pricing-plan-actions {
+    .pricing-actions-v3 {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
       margin-top: 1.35rem;
     }
 
-    .pricing-plan-details {
-      min-height: 540px;
-      display: flex;
-      flex-direction: column;
-      padding: clamp(1.25rem, 2.4vw, 1.75rem);
-    }
-
-    .pricing-detail-title {
-      color: var(--text);
-      font-size: clamp(1.45rem, 2.4vw, 2.2rem);
-      line-height: 1;
-      letter-spacing: -0.052em;
-      font-weight: 790;
-    }
-
-    .pricing-feature-list {
+    .pricing-side-v3 {
       display: grid;
-      gap: 0.66rem;
-      margin-top: 1.4rem;
+      gap: 0.75rem;
+      align-content: center;
     }
 
-    .pricing-feature-list li {
+    .pricing-side-card-v3 {
+      padding: 1.05rem;
+      border-radius: 14px;
+      background: #ffffff;
+    }
+
+    .pricing-side-card-v3 h3 {
+      color: var(--text);
+      font-size: 1.05rem;
+      line-height: 1.2;
+      letter-spacing: -0.026em;
+      font-weight: 760;
+    }
+
+    .pricing-feature-list-v3 {
+      display: grid;
+      gap: 0.48rem;
+      margin-top: 0.75rem;
+    }
+
+    .pricing-feature-list-v3 li {
       position: relative;
-      min-height: 42px;
-      display: flex;
-      align-items: center;
-      padding: 0.72rem 0.8rem 0.72rem 2.35rem;
-      border-radius: 16px;
+      padding-left: 1.25rem;
       color: var(--text-soft);
-      background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.035);
       font-size: 0.96rem;
-      line-height: 1.32;
+      line-height: 1.42;
       letter-spacing: -0.012em;
     }
 
-    .pricing-feature-list li::before {
+    .pricing-feature-list-v3 li::before {
       content: "✓";
       position: absolute;
-      left: 0.85rem;
-      top: 50%;
-      width: 1rem;
-      height: 1rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      color: #ffffff;
-      background: var(--nf-green);
-      font-size: 0.66rem;
+      left: 0;
+      top: 0.02rem;
+      color: var(--nf-green);
+      font-size: 0.82rem;
       font-weight: 900;
-      transform: translateY(-50%);
     }
 
-    .pricing-extra-head {
-      display: flex;
+    .pricing-extra-list-v3 {
+      display: grid;
+      gap: 0.45rem;
+      margin-top: 0.75rem;
+    }
+
+    .pricing-extra-list-v3 li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 0.55rem;
       align-items: center;
-      justify-content: space-between;
-      gap: 0.9rem;
-      margin-top: 1.55rem;
-      padding-top: 1.35rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.07);
+      color: var(--text-soft);
+      font-size: 0.94rem;
+      line-height: 1.4;
+      letter-spacing: -0.012em;
     }
 
-    .pricing-extra-title {
-      color: rgba(29, 29, 31, 0.72);
-      font-size: 0.72rem;
-      line-height: 1;
-      font-weight: 880;
-      letter-spacing: 0.072em;
-      text-transform: uppercase;
+    .pricing-extra-list-v3 strong {
+      color: var(--text);
+      font-weight: 760;
     }
 
     .pricing-info-small {
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
       flex: 0 0 auto;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       border-radius: 999px;
       color: var(--nf-green-dark);
-      background: #f5f5f7;
-      border: 1px solid rgba(46, 145, 63, 0.16);
-      font-size: 0.9rem;
-      line-height: 1;
-      font-weight: 780;
+      background: rgba(46, 145, 63, 0.08);
+      border: 1px solid rgba(46, 145, 63, 0.14);
+      font-size: 0.86rem;
+      font-weight: 760;
       transition:
-        transform var(--fast),
-        border-color var(--fast),
-        background var(--fast);
+        background-color var(--fast),
+        transform var(--fast);
     }
 
     .pricing-info-small:hover,
     .pricing-info-small:focus-visible {
+      background: rgba(46, 145, 63, 0.13);
       transform: scale(1.04);
-      border-color: rgba(46, 145, 63, 0.32);
-      background: #ffffff;
     }
 
-    .pricing-extra-list {
-      display: grid;
-      gap: 0.6rem;
-      margin-top: 0.82rem;
-    }
-
-    .pricing-extra-list li {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 0.8rem;
-      align-items: center;
-      min-height: 44px;
-      padding: 0.72rem 0.78rem;
-      border-radius: 16px;
-      color: var(--text-soft);
-      background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.035);
-      font-size: 0.94rem;
-      line-height: 1.32;
+    .pricing-note-v3 {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.48;
       letter-spacing: -0.012em;
     }
 
-    .pricing-extra-list strong {
-      color: var(--text);
-      font-weight: 760;
-    }
-
-    .pricing-detail-note {
-      margin-top: auto;
-      padding-top: 1.35rem;
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.5;
-      letter-spacing: -0.01em;
-    }
-
-    .pricing-drink-section {
+    .pricing-drink-section-v3 {
       padding: 0 0.75rem 0.75rem;
       background: #ffffff;
     }
 
-    .pricing-drink-card {
-      width: 100%;
+    .pricing-drink-panel-v3 {
+      min-height: 440px;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      align-items: center;
-      gap: 1rem;
-      padding: clamp(1.2rem, 2vw, 1.55rem);
-      border-radius: var(--module-radius);
+      place-items: center;
+      padding: clamp(3.4rem, 6vw, 6rem) 1.25rem;
+      text-align: center;
       background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.045);
     }
 
-    .pricing-drink-card h2 {
+    .pricing-drink-panel-v3 h2 {
+      max-width: 860px;
+      margin-inline: auto;
       color: var(--text);
-      font-size: clamp(1.75rem, 2.9vw, 2.7rem);
-      line-height: 1;
-      letter-spacing: -0.058em;
+      font-size: clamp(2.7rem, 5vw, 5.2rem);
+      line-height: 0.94;
+      letter-spacing: -0.068em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .pricing-drink-card p {
-      max-width: 780px;
-      margin-top: 0.55rem;
+    .pricing-drink-panel-v3 p:not(.eyebrow) {
+      max-width: 720px;
+      margin: 1rem auto 0;
       color: var(--text-soft);
-      font-size: 0.98rem;
+      font-size: clamp(1.02rem, 1.28vw, 1.18rem);
       line-height: 1.5;
-      letter-spacing: -0.012em;
+      letter-spacing: -0.016em;
+      text-wrap: balance;
     }
 
     .pricing-info-modal {
@@ -449,7 +396,7 @@
       align-items: center;
       justify-content: center;
       padding: 1rem;
-      background: rgba(18, 18, 20, 0.32);
+      background: rgba(18, 18, 20, 0.28);
       backdrop-filter: blur(18px) saturate(160%);
       -webkit-backdrop-filter: blur(18px) saturate(160%);
     }
@@ -459,14 +406,13 @@
     }
 
     .pricing-info-box {
-      width: min(100%, 620px);
+      width: min(100%, 600px);
       max-height: min(86vh, 760px);
       overflow-y: auto;
-      padding: clamp(1.35rem, 3vw, 2rem);
-      border-radius: var(--module-radius);
+      padding: clamp(1.3rem, 3vw, 2rem);
+      border-radius: 16px;
       background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      box-shadow: 0 34px 100px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 34px 100px rgba(0, 0, 0, 0.16);
     }
 
     .pricing-info-head {
@@ -488,16 +434,16 @@
 
     .pricing-info-title {
       color: var(--text);
-      font-size: clamp(1.9rem, 4vw, 3.1rem);
-      line-height: 0.98;
-      letter-spacing: -0.048em;
+      font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+      line-height: 1;
+      letter-spacing: -0.052em;
       font-weight: 790;
       text-wrap: balance;
     }
 
     .pricing-info-close {
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       flex: 0 0 auto;
       display: inline-flex;
       align-items: center;
@@ -505,125 +451,66 @@
       border-radius: 999px;
       color: var(--text);
       background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      font-size: 1.25rem;
+      font-size: 1.22rem;
       line-height: 1;
     }
 
     .pricing-info-text {
       color: var(--text-soft);
-      font-size: 1.03rem;
+      font-size: 1rem;
       line-height: 1.58;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.012em;
     }
 
     @media (max-width: 980px) {
-      .pricing-plan-card {
+      .pricing-plan-layout-v3 {
         grid-template-columns: 1fr;
+        gap: 2.4rem;
       }
 
-      .pricing-plan-copy,
-      .pricing-plan-details {
-        min-height: auto;
+      .pricing-side-v3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .pricing-plan-title {
-        max-width: 12ch;
-      }
-
-      .pricing-price-block {
-        margin-top: 2.3rem;
+      .pricing-side-card-v3:last-child {
+        grid-column: 1 / -1;
       }
     }
 
-    @media (max-width: 768px) {
-      .pricing-hero {
+    @media (max-width: 720px) {
+      .pricing-hero-v3 {
+        min-height: 66vh;
         padding-top: max(8.6rem, 15vh);
-        padding-bottom: 3.5rem;
       }
 
-      .pricing-main-title {
-        font-size: clamp(2.7rem, 12.5vw, 4.2rem);
+      .pricing-hero-v3 h1 {
+        font-size: clamp(2.8rem, 12vw, 4.3rem);
         line-height: 0.94;
-        letter-spacing: -0.058em;
       }
 
-      .pricing-hero-text {
+      .pricing-hero-v3 p:not(.eyebrow) {
         max-width: 34ch;
-        font-size: 1.02rem;
+        font-size: 1rem;
       }
 
-      .pricing-module-section {
-        padding: 0.65rem;
+      .pricing-section-v3,
+      .pricing-drink-section-v3 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-bottom: 0.5rem;
       }
 
-      .pricing-module {
+      .pricing-stage-v3 {
         min-height: auto;
-        padding: 0.65rem;
+        padding: 3.8rem 1rem;
       }
 
-      .pricing-tabs-wrap {
-        margin-bottom: 0.65rem;
+      .pricing-tabs-wrap-v3 {
+        margin-bottom: 2.4rem;
       }
 
       .pricing-tabs {
         width: 100%;
-        gap: 0.22rem;
-        padding: 0.28rem;
-      }
-
-      .pricing-tabs::before {
-        top: 0.28rem;
-        bottom: 0.28rem;
-      }
-
-      .pricing-tab-button {
-        min-height: 38px;
-        font-size: 0.78rem;
-      }
-
-      .pricing-plan-copy,
-      .pricing-plan-details {
-        padding: 1.15rem;
-      }
-
-      .pricing-plan-title {
-        font-size: clamp(2.55rem, 12vw, 4rem);
-      }
-
-      .pricing-price {
-        font-size: clamp(3rem, 14vw, 4.3rem);
-      }
-
-      .pricing-plan-actions .btn,
-      .pricing-plan-actions .product-link {
-        width: 100%;
-      }
-
-      .pricing-feature-list li,
-      .pricing-extra-list li {
-        font-size: 0.9rem;
-      }
-
-      .pricing-drink-section {
-        padding: 0 0.65rem 0.65rem;
-      }
-
-      .pricing-drink-card {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .pricing-module-section {
-        padding: 0.5rem;
-      }
-
-      .pricing-module {
-        padding: 0.5rem;
-      }
-
-      .pricing-tabs {
         overflow-x: auto;
         grid-template-columns: repeat(4, minmax(84px, 1fr));
         scrollbar-width: none;
@@ -634,11 +521,70 @@
       }
 
       .pricing-tab-button {
-        font-size: 0.75rem;
+        min-height: 38px;
+        font-size: 0.8rem;
       }
 
-      .pricing-drink-section {
-        padding: 0 0.5rem 0.5rem;
+      .pricing-plan-main-v3 {
+        text-align: center;
+      }
+
+      .pricing-plan-main-v3 h2 {
+        max-width: 9.5ch;
+        margin-inline: auto;
+        font-size: clamp(3rem, 14vw, 4.6rem);
+        line-height: 0.92;
+      }
+
+      .pricing-plan-main-v3 > p {
+        max-width: 34ch;
+        margin-inline: auto;
+        font-size: 1rem;
+      }
+
+      .pricing-price-row-v3 {
+        justify-content: center;
+      }
+
+      .pricing-price-v3 {
+        font-size: clamp(3.35rem, 15vw, 4.8rem);
+      }
+
+      .pricing-runtime-pill {
+        margin-inline: auto;
+      }
+
+      .pricing-actions-v3 {
+        width: min(100%, 320px);
+        justify-content: center;
+        margin-inline: auto;
+      }
+
+      .pricing-actions-v3 .btn,
+      .pricing-actions-v3 .product-link {
+        width: 100%;
+      }
+
+      .pricing-side-v3 {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-side-card-v3:last-child {
+        grid-column: auto;
+      }
+
+      .pricing-drink-panel-v3 {
+        min-height: 430px;
+        padding: 4rem 1rem;
+      }
+
+      .pricing-drink-panel-v3 h2 {
+        font-size: clamp(2.35rem, 11vw, 3.6rem);
+      }
+
+      .pricing-drink-panel-v3 p:not(.eyebrow) {
+        max-width: 34ch;
+        font-size: 1rem;
       }
     }
   </style>
@@ -647,27 +593,23 @@
 <body>
   <div data-header></div>
 
-  <main class="pricing-page">
-    <section class="pricing-hero" aria-labelledby="pricing-page-title">
-      <div class="container">
-        <div class="pricing-hero-inner">
-          <p class="eyebrow">Mitgliedschaften</p>
+  <main class="pricing-page-v3">
+    <section class="pricing-hero-v3" aria-labelledby="pricing-page-title">
+      <div class="pricing-hero-inner-v3">
+        <p class="eyebrow">Mitgliedschaften</p>
 
-          <h1 class="pricing-main-title" id="pricing-page-title">
-            Wähle deinen Tarif.
-          </h1>
+        <h1 id="pricing-page-title">Wähle deinen Tarif.</h1>
 
-          <p class="pricing-hero-text">
-            Basic, Plus, Pro oder Tagespass. Alles läuft digital über die Nordkern Fitness App:
-            buchen, verwalten, QR-Code öffnen und trainieren.
-          </p>
-        </div>
+        <p>
+          Basic, Plus, Pro oder Tagespass. Alles läuft digital über die Nordkern Fitness App:
+          buchen, verwalten, QR-Code öffnen und trainieren.
+        </p>
       </div>
     </section>
 
-    <section class="pricing-module-section" aria-label="Nordkern Fitness Tarife">
-      <div class="pricing-module">
-        <div class="pricing-tabs-wrap">
+    <section class="pricing-section-v3" aria-label="Nordkern Fitness Tarife">
+      <div class="pricing-stage-v3">
+        <div class="pricing-tabs-wrap-v3">
           <div class="pricing-tabs" role="tablist" aria-label="Tarife auswählen">
             <button class="pricing-tab-button is-active" type="button" role="tab" aria-selected="true" aria-controls="plan-basic" id="tab-basic" data-plan="basic">
               Basic
@@ -687,23 +629,21 @@
           </div>
         </div>
 
-        <div class="pricing-stage">
+        <div class="pricing-panels-v3">
           <article class="pricing-plan is-active" id="plan-basic" role="tabpanel" aria-labelledby="tab-basic" data-plan-panel="basic">
-            <div class="pricing-plan-card">
-              <div class="pricing-plan-copy">
-                <div>
-                  <p class="pricing-plan-kicker">Nordkern Mitgliedschaft</p>
-                  <h2 class="pricing-plan-title">Nordkern <span>Basic</span></h2>
+            <div class="pricing-plan-layout-v3">
+              <div class="pricing-plan-main-v3">
+                <p class="pricing-plan-kicker-v3">Nordkern Mitgliedschaft</p>
+                <h2>Nordkern <span>Basic.</span></h2>
 
-                  <p class="pricing-plan-description">
-                    Der klare Einstieg: 24/7 trainieren, per App ins Studio und monatlich deine ersten Getränke- und Kreatin-Kontingente nutzen.
-                  </p>
-                </div>
+                <p>
+                  Der klare Einstieg: 24/7 trainieren, per App ins Studio und monatlich deine ersten Getränke- und Kreatin-Kontingente nutzen.
+                </p>
 
-                <div class="pricing-price-block">
-                  <div class="pricing-price-row">
-                    <p class="pricing-price">29,99 €</p>
-                    <p class="pricing-price-unit">pro Monat</p>
+                <div class="pricing-price-area-v3">
+                  <div class="pricing-price-row-v3">
+                    <p class="pricing-price-v3">29,99 €</p>
+                    <p class="pricing-price-unit-v3">pro Monat</p>
                   </div>
 
                   <button
@@ -715,70 +655,60 @@
                     Mindestlaufzeit: 12 Monate
                   </button>
 
-                  <div class="pricing-plan-actions">
+                  <div class="pricing-actions-v3">
                     <a href="app.html" class="btn btn-primary">In der App ansehen</a>
-                    <a href="kontakt.html#faq" class="product-link product-link-secondary">Fragen klären</a>
+                    <a href="kontakt.html" class="product-link product-link-secondary">Fragen klären</a>
                   </div>
                 </div>
               </div>
 
-              <div class="pricing-plan-details">
-                <h3 class="pricing-detail-title">Enthalten</h3>
+              <aside class="pricing-side-v3" aria-label="Leistungen im Basic Tarif">
+                <div class="pricing-side-card-v3">
+                  <h3>Enthalten</h3>
 
-                <ul class="pricing-feature-list">
-                  <li>24/7-Zugang</li>
-                  <li>QR-Code-Zutritt über die App</li>
-                </ul>
-
-                <div class="pricing-extra-head">
-                  <p class="pricing-extra-title">Getränkeautomat</p>
-
-                  <button
-                    class="pricing-info-small"
-                    type="button"
-                    aria-label="Info zum Getränkeautomaten"
-                    data-info-title="So funktioniert der Getränkeautomat"
-                    data-info-text="Der Getränkeautomat läuft über deinen normalen Nordkern Fitness QR-Code. Du scannst denselben QR-Code, den du auch für den Studio-Zutritt nutzt. Danach erkennt das System dein App-Konto und zeigt, welche Freigetränke und Extras in deinem Tarif noch verfügbar sind."
-                  >
-                    ?
-                  </button>
+                  <ul class="pricing-feature-list-v3">
+                    <li>24/7-Zugang</li>
+                    <li>QR-Code-Zutritt über die App</li>
+                  </ul>
                 </div>
 
-                <ul class="pricing-extra-list">
-                  <li>
-                    <span><strong>3×</strong> Freigetränke à 330 ml / Monat</span>
-                    <button class="pricing-info-small" type="button" aria-label="Info zu Freigetränken" data-info-title="3× Freigetränke à 330 ml" data-info-text="Im Basic-Tarif sind jeden Monat 3× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen.">?</button>
-                  </li>
+                <div class="pricing-side-card-v3">
+                  <h3>Getränkeautomat</h3>
 
-                  <li>
-                    <span><strong>1×</strong> Kreatin-Auswahl inklusive / Monat</span>
-                    <button class="pricing-info-small" type="button" aria-label="Info zu Kreatin-Auswahl" data-info-title="1× Kreatin-Auswahl inklusive" data-info-text="Im Basic-Tarif ist jeden Monat 1× Kreatin-Auswahl inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst.">?</button>
-                  </li>
-                </ul>
+                  <ul class="pricing-extra-list-v3">
+                    <li>
+                      <span><strong>3×</strong> Freigetränke à 330 ml / Monat</span>
+                      <button class="pricing-info-small" type="button" aria-label="Info zu Freigetränken" data-info-title="3× Freigetränke à 330 ml" data-info-text="Im Basic-Tarif sind jeden Monat 3× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen.">?</button>
+                    </li>
 
-                <p class="pricing-detail-note">
+                    <li>
+                      <span><strong>1×</strong> Kreatin-Auswahl inklusive / Monat</span>
+                      <button class="pricing-info-small" type="button" aria-label="Info zu Kreatin-Auswahl" data-info-title="1× Kreatin-Auswahl inklusive" data-info-text="Im Basic-Tarif ist jeden Monat 1× Kreatin-Auswahl inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst.">?</button>
+                    </li>
+                  </ul>
+                </div>
+
+                <p class="pricing-note-v3">
                   Kreatin ist nie automatisch enthalten. Du entscheidest bewusst in der App beziehungsweise am Automaten, ob du es auswählst.
                 </p>
-              </div>
+              </aside>
             </div>
           </article>
 
           <article class="pricing-plan" id="plan-plus" role="tabpanel" aria-labelledby="tab-plus" data-plan-panel="plus" hidden>
-            <div class="pricing-plan-card">
-              <div class="pricing-plan-copy">
-                <div>
-                  <p class="pricing-plan-kicker">Nordkern Mitgliedschaft</p>
-                  <h2 class="pricing-plan-title">Nordkern <span>Plus</span></h2>
+            <div class="pricing-plan-layout-v3">
+              <div class="pricing-plan-main-v3">
+                <p class="pricing-plan-kicker-v3">Nordkern Mitgliedschaft</p>
+                <h2>Nordkern <span>Plus.</span></h2>
 
-                  <p class="pricing-plan-description">
-                    Der ausgewogene Tarif: kürzere Laufzeit als Basic und mehr Getränke- und Kreatin-Kontingente für regelmäßiges Training.
-                  </p>
-                </div>
+                <p>
+                  Der ausgewogene Tarif: kürzere Laufzeit als Basic und mehr Getränke- und Kreatin-Kontingente für regelmäßiges Training.
+                </p>
 
-                <div class="pricing-price-block">
-                  <div class="pricing-price-row">
-                    <p class="pricing-price">34,99 €</p>
-                    <p class="pricing-price-unit">pro Monat</p>
+                <div class="pricing-price-area-v3">
+                  <div class="pricing-price-row-v3">
+                    <p class="pricing-price-v3">34,99 €</p>
+                    <p class="pricing-price-unit-v3">pro Monat</p>
                   </div>
 
                   <button
@@ -790,70 +720,60 @@
                     Mindestlaufzeit: 8 Monate
                   </button>
 
-                  <div class="pricing-plan-actions">
+                  <div class="pricing-actions-v3">
                     <a href="app.html" class="btn btn-primary">In der App ansehen</a>
-                    <a href="kontakt.html#faq" class="product-link product-link-secondary">Fragen klären</a>
+                    <a href="kontakt.html" class="product-link product-link-secondary">Fragen klären</a>
                   </div>
                 </div>
               </div>
 
-              <div class="pricing-plan-details">
-                <h3 class="pricing-detail-title">Enthalten</h3>
+              <aside class="pricing-side-v3" aria-label="Leistungen im Plus Tarif">
+                <div class="pricing-side-card-v3">
+                  <h3>Enthalten</h3>
 
-                <ul class="pricing-feature-list">
-                  <li>24/7-Zugang</li>
-                  <li>QR-Code-Zutritt über die App</li>
-                </ul>
-
-                <div class="pricing-extra-head">
-                  <p class="pricing-extra-title">Getränkeautomat</p>
-
-                  <button
-                    class="pricing-info-small"
-                    type="button"
-                    aria-label="Info zum Getränkeautomaten"
-                    data-info-title="So funktioniert der Getränkeautomat"
-                    data-info-text="Der Getränkeautomat läuft über deinen normalen Nordkern Fitness QR-Code. Dein App-Konto erkennt verfügbare Freigetränke, Größen und Kreatin-Auswahlen automatisch."
-                  >
-                    ?
-                  </button>
+                  <ul class="pricing-feature-list-v3">
+                    <li>24/7-Zugang</li>
+                    <li>QR-Code-Zutritt über die App</li>
+                  </ul>
                 </div>
 
-                <ul class="pricing-extra-list">
-                  <li>
-                    <span><strong>6×</strong> Freigetränke à 330 ml / Monat</span>
-                    <button class="pricing-info-small" type="button" aria-label="Info zu Freigetränken" data-info-title="6× Freigetränke à 330 ml" data-info-text="Im Plus-Tarif sind jeden Monat 6× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen.">?</button>
-                  </li>
+                <div class="pricing-side-card-v3">
+                  <h3>Getränkeautomat</h3>
 
-                  <li>
-                    <span><strong>3×</strong> Kreatin-Auswahlen inklusive / Monat</span>
-                    <button class="pricing-info-small" type="button" aria-label="Info zu Kreatin-Auswahlen" data-info-title="3× Kreatin-Auswahlen inklusive" data-info-text="Im Plus-Tarif sind jeden Monat 3× Kreatin-Auswahlen inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst.">?</button>
-                  </li>
-                </ul>
+                  <ul class="pricing-extra-list-v3">
+                    <li>
+                      <span><strong>6×</strong> Freigetränke à 330 ml / Monat</span>
+                      <button class="pricing-info-small" type="button" aria-label="Info zu Freigetränken" data-info-title="6× Freigetränke à 330 ml" data-info-text="Im Plus-Tarif sind jeden Monat 6× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen.">?</button>
+                    </li>
 
-                <p class="pricing-detail-note">
+                    <li>
+                      <span><strong>3×</strong> Kreatin-Auswahlen inklusive / Monat</span>
+                      <button class="pricing-info-small" type="button" aria-label="Info zu Kreatin-Auswahlen" data-info-title="3× Kreatin-Auswahlen inklusive" data-info-text="Im Plus-Tarif sind jeden Monat 3× Kreatin-Auswahlen inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst.">?</button>
+                    </li>
+                  </ul>
+                </div>
+
+                <p class="pricing-note-v3">
                   Plus ist als ruhiger Mittelweg gedacht: nicht zu lang gebunden, aber schon deutlich mehr Kontingente als Basic.
                 </p>
-              </div>
+              </aside>
             </div>
           </article>
 
           <article class="pricing-plan" id="plan-pro" role="tabpanel" aria-labelledby="tab-pro" data-plan-panel="pro" hidden>
-            <div class="pricing-plan-card">
-              <div class="pricing-plan-copy">
-                <div>
-                  <p class="pricing-plan-kicker">Nordkern Mitgliedschaft</p>
-                  <h2 class="pricing-plan-title">Nordkern <span>Pro</span></h2>
+            <div class="pricing-plan-layout-v3">
+              <div class="pricing-plan-main-v3">
+                <p class="pricing-plan-kicker-v3">Nordkern Mitgliedschaft</p>
+                <h2>Nordkern <span>Pro.</span></h2>
 
-                  <p class="pricing-plan-description">
-                    Für alle, die oft trainieren und maximal flexibel bleiben möchten: kürzeste Mindestlaufzeit und die größten monatlichen Kontingente.
-                  </p>
-                </div>
+                <p>
+                  Für alle, die oft trainieren und maximal flexibel bleiben möchten: kürzeste Mindestlaufzeit und die größten monatlichen Kontingente.
+                </p>
 
-                <div class="pricing-price-block">
-                  <div class="pricing-price-row">
-                    <p class="pricing-price">39,99 €</p>
-                    <p class="pricing-price-unit">pro Monat</p>
+                <div class="pricing-price-area-v3">
+                  <div class="pricing-price-row-v3">
+                    <p class="pricing-price-v3">39,99 €</p>
+                    <p class="pricing-price-unit-v3">pro Monat</p>
                   </div>
 
                   <button
@@ -865,75 +785,65 @@
                     Mindestlaufzeit: 4 Monate
                   </button>
 
-                  <div class="pricing-plan-actions">
+                  <div class="pricing-actions-v3">
                     <a href="app.html" class="btn btn-primary">In der App ansehen</a>
-                    <a href="kontakt.html#faq" class="product-link product-link-secondary">Fragen klären</a>
+                    <a href="kontakt.html" class="product-link product-link-secondary">Fragen klären</a>
                   </div>
                 </div>
               </div>
 
-              <div class="pricing-plan-details">
-                <h3 class="pricing-detail-title">Enthalten</h3>
+              <aside class="pricing-side-v3" aria-label="Leistungen im Pro Tarif">
+                <div class="pricing-side-card-v3">
+                  <h3>Enthalten</h3>
 
-                <ul class="pricing-feature-list">
-                  <li>24/7-Zugang</li>
-                  <li>QR-Code-Zutritt über die App</li>
-                </ul>
-
-                <div class="pricing-extra-head">
-                  <p class="pricing-extra-title">Getränkeautomat</p>
-
-                  <button
-                    class="pricing-info-small"
-                    type="button"
-                    aria-label="Info zum Getränkeautomaten"
-                    data-info-title="So funktioniert der Getränkeautomat"
-                    data-info-text="Der Getränkeautomat läuft über deinen QR-Code und dein App-Konto. Du wählst Getränk, Größe und verfügbare Extras aus. Inklusive Kontingente werden automatisch abgezogen."
-                  >
-                    ?
-                  </button>
+                  <ul class="pricing-feature-list-v3">
+                    <li>24/7-Zugang</li>
+                    <li>QR-Code-Zutritt über die App</li>
+                  </ul>
                 </div>
 
-                <ul class="pricing-extra-list">
-                  <li>
-                    <span><strong>9×</strong> Freigetränke à 330 ml / Monat</span>
-                    <button class="pricing-info-small" type="button" aria-label="Info zu Freigetränken" data-info-title="9× Freigetränke à 330 ml" data-info-text="Im Pro-Tarif sind jeden Monat 9× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen.">?</button>
-                  </li>
+                <div class="pricing-side-card-v3">
+                  <h3>Getränkeautomat</h3>
 
-                  <li>
-                    <span><strong>5×</strong> Kreatin-Auswahlen inklusive / Monat</span>
-                    <button class="pricing-info-small" type="button" aria-label="Info zu Kreatin-Auswahlen" data-info-title="5× Kreatin-Auswahlen inklusive" data-info-text="Im Pro-Tarif sind jeden Monat 5× Kreatin-Auswahlen inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst.">?</button>
-                  </li>
+                  <ul class="pricing-extra-list-v3">
+                    <li>
+                      <span><strong>9×</strong> Freigetränke à 330 ml / Monat</span>
+                      <button class="pricing-info-small" type="button" aria-label="Info zu Freigetränken" data-info-title="9× Freigetränke à 330 ml" data-info-text="Im Pro-Tarif sind jeden Monat 9× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen.">?</button>
+                    </li>
 
-                  <li>
-                    <span><strong>2×</strong> Freigetränke à 500 ml / Monat</span>
-                    <button class="pricing-info-small" type="button" aria-label="Info zu 500 ml Freigetränken" data-info-title="2× Freigetränke à 500 ml" data-info-text="Im Pro-Tarif sind zusätzlich jeden Monat 2× Freigetränke à 500 ml enthalten. Diese kommen zu den 9× Freigetränken à 330 ml dazu.">?</button>
-                  </li>
-                </ul>
+                    <li>
+                      <span><strong>5×</strong> Kreatin-Auswahlen inklusive / Monat</span>
+                      <button class="pricing-info-small" type="button" aria-label="Info zu Kreatin-Auswahlen" data-info-title="5× Kreatin-Auswahlen inklusive" data-info-text="Im Pro-Tarif sind jeden Monat 5× Kreatin-Auswahlen inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst.">?</button>
+                    </li>
 
-                <p class="pricing-detail-note">
+                    <li>
+                      <span><strong>2×</strong> Freigetränke à 500 ml / Monat</span>
+                      <button class="pricing-info-small" type="button" aria-label="Info zu 500 ml Freigetränken" data-info-title="2× Freigetränke à 500 ml" data-info-text="Im Pro-Tarif sind zusätzlich jeden Monat 2× Freigetränke à 500 ml enthalten. Diese kommen zu den 9× Freigetränken à 330 ml dazu.">?</button>
+                    </li>
+                  </ul>
+                </div>
+
+                <p class="pricing-note-v3">
                   Pro ist der stärkste Tarif im aktuellen Modell: mehr Kontingente, kürzere Mindestlaufzeit, volle App-Nutzung.
                 </p>
-              </div>
+              </aside>
             </div>
           </article>
 
           <article class="pricing-plan" id="plan-tagespass" role="tabpanel" aria-labelledby="tab-tagespass" data-plan-panel="tagespass" hidden>
-            <div class="pricing-plan-card">
-              <div class="pricing-plan-copy">
-                <div>
-                  <p class="pricing-plan-kicker">Einmaliger Zugang</p>
-                  <h2 class="pricing-plan-title">Nordkern <span>Tagespass</span></h2>
+            <div class="pricing-plan-layout-v3">
+              <div class="pricing-plan-main-v3">
+                <p class="pricing-plan-kicker-v3">Einmaliger Zugang</p>
+                <h2>Nordkern <span>Tagespass.</span></h2>
 
-                  <p class="pricing-plan-description">
-                    Zum Testen ohne Mitgliedschaft: 24 Stunden Zugang nutzen, ein Freigetränk einlösen und Nordkern Fitness kennenlernen.
-                  </p>
-                </div>
+                <p>
+                  Zum Testen ohne Mitgliedschaft: 24 Stunden Zugang nutzen, ein Freigetränk einlösen und Nordkern Fitness kennenlernen.
+                </p>
 
-                <div class="pricing-price-block">
-                  <div class="pricing-price-row">
-                    <p class="pricing-price">9,00 €</p>
-                    <p class="pricing-price-unit">einmalig</p>
+                <div class="pricing-price-area-v3">
+                  <div class="pricing-price-row-v3">
+                    <p class="pricing-price-v3">9,00 €</p>
+                    <p class="pricing-price-unit-v3">einmalig</p>
                   </div>
 
                   <button
@@ -945,81 +855,62 @@
                     Zugang: 24 Stunden
                   </button>
 
-                  <div class="pricing-plan-actions">
+                  <div class="pricing-actions-v3">
                     <a href="app.html" class="btn btn-primary">In der App ansehen</a>
-                    <a href="kontakt.html#faq" class="product-link product-link-secondary">Fragen klären</a>
+                    <a href="kontakt.html" class="product-link product-link-secondary">Fragen klären</a>
                   </div>
                 </div>
               </div>
 
-              <div class="pricing-plan-details">
-                <h3 class="pricing-detail-title">Enthalten</h3>
+              <aside class="pricing-side-v3" aria-label="Leistungen im Tagespass">
+                <div class="pricing-side-card-v3">
+                  <h3>Enthalten</h3>
 
-                <ul class="pricing-feature-list">
-                  <li>24 Stunden Zugang</li>
-                  <li>QR-Code-Zutritt über die App</li>
-                  <li>Keine laufende Mitgliedschaft</li>
-                </ul>
-
-                <div class="pricing-extra-head">
-                  <p class="pricing-extra-title">Getränkeautomat</p>
-
-                  <button
-                    class="pricing-info-small"
-                    type="button"
-                    aria-label="Info zum Tagespass"
-                    data-info-title="Tagespass und Getränkeautomat"
-                    data-info-text="Beim Tagespass ist 1× Freigetränk à 330 ml und 1× Kreatin-Auswahl enthalten. Beides wird über deinen QR-Code und dein App-Konto eingelöst."
-                  >
-                    ?
-                  </button>
+                  <ul class="pricing-feature-list-v3">
+                    <li>24 Stunden Zugang</li>
+                    <li>QR-Code-Zutritt über die App</li>
+                    <li>Keine laufende Mitgliedschaft</li>
+                  </ul>
                 </div>
 
-                <ul class="pricing-extra-list">
-                  <li>
-                    <span><strong>1×</strong> Freigetränk à 330 ml</span>
-                    <button class="pricing-info-small" type="button" aria-label="Info zu Freigetränk" data-info-title="1× Freigetränk à 330 ml" data-info-text="Beim Tagespass ist 1× Freigetränk à 330 ml enthalten. Das Freigetränk wird über deinen QR-Code am Getränkeautomaten eingelöst.">?</button>
-                  </li>
+                <div class="pricing-side-card-v3">
+                  <h3>Getränkeautomat</h3>
 
-                  <li>
-                    <span><strong>1×</strong> Kreatin-Auswahl inklusive</span>
-                    <button class="pricing-info-small" type="button" aria-label="Info zu Kreatin-Auswahl" data-info-title="1× Kreatin-Auswahl inklusive" data-info-text="Beim Tagespass ist 1× Kreatin-Auswahl inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst.">?</button>
-                  </li>
-                </ul>
+                  <ul class="pricing-extra-list-v3">
+                    <li>
+                      <span><strong>1×</strong> Freigetränk à 330 ml</span>
+                      <button class="pricing-info-small" type="button" aria-label="Info zu Freigetränk" data-info-title="1× Freigetränk à 330 ml" data-info-text="Beim Tagespass ist 1× Freigetränk à 330 ml enthalten. Das Freigetränk wird über deinen QR-Code am Getränkeautomaten eingelöst.">?</button>
+                    </li>
 
-                <p class="pricing-detail-note">
+                    <li>
+                      <span><strong>1×</strong> Kreatin-Auswahl inklusive</span>
+                      <button class="pricing-info-small" type="button" aria-label="Info zu Kreatin-Auswahl" data-info-title="1× Kreatin-Auswahl inklusive" data-info-text="Beim Tagespass ist 1× Kreatin-Auswahl inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst.">?</button>
+                    </li>
+                  </ul>
+                </div>
+
+                <p class="pricing-note-v3">
                   Der Tagespass ersetzt das kostenlose Probetraining. Er ist fair, klar und endet automatisch.
                 </p>
-              </div>
+              </aside>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="pricing-drink-section" aria-labelledby="drink-info-title">
-      <div class="pricing-drink-card">
+    <section class="pricing-drink-section-v3" aria-labelledby="drink-info-title">
+      <div class="pricing-drink-panel-v3">
         <div>
           <p class="eyebrow">Getränkeautomat</p>
 
-          <h2 id="drink-info-title">
-            Ein QR-Code. Studiozugang und Automat.
-          </h2>
+          <h2 id="drink-info-title">Ein QR-Code. Studiozugang und Automat.</h2>
 
           <p>
-            Dein QR-Code verbindet den Automaten mit deinem App-Konto. Freigetränke, Größen und Extras werden automatisch erkannt und sauber zugeordnet.
+            Dein QR-Code verbindet den Automaten mit deinem App-Konto.
+            Freigetränke, Größen und Extras werden automatisch erkannt und sauber zugeordnet.
           </p>
         </div>
-
-        <button
-          class="pricing-info-small"
-          type="button"
-          aria-label="Information zum Getränkeautomaten"
-          data-info-title="So funktioniert der Getränkeautomat"
-          data-info-text="Der Getränkeautomat läuft über deinen normalen Nordkern Fitness QR-Code. Du scannst denselben QR-Code, den du auch für den Studio-Zutritt nutzt. Danach erkennt das System dein App-Konto und zeigt, welche Freigetränke und Extras in deinem Tarif noch verfügbar sind. Du wählst Getränk, Größe, Geschmack und verfügbare Zusätze wie Kreatin aus. Inklusive Kontingente werden automatisch abgezogen. Wenn deine enthaltenen Getränke oder Zusätze aufgebraucht sind, kannst du weitere Getränke oder Extras in der App kaufen und anschließend am Automaten einlösen."
-        >
-          ?
-        </button>
       </div>
     </section>
   </main>
@@ -1051,142 +942,5 @@
   <div data-footer></div>
 
   <script src="js/main.js"></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const tabs = document.querySelector(".pricing-tabs");
-      const tabButtons = Array.from(document.querySelectorAll(".pricing-tab-button"));
-      const panels = Array.from(document.querySelectorAll("[data-plan-panel]"));
-
-      if (!tabs || tabButtons.length === 0 || panels.length === 0) return;
-
-      const moveIndicator = (button) => {
-        if (!button) return;
-
-        tabs.style.setProperty("--active-left", `${button.offsetLeft}px`);
-        tabs.style.setProperty("--active-width", `${button.offsetWidth}px`);
-      };
-
-      const activatePlan = (plan) => {
-        const activeButton = tabButtons.find((button) => button.dataset.plan === plan) || tabButtons[0];
-
-        tabButtons.forEach((button) => {
-          const isActive = button === activeButton;
-          button.classList.toggle("is-active", isActive);
-          button.setAttribute("aria-selected", String(isActive));
-          button.tabIndex = isActive ? 0 : -1;
-        });
-
-        panels.forEach((panel) => {
-          const isActive = panel.dataset.planPanel === activeButton.dataset.plan;
-          panel.classList.toggle("is-active", isActive);
-          panel.hidden = !isActive;
-        });
-
-        moveIndicator(activeButton);
-      };
-
-      tabButtons.forEach((button, index) => {
-        button.addEventListener("click", () => {
-          activatePlan(button.dataset.plan);
-        });
-
-        button.addEventListener("keydown", (event) => {
-          const key = event.key;
-
-          if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(key)) return;
-
-          event.preventDefault();
-
-          let nextIndex = index;
-
-          if (key === "ArrowLeft") {
-            nextIndex = index === 0 ? tabButtons.length - 1 : index - 1;
-          }
-
-          if (key === "ArrowRight") {
-            nextIndex = index === tabButtons.length - 1 ? 0 : index + 1;
-          }
-
-          if (key === "Home") {
-            nextIndex = 0;
-          }
-
-          if (key === "End") {
-            nextIndex = tabButtons.length - 1;
-          }
-
-          const nextButton = tabButtons[nextIndex];
-          if (!nextButton) return;
-
-          nextButton.focus();
-          activatePlan(nextButton.dataset.plan);
-        });
-      });
-
-      window.addEventListener("resize", () => {
-        const activeButton = tabButtons.find((button) => button.classList.contains("is-active"));
-        moveIndicator(activeButton);
-      });
-
-      activatePlan("basic");
-    });
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const modal = document.getElementById("pricing-info-modal");
-      const modalBox = modal?.querySelector(".pricing-info-box");
-      const modalTitle = document.getElementById("pricing-info-title");
-      const modalText = document.getElementById("pricing-info-text");
-      const closeButton = modal?.querySelector(".pricing-info-close");
-      const infoButtons = Array.from(document.querySelectorAll("[data-info-title][data-info-text]"));
-
-      if (!modal || !modalBox || !modalTitle || !modalText || !closeButton || infoButtons.length === 0) return;
-
-      let lastFocusedElement = null;
-
-      const openModal = (button) => {
-        lastFocusedElement = document.activeElement;
-
-        modalTitle.textContent = button.dataset.infoTitle || "Information";
-        modalText.textContent = button.dataset.infoText || "";
-
-        modal.classList.add("show");
-        modal.setAttribute("aria-hidden", "false");
-        document.body.classList.add("modal-open");
-
-        window.setTimeout(() => {
-          modalBox.focus();
-        }, 0);
-      };
-
-      const closeModal = () => {
-        modal.classList.remove("show");
-        modal.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("modal-open");
-
-        if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
-          lastFocusedElement.focus();
-        }
-      };
-
-      infoButtons.forEach((button) => {
-        button.addEventListener("click", () => openModal(button));
-      });
-
-      closeButton.addEventListener("click", closeModal);
-
-      modal.addEventListener("click", (event) => {
-        if (event.target === modal) {
-          closeModal();
-        }
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && modal.classList.contains("show")) {
-          closeModal();
-        }
-      });
-    });
-  </script>
 </body>
 </html>
