@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const selectors = {
     headerSlot: "[data-header]",
     footerSlot: "[data-footer]",
+    faqSlot: "[data-faq]",
 
     navLink: ".nav-link",
     siteHeaderInner: ".site-header-inner",
@@ -58,6 +59,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     {
       selector: selectors.footerSlot,
       file: "components/footer.html"
+    },
+    {
+      selector: selectors.faqSlot,
+      file: "components/faq.html"
     }
   ];
 
@@ -316,133 +321,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   };
 
-  const getFocusableElements = (root) => {
-    if (!root) return [];
-
-    return Array.from(
-      root.querySelectorAll(
-        [
-          "a[href]",
-          "button:not([disabled])",
-          "textarea:not([disabled])",
-          "input:not([disabled])",
-          "select:not([disabled])",
-          "[tabindex]:not([tabindex='-1'])"
-        ].join(",")
-      )
-    ).filter((element) => {
-      const style = window.getComputedStyle(element);
-      return style.display !== "none" && style.visibility !== "hidden";
-    });
-  };
-
-  let activeModal = null;
-  let lastFocusedElement = null;
-
-  const openModal = (modal, trigger = null) => {
-    if (!modal) return;
-
-    lastFocusedElement = trigger || document.activeElement;
-    activeModal = modal;
-
-    modal.classList.add("show");
-    modal.setAttribute("aria-hidden", "false");
-    body.classList.add("modal-open");
-
-    const closeButton = modal.querySelector(selectors.modalClose);
-    const focusableElements = getFocusableElements(modal);
-
-    window.setTimeout(() => {
-      (closeButton || focusableElements[0] || modal).focus({ preventScroll: true });
-    }, shouldReduceMotion() ? 0 : 80);
-  };
-
-  const closeModal = (modal) => {
-    if (!modal) return;
-
-    modal.classList.remove("show");
-    modal.setAttribute("aria-hidden", "true");
-
-    const openModals = Array.from(document.querySelectorAll(`${selectors.modal}.show`));
-
-    if (openModals.length === 0) {
-      body.classList.remove("modal-open");
-      activeModal = null;
-
-      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
-        lastFocusedElement.focus({ preventScroll: true });
-      }
-
-      lastFocusedElement = null;
-    }
-  };
-
-  const closeAllModals = () => {
-    document.querySelectorAll(".show[aria-hidden='false']").forEach((modal) => {
-      modal.classList.remove("show");
-      modal.setAttribute("aria-hidden", "true");
-    });
-
-    body.classList.remove("modal-open");
-    activeModal = null;
-
-    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
-      lastFocusedElement.focus({ preventScroll: true });
-    }
-
-    lastFocusedElement = null;
-  };
-
-  const trapModalFocus = (event) => {
-    if (!activeModal || event.key !== keys.tab) return;
-
-    const focusableElements = getFocusableElements(activeModal);
-    if (!focusableElements.length) return;
-
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
-
-    if (event.shiftKey && document.activeElement === firstElement) {
-      event.preventDefault();
-      lastElement.focus();
-    } else if (!event.shiftKey && document.activeElement === lastElement) {
-      event.preventDefault();
-      firstElement.focus();
-    }
-  };
-
-  const setupGenericModals = () => {
-    const modalTriggers = document.querySelectorAll(selectors.modalTrigger);
-    const modalCloseButtons = document.querySelectorAll(selectors.modalClose);
-    const modals = document.querySelectorAll(selectors.modal);
-
-    modalTriggers.forEach((trigger) => {
-      trigger.addEventListener("click", () => {
-        const modalId = trigger.getAttribute("data-modal-target");
-        const modal = document.getElementById(modalId);
-
-        openModal(modal, trigger);
-      });
-    });
-
-    modalCloseButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const modal = button.closest(selectors.modal);
-        closeModal(modal);
-      });
-    });
-
-    modals.forEach((modal) => {
-      modal.setAttribute("aria-hidden", modal.classList.contains("show") ? "false" : "true");
-
-      modal.addEventListener("click", (event) => {
-        if (event.target === modal) {
-          closeModal(modal);
-        }
-      });
-    });
-  };
-
   const setupPricingTabs = () => {
     const tabs = document.querySelector(selectors.pricingTabs);
     const tabButtons = Array.from(document.querySelectorAll(selectors.pricingTabButton));
@@ -542,9 +420,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (!modal || !modalBox || !modalTitle || !modalText || !closeButton || infoButtons.length === 0) return;
 
+    let lastPricingButton = null;
+
     const openPricingModal = (button) => {
-      lastFocusedElement = button || document.activeElement;
-      activeModal = modal;
+      lastPricingButton = button;
 
       modalTitle.textContent = button.dataset.infoTitle || "Information";
       modalText.textContent = button.dataset.infoText || "";
@@ -563,15 +442,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       modal.setAttribute("aria-hidden", "true");
       body.classList.remove("modal-open");
 
-      if (activeModal === modal) {
-        activeModal = null;
+      if (lastPricingButton && typeof lastPricingButton.focus === "function") {
+        lastPricingButton.focus({ preventScroll: true });
       }
 
-      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
-        lastFocusedElement.focus({ preventScroll: true });
-      }
-
-      lastFocusedElement = null;
+      lastPricingButton = null;
     };
 
     infoButtons.forEach((button) => {
@@ -660,66 +535,35 @@ document.addEventListener("DOMContentLoaded", async () => {
       const messageText = fields.message?.value.trim() || "";
 
       if (firstName.length < 2) {
-        errors.push({
-          field: fields.firstName,
-          message: "Vorname fehlt oder ist zu kurz."
-        });
+        errors.push({ field: fields.firstName, message: "Vorname fehlt oder ist zu kurz." });
       }
 
       if (lastName.length < 2) {
-        errors.push({
-          field: fields.lastName,
-          message: "Nachname fehlt oder ist zu kurz."
-        });
+        errors.push({ field: fields.lastName, message: "Nachname fehlt oder ist zu kurz." });
       }
 
       if (!email || !isValidEmail(email)) {
-        errors.push({
-          field: fields.email,
-          message: "E-Mail fehlt oder ist nicht gültig."
-        });
+        errors.push({ field: fields.email, message: "E-Mail fehlt oder ist nicht gültig." });
       }
 
       if (!topic) {
-        errors.push({
-          field: fields.topic,
-          message: "Bitte wähle ein Thema aus."
-        });
+        errors.push({ field: fields.topic, message: "Bitte wähle ein Thema aus." });
       }
 
       if (!messageText) {
-        errors.push({
-          field: fields.message,
-          message: "Nachricht fehlt."
-        });
+        errors.push({ field: fields.message, message: "Nachricht fehlt." });
       }
 
       if (postal && !isValidPostalCode(postal)) {
-        errors.push({
-          field: fields.postal,
-          message: "Postleitzahl muss aus genau 5 Zahlen bestehen."
-        });
+        errors.push({ field: fields.postal, message: "Postleitzahl muss aus genau 5 Zahlen bestehen." });
       }
 
       if (street && !isValidStreet(street)) {
-        errors.push({
-          field: fields.street,
-          message: "Straße und Hausnummer enthalten Zeichen, die nicht passen."
-        });
+        errors.push({ field: fields.street, message: "Straße und Hausnummer enthalten Zeichen, die nicht passen." });
       }
 
       if (memberId && !isValidMemberId(memberId)) {
-        errors.push({
-          field: fields.memberId,
-          message: "Member-ID muss so aussehen: NK-12345."
-        });
-      }
-
-      if (!isValidEmail(brand.contactEmail)) {
-        errors.push({
-          field: fields.message,
-          message: "Kontakt-E-Mail ist noch nicht korrekt hinterlegt."
-        });
+        errors.push({ field: fields.memberId, message: "Member-ID muss so aussehen: NK-12345." });
       }
 
       errors.forEach((error) => setFieldState(error.field, true));
@@ -772,20 +616,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       messageField.addEventListener("input", () => {
         autoResizeTextarea();
         updateCounter();
-      });
-
-      messageField.addEventListener("paste", () => {
-        window.setTimeout(() => {
-          autoResizeTextarea();
-          updateCounter();
-        }, 0);
-      });
-
-      messageField.addEventListener("drop", () => {
-        window.setTimeout(() => {
-          autoResizeTextarea();
-          updateCounter();
-        }, 0);
       });
     }
 
@@ -1056,10 +886,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.addEventListener("keydown", (event) => {
       if (event.key === keys.escape) {
         closeMobileMenu();
-        closeAllModals();
-      }
 
-      trapModalFocus(event);
+        document.querySelectorAll(".show[aria-hidden='false']").forEach((modal) => {
+          modal.classList.remove("show");
+          modal.setAttribute("aria-hidden", "true");
+        });
+
+        body.classList.remove("modal-open");
+      }
     });
   };
 
@@ -1068,7 +902,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupMobileMenu();
   setupHeaderScrollState();
   setupPageTransitions();
-  setupGenericModals();
   setupPricingTabs();
   setupPricingInfoModal();
   setupContactForm();
