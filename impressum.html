@@ -18,107 +18,97 @@
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
-    .legal-page {
+    .legal-page-v3 {
+      background: #ffffff;
+    }
+
+    .legal-hero-v3 {
+      min-height: 72vh;
       display: grid;
-      gap: 0;
-      background: #ffffff;
-    }
-
-    .legal-hero {
-      position: relative;
-      overflow: hidden;
-      padding: max(9rem, 13vh) 0 clamp(3.5rem, 6vw, 5.4rem);
-      background: #ffffff;
-    }
-
-    .legal-hero-inner {
-      max-width: 920px;
-      margin-inline: auto;
+      place-items: center;
+      padding: max(9rem, 14vh) 1rem clamp(4rem, 6vw, 6rem);
       text-align: center;
+      background: #ffffff;
     }
 
-    .legal-hero-title {
+    .legal-hero-inner-v3 {
+      width: min(100%, 980px);
+      margin-inline: auto;
+    }
+
+    .legal-hero-v3 h1 {
       color: var(--text);
-      font-size: clamp(3rem, 6vw, 6rem);
-      line-height: 0.93;
-      letter-spacing: -0.068em;
+      font-size: clamp(3.6rem, 6.8vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: -0.074em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .legal-hero-title span {
-      color: var(--nf-green);
-    }
-
-    .legal-hero-text {
+    .legal-hero-v3 p:not(.eyebrow) {
       max-width: 720px;
       margin: 1rem auto 0;
       color: var(--text-soft);
-      font-size: clamp(1.03rem, 1.35vw, 1.22rem);
-      line-height: 1.5;
+      font-size: clamp(1.05rem, 1.32vw, 1.22rem);
+      line-height: 1.48;
       letter-spacing: -0.018em;
       text-wrap: balance;
     }
 
-    .legal-module-section {
-      padding: 0.75rem;
+    .legal-section-v3 {
+      padding: 0 0.75rem 0.75rem;
       background: #ffffff;
     }
 
-    .legal-module {
-      width: 100%;
-      padding: clamp(1.25rem, 3vw, 2rem);
-      border-radius: var(--module-radius);
+    .legal-panel-v3 {
+      min-height: clamp(720px, 80vh, 960px);
+      padding: clamp(3.2rem, 6vw, 6rem) clamp(1rem, 4vw, 3rem);
       background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      overflow: hidden;
     }
 
-    .legal-tabs-wrap {
-      width: min(100%, 720px);
-      margin: 0 auto 1.2rem;
-      position: relative;
-      z-index: 30;
+    .legal-tabs-wrap-v3 {
+      display: flex;
+      justify-content: center;
+      margin-bottom: clamp(2rem, 4vw, 3.2rem);
     }
 
     .legal-tabs {
+      width: min(100%, 520px);
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.35rem;
-      padding: 0.38rem;
+      gap: 0;
+      padding: 0.28rem;
       border-radius: 999px;
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      box-shadow: none;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      overflow: hidden;
     }
 
     .legal-tab-button {
-      min-height: 42px;
+      min-height: 38px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       border-radius: 999px;
-      color: rgba(29, 29, 31, 0.78);
-      background: transparent;
-      font-size: 0.93rem;
-      font-weight: 760;
-      letter-spacing: -0.018em;
+      color: rgba(29, 29, 31, 0.72);
+      font-size: 0.9rem;
+      line-height: 1;
+      font-weight: 680;
+      letter-spacing: -0.016em;
       transition:
-        color var(--fast),
-        background var(--fast),
-        box-shadow var(--fast),
-        transform var(--fast);
+        background-color var(--fast),
+        color var(--fast);
     }
 
-    .legal-tab-button:hover {
+    .legal-tab-button:hover,
+    .legal-tab-button:focus-visible {
       color: var(--text);
-      background: #f5f5f7;
+      background: rgba(0, 0, 0, 0.045);
     }
 
     .legal-tab-button.is-active {
       color: #ffffff;
-      background: linear-gradient(180deg, var(--nf-green-light), var(--nf-green));
-      box-shadow: 0 12px 28px rgba(46, 145, 63, 0.20);
+      background: #1d1d1f;
     }
 
     .legal-panel {
@@ -127,107 +117,101 @@
 
     .legal-panel.is-active {
       display: block;
-      animation: legalPanelIn 0.34s var(--ease) both;
+      animation: legalFadeV3 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
-    @keyframes legalPanelIn {
+    @keyframes legalFadeV3 {
       from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(12px);
+        filter: blur(3px);
       }
 
       to {
         opacity: 1;
         transform: translateY(0);
+        filter: blur(0);
       }
     }
 
-    .legal-document {
-      padding: 0;
-      border-radius: 0;
-      background: transparent;
-      border: 0;
-      box-shadow: none;
-      overflow: visible;
+    .legal-document-v3 {
+      width: min(100%, 1080px);
+      margin-inline: auto;
     }
 
-    .legal-document-head {
-      max-width: 880px;
-      margin-bottom: 1.35rem;
+    .legal-document-head-v3 {
+      max-width: 900px;
+      margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
     }
 
-    .legal-document-head h2 {
+    .legal-document-head-v3 h2 {
       color: var(--text);
-      font-size: clamp(2.15rem, 4.1vw, 4.35rem);
-      line-height: 0.96;
-      letter-spacing: -0.064em;
+      font-size: clamp(3rem, 5.7vw, 5.9rem);
+      line-height: 0.93;
+      letter-spacing: -0.07em;
       font-weight: 790;
       text-wrap: balance;
-      overflow-wrap: break-word;
     }
 
-    .legal-document-head p:not(.eyebrow) {
+    .legal-document-head-v3 p:not(.eyebrow) {
       max-width: 760px;
-      margin-top: 0.9rem;
+      margin-top: 1rem;
       color: var(--text-soft);
-      font-size: 1.02rem;
-      line-height: 1.55;
-      letter-spacing: -0.014em;
+      font-size: clamp(1.02rem, 1.28vw, 1.16rem);
+      line-height: 1.52;
+      letter-spacing: -0.016em;
+      text-wrap: balance;
     }
 
-    .legal-grid {
+    .legal-grid-v3 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.75rem;
-      align-items: stretch;
     }
 
-    .legal-card {
-      min-width: 0;
-      display: grid;
-      align-content: start;
-      gap: 0.72rem;
-      padding: 1.14rem 1.16rem;
-      border-radius: var(--card-radius);
+    .legal-card-v3,
+    .legal-text-card-v3 {
+      padding: 1rem;
+      border-radius: 14px;
       background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      box-shadow: none;
     }
 
-    .legal-card.full {
+    .legal-card-v3.full {
       grid-column: 1 / -1;
     }
 
-    .legal-card-label {
+    .legal-card-label-v3 {
+      display: block;
+      margin-bottom: 0.75rem;
       color: var(--muted);
-      font-size: 0.74rem;
-      font-weight: 860;
-      letter-spacing: 0.06em;
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.055em;
       text-transform: uppercase;
     }
 
-    .legal-info-lines {
+    .legal-info-lines-v3 {
       display: grid;
-      gap: 0.48rem;
+      gap: 0.52rem;
     }
 
-    .legal-info-line {
+    .legal-info-line-v3 {
       display: grid;
-      grid-template-columns: minmax(7.4rem, 0.34fr) minmax(0, 1fr);
-      gap: 0.8rem;
+      grid-template-columns: minmax(8rem, 0.34fr) minmax(0, 1fr);
+      gap: 0.9rem;
       align-items: baseline;
     }
 
-    .legal-info-line span {
+    .legal-info-line-v3 span {
       color: var(--muted);
-      font-size: 0.94rem;
-      line-height: 1.45;
+      font-size: 0.9rem;
+      line-height: 1.42;
       letter-spacing: -0.012em;
     }
 
-    .legal-info-line strong,
-    .legal-info-line p,
-    .legal-info-line a {
+    .legal-info-line-v3 strong,
+    .legal-info-line-v3 p,
+    .legal-info-line-v3 a {
       color: var(--text-soft);
       font-size: 0.98rem;
       line-height: 1.48;
@@ -236,206 +220,146 @@
       overflow-wrap: break-word;
     }
 
-    .legal-info-line a {
+    .legal-info-line-v3 strong {
+      color: var(--text);
+      font-weight: 720;
+    }
+
+    .legal-info-line-v3 a,
+    .legal-text-card-v3 a,
+    .legal-card-v3 a {
       color: var(--nf-green-dark);
-      font-weight: 760;
+      font-weight: 720;
       word-break: break-word;
     }
 
-    .legal-card p,
-    .legal-card li,
-    .legal-text-card p,
-    .legal-text-card li {
+    .legal-card-v3 p,
+    .legal-text-card-v3 p,
+    .legal-text-card-v3 li {
       color: var(--text-soft);
       font-size: 0.98rem;
       line-height: 1.58;
-      letter-spacing: -0.014em;
-      overflow-wrap: break-word;
+      letter-spacing: -0.012em;
     }
 
-    .legal-card strong,
-    .legal-text-card strong {
+    .legal-card-v3 strong,
+    .legal-text-card-v3 strong {
       color: var(--text);
-      font-weight: 760;
+      font-weight: 740;
     }
 
-    .legal-card a,
-    .legal-text-card a {
-      color: var(--nf-green-dark);
-      font-weight: 760;
-      word-break: break-word;
-    }
-
-    .legal-support-box {
-      display: grid;
-      gap: 0.52rem;
-      margin-top: 0.1rem;
-      padding-top: 0.92rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.065);
-    }
-
-    .legal-support-title {
-      color: var(--text);
-      font-size: 0.92rem;
-      font-weight: 780;
-      letter-spacing: -0.015em;
-    }
-
-    .legal-support-row {
-      display: grid;
-      grid-template-columns: minmax(7.4rem, 0.34fr) minmax(0, 1fr);
-      align-items: baseline;
-      gap: 0.8rem;
-      color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.35;
-      letter-spacing: -0.015em;
-    }
-
-    .legal-support-row strong {
-      color: var(--text-soft);
-      font-size: 0.96rem;
-      font-weight: 710;
-      letter-spacing: -0.015em;
-    }
-
-    .legal-text-stack {
+    .legal-text-stack-v3 {
       display: grid;
       gap: 0.75rem;
     }
 
-    .legal-text-card {
-      min-width: 0;
-      padding: 1.08rem 1.12rem;
-      border-radius: var(--card-radius);
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      box-shadow: none;
-    }
-
-    .legal-text-card h3 {
-      margin-bottom: 0.45rem;
+    .legal-text-card-v3 h3 {
+      margin-bottom: 0.5rem;
       color: var(--text);
-      font-size: clamp(1.2rem, 1.75vw, 1.55rem);
-      line-height: 1.08;
-      letter-spacing: -0.045em;
+      font-size: clamp(1.45rem, 2.3vw, 2.1rem);
+      line-height: 1.02;
+      letter-spacing: -0.048em;
       font-weight: 790;
-      overflow-wrap: break-word;
+      text-wrap: balance;
     }
 
-    .legal-text-card ul {
+    .legal-text-card-v3 ul {
       display: grid;
       gap: 0.42rem;
-      margin-top: 0.5rem;
+      margin-top: 0.55rem;
       padding-left: 1.05rem;
       list-style: disc;
     }
 
-    .legal-note {
+    .legal-note-v3 {
       margin-top: 0.75rem;
+      padding: 1rem;
+      border-radius: 14px;
       background: #ffffff;
     }
 
+    .legal-note-v3 span {
+      display: block;
+      margin-bottom: 0.42rem;
+      color: var(--nf-green-dark);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.055em;
+      text-transform: uppercase;
+    }
+
+    .legal-note-v3 p {
+      color: var(--text-soft);
+      font-size: 0.98rem;
+      line-height: 1.52;
+      letter-spacing: -0.012em;
+    }
+
     @media (max-width: 860px) {
-      .legal-grid {
+      .legal-grid-v3 {
         grid-template-columns: 1fr;
       }
 
-      .legal-card.full {
+      .legal-card-v3.full {
         grid-column: auto;
       }
     }
 
-    @media (max-width: 680px) {
-      .legal-hero {
+    @media (max-width: 720px) {
+      .legal-hero-v3 {
+        min-height: 66vh;
         padding-top: max(8.6rem, 15vh);
-        padding-bottom: 3.5rem;
       }
 
-      .legal-hero-title {
-        font-size: clamp(2.35rem, 10.4vw, 3.75rem);
-        line-height: 0.96;
-        letter-spacing: -0.055em;
+      .legal-hero-v3 h1 {
+        font-size: clamp(2.8rem, 12vw, 4.3rem);
+        line-height: 0.94;
       }
 
-      .legal-hero-text {
+      .legal-hero-v3 p:not(.eyebrow) {
         max-width: 34ch;
-        font-size: 1.02rem;
+        font-size: 1rem;
       }
 
-      .legal-module-section {
-        padding: 0.65rem;
+      .legal-section-v3 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-bottom: 0.5rem;
       }
 
-      .legal-module {
-        padding: 1.12rem;
-      }
-
-      .legal-tabs-wrap {
-        margin-bottom: 1rem;
+      .legal-panel-v3 {
+        min-height: auto;
+        padding: 4rem 1rem;
       }
 
       .legal-tabs {
-        gap: 0.28rem;
-        padding: 0.32rem;
+        width: 100%;
       }
 
       .legal-tab-button {
-        min-height: 40px;
+        min-height: 38px;
         font-size: 0.82rem;
       }
 
-      .legal-document-head {
-        margin-bottom: 1.25rem;
+      .legal-document-head-v3 h2 {
+        font-size: clamp(2.35rem, 11vw, 3.75rem);
       }
 
-      .legal-document-head h2 {
-        font-size: clamp(1.85rem, 8.3vw, 2.85rem);
-        line-height: 1.02;
-        letter-spacing: -0.055em;
+      .legal-document-head-v3 p:not(.eyebrow) {
+        max-width: 34ch;
+        font-size: 1rem;
       }
 
-      .legal-document-head p:not(.eyebrow) {
-        font-size: 0.98rem;
-      }
-
-      .legal-card,
-      .legal-text-card {
-        padding: 1rem;
-      }
-
-      .legal-info-line,
-      .legal-support-row {
+      .legal-info-line-v3 {
         grid-template-columns: 1fr;
-        gap: 0.04rem;
+        gap: 0.12rem;
       }
 
-      .legal-info-line span {
-        font-size: 0.76rem;
+      .legal-info-line-v3 span {
+        font-size: 0.72rem;
         font-weight: 850;
-        letter-spacing: 0.045em;
+        letter-spacing: 0.055em;
         text-transform: uppercase;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .legal-module-section {
-        padding: 0.5rem;
-      }
-
-      .legal-module {
-        padding: 1rem;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .legal-tab-button {
-        font-size: 0.78rem;
-      }
-
-      .legal-document-head h2 {
-        font-size: clamp(1.72rem, 7.8vw, 2.55rem);
-        letter-spacing: -0.052em;
       }
     }
   </style>
@@ -444,28 +368,23 @@
 <body>
   <div data-header></div>
 
-  <main class="legal-page">
-    <section class="legal-hero" aria-labelledby="legal-page-title">
-      <div class="container">
-        <div class="legal-hero-inner">
-          <p class="eyebrow">Rechtliches</p>
+  <main class="legal-page-v3">
+    <section class="legal-hero-v3" aria-labelledby="legal-page-title">
+      <div class="legal-hero-inner-v3">
+        <p class="eyebrow">Rechtliches</p>
 
-          <h1 class="legal-hero-title" id="legal-page-title">
-            Klar geregelt.<br />
-            <span>Sauber auffindbar.</span>
-          </h1>
+        <h1 id="legal-page-title">Impressum. Datenschutz. AGB.</h1>
 
-          <p class="legal-hero-text">
-            Hier findest du Impressum, Datenschutzinformationen und Allgemeine Geschäftsbedingungen
-            von Nordkern Fitness. Noch fehlende Unternehmensdaten werden vollständig ergänzt.
-          </p>
-        </div>
+        <p>
+          Hier findest du die rechtlichen Informationen zu Nordkern Fitness.
+          Fehlende Betreiberangaben müssen vor der echten Veröffentlichung vollständig ergänzt werden.
+        </p>
       </div>
     </section>
 
-    <section class="legal-module-section">
-      <div class="legal-module">
-        <div class="legal-tabs-wrap">
+    <section class="legal-section-v3" aria-label="Rechtliche Informationen">
+      <div class="legal-panel-v3">
+        <div class="legal-tabs-wrap-v3">
           <div class="legal-tabs" role="tablist" aria-label="Rechtliche Bereiche">
             <button
               class="legal-tab-button is-active"
@@ -511,168 +430,154 @@
           role="tabpanel"
           aria-labelledby="tab-impressum"
         >
-          <article class="legal-document">
-            <div class="legal-document-head">
+          <article class="legal-document-v3">
+            <div class="legal-document-head-v3">
               <p class="eyebrow">Impressum</p>
 
-              <h2>Angaben nach § 5 DDG.</h2>
+              <h2>Angaben zum Anbieter.</h2>
 
               <p>
-                Dieses Impressum enthält die Anbieterinformationen für das Online-Angebot von Nordkern Fitness.
-                Noch offene Angaben sind als Platzhalter markiert und müssen vor einer echten geschäftlichen
-                Nutzung vollständig und korrekt ersetzt werden.
+                Dieses Impressum enthält die Anbieterinformationen für Nordkern Fitness.
+                Noch offene Angaben sind als Platzhalter markiert und müssen vor einer echten geschäftlichen Nutzung ergänzt werden.
               </p>
             </div>
 
-            <div class="legal-grid">
-              <div class="legal-card">
-                <span class="legal-card-label">Anbieter / Betreiber</span>
+            <div class="legal-grid-v3">
+              <div class="legal-card-v3">
+                <span class="legal-card-label-v3">Anbieter / Betreiber</span>
 
-                <div class="legal-info-lines">
-                  <div class="legal-info-line">
+                <div class="legal-info-lines-v3">
+                  <div class="legal-info-line-v3">
                     <span>Marke</span>
                     <strong>Nordkern Fitness</strong>
                   </div>
 
-                  <div class="legal-info-line">
+                  <div class="legal-info-line-v3">
                     <span>Betreiber</span>
                     <p>[vollständigen Betreibernamen ergänzen]</p>
                   </div>
 
-                  <div class="legal-info-line">
+                  <div class="legal-info-line-v3">
                     <span>Rechtsform</span>
-                    <p>[Rechtsform ergänzen, z. B. Einzelunternehmen, UG, GmbH]</p>
+                    <p>[Rechtsform ergänzen]</p>
                   </div>
                 </div>
               </div>
 
-              <div class="legal-card">
-                <span class="legal-card-label">Vertretung</span>
+              <div class="legal-card-v3">
+                <span class="legal-card-label-v3">Vertretung</span>
 
-                <div class="legal-info-lines">
-                  <div class="legal-info-line">
+                <div class="legal-info-lines-v3">
+                  <div class="legal-info-line-v3">
                     <span>Vertreten durch</span>
                     <p>[vertretungsberechtigte Person ergänzen]</p>
                   </div>
 
-                  <div class="legal-info-line">
+                  <div class="legal-info-line-v3">
                     <span>Inhaltlich verantwortlich</span>
                     <p>[verantwortliche Person ergänzen]</p>
                   </div>
                 </div>
               </div>
 
-              <div class="legal-card">
-                <span class="legal-card-label">Anschrift</span>
+              <div class="legal-card-v3">
+                <span class="legal-card-label-v3">Anschrift</span>
 
-                <div class="legal-info-lines">
-                  <div class="legal-info-line">
+                <div class="legal-info-lines-v3">
+                  <div class="legal-info-line-v3">
                     <span>Straße</span>
                     <p>[Straße und Hausnummer ergänzen]</p>
                   </div>
 
-                  <div class="legal-info-line">
+                  <div class="legal-info-line-v3">
                     <span>Ort</span>
                     <p>[PLZ und Ort ergänzen]</p>
                   </div>
 
-                  <div class="legal-info-line">
+                  <div class="legal-info-line-v3">
                     <span>Land</span>
                     <p>Deutschland</p>
                   </div>
                 </div>
               </div>
 
-              <div class="legal-card">
-                <span class="legal-card-label">Kontakt</span>
+              <div class="legal-card-v3">
+                <span class="legal-card-label-v3">Kontakt</span>
 
-                <div class="legal-info-lines">
-                  <div class="legal-info-line">
+                <div class="legal-info-lines-v3">
+                  <div class="legal-info-line-v3">
                     <span>E-Mail</span>
                     <a href="mailto:info@nordkern-fitness.de">info@nordkern-fitness.de</a>
                   </div>
 
-                  <div class="legal-info-line">
+                  <div class="legal-info-line-v3">
                     <span>Formular</span>
                     <a href="kontakt.html">Kontaktformular öffnen</a>
                   </div>
 
-                  <div class="legal-info-line">
+                  <div class="legal-info-line-v3">
                     <span>Instagram</span>
                     <a href="https://instagram.com/nordkern.fitness" target="_blank" rel="noopener noreferrer">
                       @nordkern.fitness
                     </a>
                   </div>
                 </div>
-
-                <div class="legal-support-box">
-                  <p class="legal-support-title">Supportzeiten</p>
-
-                  <div class="legal-support-row">
-                    <strong>Mo–Fr</strong>
-                    <p>Antwort in der Regel innerhalb von 1–3 Werktagen.</p>
-                  </div>
-                </div>
               </div>
 
-              <div class="legal-card">
-                <span class="legal-card-label">Registerangaben</span>
+              <div class="legal-card-v3">
+                <span class="legal-card-label-v3">Registerangaben</span>
 
-                <div class="legal-info-lines">
-                  <div class="legal-info-line">
+                <div class="legal-info-lines-v3">
+                  <div class="legal-info-line-v3">
                     <span>Register</span>
                     <p>[Registergericht ergänzen, falls vorhanden]</p>
                   </div>
 
-                  <div class="legal-info-line">
+                  <div class="legal-info-line-v3">
                     <span>Registernummer</span>
                     <p>[Registernummer ergänzen, falls vorhanden]</p>
                   </div>
                 </div>
               </div>
 
-              <div class="legal-card">
-                <span class="legal-card-label">Steuerliche Angaben</span>
+              <div class="legal-card-v3">
+                <span class="legal-card-label-v3">Steuerliche Angaben</span>
 
-                <div class="legal-info-lines">
-                  <div class="legal-info-line">
+                <div class="legal-info-lines-v3">
+                  <div class="legal-info-line-v3">
                     <span>USt-IdNr.</span>
                     <p>[Umsatzsteuer-ID ergänzen, falls vorhanden]</p>
                   </div>
 
-                  <div class="legal-info-line">
+                  <div class="legal-info-line-v3">
                     <span>Wirtschafts-ID</span>
                     <p>[Wirtschafts-ID ergänzen, falls vorhanden]</p>
                   </div>
                 </div>
               </div>
 
-              <div class="legal-card full">
-                <span class="legal-card-label">Verbraucherstreitbeilegung</span>
+              <div class="legal-card-v3 full">
+                <span class="legal-card-label-v3">Verbraucherstreitbeilegung</span>
 
                 <p>
-                  [Erklärung zur Teilnahme oder Nichtteilnahme an Streitbeilegungsverfahren vor einer
-                  Verbraucherschlichtungsstelle ergänzen.]
+                  [Erklärung zur Teilnahme oder Nichtteilnahme an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle ergänzen.]
                 </p>
               </div>
 
-              <div class="legal-card full">
-                <span class="legal-card-label">Haftung für externe Links</span>
+              <div class="legal-card-v3 full">
+                <span class="legal-card-label-v3">Externe Links</span>
 
                 <p>
-                  Diese Website enthält Links zu externen Angeboten. Für deren Inhalte und Datenverarbeitung
-                  sind die jeweiligen Anbieter verantwortlich. Externe Links werden nach bestem Wissen gesetzt,
-                  können sich aber jederzeit ändern.
+                  Diese Website kann Links zu externen Angeboten enthalten. Für deren Inhalte und Datenverarbeitung sind die jeweiligen Anbieter verantwortlich.
                 </p>
               </div>
             </div>
 
-            <div class="info-note legal-note">
-              <p class="info-note-label">Vor Veröffentlichung ergänzen</p>
-
-              <p class="info-note-text">
-                Betreiber, Rechtsform, Anschrift, Vertretungsberechtigung, steuerliche Angaben, mögliche
-                Registerinformationen und die Streitbeilegungsangabe müssen vollständig und korrekt eingetragen werden.
+            <div class="legal-note-v3">
+              <span>Vor Veröffentlichung ergänzen</span>
+              <p>
+                Betreiber, Rechtsform, Anschrift, Vertretungsberechtigung, steuerliche Angaben,
+                mögliche Registerinformationen und Streitbeilegungsangaben müssen vollständig und korrekt eingetragen werden.
               </p>
             </div>
           </article>
@@ -685,23 +590,25 @@
           aria-labelledby="tab-datenschutz"
           hidden
         >
-          <article class="legal-document">
-            <div class="legal-document-head">
+          <article class="legal-document-v3">
+            <div class="legal-document-head-v3">
               <p class="eyebrow">Datenschutz</p>
 
               <h2>Datenschutzinformationen.</h2>
 
               <p>
-                Diese Hinweise erklären, welche personenbezogenen Daten im Zusammenhang mit der Website
-                verarbeitet werden können, wofür sie genutzt werden und welche Rechte betroffene Personen haben.
+                Diese Hinweise erklären, welche personenbezogenen Daten im Zusammenhang mit der Website verarbeitet werden können
+                und wofür sie genutzt werden.
               </p>
             </div>
 
-            <div class="legal-text-stack">
-              <section class="legal-text-card">
+            <div class="legal-text-stack-v3">
+              <section class="legal-text-card-v3">
                 <h3>1. Verantwortlicher</h3>
 
-                <p>Verantwortlich für die Verarbeitung personenbezogener Daten ist:</p>
+                <p>
+                  Verantwortlich für die Verarbeitung personenbezogener Daten ist:
+                </p>
 
                 <p>
                   <strong>Nordkern Fitness</strong><br />
@@ -709,66 +616,50 @@
                   [Anschrift ergänzen]<br />
                   Deutschland<br />
                   E-Mail:
-                  <a href="mailto:info@nordkern-fitness.de">info@nordkern-fitness.de</a><br />
-                  Kontaktformular:
-                  <a href="kontakt.html">Kontaktformular öffnen</a>
+                  <a href="mailto:info@nordkern-fitness.de">info@nordkern-fitness.de</a>
                 </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>2. Allgemeine Grundsätze</h3>
 
                 <p>
                   Personenbezogene Daten werden nur verarbeitet, soweit dies für den Betrieb der Website,
-                  die Bearbeitung von Anfragen, die technische Sicherheit oder die spätere Bereitstellung
-                  von Nordkern-Fitness-Angeboten erforderlich ist oder eine Einwilligung vorliegt.
-                </p>
-
-                <p>
-                  Zu personenbezogenen Daten können alle Informationen gehören, die sich auf eine identifizierte
-                  oder identifizierbare natürliche Person beziehen, zum Beispiel Name, E-Mail-Adresse,
-                  IP-Adresse, Nachrichteninhalt oder freiwillige Angaben in Formularen.
+                  die Bearbeitung von Anfragen, technische Sicherheit oder spätere Studio- und App-Angebote erforderlich ist
+                  oder eine Einwilligung vorliegt.
                 </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>3. Besuch der Website</h3>
 
                 <p>
-                  Beim Aufrufen dieser Website können technisch notwendige Zugriffsdaten verarbeitet werden.
-                  Dazu gehören insbesondere aufgerufene Seiten, Datum und Uhrzeit des Zugriffs, Browsertyp,
-                  Betriebssystem, Referrer-URL, IP-Adresse und technische Statusinformationen.
-                </p>
-
-                <p>
-                  Die Verarbeitung erfolgt, damit die Website technisch bereitgestellt, stabil betrieben,
-                  optimiert und vor Missbrauch geschützt werden kann. Rechtsgrundlage kann insbesondere
-                  Art. 6 Abs. 1 lit. f DSGVO sein.
+                  Beim Aufrufen dieser Website können technische Zugriffsdaten verarbeitet werden.
+                  Dazu können aufgerufene Seiten, Datum und Uhrzeit, Browsertyp, Betriebssystem,
+                  Referrer-URL, IP-Adresse und technische Statusinformationen gehören.
                 </p>
               </section>
 
-              <section class="legal-text-card">
-                <h3>4. Hosting über GitHub Pages</h3>
+              <section class="legal-text-card-v3">
+                <h3>4. Hosting</h3>
 
                 <p>
-                  Diese Website wird derzeit statisch über GitHub Pages bereitgestellt. Beim Aufruf der Website
-                  können technische Daten durch GitHub verarbeitet werden, zum Beispiel IP-Adresse, Gerätedaten,
-                  Datum und Uhrzeit der Anfrage sowie weitere technische Nutzungsinformationen.
+                  Diese Website wird derzeit statisch bereitgestellt. Beim Aufruf der Website können technische Daten
+                  durch den Hostinganbieter verarbeitet werden, damit die Website ausgeliefert, stabil betrieben und geschützt werden kann.
                 </p>
 
                 <p>
-                  Die Verarbeitung dient der technischen Bereitstellung, Sicherheit und Stabilität der Website.
-                  Für eine echte geschäftliche Nutzung müssen Hosting, Anbieter, Speicherorte,
-                  Auftragsverarbeitung und Datenschutzinformationen final geprüft und ergänzt werden.
+                  Vor echter geschäftlicher Nutzung müssen Hosting, Anbieter, Speicherorte, Auftragsverarbeitung
+                  und Datenschutzinformationen final geprüft und ergänzt werden.
                 </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>5. Kontaktformular</h3>
 
                 <p>
-                  Wenn du das Kontaktformular nutzt, werden die eingegebenen Daten zur Bearbeitung deiner Anfrage
-                  verarbeitet. Dazu gehören insbesondere:
+                  Wenn du das Kontaktformular nutzt, werden die eingegebenen Daten zur Bearbeitung deiner Anfrage verarbeitet.
+                  Dazu gehören insbesondere:
                 </p>
 
                 <ul>
@@ -780,59 +671,32 @@
                 </ul>
 
                 <p>
-                  Die Anfrage wird derzeit über ein vorbereitetes E-Mail-Programm des Nutzers versendet.
-                  Bitte sende über das Formular keine besonders sensiblen Daten, zum Beispiel Gesundheitsdaten,
-                  Zahlungsdaten, Ausweisdaten, Zugangsdaten oder private Unterlagen.
-                </p>
-
-                <p>
-                  Rechtsgrundlage kann je nach Anfrage Art. 6 Abs. 1 lit. b DSGVO oder Art. 6 Abs. 1 lit. f DSGVO sein.
+                  Das Formular bereitet aktuell eine E-Mail vor. Bitte sende keine besonders sensiblen Daten,
+                  zum Beispiel Gesundheitsdaten, Zahlungsdaten, Ausweisdaten oder Zugangsdaten.
                 </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>6. E-Mail-Kommunikation</h3>
 
                 <p>
-                  Wenn du per E-Mail Kontakt aufnimmst oder eine Anfrage über das Kontaktformular vorbereitest,
-                  werden deine Angaben zur Bearbeitung der Anfrage verarbeitet. E-Mail-Kommunikation kann
-                  technisch bedingt Sicherheitsrisiken haben, wenn sie nicht vollständig verschlüsselt erfolgt.
-                </p>
-
-                <p>
-                  Anfragen werden nur so lange gespeichert, wie dies zur Bearbeitung, Dokumentation oder aufgrund
-                  gesetzlicher Pflichten erforderlich ist.
+                  Wenn du per E-Mail Kontakt aufnimmst, werden deine Angaben zur Bearbeitung der Anfrage verarbeitet.
+                  E-Mail-Kommunikation kann technisch bedingt Sicherheitsrisiken haben, wenn sie nicht vollständig verschlüsselt erfolgt.
                 </p>
               </section>
 
-              <section class="legal-text-card">
-                <h3>7. Instagram</h3>
-
-                <p>
-                  Nordkern Fitness kann auf Instagram vertreten sein. Wenn du Instagram nutzt, dem Profil folgst,
-                  Inhalte kommentierst oder über Instagram Kontakt aufnimmst, können personenbezogene Daten
-                  durch den Plattformanbieter verarbeitet werden.
-                </p>
-
-                <p>
-                  Für die Datenverarbeitung auf Instagram gelten zusätzlich die Datenschutzinformationen
-                  des jeweiligen Plattformanbieters. Nordkern Fitness hat keinen vollständigen Einfluss auf die
-                  dortige Datenverarbeitung.
-                </p>
-              </section>
-
-              <section class="legal-text-card">
-                <h3>8. Externe Links und App-Stores</h3>
+              <section class="legal-text-card-v3">
+                <h3>7. Instagram und externe Links</h3>
 
                 <p>
                   Auf dieser Website können Links zu externen Angeboten eingebunden sein, zum Beispiel Instagram,
-                  Google Maps, Apple App Store oder Google Play. Beim Öffnen solcher Links verlässt du die
-                  Nordkern-Fitness-Website. Für externe Anbieter gelten deren eigene Datenschutzinformationen.
+                  Google Maps, Apple App Store oder Google Play. Beim Öffnen solcher Links verlässt du die Website.
+                  Für externe Anbieter gelten deren eigene Datenschutzinformationen.
                 </p>
               </section>
 
-              <section class="legal-text-card">
-                <h3>9. Google Maps</h3>
+              <section class="legal-text-card-v3">
+                <h3>8. Google Maps</h3>
 
                 <p>
                   Auf der Standortseite kann eine Karte von Google Maps eingebunden sein. Beim Laden der Karte
@@ -841,92 +705,53 @@
                 </p>
 
                 <p>
-                  Für eine echte geschäftliche Nutzung sollte geprüft werden, ob Google Maps erst nach Einwilligung
-                  geladen wird, zum Beispiel über eine 2-Klick-Lösung oder ein Consent-Management. Solange keine
-                  solche Lösung eingebaut ist, sollte die Datenschutzinformation dies transparent erklären.
+                  Für eine echte geschäftliche Nutzung sollte geprüft werden, ob Google Maps erst nach Einwilligung geladen wird.
                 </p>
               </section>
 
-              <section class="legal-text-card">
-                <h3>10. Cookies, lokale Speicherung und Analyse</h3>
+              <section class="legal-text-card-v3">
+                <h3>9. Cookies und Analyse</h3>
 
                 <p>
                   Diese Website setzt nach aktuellem Stand keine eigenen Analyse- oder Marketing-Cookies ein.
-                  Falls später Cookies, Tracking, lokale Speicherung, Newsletter, Zahlungsanbieter,
-                  App-Logins oder ähnliche Dienste ergänzt werden, müssen diese Datenschutzinformationen
-                  entsprechend erweitert und gegebenenfalls Einwilligungen eingeholt werden.
+                  Falls später Cookies, Tracking, Newsletter, Zahlungsanbieter, App-Logins oder ähnliche Dienste ergänzt werden,
+                  müssen diese Datenschutzinformationen erweitert werden.
                 </p>
               </section>
 
-              <section class="legal-text-card">
-                <h3>11. Speicherdauer</h3>
+              <section class="legal-text-card-v3">
+                <h3>10. Speicherdauer</h3>
 
                 <p>
-                  Personenbezogene Daten werden nur so lange gespeichert, wie dies für den jeweiligen Zweck
-                  erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen. Danach werden die Daten
-                  gelöscht oder gesperrt, soweit keine weitere rechtliche Grundlage für die Verarbeitung besteht.
+                  Personenbezogene Daten werden nur so lange gespeichert, wie dies für den jeweiligen Zweck erforderlich ist
+                  oder gesetzliche Aufbewahrungspflichten bestehen.
                 </p>
               </section>
 
-              <section class="legal-text-card">
-                <h3>12. Empfänger von Daten</h3>
+              <section class="legal-text-card-v3">
+                <h3>11. Rechte betroffener Personen</h3>
 
                 <p>
-                  Personenbezogene Daten können, soweit erforderlich, an technische Dienstleister, Hostinganbieter,
-                  Kommunikationsanbieter oder sonstige Empfänger übermittelt werden, wenn dies für den Betrieb der
-                  Website, die Bearbeitung von Anfragen oder die Erfüllung rechtlicher Pflichten erforderlich ist.
-                </p>
-
-                <p>
-                  Eine Weitergabe zu Werbezwecken erfolgt nicht, sofern nicht ausdrücklich etwas anderes angegeben
-                  und rechtlich zulässig umgesetzt wird.
+                  Betroffene Personen können nach Maßgabe der gesetzlichen Voraussetzungen insbesondere Auskunft,
+                  Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit, Widerspruch
+                  und Widerruf erteilter Einwilligungen verlangen.
                 </p>
               </section>
 
-              <section class="legal-text-card">
-                <h3>13. Rechte betroffener Personen</h3>
+              <section class="legal-text-card-v3">
+                <h3>12. Änderungen</h3>
 
                 <p>
-                  Betroffene Personen können nach Maßgabe der gesetzlichen Voraussetzungen insbesondere folgende
-                  Rechte geltend machen:
-                </p>
-
-                <ul>
-                  <li>Auskunft über gespeicherte personenbezogene Daten</li>
-                  <li>Berichtigung unrichtiger Daten</li>
-                  <li>Löschung personenbezogener Daten</li>
-                  <li>Einschränkung der Verarbeitung</li>
-                  <li>Datenübertragbarkeit</li>
-                  <li>Widerspruch gegen bestimmte Verarbeitungen</li>
-                  <li>Widerruf erteilter Einwilligungen mit Wirkung für die Zukunft</li>
-                </ul>
-              </section>
-
-              <section class="legal-text-card">
-                <h3>14. Beschwerderecht</h3>
-
-                <p>
-                  Wenn du der Ansicht bist, dass die Verarbeitung personenbezogener Daten gegen Datenschutzrecht
-                  verstößt, kannst du dich bei einer zuständigen Datenschutzaufsichtsbehörde beschweren.
-                </p>
-              </section>
-
-              <section class="legal-text-card">
-                <h3>15. Änderungen dieser Datenschutzinformationen</h3>
-
-                <p>
-                  Diese Datenschutzinformationen können angepasst werden, wenn sich die Website, eingebundene Dienste,
-                  technische Abläufe oder rechtliche Anforderungen ändern. Die Angaben müssen regelmäßig geprüft und
-                  bei Bedarf aktualisiert werden.
+                  Diese Datenschutzinformationen können angepasst werden, wenn sich Website, App, technische Abläufe,
+                  eingebundene Dienste oder rechtliche Anforderungen ändern.
                 </p>
               </section>
             </div>
 
-            <div class="info-note legal-note">
-              <p class="info-note-label">Noch final prüfen</p>
-
-              <p class="info-note-text">
-                Vor echter Nutzung müssen insbesondere Hosting, Google Maps, mögliche App-Funktionen, Zahlungsanbieter,
+            <div class="legal-note-v3">
+              <span>Noch final prüfen</span>
+              <p>
+                Vor echter Nutzung müssen insbesondere Hosting, Google Maps, App-Funktionen, Zahlungsanbieter,
                 Vertragsabschluss, Videoüberwachung, Cookies, Analyse-Tools und Auftragsverarbeitungsverträge geprüft werden.
               </p>
             </div>
@@ -940,238 +765,168 @@
           aria-labelledby="tab-agb"
           hidden
         >
-          <article class="legal-document">
-            <div class="legal-document-head">
+          <article class="legal-document-v3">
+            <div class="legal-document-head-v3">
               <p class="eyebrow">AGB</p>
 
               <h2>Allgemeine Geschäftsbedingungen.</h2>
 
               <p>
                 Die folgenden Bedingungen bilden einen strukturierten Entwurf für Nordkern Fitness.
-                Vor einer echten geschäftlichen Nutzung müssen sie an den tatsächlichen Betrieb,
-                die App, Zahlungsarten, Kündigungsregeln und Standortbedingungen angepasst und geprüft werden.
+                Vor echter geschäftlicher Nutzung müssen sie anhand des tatsächlichen Betriebs final geprüft werden.
               </p>
             </div>
 
-            <div class="legal-text-stack">
-              <section class="legal-text-card">
+            <div class="legal-text-stack-v3">
+              <section class="legal-text-card-v3">
                 <h3>1. Geltungsbereich</h3>
 
                 <p>
                   Diese Allgemeinen Geschäftsbedingungen gelten für die Nutzung von Angeboten von Nordkern Fitness,
-                  soweit sie wirksam in einen Vertrag einbezogen werden. Dazu können Mitgliedschaften,
-                  Tagespässe, digitale Zugänge, App-Funktionen und Studioleistungen gehören.
-                </p>
-
-                <p>
-                  Abweichende Bedingungen gelten nur, wenn sie ausdrücklich bestätigt wurden.
+                  soweit sie wirksam in einen Vertrag einbezogen werden. Dazu können Mitgliedschaften, Tagespässe,
+                  digitale Zugänge, App-Funktionen und Studioleistungen gehören.
                 </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>2. Vertragspartner</h3>
 
-                <p>Vertragspartner ist:</p>
-
                 <p>
-                  <strong>Nordkern Fitness</strong><br />
-                  [vollständigen Betreibernamen ergänzen]<br />
-                  [Anschrift ergänzen]
+                  Vertragspartner ist Nordkern Fitness, vertreten durch den noch final einzutragenden Betreiber.
+                  Die vollständigen Anbieterangaben ergeben sich aus dem Impressum.
                 </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>3. Vertragsschluss</h3>
 
                 <p>
-                  Ein Vertrag kommt zustande, wenn ein Nutzer ein Nordkern-Fitness-Angebot auswählt und der Vertragsschluss
-                  nach den jeweils vorgesehenen Schritten bestätigt wird. Details ergeben sich aus der
-                  Buchungsübersicht, der App oder den Vertragsunterlagen.
-                </p>
-
-                <p>
-                  Preise, Laufzeiten, Leistungen und besondere Hinweise werden vor Vertragsschluss transparent angezeigt.
+                  Ein Vertrag kommt zustande, wenn ein Nutzer ein Nordkern-Fitness-Angebot auswählt
+                  und der Vertragsschluss nach den jeweils vorgesehenen Schritten bestätigt wird.
+                  Preise, Laufzeiten und Leistungen werden vor Vertragsschluss angezeigt.
                 </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>4. Mitgliedschaften</h3>
 
                 <p>
-                  Nordkern Fitness kann verschiedene Mitgliedschaftsmodelle anbieten. Preise, Mindestlaufzeiten, Leistungen,
-                  Zahlungsbedingungen und Kündigungsregeln ergeben sich aus dem jeweils gewählten Tarif, der
-                  Buchungsübersicht und den Vertragsunterlagen.
-                </p>
-
-                <p>
-                  Eine Mitgliedschaft ist persönlich und darf nicht auf andere Personen übertragen werden,
-                  sofern nicht ausdrücklich etwas anderes vereinbart wurde.
+                  Nordkern Fitness kann verschiedene Mitgliedschaftsmodelle anbieten.
+                  Preise, Mindestlaufzeiten, Leistungen, Zahlungsbedingungen und Kündigungsregeln ergeben sich
+                  aus dem jeweils gewählten Tarif, der Buchungsübersicht und den Vertragsunterlagen.
                 </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>5. Tagespass</h3>
 
                 <p>
-                  Tagespässe ermöglichen einen zeitlich begrenzten Zugang zum Studio. Der genaue Leistungsumfang,
-                  die Gültigkeit, der Preis und die Nutzungsbedingungen ergeben sich aus dem jeweiligen Angebot.
-                </p>
-
-                <p>
-                  Ein Tagespass begründet keine laufende Mitgliedschaft, sofern dies im Buchungsprozess nicht
-                  ausdrücklich anders vereinbart wird.
+                  Tagespässe ermöglichen einen zeitlich begrenzten Zugang zum Studio.
+                  Der Tagespass begründet keine laufende Mitgliedschaft, sofern im Buchungsprozess nicht ausdrücklich
+                  etwas anderes vereinbart wird.
                 </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>6. Zugang und App</h3>
 
                 <p>
-                  Der Zugang zum Studio kann digital über die Nordkern Fitness App, einen QR-Code oder ein vergleichbares
-                  Zugangssystem erfolgen. Zugangsdaten sind persönlich und dürfen nicht an andere Personen weitergegeben werden.
-                </p>
-
-                <p>
-                  Eine Weitergabe von Zugangsdaten, das Mitnehmen nicht berechtigter Personen oder sonstiger
-                  Missbrauch kann zu einer Sperrung des Zugangs, einem Hausverbot und weiteren angemessenen Maßnahmen führen.
+                  Der Zugang zum Studio kann digital über die Nordkern Fitness App, einen QR-Code
+                  oder ein vergleichbares Zugangssystem erfolgen. Zugangsdaten sind persönlich und dürfen nicht weitergegeben werden.
                 </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>7. Hausordnung</h3>
 
                 <p>
-                  Die Nutzung des Studios setzt die Einhaltung der jeweils gültigen Hausordnung voraus. Die Hausordnung
-                  regelt insbesondere Zutritt, Rücksichtnahme, Hygiene, Gerätenutzung, Sicherheit, Privatsphäre
-                  und Verhalten im Studio.
-                </p>
-
-                <p>
-                  Verstöße gegen die Hausordnung können zu Verwarnung, Zugangssperre, Hausverbot oder weiteren
-                  angemessenen Maßnahmen führen.
+                  Die Nutzung des Studios setzt die Einhaltung der jeweils gültigen Hausordnung voraus.
+                  Verstöße können zu Verwarnung, Zugangssperre, Hausverbot oder weiteren angemessenen Maßnahmen führen.
                 </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>8. Zahlung</h3>
 
                 <p>
                   Zahlungsarten, Fälligkeiten, Abbuchungen und mögliche Gebühren ergeben sich aus dem jeweiligen Vertrag,
-                  der Buchungsübersicht oder den Zahlungsinformationen. Diese Bedingungen müssen vor echter Nutzung
-                  vollständig festgelegt und rechtlich geprüft werden.
+                  der Buchungsübersicht oder den Zahlungsinformationen. Diese Bedingungen müssen vor echter Nutzung vollständig festgelegt werden.
                 </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>9. Laufzeit und Kündigung</h3>
 
                 <p>
                   Laufzeiten, Mindestvertragslaufzeiten, Verlängerungen und Kündigungsfristen richten sich nach dem
-                  jeweils abgeschlossenen Vertrag und den gesetzlichen Vorgaben. Diese Angaben werden im Buchungsprozess
-                  klar und transparent dargestellt.
-                </p>
-
-                <p>
-                  Kündigungen müssen über die vorgesehenen Kontakt- oder App-Funktionen möglich sein, sobald diese
-                  rechtlich und technisch final umgesetzt sind.
+                  jeweils abgeschlossenen Vertrag und den gesetzlichen Vorgaben. Kündigungen sollen über die vorgesehenen
+                  Kontakt- oder App-Funktionen möglich sein, sobald diese final umgesetzt sind.
                 </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>10. Widerruf und Verbraucherrechte</h3>
 
                 <p>
                   Sofern ein Vertrag mit Verbrauchern online oder außerhalb von Geschäftsräumen geschlossen wird,
-                  können gesetzliche Widerrufsrechte bestehen. Einzelheiten müssen vor Vertragsschluss klar und
-                  gesetzeskonform bereitgestellt werden.
-                </p>
-
-                <p>
-                  Für eine echte Nutzung müssen Widerrufsbelehrung, Muster-Widerrufsformular und mögliche Ausnahmen
-                  rechtlich geprüft und ergänzt werden.
+                  können gesetzliche Widerrufsrechte bestehen. Widerrufsbelehrung, Muster-Widerrufsformular
+                  und mögliche Ausnahmen müssen vor echter Nutzung geprüft und ergänzt werden.
                 </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>11. Gesundheit und Eigenverantwortung</h3>
 
                 <p>
                   Mitglieder und Nutzer trainieren eigenverantwortlich. Bei gesundheitlichen Beschwerden,
-                  Vorerkrankungen, Unsicherheiten, Schmerzen oder sonstigen Risiken sollte vor dem Training
-                  ärztlicher Rat eingeholt werden.
-                </p>
-
-                <p>
-                  Übungen, Geräte und Trainingsgewichte sind so zu wählen, dass keine unnötigen Risiken für sich selbst
-                  oder andere entstehen.
+                  Vorerkrankungen, Schmerzen oder Unsicherheiten sollte vor dem Training ärztlicher Rat eingeholt werden.
                 </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>12. Geräte, Räume und Schäden</h3>
 
                 <p>
                   Geräte, Trainingsflächen, Umkleidebereiche und sonstige Einrichtungen sind sorgfältig und
                   bestimmungsgemäß zu nutzen. Schäden, Defekte oder gefährliche Situationen sind unverzüglich zu melden.
                 </p>
-
-                <p>
-                  Nutzer haften für Schäden, die sie schuldhaft verursachen. Eine Abrechnung von Schäden erfolgt
-                  nach den gesetzlichen Vorschriften.
-                </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>13. Haftung</h3>
 
                 <p>
-                  Für Schäden haftet Nordkern Fitness nach Maßgabe der gesetzlichen Vorschriften. Die Haftung für Schäden
-                  aus der Verletzung des Lebens, des Körpers oder der Gesundheit sowie für vorsätzlich oder grob
-                  fahrlässig verursachte Schäden bleibt unberührt.
-                </p>
-
-                <p>
-                  Für mitgebrachte Gegenstände besteht eine Haftung nur im Rahmen der gesetzlichen Bestimmungen.
+                  Für Schäden haftet Nordkern Fitness nach Maßgabe der gesetzlichen Vorschriften.
+                  Die Haftung für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit
+                  sowie für vorsätzlich oder grob fahrlässig verursachte Schäden bleibt unberührt.
                 </p>
               </section>
 
-              <section class="legal-text-card">
+              <section class="legal-text-card-v3">
                 <h3>14. Änderungen von Leistungen</h3>
 
                 <p>
                   Änderungen von Öffnungszeiten, Standorten, App-Funktionen, Zugangssystemen oder Studioleistungen
-                  können aus sachlichen Gründen erforderlich sein. Vertragsrelevante Änderungen erfolgen nur, soweit
-                  sie rechtlich zulässig sind und transparent kommuniziert werden.
+                  können aus sachlichen Gründen erforderlich sein und werden transparent kommuniziert.
                 </p>
               </section>
 
-              <section class="legal-text-card">
-                <h3>15. Datenschutz</h3>
-
-                <p>
-                  Informationen zur Verarbeitung personenbezogener Daten ergeben sich aus den Datenschutzinformationen
-                  auf dieser Website, aus Hinweisen in der App und aus weiteren Informationen vor Ort.
-                </p>
-              </section>
-
-              <section class="legal-text-card">
-                <h3>16. Schlussbestimmungen</h3>
+              <section class="legal-text-card-v3">
+                <h3>15. Schlussbestimmungen</h3>
 
                 <p>
                   Es gilt deutsches Recht, soweit keine zwingenden Verbraucherschutzvorschriften entgegenstehen.
-                  Sollten einzelne Bestimmungen unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen
-                  Bestimmungen unberührt.
+                  Sollten einzelne Bestimmungen unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.
                 </p>
               </section>
             </div>
 
-            <div class="info-note legal-note">
-              <p class="info-note-label">Rechtlich prüfen lassen</p>
-
-              <p class="info-note-text">
-                Diese AGB sind ein strukturierter Entwurf. Vor echter geschäftlicher Nutzung müssen sie anhand des
-                tatsächlichen Geschäftsmodells, der Mitgliedschaften, Zahlungsarten, Kündigungsregeln, App-Funktionen,
-                Widerrufsbelehrung, Videoüberwachung und Standortbedingungen rechtlich geprüft und finalisiert werden.
+            <div class="legal-note-v3">
+              <span>Rechtlich prüfen lassen</span>
+              <p>
+                Diese AGB sind ein Entwurf. Vor echter geschäftlicher Nutzung müssen sie anhand von Geschäftsmodell,
+                Mitgliedschaften, Zahlungsarten, Kündigungsregeln, App-Funktionen, Widerrufsbelehrung,
+                Videoüberwachung und Standortbedingungen geprüft und finalisiert werden.
               </p>
             </div>
           </article>
@@ -1183,81 +938,5 @@
   <div data-footer></div>
 
   <script src="js/main.js"></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const tabButtons = document.querySelectorAll(".legal-tab-button");
-      const panels = document.querySelectorAll(".legal-panel");
-      const allowedTabs = ["impressum", "datenschutz", "agb"];
-
-      const activateTab = (tabName, updateHash) => {
-        const selectedTab = allowedTabs.includes(tabName) ? tabName : "impressum";
-
-        tabButtons.forEach((button) => {
-          const isActive = button.dataset.tab === selectedTab;
-          button.classList.toggle("is-active", isActive);
-          button.setAttribute("aria-selected", String(isActive));
-          button.tabIndex = isActive ? 0 : -1;
-        });
-
-        panels.forEach((panel) => {
-          const isActive = panel.id === `panel-${selectedTab}`;
-          panel.classList.toggle("is-active", isActive);
-          panel.hidden = !isActive;
-        });
-
-        if (updateHash) {
-          window.history.pushState(null, "", `#${selectedTab}`);
-        }
-      };
-
-      const readHash = () => {
-        const hash = window.location.hash.replace("#", "");
-        activateTab(hash || "impressum", false);
-      };
-
-      tabButtons.forEach((button, index) => {
-        button.addEventListener("click", () => {
-          activateTab(button.dataset.tab, true);
-        });
-
-        button.addEventListener("keydown", (event) => {
-          const key = event.key;
-
-          if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(key)) return;
-
-          event.preventDefault();
-
-          let nextIndex = index;
-
-          if (key === "ArrowLeft") {
-            nextIndex = index === 0 ? tabButtons.length - 1 : index - 1;
-          }
-
-          if (key === "ArrowRight") {
-            nextIndex = index === tabButtons.length - 1 ? 0 : index + 1;
-          }
-
-          if (key === "Home") {
-            nextIndex = 0;
-          }
-
-          if (key === "End") {
-            nextIndex = tabButtons.length - 1;
-          }
-
-          const nextButton = tabButtons[nextIndex];
-          if (!nextButton) return;
-
-          nextButton.focus();
-          activateTab(nextButton.dataset.tab, true);
-        });
-      });
-
-      readHash();
-
-      window.addEventListener("hashchange", readHash);
-    });
-  </script>
 </body>
 </html>
