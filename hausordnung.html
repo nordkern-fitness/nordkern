@@ -7,7 +7,7 @@
   <title>Nordkern Fitness – Hausordnung</title>
   <meta
     name="description"
-    content="Die Nordkern Fitness Hausordnung: klare Regeln für Zutritt, Training, Hygiene, Rücksicht, Sicherheit und Datenschutz im Studio."
+    content="Hausordnung von Nordkern Fitness: Regeln für Zutritt, Training, Sicherheit, Hygiene, Rücksichtnahme, Kameraüberwachung und Verhalten im Studio."
   />
 
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=3" />
@@ -18,258 +18,387 @@
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
-    .house-page {
+    .house-page-v3 {
+      background: #ffffff;
+    }
+
+    .house-hero-v3 {
+      min-height: 76vh;
       display: grid;
-      gap: 0;
-      background: #ffffff;
-    }
-
-    .house-hero-clean {
-      position: relative;
-      overflow: hidden;
-      padding: max(9rem, 13vh) 0 clamp(3.5rem, 6vw, 5.4rem);
-      background: #ffffff;
-    }
-
-    .house-hero-inner {
-      max-width: 960px;
-      margin-inline: auto;
+      place-items: center;
+      padding: max(9rem, 14vh) 1rem clamp(4rem, 6vw, 6rem);
       text-align: center;
+      background: #ffffff;
     }
 
-    .house-hero-title {
+    .house-hero-inner-v3 {
+      width: min(100%, 1000px);
+      margin-inline: auto;
+    }
+
+    .house-hero-v3 h1 {
       color: var(--text);
-      font-size: clamp(3rem, 6vw, 6rem);
-      line-height: 0.93;
-      letter-spacing: -0.068em;
+      font-size: clamp(3.6rem, 6.8vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: -0.074em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .house-hero-title span {
-      color: var(--nf-green);
-    }
-
-    .house-hero-text {
-      max-width: 720px;
+    .house-hero-v3 p:not(.eyebrow) {
+      max-width: 740px;
       margin: 1rem auto 0;
       color: var(--text-soft);
-      font-size: clamp(1.03rem, 1.35vw, 1.22rem);
-      line-height: 1.5;
+      font-size: clamp(1.05rem, 1.32vw, 1.22rem);
+      line-height: 1.48;
       letter-spacing: -0.018em;
       text-wrap: balance;
     }
 
-    .house-module-section {
-      padding: 0.75rem;
+    .house-intro-section-v3,
+    .house-rules-section-v3,
+    .house-safety-section-v3,
+    .house-final-section-v3 {
+      padding: 0 0.75rem 0.75rem;
       background: #ffffff;
     }
 
-    .house-rules-shell {
-      width: 100%;
-      padding: clamp(1.25rem, 3vw, 2rem);
-      border-radius: var(--module-radius);
-      background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      overflow: hidden;
-    }
-
-    .house-start-note {
-      max-width: 920px;
-      margin: 0 auto 1rem;
-      padding: 1.15rem 1.25rem;
-      border-radius: var(--card-radius);
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-    }
-
-    .house-start-note p {
-      color: var(--text-soft);
-      font-size: 1rem;
-      line-height: 1.55;
-      letter-spacing: -0.014em;
-    }
-
-    .house-start-note strong {
-      color: var(--text);
-      font-weight: 780;
-    }
-
-    .house-rules-grid-clean {
+    .house-intro-panel-v3 {
+      min-height: clamp(520px, 62vh, 720px);
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.42fr);
       gap: 0.75rem;
-      margin-top: 0.75rem;
+      align-items: stretch;
     }
 
-    .house-rule-card-clean {
-      min-height: 390px;
+    .house-principle-v3,
+    .house-applies-v3 {
       display: flex;
       flex-direction: column;
-      padding: 1.22rem;
-      border-radius: var(--card-radius);
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      box-shadow: none;
+      justify-content: center;
+      padding: clamp(1.4rem, 3.8vw, 3rem);
+      background: #f5f5f7;
     }
 
-    .house-rule-number {
-      width: fit-content;
-      margin-bottom: 2.4rem;
-      color: var(--nf-green);
-      font-size: 0.78rem;
-      font-weight: 860;
-      letter-spacing: 0.06em;
-    }
-
-    .house-rule-card-clean h3 {
-      max-width: 12ch;
-      margin-bottom: 0.9rem;
+    .house-principle-v3 h2 {
+      max-width: 760px;
       color: var(--text);
-      font-size: clamp(1.65rem, 2.45vw, 2.35rem);
-      line-height: 1;
-      letter-spacing: -0.055em;
+      font-size: clamp(3rem, 5.7vw, 6rem);
+      line-height: 0.93;
+      letter-spacing: -0.07em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .house-rule-card-clean ul {
-      display: grid;
-      gap: 0.62rem;
-      margin-top: auto;
+    .house-principle-v3 p,
+    .house-applies-v3 p {
+      max-width: 680px;
+      margin-top: 1rem;
+      color: var(--text-soft);
+      font-size: clamp(1.02rem, 1.28vw, 1.16rem);
+      line-height: 1.52;
+      letter-spacing: -0.016em;
+      text-wrap: balance;
     }
 
-    .house-rule-card-clean li {
+    .house-applies-v3 h2 {
+      color: var(--text);
+      font-size: clamp(2.2rem, 4.1vw, 4.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.064em;
+      font-weight: 790;
+      text-wrap: balance;
+    }
+
+    .house-applies-list-v3 {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .house-applies-list-v3 li {
+      padding: 0.95rem 1rem;
+      border-radius: 14px;
+      color: var(--text);
+      background: #ffffff;
+      font-size: 0.98rem;
+      line-height: 1.38;
+      letter-spacing: -0.014em;
+      font-weight: 680;
+    }
+
+    .house-rules-panel-v3 {
+      padding: clamp(3.4rem, 6vw, 6rem) clamp(1rem, 4vw, 3rem);
+      background: #f5f5f7;
+    }
+
+    .house-rules-head-v3 {
+      max-width: 900px;
+      margin-bottom: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .house-rules-head-v3 h2 {
+      color: var(--text);
+      font-size: clamp(3rem, 5.7vw, 5.9rem);
+      line-height: 0.93;
+      letter-spacing: -0.07em;
+      font-weight: 790;
+      text-wrap: balance;
+    }
+
+    .house-rules-head-v3 p {
+      max-width: 720px;
+      margin-top: 1rem;
+      color: var(--text-soft);
+      font-size: clamp(1.02rem, 1.28vw, 1.16rem);
+      line-height: 1.52;
+      letter-spacing: -0.016em;
+      text-wrap: balance;
+    }
+
+    .house-rule-grid-v3 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .house-rule-card-v3 {
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(1rem, 2.2vw, 1.5rem);
+      border-radius: 14px;
+      background: #ffffff;
+    }
+
+    .house-rule-number-v3 {
+      color: var(--nf-green);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.055em;
+    }
+
+    .house-rule-card-v3 h3 {
+      max-width: 520px;
+      margin-top: 2.8rem;
+      color: var(--text);
+      font-size: clamp(1.9rem, 3.3vw, 3.35rem);
+      line-height: 0.96;
+      letter-spacing: -0.058em;
+      font-weight: 790;
+      text-wrap: balance;
+    }
+
+    .house-rule-card-v3 ul {
+      display: grid;
+      gap: 0.56rem;
+      margin-top: 1rem;
+    }
+
+    .house-rule-card-v3 li {
       position: relative;
-      padding-left: 1.05rem;
-      color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.46;
+      padding-left: 1.1rem;
+      color: var(--text-soft);
+      font-size: 0.98rem;
+      line-height: 1.48;
       letter-spacing: -0.012em;
     }
 
-    .house-rule-card-clean li::before {
+    .house-rule-card-v3 li::before {
       content: "";
       position: absolute;
       left: 0;
-      top: 0.68em;
+      top: 0.7em;
       width: 5px;
       height: 5px;
       border-radius: 999px;
       background: var(--nf-green);
     }
 
-    .house-note-grid-clean {
+    .house-safety-panel-v3 {
+      min-height: clamp(520px, 64vh, 760px);
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
       gap: 0.75rem;
-      margin-top: 0.75rem;
+      align-items: stretch;
     }
 
-    .house-note-card {
-      min-height: 210px;
+    .house-safety-copy-v3,
+    .house-safety-list-v3 {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 1.2rem;
-      border-radius: var(--card-radius);
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      box-shadow: none;
+      padding: clamp(1.4rem, 3.8vw, 3rem);
+      background: #f5f5f7;
     }
 
-    .house-note-label {
-      margin-bottom: 0.4rem;
-      color: var(--nf-green-dark);
-      font-size: 0.76rem;
-      font-weight: 860;
-      letter-spacing: 0.06em;
+    .house-safety-copy-v3 h2 {
+      color: var(--text);
+      font-size: clamp(2.8rem, 5vw, 5.2rem);
+      line-height: 0.94;
+      letter-spacing: -0.068em;
+      font-weight: 790;
+      text-wrap: balance;
+    }
+
+    .house-safety-copy-v3 p {
+      max-width: 580px;
+      margin-top: 1rem;
+      color: var(--text-soft);
+      font-size: clamp(1.02rem, 1.28vw, 1.16rem);
+      line-height: 1.52;
+      letter-spacing: -0.016em;
+      text-wrap: balance;
+    }
+
+    .house-note-list-v3 {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .house-note-v3 {
+      padding: 1rem;
+      border-radius: 14px;
+      background: #ffffff;
+    }
+
+    .house-note-v3 span {
+      display: block;
+      margin-bottom: 0.42rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.055em;
       text-transform: uppercase;
     }
 
-    .house-note-card p:not(.house-note-label) {
+    .house-note-v3 p {
       color: var(--text-soft);
-      font-size: 1rem;
-      line-height: 1.55;
-      letter-spacing: -0.014em;
+      font-size: 0.98rem;
+      line-height: 1.5;
+      letter-spacing: -0.012em;
     }
 
-    @media (max-width: 1100px) {
-      .house-rules-grid-clean {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .house-final-panel-v3 {
+      min-height: clamp(500px, 62vh, 720px);
+      display: grid;
+      place-items: center;
+      padding: clamp(4rem, 7vw, 7rem) 1.25rem;
+      text-align: center;
+      background: #f5f5f7;
+    }
+
+    .house-final-panel-v3 h2 {
+      max-width: 940px;
+      margin-inline: auto;
+      color: var(--text);
+      font-size: clamp(2.8rem, 5.5vw, 5.8rem);
+      line-height: 0.93;
+      letter-spacing: -0.07em;
+      font-weight: 790;
+      text-wrap: balance;
+    }
+
+    .house-final-panel-v3 p {
+      max-width: 720px;
+      margin: 1rem auto 0;
+      color: var(--text-soft);
+      font-size: clamp(1.02rem, 1.28vw, 1.16rem);
+      line-height: 1.5;
+      letter-spacing: -0.016em;
+      text-wrap: balance;
+    }
+
+    @media (max-width: 980px) {
+      .house-intro-panel-v3,
+      .house-safety-panel-v3 {
+        grid-template-columns: 1fr;
+      }
+
+      .house-rule-grid-v3 {
+        grid-template-columns: 1fr;
+      }
+
+      .house-rule-card-v3 {
+        min-height: 320px;
       }
     }
 
-    @media (max-width: 768px) {
-      .house-hero-clean {
+    @media (max-width: 720px) {
+      .house-hero-v3 {
+        min-height: 66vh;
         padding-top: max(8.6rem, 15vh);
-        padding-bottom: 3.5rem;
       }
 
-      .house-hero-title {
-        font-size: clamp(2.45rem, 11.5vw, 3.95rem);
-        line-height: 0.96;
-        letter-spacing: -0.056em;
+      .house-hero-v3 h1 {
+        font-size: clamp(2.8rem, 12vw, 4.3rem);
+        line-height: 0.94;
       }
 
-      .house-hero-text {
+      .house-hero-v3 p:not(.eyebrow) {
         max-width: 34ch;
-        font-size: 1.02rem;
+        font-size: 1rem;
       }
 
-      .house-module-section {
-        padding: 0.65rem;
+      .house-intro-section-v3,
+      .house-rules-section-v3,
+      .house-safety-section-v3,
+      .house-final-section-v3 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-bottom: 0.5rem;
       }
 
-      .house-rules-shell {
-        padding: 1.15rem;
+      .house-intro-panel-v3,
+      .house-safety-panel-v3,
+      .house-rule-grid-v3 {
+        gap: 0.5rem;
       }
 
-      .house-start-note {
-        padding: 1.05rem 1.1rem;
+      .house-principle-v3,
+      .house-applies-v3,
+      .house-safety-copy-v3,
+      .house-safety-list-v3 {
+        padding: 3.4rem 1rem;
       }
 
-      .house-rules-grid-clean {
-        grid-template-columns: 1fr;
-        gap: 0.65rem;
+      .house-principle-v3 h2,
+      .house-rules-head-v3 h2,
+      .house-safety-copy-v3 h2,
+      .house-final-panel-v3 h2 {
+        font-size: clamp(2.35rem, 11vw, 3.75rem);
       }
 
-      .house-rule-card-clean {
-        min-height: auto;
-        padding: 1.15rem;
+      .house-applies-v3 h2 {
+        font-size: clamp(2.1rem, 10vw, 3.25rem);
       }
 
-      .house-rule-number {
-        margin-bottom: 1.75rem;
+      .house-principle-v3 p,
+      .house-applies-v3 p,
+      .house-rules-head-v3 p,
+      .house-safety-copy-v3 p,
+      .house-final-panel-v3 p {
+        max-width: 34ch;
+        font-size: 1rem;
       }
 
-      .house-rule-card-clean h3 {
-        max-width: 14ch;
-        font-size: clamp(1.55rem, 7.4vw, 2.15rem);
+      .house-rules-panel-v3 {
+        padding: 4rem 1rem;
       }
 
-      .house-note-grid-clean {
-        grid-template-columns: 1fr;
-        gap: 0.65rem;
-      }
-
-      .house-note-card {
-        min-height: auto;
-        padding: 1.15rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .house-hero-title {
-        font-size: clamp(2.25rem, 11vw, 3.35rem);
-      }
-
-      .house-module-section {
-        padding: 0.5rem;
-      }
-
-      .house-rules-shell {
+      .house-rule-card-v3 {
+        min-height: 300px;
         padding: 1rem;
+      }
+
+      .house-rule-card-v3 h3 {
+        font-size: clamp(1.8rem, 9vw, 2.85rem);
+      }
+
+      .house-final-panel-v3 {
+        min-height: 480px;
+        padding: 4rem 1rem;
       }
     }
   </style>
@@ -278,136 +407,259 @@
 <body>
   <div data-header></div>
 
-  <main class="house-page">
-    <section class="house-hero-clean" aria-labelledby="house-page-title">
-      <div class="container">
-        <div class="house-hero-inner">
-          <p class="eyebrow">Hausordnung</p>
+  <main class="house-page-v3">
+    <section class="house-hero-v3" aria-labelledby="house-page-title">
+      <div class="house-hero-inner-v3">
+        <p class="eyebrow">Hausordnung</p>
 
-          <h1 class="house-hero-title" id="house-page-title">
-            Ruhig trainieren.<br />
-            <span>Fair miteinander.</span>
-          </h1>
+        <h1 id="house-page-title">Damit Training ruhig bleibt.</h1>
 
-          <p class="house-hero-text">
-            Klare Regeln sorgen dafür, dass Nordkern Fitness ruhig, sauber und sicher bleibt.
-            Für Mitglieder, Tagespass-Nutzer und Besucher.
+        <p>
+          Die Hausordnung schützt Studio, Mitglieder und Atmosphäre.
+          Klar, fair und ohne unnötiges Drama.
+        </p>
+      </div>
+    </section>
+
+    <section class="house-intro-section-v3" aria-labelledby="house-principle-title">
+      <div class="house-intro-panel-v3">
+        <article class="house-principle-v3">
+          <p class="eyebrow">Grundsatz</p>
+
+          <h2 id="house-principle-title">Respekt vor Ort. Verantwortung beim Training.</h2>
+
+          <p>
+            Nordkern Fitness soll ein Studio sein, in dem man fokussiert trainieren kann.
+            Wer das Studio nutzt, geht sorgfältig mit Geräten, Räumen, anderen Personen
+            und dem digitalen Zugang um.
           </p>
+        </article>
+
+        <aside class="house-applies-v3" aria-labelledby="house-applies-title">
+          <div>
+            <p class="eyebrow">Gilt für</p>
+
+            <h2 id="house-applies-title">Alle, die das Studio betreten.</h2>
+
+            <p>
+              Die Regeln gelten unabhängig davon, ob du Mitglied bist,
+              einen Tagespass nutzt oder aus einem anderen berechtigten Grund im Studio bist.
+            </p>
+          </div>
+
+          <ul class="house-applies-list-v3">
+            <li>Mitglieder</li>
+            <li>Tagespass-Nutzer</li>
+            <li>Begleitpersonen, sofern zugelassen</li>
+            <li>Personal, Dienstleister und berechtigte Besucher</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="house-rules-section-v3" aria-labelledby="house-rules-title">
+      <div class="house-rules-panel-v3">
+        <div class="house-rules-head-v3">
+          <p class="eyebrow">Regeln</p>
+
+          <h2 id="house-rules-title">Was im Studio zählt.</h2>
+
+          <p>
+            Die Regeln sind nicht dafür da, Training kompliziert zu machen.
+            Sie sorgen dafür, dass ein 24/7-Studio sicher, sauber und angenehm funktioniert.
+          </p>
+        </div>
+
+        <div class="house-rule-grid-v3">
+          <article class="house-rule-card-v3">
+            <span class="house-rule-number-v3">01</span>
+
+            <div>
+              <h3>Zutritt nur mit gültiger Berechtigung.</h3>
+
+              <ul>
+                <li>Der Zutritt erfolgt über App, QR-Code oder ein anderes freigegebenes Zugangssystem.</li>
+                <li>Zugangsdaten sind persönlich und dürfen nicht weitergegeben werden.</li>
+                <li>Das Mitnehmen nicht berechtigter Personen ist nicht erlaubt.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="house-rule-card-v3">
+            <span class="house-rule-number-v3">02</span>
+
+            <div>
+              <h3>Rücksicht hat Vorrang.</h3>
+
+              <ul>
+                <li>Andere Mitglieder werden respektvoll behandelt.</li>
+                <li>Belästigung, Drohungen, Provokationen oder aggressives Verhalten sind verboten.</li>
+                <li>Training soll möglich sein, ohne dass andere sich unwohl fühlen.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="house-rule-card-v3">
+            <span class="house-rule-number-v3">03</span>
+
+            <div>
+              <h3>Geräte sauber und sicher nutzen.</h3>
+
+              <ul>
+                <li>Geräte sind bestimmungsgemäß zu verwenden.</li>
+                <li>Gewichte werden nach dem Training zurückgeräumt.</li>
+                <li>Defekte, Schäden oder gefährliche Situationen sind sofort zu melden.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="house-rule-card-v3">
+            <span class="house-rule-number-v3">04</span>
+
+            <div>
+              <h3>Hygiene gehört zum Training.</h3>
+
+              <ul>
+                <li>Bitte saubere Sportschuhe und geeignete Trainingskleidung tragen.</li>
+                <li>Geräte nach der Nutzung reinigen, wenn sie verschwitzt sind.</li>
+                <li>Müll gehört in die vorgesehenen Behälter.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="house-rule-card-v3">
+            <span class="house-rule-number-v3">05</span>
+
+            <div>
+              <h3>Keine unnötigen Risiken.</h3>
+
+              <ul>
+                <li>Trainiere nur mit Gewichten und Übungen, die du kontrollieren kannst.</li>
+                <li>Bei Schmerzen, Unwohlsein oder Unsicherheit Training abbrechen.</li>
+                <li>Fluchtwege, Eingänge und Notausgänge müssen frei bleiben.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="house-rule-card-v3">
+            <span class="house-rule-number-v3">06</span>
+
+            <div>
+              <h3>Privatsphäre respektieren.</h3>
+
+              <ul>
+                <li>Andere Personen dürfen nicht ungefragt fotografiert oder gefilmt werden.</li>
+                <li>In Umkleiden und Sanitärbereichen sind Fotos und Videos untersagt.</li>
+                <li>Content-Aufnahmen dürfen niemanden stören oder bloßstellen.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="house-rule-card-v3">
+            <span class="house-rule-number-v3">07</span>
+
+            <div>
+              <h3>Getränkeautomat fair nutzen.</h3>
+
+              <ul>
+                <li>Freigetränke und gekaufte Getränke werden über App-Konto oder QR-Code zugeordnet.</li>
+                <li>Kreatin ist optional und wird nicht automatisch hinzugefügt.</li>
+                <li>Missbrauch, Manipulation oder Weitergabe von Kontingenten ist nicht erlaubt.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="house-rule-card-v3">
+            <span class="house-rule-number-v3">08</span>
+
+            <div>
+              <h3>Hausrecht gilt.</h3>
+
+              <ul>
+                <li>Bei Verstößen können Verwarnung, Zugangssperre oder Hausverbot ausgesprochen werden.</li>
+                <li>Schäden können nach den gesetzlichen Regeln geltend gemacht werden.</li>
+                <li>Anweisungen von Nordkern Fitness oder beauftragten Personen sind zu beachten.</li>
+              </ul>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="house-module-section" aria-labelledby="house-rules-title">
-      <div class="house-rules-shell">
-        <div class="house-start-note">
+    <section class="house-safety-section-v3" aria-labelledby="house-safety-title">
+      <div class="house-safety-panel-v3">
+        <article class="house-safety-copy-v3">
+          <p class="eyebrow">Sicherheit</p>
+
+          <h2 id="house-safety-title">24/7 braucht klare Regeln.</h2>
+
           <p>
-            <strong>Hinweis:</strong> Mit dem Betreten des Studios erkennst du diese Hausordnung an.
-            Sie gilt für Mitglieder, Tagespass-Nutzer und Besucher und ergänzt Vertrag, AGB und Datenschutzinformationen.
+            Ein digitales Studio funktioniert nur, wenn Zugang, Verhalten und Sicherheit
+            ernst genommen werden. Deshalb gibt es sichtbare Hinweise vor Ort,
+            digitale Zugangskontrolle und klare Notfallinformationen.
           </p>
+        </article>
+
+        <aside class="house-safety-list-v3" aria-label="Sicherheitshinweise">
+          <div class="house-note-list-v3">
+            <div class="house-note-v3">
+              <span>Notfall</span>
+              <p>
+                Notrufnummern und Hinweise für Notfälle werden sichtbar im Studio ausgehängt.
+                In akuten Notfällen gilt: sofort den Notruf wählen.
+              </p>
+            </div>
+
+            <div class="house-note-v3">
+              <span>Überwachung</span>
+              <p>
+                Kameraüberwachung und digitale Zugangskontrolle sind vorgesehen,
+                um Sicherheit, Nachvollziehbarkeit und Hausrecht zu unterstützen.
+              </p>
+            </div>
+
+            <div class="house-note-v3">
+              <span>Minderjährige</span>
+              <p>
+                Für Nutzer unter 18 Jahren sind Zustimmung beziehungsweise Bestätigung
+                der Erziehungsberechtigten und eine Altersprüfung vorgesehen.
+              </p>
+            </div>
+
+            <div class="house-note-v3">
+              <span>Standort</span>
+              <p>
+                Im Studio Grevesmühlen sind Umkleiden, Toiletten, Waschbecken und Spinde vorgesehen.
+                Duschen sind dort nicht geplant.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="house-final-section-v3" aria-labelledby="house-final-title">
+      <div class="house-final-panel-v3">
+        <div>
+          <p class="eyebrow">Nordkern Fitness</p>
+
+          <h2 id="house-final-title">Ruhiges Studio. Klare Verantwortung.</h2>
+
+          <p>
+            Die Hausordnung ist die Grundlage dafür, dass Nordkern Fitness sauber,
+            sicher und fair bleibt — für alle, die dort trainieren.
+          </p>
+
+          <div class="product-actions">
+            <a href="mitgliedschaften.html" class="product-link product-link-primary">
+              Tarife ansehen
+            </a>
+
+            <a href="kontakt.html" class="product-link product-link-secondary">
+              Frage stellen
+            </a>
+          </div>
         </div>
-
-        <section class="house-rules-grid-clean" aria-label="Regeln der Nordkern Fitness Hausordnung">
-          <article class="house-rule-card-clean">
-            <span class="house-rule-number" aria-hidden="true">01</span>
-
-            <h3 id="house-rules-title">Zutritt nur persönlich.</h3>
-
-            <ul>
-              <li>Zutritt nur mit gültiger Mitgliedschaft oder aktivem Tagespass.</li>
-              <li>App-Zugang, QR-Code und Zugangsdaten dürfen nicht weitergegeben werden.</li>
-              <li>Das Mitnehmen weiterer Personen beim Ein- oder Ausgang ist nicht erlaubt.</li>
-              <li>Bei Missbrauch kann der Zugang gesperrt und das Hausrecht ausgeübt werden.</li>
-            </ul>
-          </article>
-
-          <article class="house-rule-card-clean">
-            <span class="house-rule-number" aria-hidden="true">02</span>
-
-            <h3>Rücksicht bleibt Pflicht.</h3>
-
-            <ul>
-              <li>Andere Mitglieder, Gäste und Mitarbeitende sind respektvoll zu behandeln.</li>
-              <li>Beleidigungen, Bedrängen, aggressives Verhalten oder Belästigung sind verboten.</li>
-              <li>Telefonate, Musik und Gespräche dürfen andere nicht unnötig stören.</li>
-              <li>Training soll möglich sein, ohne dass sich andere unwohl fühlen.</li>
-            </ul>
-          </article>
-
-          <article class="house-rule-card-clean">
-            <span class="house-rule-number" aria-hidden="true">03</span>
-
-            <h3>Sauber trainieren.</h3>
-
-            <ul>
-              <li>Training nur mit sauberer Sportkleidung und geeigneten Sportschuhen.</li>
-              <li>Auf Geräten und Polstern ist ein Handtuch zu nutzen.</li>
-              <li>Geräte, Matten und Cardiobereiche sind nach der Nutzung zu reinigen.</li>
-              <li>Müll gehört in die vorgesehenen Behälter.</li>
-            </ul>
-          </article>
-
-          <article class="house-rule-card-clean">
-            <span class="house-rule-number" aria-hidden="true">04</span>
-
-            <h3>Geräte ordentlich nutzen.</h3>
-
-            <ul>
-              <li>Geräte dürfen nur bestimmungsgemäß und sorgfältig genutzt werden.</li>
-              <li>Hanteln, Scheiben, Matten und Zubehör sind nach Nutzung zurückzuräumen.</li>
-              <li>Geräte sollen nicht unnötig lange blockiert werden.</li>
-              <li>Defekte, Schäden oder gefährliche Situationen sind unverzüglich zu melden.</li>
-            </ul>
-          </article>
-
-          <article class="house-rule-card-clean">
-            <span class="house-rule-number" aria-hidden="true">05</span>
-
-            <h3>Sicherheit geht vor.</h3>
-
-            <ul>
-              <li>Trainiere nur, wenn du gesundheitlich dazu in der Lage bist.</li>
-              <li>Bei Unsicherheit über Übungen oder Geräte nicht auf Risiko trainieren.</li>
-              <li>Fluchtwege, Türen und Notausgänge müssen jederzeit frei bleiben.</li>
-              <li>Rauchen, Drogen und missbräuchlicher Alkoholkonsum sind im Studio verboten.</li>
-            </ul>
-          </article>
-
-          <article class="house-rule-card-clean">
-            <span class="house-rule-number" aria-hidden="true">06</span>
-
-            <h3>Privatsphäre respektieren.</h3>
-
-            <ul>
-              <li>Andere Personen dürfen nicht ungefragt fotografiert oder gefilmt werden.</li>
-              <li>Aufnahmen in Umkleide- und Sanitärbereichen sind grundsätzlich verboten.</li>
-              <li>Wertgegenstände bleiben in eigener Verantwortung.</li>
-              <li>Eine Videoüberwachung erfolgt, soweit eingesetzt, nur in gekennzeichneten Bereichen nach den Datenschutzinformationen.</li>
-            </ul>
-          </article>
-        </section>
-
-        <section class="house-note-grid-clean" aria-label="Zusätzliche Hinweise zur Hausordnung">
-          <article class="house-note-card">
-            <p class="house-note-label">Videoüberwachung & Datenschutz</p>
-
-            <p>
-              Eine Videoüberwachung kann ausschließlich in gekennzeichneten Bereichen zur Wahrnehmung
-              berechtigter Sicherheitsinteressen erfolgen. Umkleide- und Sanitärbereiche sind davon
-              ausgeschlossen. Weitere Informationen ergeben sich aus den Datenschutzinformationen vor Ort
-              und auf der Website.
-            </p>
-          </article>
-
-          <article class="house-note-card">
-            <p class="house-note-label">Konsequenzen bei Verstößen</p>
-
-            <p>
-              Verstöße gegen die Hausordnung können je nach Einzelfall zu Verwarnung,
-              Zugangssperre, Hausverbot oder weiteren angemessenen Maßnahmen führen.
-              Schäden durch unsachgemäße Nutzung können dem Verursacher in Rechnung gestellt werden.
-            </p>
-          </article>
-        </section>
       </div>
     </section>
   </main>
