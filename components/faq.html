@@ -220,6 +220,15 @@
     padding: 0 0.12em;
   }
 
+  .faq-keywords {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
   .faq-empty-v3 {
     display: none;
     padding: 1rem;
@@ -309,7 +318,7 @@
     <div class="faq-tools-v3">
       <div class="faq-search-v3">
         <label for="faq-search">FAQ durchsuchen</label>
-        <input id="faq-search" type="search" placeholder="z. B. Tagespass, QR-Code, Getränke, Duschen" autocomplete="off" />
+        <input id="faq-search" type="search" placeholder="z. B. kündigen, QR-Code, Duschen, Tagespass" autocomplete="off" />
       </div>
 
       <div class="faq-category-row-v3" aria-label="FAQ Kategorien">
@@ -339,27 +348,79 @@
             <summary><span class="faq-question-text">Welche Tarife gibt es bei Nordkern Fitness?</span></summary>
             <div class="faq-answer">
               Es gibt Basic, Plus, Pro und den Tagespass. Basic, Plus und Pro sind Mitgliedschaften mit unterschiedlichen Mindestlaufzeiten und Kontingenten. Der Tagespass ist ein einmaliger Zugang ohne laufende Mitgliedschaft.
+              <span class="faq-keywords" aria-hidden="true">abo preis preise kosten beitrag monat monatlich mitgliedschaft vertrag pakete plan membership basic plus pro</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="tarife">
+            <summary><span class="faq-question-text">Was ist der Unterschied zwischen Basic, Plus und Pro?</span></summary>
+            <div class="faq-answer">
+              Alle drei Tarife enthalten den 24/7-Zugang per App und QR-Code. Die Unterschiede liegen vor allem bei der Mindestlaufzeit sowie bei den monatlichen Getränke- und Kreatin-Kontingenten.
+              <span class="faq-keywords" aria-hidden="true">unterschied vergleich welcher tarif bester tarif basic plus pro kontingent laufzeit getränke kreatin</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="tarife">
+            <summary><span class="faq-question-text">Welcher Tarif passt zu mir?</span></summary>
+            <div class="faq-answer">
+              Basic ist der klare Einstieg, Plus ist der ausgewogene Mittelweg und Pro ist für regelmäßige Nutzung mit kürzerer Mindestlaufzeit und größeren Kontingenten gedacht. Der Tagespass ist sinnvoll, wenn du das Studio nur einmal testen möchtest.
+              <span class="faq-keywords" aria-hidden="true">empfehlung welcher vertrag lohnt sich anfänger einsteiger regelmäßig oft trainieren testen probieren</span>
             </div>
           </details>
 
           <details class="faq-item" data-category="tarife">
             <summary><span class="faq-question-text">Kann ich meine Mitgliedschaft auf der Website kaufen?</span></summary>
             <div class="faq-answer">
-              Nein. Mitgliedschaften, Tagespass, zusätzliche Getränke und Kreatin-Auswahlen werden in der App verwaltet und gebucht.
+              Nein. Mitgliedschaften, Tagespass, zusätzliche Getränke und Kreatin-Auswahlen werden über die App verwaltet und gebucht.
+              <span class="faq-keywords" aria-hidden="true">online kaufen website bestellen buchen abschließen kaufen zahlung checkout app</span>
             </div>
           </details>
 
           <details class="faq-item" data-category="tarife">
             <summary><span class="faq-question-text">Kann ich meinen Tarif später wechseln?</span></summary>
             <div class="faq-answer">
-              Tarifwechsel sollen über die App möglich sein. Die genauen Regeln hängen vom bestehenden Tarif, der Mindestlaufzeit und den finalen Vertragsbedingungen ab.
+              Ein Tarifwechsel soll über die App möglich sein. Die genauen Regeln hängen vom bestehenden Tarif, der Mindestlaufzeit und den finalen Vertragsbedingungen ab.
+              <span class="faq-keywords" aria-hidden="true">wechseln upgrade downgrade tarifwechsel ändern basic zu plus plus zu pro vertrag ändern</span>
             </div>
           </details>
 
           <details class="faq-item" data-category="tarife">
-            <summary><span class="faq-question-text">Was ist in Basic, Plus und Pro enthalten?</span></summary>
+            <summary><span class="faq-question-text">Kann ich eine Mitgliedschaft pausieren?</span></summary>
             <div class="faq-answer">
-              Alle Mitgliedschaften enthalten den 24/7-Zugang per App und QR-Code. Die Unterschiede liegen vor allem bei Mindestlaufzeit sowie Getränke- und Kreatin-Kontingenten.
+              Eine Pausenfunktion ist noch nicht final festgelegt. Falls sie angeboten wird, werden Bedingungen, Dauer und Nachweise in der App beziehungsweise in den Vertragsinformationen angezeigt.
+              <span class="faq-keywords" aria-hidden="true">pause pausieren aussetzen krankheit urlaub verletzt einfrieren freeze beitrag stoppen</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="tarife">
+            <summary><span class="faq-question-text">Gibt es eine Aufnahmegebühr?</span></summary>
+            <div class="faq-answer">
+              Ob eine Aufnahmegebühr, Aktivierungsgebühr oder Startgebühr anfällt, wird final in der App und vor Vertragsschluss angezeigt.
+              <span class="faq-keywords" aria-hidden="true">aufnahmegebühr startgebühr aktivierungsgebühr gebühr einmalig anmelden registrieren kosten</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="tarife">
+            <summary><span class="faq-question-text">Sind Getränke und Kreatin im Preis enthalten?</span></summary>
+            <div class="faq-answer">
+              Je nach Tarif sind bestimmte monatliche Kontingente enthalten. Zusätzliche Getränke oder Kreatin-Auswahlen können separat in der App beziehungsweise am Automaten geregelt werden.
+              <span class="faq-keywords" aria-hidden="true">inklusive enthalten freigetränk freigetränke shake kreatin booster automat kontingent</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="tarife">
+            <summary><span class="faq-question-text">Was passiert nach der Mindestlaufzeit?</span></summary>
+            <div class="faq-answer">
+              Nach Ablauf der Mindestlaufzeit läuft die Mitgliedschaft regulär weiter, sofern sie nicht gekündigt wurde. Die genauen Verlängerungs- und Kündigungsregeln werden im Vertrag und in der App angezeigt.
+              <span class="faq-keywords" aria-hidden="true">verlängerung automatisch verlängert vertragsende mindestlaufzeit laufzeit danach monatlich kündbar</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="tarife">
+            <summary><span class="faq-question-text">Kann ich mehrere Tarife gleichzeitig haben?</span></summary>
+            <div class="faq-answer">
+              In der Regel ist eine aktive Mitgliedschaft pro Person vorgesehen. Zusätzliche Tagespässe oder Sonderfälle werden in der App geregelt.
+              <span class="faq-keywords" aria-hidden="true">mehrere verträge zwei mitgliedschaften doppelt account profil tarif gleichzeitig</span>
             </div>
           </details>
         </section>
@@ -370,7 +431,8 @@
           <details class="faq-item" data-category="tagespass">
             <summary><span class="faq-question-text">Gibt es ein kostenloses Probetraining?</span></summary>
             <div class="faq-answer">
-              Nein. Statt eines kostenlosen Probetrainings ist der Tagespass vorgesehen. Damit kannst du das Studio einmalig testen, ohne direkt eine Mitgliedschaft abzuschließen.
+              Nein. Statt eines kostenlosen Probetrainings ist der Tagespass vorgesehen. Damit kannst du das Studio testen, ohne direkt eine Mitgliedschaft abzuschließen.
+              <span class="faq-keywords" aria-hidden="true">probetraining gratis kostenlos testen probieren schnuppertraining testtraining probe training</span>
             </div>
           </details>
 
@@ -378,20 +440,55 @@
             <summary><span class="faq-question-text">Wann startet der Tagespass?</span></summary>
             <div class="faq-answer">
               Der Tagespass startet nicht automatisch beim Kauf. Er wird in deinem Profil hinterlegt und beginnt erst, wenn du ihn beim Betreten des Studios über die App aktivierst und den QR-Code nutzt.
+              <span class="faq-keywords" aria-hidden="true">start aktivieren 24 stunden gültigkeit beginn kauf sofort später qr code einlösen</span>
             </div>
           </details>
 
           <details class="faq-item" data-category="tagespass">
-            <summary><span class="faq-question-text">Entsteht aus dem Tagespass eine Mitgliedschaft?</span></summary>
+            <summary><span class="faq-question-text">Wie lange ist der Tagespass gültig?</span></summary>
+            <div class="faq-answer">
+              Der Tagespass ist als zeitlich begrenzter Zugang gedacht. Die genaue Nutzungsdauer und Aktivierung werden in der App angezeigt.
+              <span class="faq-keywords" aria-hidden="true">gültig gültigkeit dauer 24h 24 stunden ein tag zugang zeitfenster ablauf</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="tagespass">
+            <summary><span class="faq-question-text">Entsteht aus dem Tagespass automatisch eine Mitgliedschaft?</span></summary>
             <div class="faq-answer">
               Nein. Der Tagespass ist ein einmaliger Zugang und endet automatisch. Daraus entsteht keine laufende Mitgliedschaft.
+              <span class="faq-keywords" aria-hidden="true">abo falle automatisch vertrag monatlich bindung kündigen einmalig kein abo</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="tagespass">
+            <summary><span class="faq-question-text">Kann ich den Tagespass mehrmals kaufen?</span></summary>
+            <div class="faq-answer">
+              Ja, grundsätzlich soll ein Tagespass mehrfach gekauft werden können. Die finalen Regeln und mögliche Einschränkungen werden in der App angezeigt.
+              <span class="faq-keywords" aria-hidden="true">mehrmals wieder kaufen nochmal erneut tageskarte tagesticket day pass</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="tagespass">
+            <summary><span class="faq-question-text">Kann ich den Tagespass verschenken oder weitergeben?</span></summary>
+            <div class="faq-answer">
+              Der Tagespass ist persönlich und an dein App-Konto beziehungsweise deinen QR-Code gebunden. Eine Weitergabe an andere Personen ist nicht vorgesehen.
+              <span class="faq-keywords" aria-hidden="true">verschenken übertragen weitergeben freund freundin familie anderer person account teilen</span>
             </div>
           </details>
 
           <details class="faq-item" data-category="tagespass">
             <summary><span class="faq-question-text">Was ist beim Tagespass enthalten?</span></summary>
             <div class="faq-answer">
-              Der Tagespass enthält einen zeitlich begrenzten Studiozugang sowie die vorgesehenen Kontingente, die in der App angezeigt werden.
+              Der Tagespass enthält den zeitlich begrenzten Studiozugang sowie die vorgesehenen Kontingente, die in der App angezeigt werden.
+              <span class="faq-keywords" aria-hidden="true">inklusive enthalten leistung getränk kreatin zugang einmalig test tageskarte</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="tagespass">
+            <summary><span class="faq-question-text">Kann ich mit dem Tagespass auch nachts trainieren?</span></summary>
+            <div class="faq-answer">
+              Ja, wenn der Tagespass aktiv ist und der digitale Zugang funktioniert, ist der Zugang im Rahmen des 24/7-Konzepts vorgesehen. Besondere Einschränkungen können in der App angezeigt werden.
+              <span class="faq-keywords" aria-hidden="true">nachts nacht 24/7 spätschicht früh morgens sonntag feiertag öffnen geöffnet</span>
             </div>
           </details>
         </section>
@@ -403,6 +500,31 @@
             <summary><span class="faq-question-text">Wofür brauche ich die Nordkern Fitness App?</span></summary>
             <div class="faq-answer">
               Die App ist der zentrale Ort für Mitgliedschaft, Tagespass, QR-Code, Getränkeautomat und Verwaltung deines Zugangs.
+              <span class="faq-keywords" aria-hidden="true">app anwendung handy smartphone iphone android login konto profil qr code zugang</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="app">
+            <summary><span class="faq-question-text">Gibt es die App für iPhone und Android?</span></summary>
+            <div class="faq-answer">
+              Die App ist für moderne Smartphones vorgesehen. Die final verfügbaren Plattformen werden auf der App-Seite und in den Stores angezeigt.
+              <span class="faq-keywords" aria-hidden="true">ios iphone apple app store android google play samsung pixel handy smartphone download</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="app">
+            <summary><span class="faq-question-text">Was mache ich, wenn ich mich nicht einloggen kann?</span></summary>
+            <div class="faq-answer">
+              Prüfe zuerst E-Mail-Adresse, Passwort, Internetverbindung und ob dein Konto bereits bestätigt wurde. Wenn es weiterhin nicht klappt, melde dich über das Kontaktformular.
+              <span class="faq-keywords" aria-hidden="true">login geht nicht anmelden passwort vergessen einloggen email konto account problem fehler</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="app">
+            <summary><span class="faq-question-text">Was mache ich, wenn ich mein Passwort vergessen habe?</span></summary>
+            <div class="faq-answer">
+              Nutze die Passwort-zurücksetzen-Funktion in der App, sobald sie verfügbar ist. Falls keine E-Mail ankommt, prüfe Spamordner und Schreibweise deiner E-Mail-Adresse.
+              <span class="faq-keywords" aria-hidden="true">passwort vergessen reset zurücksetzen neues passwort mail email spam login problem</span>
             </div>
           </details>
 
@@ -410,6 +532,15 @@
             <summary><span class="faq-question-text">Kann ich meine Mitgliedschaft in der App kündigen?</span></summary>
             <div class="faq-answer">
               Die Verwaltung und Kündigung der Mitgliedschaft soll über die App erfolgen. Die genauen Abläufe werden final in der App und in den Vertragsinformationen angezeigt.
+              <span class="faq-keywords" aria-hidden="true">kündigen kündigung beenden vertrag stoppen abo app verwalten frist laufzeit</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="app">
+            <summary><span class="faq-question-text">Kann ich meine Zahlungsdaten in der App ändern?</span></summary>
+            <div class="faq-answer">
+              Zahlungsdaten sollen in der App verwaltet werden können. Die finalen Funktionen hängen vom eingebundenen Zahlungsanbieter ab.
+              <span class="faq-keywords" aria-hidden="true">zahlungsdaten zahlung karte kreditkarte paypal apple pay ändern bank konto revolut iban</span>
             </div>
           </details>
 
@@ -417,6 +548,7 @@
             <summary><span class="faq-question-text">Welche Zahlungsarten sind geplant?</span></summary>
             <div class="faq-answer">
               Geplant sind moderne digitale Zahlungsarten wie Apple Pay, Kartenzahlung und PayPal. Die final verfügbaren Zahlungsarten werden in der App angezeigt.
+              <span class="faq-keywords" aria-hidden="true">apple pay paypal visa mastercard kreditkarte debitkarte girocard zahlungsmethode bezahlen</span>
             </div>
           </details>
 
@@ -424,6 +556,23 @@
             <summary><span class="faq-question-text">Kann ich zusätzliche Getränke in der App kaufen?</span></summary>
             <div class="faq-answer">
               Ja, zusätzliche Getränke sollen über die App beziehungsweise den Getränkeautomaten gekauft werden können. Die genauen Auswahlmöglichkeiten und Preise werden in der App angezeigt.
+              <span class="faq-keywords" aria-hidden="true">getränke kaufen nachkaufen automat app freigetränk cola wasser energy drink</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="app">
+            <summary><span class="faq-question-text">Bekomme ich Rechnungen oder Belege in der App?</span></summary>
+            <div class="faq-answer">
+              Belege, Zahlungsübersichten oder Rechnungsinformationen sollen digital bereitgestellt werden. Die genaue Umsetzung wird in der App angezeigt.
+              <span class="faq-keywords" aria-hidden="true">rechnung beleg quittung zahlungsbeleg steuer pdf nachweis app dokument</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="app">
+            <summary><span class="faq-question-text">Was passiert, wenn mein Handy leer ist?</span></summary>
+            <div class="faq-answer">
+              Ohne funktionierenden QR-Code kann der digitale Zutritt nicht garantiert werden. Lade dein Handy vor dem Training oder halte eine geeignete Lösung bereit, sobald diese angeboten wird.
+              <span class="faq-keywords" aria-hidden="true">akku leer handy kaputt kein smartphone telefon aus qr code zugang problem</span>
             </div>
           </details>
         </section>
@@ -435,6 +584,7 @@
             <summary><span class="faq-question-text">Wie komme ich ins Studio?</span></summary>
             <div class="faq-answer">
               Der Zugang läuft digital über die Nordkern Fitness App. Dort findest du deinen persönlichen QR-Code für den Zutritt.
+              <span class="faq-keywords" aria-hidden="true">reinkommen eintreten tür öffnen türöffner qr code scanner zutritt einlass zugang</span>
             </div>
           </details>
 
@@ -442,6 +592,7 @@
             <summary><span class="faq-question-text">Was passiert, wenn mein QR-Code nicht funktioniert?</span></summary>
             <div class="faq-answer">
               Prüfe zuerst Internetverbindung, App-Login, aktive Mitgliedschaft oder aktiven Tagespass. Wenn es weiterhin nicht funktioniert, melde dich über das Kontaktformular.
+              <span class="faq-keywords" aria-hidden="true">qr geht nicht scanner fehler tür öffnet nicht code ungültig app problem zugang blockiert</span>
             </div>
           </details>
 
@@ -449,6 +600,15 @@
             <summary><span class="faq-question-text">Darf ich meinen QR-Code weitergeben?</span></summary>
             <div class="faq-answer">
               Nein. Der QR-Code ist persönlich und darf nicht an andere Personen weitergegeben werden.
+              <span class="faq-keywords" aria-hidden="true">teilen weitergeben freund reinlassen mitnehmen code schicken screenshot zugangsdaten</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="zugang">
+            <summary><span class="faq-question-text">Darf ich jemanden mit ins Studio nehmen?</span></summary>
+            <div class="faq-answer">
+              Nein, sofern die Person keine eigene gültige Zutrittsberechtigung hat. Das Mitnehmen nicht berechtigter Personen ist nicht erlaubt.
+              <span class="faq-keywords" aria-hidden="true">freund mitbringen freundin gast gasttraining begleiten partner ohne mitgliedschaft reinlassen</span>
             </div>
           </details>
 
@@ -456,6 +616,31 @@
             <summary><span class="faq-question-text">Ist das Studio wirklich 24/7 geöffnet?</span></summary>
             <div class="faq-answer">
               Ja, der Zugang ist als 24/7-Zugang über App und QR-Code geplant. Einschränkungen können sich aus Wartung, Sicherheit, technischen Gründen oder besonderen Situationen ergeben.
+              <span class="faq-keywords" aria-hidden="true">öffnungszeiten rund um die uhr nachts sonntag feiertag immer offen 24h 24/7</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="zugang">
+            <summary><span class="faq-question-text">Kann der Zugang gesperrt werden?</span></summary>
+            <div class="faq-answer">
+              Ja. Bei offenen Zahlungen, Vertragsproblemen, Missbrauch, Verstößen gegen die Hausordnung oder Sicherheitsgründen kann der Zugang gesperrt werden.
+              <span class="faq-keywords" aria-hidden="true">gesperrt sperre hausverbot zahlung offen kein zugang blockiert verstoß hausordnung</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="zugang">
+            <summary><span class="faq-question-text">Was mache ich, wenn ich nachts nicht reinkomme?</span></summary>
+            <div class="faq-answer">
+              Prüfe zuerst App, QR-Code, Internetverbindung und aktive Berechtigung. In akuten Notfällen gilt immer der Notruf. Für technische Probleme nutze das Kontaktformular.
+              <span class="faq-keywords" aria-hidden="true">nacht problem tür geht nicht nachts ausgesperrt scanner fehler hilfe support notfall</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="zugang">
+            <summary><span class="faq-question-text">Kann ich ohne App ins Studio?</span></summary>
+            <div class="faq-answer">
+              Der digitale Zugang ist auf die App ausgerichtet. Ob alternative Zugangslösungen angeboten werden, wird final auf der Website beziehungsweise in der App angezeigt.
+              <span class="faq-keywords" aria-hidden="true">ohne app karte chip transponder schlüssel qr code offline zugang alternative</span>
             </div>
           </details>
         </section>
@@ -467,6 +652,15 @@
             <summary><span class="faq-question-text">Wo befindet sich das Studio?</span></summary>
             <div class="faq-answer">
               Der Standort ist Grevesmühlen. Die genaue Studioadresse wird auf der Standortseite veröffentlicht, sobald sie final freigegeben ist.
+              <span class="faq-keywords" aria-hidden="true">adresse standort grevesmühlen grevesmuehlen ort anfahrt location maps karte</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="studio">
+            <summary><span class="faq-question-text">Gibt es Parkplätze?</span></summary>
+            <div class="faq-answer">
+              Informationen zu Parkplätzen werden auf der Standortseite ergänzt, sobald die genaue Adresse und die örtliche Situation final sind.
+              <span class="faq-keywords" aria-hidden="true">parkplatz parken auto stellplatz anfahrt parkmöglichkeiten kostenlos kosten</span>
             </div>
           </details>
 
@@ -474,20 +668,63 @@
             <summary><span class="faq-question-text">Gibt es Duschen?</span></summary>
             <div class="faq-answer">
               Nein. Im Studio Grevesmühlen sind Umkleiden, Toiletten, Waschbecken und Spinde vorgesehen, aber keine Duschen.
+              <span class="faq-keywords" aria-hidden="true">dusche duschen bad waschen sanitär nassbereich hygiene umkleide</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="studio">
+            <summary><span class="faq-question-text">Gibt es Umkleiden?</span></summary>
+            <div class="faq-answer">
+              Ja, Umkleiden sind im Studio Grevesmühlen vorgesehen.
+              <span class="faq-keywords" aria-hidden="true">umkleide umziehen kabine kleidung schuhe sportsachen wechseln</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="studio">
+            <summary><span class="faq-question-text">Gibt es Toiletten und Waschbecken?</span></summary>
+            <div class="faq-answer">
+              Ja, Toiletten und Waschbecken sind im Studio Grevesmühlen vorgesehen.
+              <span class="faq-keywords" aria-hidden="true">wc toilette toiletten waschbecken sanitär bad hände waschen</span>
             </div>
           </details>
 
           <details class="faq-item" data-category="studio">
             <summary><span class="faq-question-text">Gibt es Spinde?</span></summary>
             <div class="faq-answer">
-              Ja, Spinde sind im Studio Grevesmühlen vorgesehen.
+              Ja, Spinde sind im Studio Grevesmühlen vorgesehen. Die genaue Nutzung wird vor Ort beziehungsweise in der Hausordnung erklärt.
+              <span class="faq-keywords" aria-hidden="true">spind locker schließfach tasche jacke wertsachen abschließen aufbewahren</span>
             </div>
           </details>
 
           <details class="faq-item" data-category="studio">
-            <summary><span class="faq-question-text">Gibt es Videoüberwachung?</span></summary>
+            <summary><span class="faq-question-text">Welche Geräte gibt es im Studio?</span></summary>
             <div class="faq-answer">
-              Ja, Kameraüberwachung, Hausordnung, Hausrecht und digitale Zugangskontrolle sind vorgesehen. Hinweise dazu werden sichtbar im Studio und in den rechtlichen Informationen bereitgestellt.
+              Die genaue Geräteausstattung wird auf der Website ergänzt, sobald sie final feststeht. Der Fokus liegt auf einem modernen, sauberen und funktionalen Trainingsbereich.
+              <span class="faq-keywords" aria-hidden="true">geräte maschinen hanteln krafttraining cardio laufband beinpresse kabelzug ausstattung</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="studio">
+            <summary><span class="faq-question-text">Gibt es Personal vor Ort?</span></summary>
+            <div class="faq-answer">
+              Nordkern Fitness ist als digitales 24/7-Studio geplant. Das bedeutet, dass nicht dauerhaft Personal vor Ort sein muss. Hinweise und Notfallinformationen werden sichtbar im Studio angebracht.
+              <span class="faq-keywords" aria-hidden="true">personal trainer mitarbeiter betreuer besetzt aufsicht nachts alleine hilfe</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="studio">
+            <summary><span class="faq-question-text">Ist das Studio für Anfänger geeignet?</span></summary>
+            <div class="faq-answer">
+              Ja, das Studio soll auch für Anfänger geeignet sein. Trainiere trotzdem nur Übungen und Gewichte, die du sicher kontrollieren kannst.
+              <span class="faq-keywords" aria-hidden="true">anfänger einsteiger neu erstes mal unsicher starten training lernen</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="studio">
+            <summary><span class="faq-question-text">Darf ich Fotos oder Videos im Studio machen?</span></summary>
+            <div class="faq-answer">
+              Eigene Aufnahmen sind nur so erlaubt, dass andere Personen nicht gestört, gefilmt oder bloßgestellt werden. In Umkleiden und Sanitärbereichen sind Fotos und Videos untersagt.
+              <span class="faq-keywords" aria-hidden="true">foto video filmen instagram tiktok story selfie content kamera aufnehmen datenschutz</span>
             </div>
           </details>
         </section>
@@ -499,6 +736,15 @@
             <summary><span class="faq-question-text">Wie funktioniert der Getränkeautomat?</span></summary>
             <div class="faq-answer">
               Der Getränkeautomat läuft über deinen QR-Code beziehungsweise dein App-Konto. Du kannst in der App sehen, welche Freigetränke oder gekauften Getränke verfügbar sind.
+              <span class="faq-keywords" aria-hidden="true">automat getränkeautomat vending machine trinken qr code freigetränk app konto</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="getraenke">
+            <summary><span class="faq-question-text">Welche Getränke gibt es?</span></summary>
+            <div class="faq-answer">
+              Die genaue Getränkeauswahl wird in der App und am Automaten angezeigt. Geplant sind passende Getränke für Training, Alltag und schnelle Versorgung im Studio.
+              <span class="faq-keywords" aria-hidden="true">cola wasser energy protein shake isotonisch sortiment auswahl trinken</span>
             </div>
           </details>
 
@@ -506,6 +752,15 @@
             <summary><span class="faq-question-text">Ist Kreatin automatisch enthalten?</span></summary>
             <div class="faq-answer">
               Nein. Kreatin ist optional und wird nie automatisch hinzugefügt. Du entscheidest bewusst, ob du eine Kreatin-Auswahl bei einem passenden Getränk nutzt.
+              <span class="faq-keywords" aria-hidden="true">kreatin creatine pulver supplement zusatz automatisch booster extra auswählen</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="getraenke">
+            <summary><span class="faq-question-text">Kann ich Kreatin auch ablehnen?</span></summary>
+            <div class="faq-answer">
+              Ja. Kreatin ist freiwillig. Du kannst ein Getränk auch ohne Kreatin wählen, sofern diese Auswahl angeboten wird.
+              <span class="faq-keywords" aria-hidden="true">ohne kreatin ablehnen kein kreatin freiwillig supplement nicht nehmen</span>
             </div>
           </details>
 
@@ -513,6 +768,7 @@
             <summary><span class="faq-question-text">Kann ich Freigetränke und gekaufte Getränke getrennt nutzen?</span></summary>
             <div class="faq-answer">
               Ja. In der App soll sichtbar sein, ob du Freigetränke, gekaufte Getränke oder passende Extras einlöst.
+              <span class="faq-keywords" aria-hidden="true">freigetränk gekauftes getränk einlösen kontingent verbrauch guthaben app</span>
             </div>
           </details>
 
@@ -520,6 +776,23 @@
             <summary><span class="faq-question-text">Was passiert mit nicht genutzten Freigetränken?</span></summary>
             <div class="faq-answer">
               Die genaue Regelung wird final in der App und in den Vertragsinformationen angezeigt.
+              <span class="faq-keywords" aria-hidden="true">verfallen übertragen sammeln monat kontingent nicht genutzt übrig rest</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="getraenke">
+            <summary><span class="faq-question-text">Kann ich Getränke nachkaufen?</span></summary>
+            <div class="faq-answer">
+              Ja, zusätzliche Getränke sollen über die App beziehungsweise den Getränkeautomaten gekauft werden können. Preise und Auswahl werden in der App angezeigt.
+              <span class="faq-keywords" aria-hidden="true">nachkaufen kaufen bezahlen extra getränk zusätzlich automat app preis</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="getraenke">
+            <summary><span class="faq-question-text">Was mache ich, wenn der Getränkeautomat nicht funktioniert?</span></summary>
+            <div class="faq-answer">
+              Prüfe zuerst App, QR-Code und Internetverbindung. Wenn der Automat weiterhin nicht funktioniert, melde das Problem über das Kontaktformular.
+              <span class="faq-keywords" aria-hidden="true">automat kaputt fehler getränk kommt nicht qr geht nicht bezahlt problem störung</span>
             </div>
           </details>
         </section>
@@ -531,13 +804,7 @@
             <summary><span class="faq-question-text">Können Minderjährige Mitglied werden?</span></summary>
             <div class="faq-answer">
               Eine Mitgliedschaft unter 18 Jahren erfordert voraussichtlich die Zustimmung beziehungsweise Bestätigung der Erziehungsberechtigten und eine Altersprüfung. Die genauen Mindestalter-Regeln sind noch nicht final festgelegt.
-            </div>
-          </details>
-
-          <details class="faq-item" data-category="recht">
-            <summary><span class="faq-question-text">Wo finde ich Hausordnung, AGB und Datenschutz?</span></summary>
-            <div class="faq-answer">
-              Die Hausordnung findest du auf der Seite „Hausordnung“. Impressum, Datenschutz und AGB findest du im rechtlichen Bereich der Website.
+              <span class="faq-keywords" aria-hidden="true">unter 18 minderjährig jugendlich eltern einverständnis mutter vater erlaubnis alter</span>
             </div>
           </details>
 
@@ -545,6 +812,15 @@
             <summary><span class="faq-question-text">Gilt im Studio eine Hausordnung?</span></summary>
             <div class="faq-answer">
               Ja. Die Hausordnung gilt für alle Personen, die das Studio betreten. Sie regelt unter anderem Zutritt, Verhalten, Sicherheit, Hygiene und Hausrecht.
+              <span class="faq-keywords" aria-hidden="true">hausordnung regeln verhalten pflicht studioordnung verboten erlaubt hausrecht</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="recht">
+            <summary><span class="faq-question-text">Wo finde ich Hausordnung, AGB und Datenschutz?</span></summary>
+            <div class="faq-answer">
+              Die Hausordnung findest du auf der Seite „Hausordnung“. Impressum, Datenschutz und AGB findest du im rechtlichen Bereich der Website.
+              <span class="faq-keywords" aria-hidden="true">agb datenschutz impressum legal rechtliches vertrag bedingungen privacy</span>
             </div>
           </details>
 
@@ -552,6 +828,55 @@
             <summary><span class="faq-question-text">Wer darf das Studio betreten?</span></summary>
             <div class="faq-answer">
               Nur Personen mit gültiger Zutrittsberechtigung dürfen das Studio betreten. Das Mitnehmen nicht berechtigter Personen ist nicht erlaubt.
+              <span class="faq-keywords" aria-hidden="true">zutritt berechtigt gast mitbringen freund reinlassen hausrecht qr code</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="recht">
+            <summary><span class="faq-question-text">Gibt es Videoüberwachung?</span></summary>
+            <div class="faq-answer">
+              Ja, Kameraüberwachung, Hausordnung, Hausrecht und digitale Zugangskontrolle sind vorgesehen. Hinweise dazu werden sichtbar im Studio und in den rechtlichen Informationen bereitgestellt.
+              <span class="faq-keywords" aria-hidden="true">kamera videoüberwachung überwachung sicherheit datenschutz aufzeichnung kameraüberwachung</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="recht">
+            <summary><span class="faq-question-text">Was passiert bei Verstößen gegen die Hausordnung?</span></summary>
+            <div class="faq-answer">
+              Bei Verstößen können Verwarnung, Zugangssperre, Hausverbot oder weitere angemessene Maßnahmen folgen.
+              <span class="faq-keywords" aria-hidden="true">verstoß hausverbot sperre verwarnung rauswurf gesperrt regelbruch missbrauch</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="recht">
+            <summary><span class="faq-question-text">Was passiert bei Schäden an Geräten oder Studio?</span></summary>
+            <div class="faq-answer">
+              Schäden sind sofort zu melden. Je nach Situation können Schäden nach den gesetzlichen Regeln geltend gemacht werden.
+              <span class="faq-keywords" aria-hidden="true">schaden kaputt beschädigt gerät defekt haftung zahlen melden reparatur</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="recht">
+            <summary><span class="faq-question-text">Was mache ich in einem Notfall?</span></summary>
+            <div class="faq-answer">
+              In akuten Notfällen gilt: sofort den Notruf wählen. Notrufnummern und Hinweise werden sichtbar im Studio ausgehängt.
+              <span class="faq-keywords" aria-hidden="true">notfall unfall verletzt krankenwagen polizei feuerwehr 112 hilfe erste hilfe</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="recht">
+            <summary><span class="faq-question-text">Darf ich trotz Krankheit oder Verletzung trainieren?</span></summary>
+            <div class="faq-answer">
+              Trainiere nur, wenn du dich gesundheitlich dazu in der Lage fühlst. Bei Schmerzen, Krankheit, Verletzung oder Unsicherheit solltest du ärztlichen Rat einholen.
+              <span class="faq-keywords" aria-hidden="true">krank verletzung schmerzen gesundheit arzt risiko krankheit grippe rücken knie</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="recht">
+            <summary><span class="faq-question-text">Sind die FAQ rechtlich verbindlich?</span></summary>
+            <div class="faq-answer">
+              Die FAQ dienen der schnellen Orientierung. Rechtlich maßgeblich sind die finalen Vertragsinformationen, AGB, Datenschutzinformationen, Hausordnung und gesetzlichen Vorgaben.
+              <span class="faq-keywords" aria-hidden="true">rechtlich verbindlich info hinweis vertrag agb bedingungen rechtsgültig</span>
             </div>
           </details>
         </section>
