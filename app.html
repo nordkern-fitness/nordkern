@@ -10,15 +10,17 @@
     content="Die Nordkern Fitness App bündelt Zugang, Mitgliedschaften, Tagespass, QR-Code-Zutritt und Kontingente für Freigetränke und Kreatin-Auswahlen."
   />
 
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=3" />
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=3" />
-<link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png?v=3" />
-<link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png?v=3" />
-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=3" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=3" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=3" />
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png?v=3" />
+  <link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png?v=3" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=3" />
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
     .app-page {
+      display: grid;
+      gap: 0;
       background: #ffffff;
     }
 
@@ -75,7 +77,8 @@
         transform var(--fast),
         opacity var(--fast),
         box-shadow var(--fast),
-        border-color var(--fast);
+        border-color var(--fast),
+        background var(--fast);
     }
 
     .store-badge-clean:hover {
@@ -162,8 +165,18 @@
 
     .app-feature-section {
       position: relative;
-      padding: 6rem 0;
+      padding: var(--section-gap);
       background: #ffffff;
+    }
+
+    .app-feature-shell {
+      width: min(100% - 1.5rem, var(--max-width));
+      margin-inline: auto;
+      padding: clamp(3.4rem, 5.5vw, 5.6rem);
+      border-radius: var(--module-radius);
+      background: var(--surface);
+      border: 1px solid var(--surface-line);
+      overflow: hidden;
     }
 
     .app-section-intro {
@@ -202,8 +215,8 @@
       flex-direction: column;
       justify-content: space-between;
       padding: clamp(1.35rem, 2vw, 1.75rem);
-      border-radius: 34px;
-      background: #f5f5f7;
+      border-radius: var(--card-radius);
+      background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.045);
       box-shadow: none;
       backdrop-filter: none;
@@ -237,22 +250,25 @@
     }
 
     .app-flow-section {
-      padding: 6rem 0;
+      padding: var(--section-gap);
       background: #ffffff;
     }
 
     .app-flow-shell {
+      width: min(100% - 1.5rem, var(--max-width));
+      margin-inline: auto;
       display: grid;
       grid-template-columns: minmax(0, 0.88fr) minmax(340px, 0.72fr);
       gap: clamp(1.25rem, 4vw, 4rem);
       align-items: center;
       padding: clamp(1.35rem, 3vw, 2.2rem);
-      border-radius: 42px;
-      background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.045);
+      border-radius: var(--module-radius);
+      background: var(--surface);
+      border: 1px solid var(--surface-line);
       box-shadow: none;
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
+      overflow: hidden;
     }
 
     .app-flow-copy h2 {
@@ -285,7 +301,7 @@
       gap: 0.92rem;
       align-items: start;
       padding: 1.12rem;
-      border-radius: 26px;
+      border-radius: var(--card-radius);
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.045);
     }
@@ -345,17 +361,25 @@
     }
 
     .app-final-cta {
-      min-height: 66vh;
-      padding: 6rem 1.2rem;
-      display: grid;
-      place-items: center;
+      min-height: auto;
+      padding: var(--section-gap);
+      display: block;
       text-align: center;
       background: #ffffff;
     }
 
     .app-final-copy {
-      max-width: 900px;
+      width: min(100% - 1.5rem, var(--max-width));
+      min-height: clamp(420px, 52vh, 620px);
+      display: grid;
+      place-items: center;
+      align-content: center;
       margin-inline: auto;
+      padding: clamp(3.8rem, 6vw, 6rem) 1.5rem;
+      border-radius: var(--module-radius);
+      background: var(--surface);
+      border: 1px solid var(--surface-line);
+      overflow: hidden;
     }
 
     .app-final-copy h2 {
@@ -496,9 +520,18 @@
         transform: translateY(0);
       }
 
+      .app-feature-shell {
+        width: min(100% - 1rem, var(--max-width));
+        padding: 3.2rem 1rem;
+      }
+
       .app-feature-section,
       .app-flow-section {
-        padding: 4.6rem 0;
+        padding: var(--section-gap);
+      }
+
+      .app-flow-shell {
+        width: min(100% - 1rem, var(--max-width));
       }
 
       .app-section-title,
@@ -512,7 +545,7 @@
 
       .app-feature-card,
       .app-flow-shell {
-        border-radius: 30px;
+        border-radius: var(--module-radius);
       }
 
       .app-flow-shell {
@@ -529,7 +562,7 @@
         grid-template-columns: 36px 1fr;
         gap: 0.82rem;
         padding: 1rem;
-        border-radius: 24px;
+        border-radius: var(--card-radius);
       }
 
       .app-flow-dot {
@@ -545,8 +578,9 @@
         width: min(88vw, 330px);
       }
 
-      .app-final-cta {
-        min-height: 58vh;
+      .app-final-copy {
+        width: min(100% - 1rem, var(--max-width));
+        min-height: 460px;
         padding: 4.8rem 1rem;
       }
 
@@ -603,8 +637,18 @@
         width: min(78vw, 295px);
       }
 
+      .app-feature-shell {
+        width: min(100% - 0.8rem, var(--max-width));
+        padding: 2.8rem 0.82rem;
+      }
+
       .app-feature-card {
         min-height: 240px;
+      }
+
+      .app-flow-shell,
+      .app-final-copy {
+        width: min(100% - 0.8rem, var(--max-width));
       }
     }
   </style>
@@ -654,7 +698,7 @@
     </section>
 
     <section class="app-feature-section" aria-labelledby="app-features-title">
-      <div class="container">
+      <div class="app-feature-shell">
         <div class="app-section-intro">
           <p class="eyebrow">Funktionen</p>
 
@@ -712,84 +756,84 @@
     </section>
 
     <section class="app-flow-section" aria-labelledby="app-flow-title">
-      <div class="container">
-        <div class="app-flow-shell">
-          <div class="app-flow-copy">
-            <p class="eyebrow">Ablauf</p>
+      <div class="app-flow-shell">
+        <div class="app-flow-copy">
+          <p class="eyebrow">Ablauf</p>
 
-            <h2 id="app-flow-title">
-              Buchen. Einchecken. Einlösen.
-            </h2>
+          <h2 id="app-flow-title">
+            Buchen. Einchecken. Einlösen.
+          </h2>
 
-            <p>
-              Nordkern Fitness soll ruhig und klar funktionieren. Du bereitest deinen Zugang digital vor,
-              kommst per QR-Code ins Studio und behältst deine Extras direkt in der App im Blick.
-            </p>
+          <p>
+            Nordkern Fitness soll ruhig und klar funktionieren. Du bereitest deinen Zugang digital vor,
+            kommst per QR-Code ins Studio und behältst deine Extras direkt in der App im Blick.
+          </p>
 
-            <div class="app-flow-list" aria-label="Ablauf in der Nordkern Fitness App">
-              <div class="app-flow-item">
-                <span class="app-flow-dot" aria-hidden="true">1</span>
-                <div>
-                  <strong>Tarif oder Tagespass wählen</strong>
-                  <span>
-                    Wähle Basic, Plus, Pro oder einen Tagespass. Preise, Laufzeiten und enthaltene Leistungen werden vor der Buchung klar angezeigt.
-                  </span>
-                </div>
+          <div class="app-flow-list" aria-label="Ablauf in der Nordkern Fitness App">
+            <div class="app-flow-item">
+              <span class="app-flow-dot" aria-hidden="true">1</span>
+              <div>
+                <strong>Tarif oder Tagespass wählen</strong>
+                <span>
+                  Wähle Basic, Plus, Pro oder einen Tagespass. Preise, Laufzeiten und enthaltene Leistungen werden vor der Buchung klar angezeigt.
+                </span>
               </div>
+            </div>
 
-              <div class="app-flow-item">
-                <span class="app-flow-dot" aria-hidden="true">2</span>
-                <div>
-                  <strong>QR-Code am Eingang nutzen</strong>
-                  <span>
-                    Beim Studioeingang öffnest du deinen QR-Code in der App. Dein Zugang wird geprüft und du kannst direkt ins Training.
-                  </span>
-                </div>
+            <div class="app-flow-item">
+              <span class="app-flow-dot" aria-hidden="true">2</span>
+              <div>
+                <strong>QR-Code am Eingang nutzen</strong>
+                <span>
+                  Beim Studioeingang öffnest du deinen QR-Code in der App. Dein Zugang wird geprüft und du kannst direkt ins Training.
+                </span>
               </div>
+            </div>
 
-              <div class="app-flow-item">
-                <span class="app-flow-dot" aria-hidden="true">3</span>
-                <div>
-                  <strong>Freigetränke und Extras einlösen</strong>
-                  <span>
-                    Am Getränkeautomaten erkennt dein App-Konto verfügbare Freigetränke, Größen und Kreatin-Auswahlen. Verbrauchte Kontingente werden automatisch abgezogen.
-                  </span>
-                </div>
+            <div class="app-flow-item">
+              <span class="app-flow-dot" aria-hidden="true">3</span>
+              <div>
+                <strong>Freigetränke und Extras einlösen</strong>
+                <span>
+                  Am Getränkeautomaten erkennt dein App-Konto verfügbare Freigetränke, Größen und Kreatin-Auswahlen. Verbrauchte Kontingente werden automatisch abgezogen.
+                </span>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="app-flow-visual" aria-hidden="true">
-            <img src="images/app-screen.png" alt="" />
-          </div>
+        <div class="app-flow-visual" aria-hidden="true">
+          <img src="images/app-screen.png" alt="" />
         </div>
       </div>
     </section>
 
     <section class="app-final-cta" aria-labelledby="app-final-title">
       <div class="app-final-copy">
-        <h2 id="app-final-title">Bereit, wenn du es bist.</h2>
+        <div>
+          <h2 id="app-final-title">Bereit, wenn du es bist.</h2>
 
-        <div class="app-store-row-clean" aria-label="Nordkern Fitness App in Stores suchen">
-          <a class="store-badge-clean store-badge-clean-dark" href="https://search.itunes.apple.com/WebObjects/MZSearch.woa/wa/search?media=software&term=Nordkern%20Fitness" target="_blank" rel="noopener noreferrer" aria-label="Nordkern Fitness im App Store suchen, öffnet in neuem Tab">
-            <span class="store-badge-clean-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M8.2 18.2 12 5.4l3.8 12.8M9.5 14.1h5M6.8 19.2h10.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </span>
-            <span class="store-badge-clean-text">
-              <span class="store-badge-clean-small">Suchen im</span>
-              <span class="store-badge-clean-big">App Store</span>
-            </span>
-          </a>
+          <div class="app-store-row-clean" aria-label="Nordkern Fitness App in Stores suchen">
+            <a class="store-badge-clean store-badge-clean-dark" href="https://search.itunes.apple.com/WebObjects/MZSearch.woa/wa/search?media=software&term=Nordkern%20Fitness" target="_blank" rel="noopener noreferrer" aria-label="Nordkern Fitness im App Store suchen, öffnet in neuem Tab">
+              <span class="store-badge-clean-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M8.2 18.2 12 5.4l3.8 12.8M9.5 14.1h5M6.8 19.2h10.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+              <span class="store-badge-clean-text">
+                <span class="store-badge-clean-small">Suchen im</span>
+                <span class="store-badge-clean-big">App Store</span>
+              </span>
+            </a>
 
-          <a class="store-badge-clean store-badge-clean-light" href="https://play.google.com/store/search?q=Nordkern%20Fitness&c=apps" target="_blank" rel="noopener noreferrer" aria-label="Nordkern Fitness bei Google Play suchen, öffnet in neuem Tab">
-            <span class="store-badge-clean-icon" aria-hidden="true">▶</span>
-            <span class="store-badge-clean-text">
-              <span class="store-badge-clean-small">Suchen bei</span>
-              <span class="store-badge-clean-big">Google Play</span>
-            </span>
-          </a>
+            <a class="store-badge-clean store-badge-clean-light" href="https://play.google.com/store/search?q=Nordkern%20Fitness&c=apps" target="_blank" rel="noopener noreferrer" aria-label="Nordkern Fitness bei Google Play suchen, öffnet in neuem Tab">
+              <span class="store-badge-clean-icon" aria-hidden="true">▶</span>
+              <span class="store-badge-clean-text">
+                <span class="store-badge-clean-small">Suchen bei</span>
+                <span class="store-badge-clean-big">Google Play</span>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
