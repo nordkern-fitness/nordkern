@@ -1,0 +1,561 @@
+<style>
+  .faq-section-v3 {
+    padding: 0 0.75rem 0.75rem;
+    background: #ffffff;
+    scroll-margin-top: 92px;
+  }
+
+  .faq-panel-v3 {
+    min-height: clamp(680px, 78vh, 920px);
+    padding: clamp(3.4rem, 6vw, 6rem) clamp(1rem, 4vw, 3rem);
+    background: #f5f5f7;
+  }
+
+  .faq-top-v3 {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.34fr);
+    gap: 0.75rem;
+    align-items: start;
+    margin-bottom: clamp(1.8rem, 3.4vw, 2.8rem);
+  }
+
+  .faq-head-v3 {
+    max-width: 860px;
+  }
+
+  .faq-head-v3 h2 {
+    color: var(--text);
+    font-size: clamp(3rem, 5.6vw, 5.8rem);
+    line-height: 0.93;
+    letter-spacing: -0.07em;
+    font-weight: 790;
+    text-wrap: balance;
+  }
+
+  .faq-contact-card-v3 {
+    align-self: start;
+    padding: 1rem;
+    border-radius: 14px;
+    background: #ffffff;
+  }
+
+  .faq-contact-card-v3 span {
+    display: block;
+    margin-bottom: 0.42rem;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+  }
+
+  .faq-contact-card-v3 p,
+  .faq-contact-card-v3 a {
+    color: var(--text-soft);
+    font-size: 0.96rem;
+    line-height: 1.45;
+    letter-spacing: -0.012em;
+  }
+
+  .faq-contact-card-v3 a {
+    color: var(--nf-green-dark);
+    font-weight: 760;
+  }
+
+  .faq-contact-card-v3 a:hover,
+  .faq-contact-card-v3 a:focus-visible {
+    color: var(--nf-green);
+  }
+
+  .faq-tools-v3 {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .faq-search-v3 {
+    width: min(100%, 720px);
+  }
+
+  .faq-search-v3 label {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: var(--text);
+    font-weight: 710;
+    letter-spacing: -0.014em;
+  }
+
+  .faq-category-row-v3 {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .faq-category-button {
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.58rem 0.82rem;
+    border-radius: 999px;
+    color: var(--text-soft);
+    background: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 650;
+    letter-spacing: -0.012em;
+    transition:
+      background-color var(--fast),
+      color var(--fast),
+      transform var(--fast);
+  }
+
+  .faq-category-button:hover,
+  .faq-category-button:focus-visible {
+    background: #eeeeef;
+    color: var(--text);
+    transform: translateY(-1px);
+  }
+
+  .faq-category-button.is-active {
+    color: #ffffff;
+    background: #1d1d1f;
+  }
+
+  .faq-result-line-v3 {
+    margin: 0.9rem 0 1rem;
+    color: var(--muted);
+    font-size: 0.94rem;
+    line-height: 1.4;
+    letter-spacing: -0.012em;
+  }
+
+  .faq-layout-v3 {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .faq-main-v3 {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .faq-group-v3 {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .faq-group-title-v3 {
+    margin: 0.4rem 0 0.1rem;
+    color: var(--muted);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .faq-item {
+    border-radius: 14px;
+    background: #ffffff;
+    overflow: hidden;
+  }
+
+  .faq-item summary {
+    position: relative;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 3rem 1rem 1rem;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 1.02rem;
+    line-height: 1.3;
+    letter-spacing: -0.018em;
+    font-weight: 730;
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    color: var(--text);
+    background: #f5f5f7;
+    transform: translateY(-50%);
+    transition:
+      transform var(--fast),
+      background-color var(--fast);
+  }
+
+  .faq-item[open] summary::after {
+    content: "–";
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .faq-answer {
+    padding: 0 1rem 1rem;
+    color: var(--text-soft);
+    font-size: 0.98rem;
+    line-height: 1.56;
+    letter-spacing: -0.012em;
+  }
+
+  .faq-answer mark,
+  .faq-question-text mark {
+    color: inherit;
+    background: rgba(46, 145, 63, 0.18);
+    border-radius: 4px;
+    padding: 0 0.12em;
+  }
+
+  .faq-empty-v3 {
+    display: none;
+    padding: 1rem;
+    border-radius: 14px;
+    background: #ffffff;
+    color: var(--text-soft);
+    font-size: 0.98rem;
+    line-height: 1.5;
+    letter-spacing: -0.012em;
+  }
+
+  .faq-empty-v3.show {
+    display: block;
+  }
+
+  @media (max-width: 980px) {
+    .faq-top-v3 {
+      grid-template-columns: 1fr;
+    }
+
+    .faq-contact-card-v3 {
+      max-width: 520px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .faq-section-v3 {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .faq-panel-v3 {
+      min-height: auto;
+      padding: 4rem 1rem;
+    }
+
+    .faq-head-v3 h2 {
+      font-size: clamp(2.35rem, 11vw, 3.75rem);
+    }
+
+    .faq-category-row-v3 {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      margin-inline: -1rem;
+      padding: 0 1rem 0.3rem;
+      scrollbar-width: none;
+    }
+
+    .faq-category-row-v3::-webkit-scrollbar {
+      display: none;
+    }
+
+    .faq-category-button {
+      flex: 0 0 auto;
+    }
+
+    .faq-item summary {
+      min-height: 60px;
+      padding: 0.95rem 2.8rem 0.95rem 0.95rem;
+      font-size: 0.98rem;
+    }
+
+    .faq-answer {
+      padding: 0 0.95rem 0.95rem;
+    }
+  }
+</style>
+
+<section class="faq-section-v3" id="faq" aria-labelledby="faq-title">
+  <div class="faq-panel-v3">
+    <div class="faq-top-v3">
+      <div class="faq-head-v3">
+        <p class="eyebrow">FAQ</p>
+        <h2 id="faq-title">Häufige Fragen.</h2>
+      </div>
+
+      <aside class="faq-contact-card-v3" aria-label="Kontaktformular Hinweis">
+        <span>Kontakt</span>
+        <p>
+          Deine Frage fehlt?
+          <a href="#kontaktformular">Kontaktformular öffnen</a>
+        </p>
+      </aside>
+    </div>
+
+    <div class="faq-tools-v3">
+      <div class="faq-search-v3">
+        <label for="faq-search">FAQ durchsuchen</label>
+        <input id="faq-search" type="search" placeholder="z. B. Tagespass, QR-Code, Getränke, Duschen" autocomplete="off" />
+      </div>
+
+      <div class="faq-category-row-v3" aria-label="FAQ Kategorien">
+        <button class="faq-category-button is-active" type="button" data-faq-category="all">Alle</button>
+        <button class="faq-category-button" type="button" data-faq-category="tarife">Tarife</button>
+        <button class="faq-category-button" type="button" data-faq-category="tagespass">Tagespass</button>
+        <button class="faq-category-button" type="button" data-faq-category="app">App</button>
+        <button class="faq-category-button" type="button" data-faq-category="zugang">Zugang</button>
+        <button class="faq-category-button" type="button" data-faq-category="studio">Studio</button>
+        <button class="faq-category-button" type="button" data-faq-category="getraenke">Getränke</button>
+        <button class="faq-category-button" type="button" data-faq-category="recht">Rechtliches</button>
+      </div>
+    </div>
+
+    <p class="faq-result-line-v3" id="faq-result-line">Fragen verfügbar.</p>
+
+    <div class="faq-layout-v3">
+      <div class="faq-main-v3">
+        <div class="faq-empty-v3" id="faq-empty">
+          Keine passende Frage gefunden. Versuch einen anderen Suchbegriff oder schreib direkt über das Kontaktformular.
+        </div>
+
+        <section class="faq-group-v3" data-faq-group>
+          <h3 class="faq-group-title-v3">Tarife</h3>
+
+          <details class="faq-item" data-category="tarife">
+            <summary><span class="faq-question-text">Welche Tarife gibt es bei Nordkern Fitness?</span></summary>
+            <div class="faq-answer">
+              Es gibt Basic, Plus, Pro und den Tagespass. Basic, Plus und Pro sind Mitgliedschaften mit unterschiedlichen Mindestlaufzeiten und Kontingenten. Der Tagespass ist ein einmaliger Zugang ohne laufende Mitgliedschaft.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="tarife">
+            <summary><span class="faq-question-text">Kann ich meine Mitgliedschaft auf der Website kaufen?</span></summary>
+            <div class="faq-answer">
+              Nein. Mitgliedschaften, Tagespass, zusätzliche Getränke und Kreatin-Auswahlen werden in der App verwaltet und gebucht.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="tarife">
+            <summary><span class="faq-question-text">Kann ich meinen Tarif später wechseln?</span></summary>
+            <div class="faq-answer">
+              Tarifwechsel sollen über die App möglich sein. Die genauen Regeln hängen vom bestehenden Tarif, der Mindestlaufzeit und den finalen Vertragsbedingungen ab.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="tarife">
+            <summary><span class="faq-question-text">Was ist in Basic, Plus und Pro enthalten?</span></summary>
+            <div class="faq-answer">
+              Alle Mitgliedschaften enthalten den 24/7-Zugang per App und QR-Code. Die Unterschiede liegen vor allem bei Mindestlaufzeit sowie Getränke- und Kreatin-Kontingenten.
+            </div>
+          </details>
+        </section>
+
+        <section class="faq-group-v3" data-faq-group>
+          <h3 class="faq-group-title-v3">Tagespass</h3>
+
+          <details class="faq-item" data-category="tagespass">
+            <summary><span class="faq-question-text">Gibt es ein kostenloses Probetraining?</span></summary>
+            <div class="faq-answer">
+              Nein. Statt eines kostenlosen Probetrainings ist der Tagespass vorgesehen. Damit kannst du das Studio einmalig testen, ohne direkt eine Mitgliedschaft abzuschließen.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="tagespass">
+            <summary><span class="faq-question-text">Wann startet der Tagespass?</span></summary>
+            <div class="faq-answer">
+              Der Tagespass startet nicht automatisch beim Kauf. Er wird in deinem Profil hinterlegt und beginnt erst, wenn du ihn beim Betreten des Studios über die App aktivierst und den QR-Code nutzt.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="tagespass">
+            <summary><span class="faq-question-text">Entsteht aus dem Tagespass eine Mitgliedschaft?</span></summary>
+            <div class="faq-answer">
+              Nein. Der Tagespass ist ein einmaliger Zugang und endet automatisch. Daraus entsteht keine laufende Mitgliedschaft.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="tagespass">
+            <summary><span class="faq-question-text">Was ist beim Tagespass enthalten?</span></summary>
+            <div class="faq-answer">
+              Der Tagespass enthält einen zeitlich begrenzten Studiozugang sowie die vorgesehenen Kontingente, die in der App angezeigt werden.
+            </div>
+          </details>
+        </section>
+
+        <section class="faq-group-v3" data-faq-group>
+          <h3 class="faq-group-title-v3">App</h3>
+
+          <details class="faq-item" data-category="app">
+            <summary><span class="faq-question-text">Wofür brauche ich die Nordkern Fitness App?</span></summary>
+            <div class="faq-answer">
+              Die App ist der zentrale Ort für Mitgliedschaft, Tagespass, QR-Code, Getränkeautomat und Verwaltung deines Zugangs.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="app">
+            <summary><span class="faq-question-text">Kann ich meine Mitgliedschaft in der App kündigen?</span></summary>
+            <div class="faq-answer">
+              Die Verwaltung und Kündigung der Mitgliedschaft soll über die App erfolgen. Die genauen Abläufe werden final in der App und in den Vertragsinformationen angezeigt.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="app">
+            <summary><span class="faq-question-text">Welche Zahlungsarten sind geplant?</span></summary>
+            <div class="faq-answer">
+              Geplant sind moderne digitale Zahlungsarten wie Apple Pay, Kartenzahlung und PayPal. Die final verfügbaren Zahlungsarten werden in der App angezeigt.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="app">
+            <summary><span class="faq-question-text">Kann ich zusätzliche Getränke in der App kaufen?</span></summary>
+            <div class="faq-answer">
+              Ja, zusätzliche Getränke sollen über die App beziehungsweise den Getränkeautomaten gekauft werden können. Die genauen Auswahlmöglichkeiten und Preise werden in der App angezeigt.
+            </div>
+          </details>
+        </section>
+
+        <section class="faq-group-v3" data-faq-group>
+          <h3 class="faq-group-title-v3">Zugang</h3>
+
+          <details class="faq-item" data-category="zugang">
+            <summary><span class="faq-question-text">Wie komme ich ins Studio?</span></summary>
+            <div class="faq-answer">
+              Der Zugang läuft digital über die Nordkern Fitness App. Dort findest du deinen persönlichen QR-Code für den Zutritt.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="zugang">
+            <summary><span class="faq-question-text">Was passiert, wenn mein QR-Code nicht funktioniert?</span></summary>
+            <div class="faq-answer">
+              Prüfe zuerst Internetverbindung, App-Login, aktive Mitgliedschaft oder aktiven Tagespass. Wenn es weiterhin nicht funktioniert, melde dich über das Kontaktformular.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="zugang">
+            <summary><span class="faq-question-text">Darf ich meinen QR-Code weitergeben?</span></summary>
+            <div class="faq-answer">
+              Nein. Der QR-Code ist persönlich und darf nicht an andere Personen weitergegeben werden.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="zugang">
+            <summary><span class="faq-question-text">Ist das Studio wirklich 24/7 geöffnet?</span></summary>
+            <div class="faq-answer">
+              Ja, der Zugang ist als 24/7-Zugang über App und QR-Code geplant. Einschränkungen können sich aus Wartung, Sicherheit, technischen Gründen oder besonderen Situationen ergeben.
+            </div>
+          </details>
+        </section>
+
+        <section class="faq-group-v3" data-faq-group>
+          <h3 class="faq-group-title-v3">Studio Grevesmühlen</h3>
+
+          <details class="faq-item" data-category="studio">
+            <summary><span class="faq-question-text">Wo befindet sich das Studio?</span></summary>
+            <div class="faq-answer">
+              Der Standort ist Grevesmühlen. Die genaue Studioadresse wird auf der Standortseite veröffentlicht, sobald sie final freigegeben ist.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="studio">
+            <summary><span class="faq-question-text">Gibt es Duschen?</span></summary>
+            <div class="faq-answer">
+              Nein. Im Studio Grevesmühlen sind Umkleiden, Toiletten, Waschbecken und Spinde vorgesehen, aber keine Duschen.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="studio">
+            <summary><span class="faq-question-text">Gibt es Spinde?</span></summary>
+            <div class="faq-answer">
+              Ja, Spinde sind im Studio Grevesmühlen vorgesehen.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="studio">
+            <summary><span class="faq-question-text">Gibt es Videoüberwachung?</span></summary>
+            <div class="faq-answer">
+              Ja, Kameraüberwachung, Hausordnung, Hausrecht und digitale Zugangskontrolle sind vorgesehen. Hinweise dazu werden sichtbar im Studio und in den rechtlichen Informationen bereitgestellt.
+            </div>
+          </details>
+        </section>
+
+        <section class="faq-group-v3" data-faq-group>
+          <h3 class="faq-group-title-v3">Getränkeautomat</h3>
+
+          <details class="faq-item" data-category="getraenke">
+            <summary><span class="faq-question-text">Wie funktioniert der Getränkeautomat?</span></summary>
+            <div class="faq-answer">
+              Der Getränkeautomat läuft über deinen QR-Code beziehungsweise dein App-Konto. Du kannst in der App sehen, welche Freigetränke oder gekauften Getränke verfügbar sind.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="getraenke">
+            <summary><span class="faq-question-text">Ist Kreatin automatisch enthalten?</span></summary>
+            <div class="faq-answer">
+              Nein. Kreatin ist optional und wird nie automatisch hinzugefügt. Du entscheidest bewusst, ob du eine Kreatin-Auswahl bei einem passenden Getränk nutzt.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="getraenke">
+            <summary><span class="faq-question-text">Kann ich Freigetränke und gekaufte Getränke getrennt nutzen?</span></summary>
+            <div class="faq-answer">
+              Ja. In der App soll sichtbar sein, ob du Freigetränke, gekaufte Getränke oder passende Extras einlöst.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="getraenke">
+            <summary><span class="faq-question-text">Was passiert mit nicht genutzten Freigetränken?</span></summary>
+            <div class="faq-answer">
+              Die genaue Regelung wird final in der App und in den Vertragsinformationen angezeigt.
+            </div>
+          </details>
+        </section>
+
+        <section class="faq-group-v3" data-faq-group>
+          <h3 class="faq-group-title-v3">Rechtliches & Alter</h3>
+
+          <details class="faq-item" data-category="recht">
+            <summary><span class="faq-question-text">Können Minderjährige Mitglied werden?</span></summary>
+            <div class="faq-answer">
+              Eine Mitgliedschaft unter 18 Jahren erfordert voraussichtlich die Zustimmung beziehungsweise Bestätigung der Erziehungsberechtigten und eine Altersprüfung. Die genauen Mindestalter-Regeln sind noch nicht final festgelegt.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="recht">
+            <summary><span class="faq-question-text">Wo finde ich Hausordnung, AGB und Datenschutz?</span></summary>
+            <div class="faq-answer">
+              Die Hausordnung findest du auf der Seite „Hausordnung“. Impressum, Datenschutz und AGB findest du im rechtlichen Bereich der Website.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="recht">
+            <summary><span class="faq-question-text">Gilt im Studio eine Hausordnung?</span></summary>
+            <div class="faq-answer">
+              Ja. Die Hausordnung gilt für alle Personen, die das Studio betreten. Sie regelt unter anderem Zutritt, Verhalten, Sicherheit, Hygiene und Hausrecht.
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="recht">
+            <summary><span class="faq-question-text">Wer darf das Studio betreten?</span></summary>
+            <div class="faq-answer">
+              Nur Personen mit gültiger Zutrittsberechtigung dürfen das Studio betreten. Das Mitnehmen nicht berechtigter Personen ist nicht erlaubt.
+            </div>
+          </details>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>
