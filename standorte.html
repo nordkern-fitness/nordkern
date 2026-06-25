@@ -10,22 +10,24 @@
     content="Nordkern Fitness Standorte: Studio Grevesmühlen und weitere Studios im Norden. Studioinfos, Zugang, Routenplanung und Karte auf einen Blick."
   />
 
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=3" />
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=3" />
-<link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png?v=3" />
-<link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png?v=3" />
-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=3" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=3" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=3" />
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png?v=3" />
+  <link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png?v=3" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=3" />
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
     .locations-page {
+      display: grid;
+      gap: 0;
       background: #ffffff;
     }
 
     .locations-hero {
       position: relative;
       overflow: hidden;
-      padding: 5.7rem 0 3.2rem;
+      padding: max(9rem, 13vh) 0 clamp(3.5rem, 6vw, 5.4rem);
       background: #ffffff;
     }
 
@@ -37,10 +39,10 @@
 
     .locations-hero-title {
       color: var(--text);
-      font-size: clamp(2.75rem, 5.4vw, 5.55rem);
-      line-height: 0.94;
-      letter-spacing: -0.06em;
-      font-weight: 760;
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: 0.93;
+      letter-spacing: -0.068em;
+      font-weight: 790;
       text-wrap: balance;
     }
 
@@ -48,31 +50,46 @@
       color: var(--nf-green);
     }
 
-    .locations-content {
-      padding: 0 0 5.8rem;
+    .locations-hero-text {
+      max-width: 720px;
+      margin: 1rem auto 0;
+      color: var(--text-soft);
+      font-size: clamp(1.03rem, 1.35vw, 1.22rem);
+      line-height: 1.5;
+      letter-spacing: -0.018em;
+      text-wrap: balance;
+    }
+
+    .locations-module-section {
+      padding: 0.75rem;
       background: #ffffff;
     }
 
-    .location-picker-wrap {
-      position: relative;
-      z-index: 4;
-      width: min(100% - 2rem, 1160px);
-      margin: -1.1rem auto 2.8rem;
+    .locations-module-section + .locations-module-section {
+      padding-top: 0;
+    }
+
+    .location-picker-shell,
+    .location-showcase-shell,
+    .map-card-clean {
+      width: 100%;
+      border-radius: var(--module-radius);
+      background: #f5f5f7;
+      border: 1px solid rgba(0, 0, 0, 0.045);
+      overflow: hidden;
+    }
+
+    .location-picker-shell {
+      padding: 0.75rem;
     }
 
     .location-picker-clean {
       display: flex;
       justify-content: center;
-      gap: 0.72rem;
+      gap: 0.62rem;
       overflow-x: auto;
       overflow-y: visible;
-      padding: 0.9rem;
-      border-radius: 34px;
-      background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      box-shadow: none;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
+      padding: 0.15rem;
       scroll-snap-type: x proximity;
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
@@ -85,13 +102,13 @@
     .location-choice-clean {
       position: relative;
       flex: 0 0 205px;
-      min-height: 74px;
+      min-height: 72px;
       display: grid;
       align-content: center;
       gap: 0.18rem;
       text-align: left;
       padding: 0.9rem 1rem;
-      border-radius: 24px;
+      border-radius: var(--card-radius);
       color: var(--text);
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.045);
@@ -145,15 +162,15 @@
     .location-choice-clean.is-planned {
       cursor: not-allowed;
       color: rgba(29, 29, 31, 0.2);
-      background: rgba(255, 255, 255, 0.34);
+      background: rgba(255, 255, 255, 0.46);
       border-color: rgba(0, 0, 0, 0.028);
       filter: grayscale(1);
     }
 
     .location-choice-clean.is-planned:hover {
       cursor: not-allowed;
-      background: rgba(255, 255, 255, 0.42);
-      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.54);
+      transform: none;
     }
 
     .location-choice-clean.is-planned span:not(.planned-stamp) {
@@ -161,7 +178,7 @@
     }
 
     .location-choice-clean.is-planned small {
-      color: rgba(110, 110, 115, 0.28);
+      color: rgba(110, 110, 115, 0.30);
     }
 
     .location-choice-clean.is-planned::before {
@@ -170,7 +187,7 @@
       inset: 0;
       z-index: 1;
       background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0)),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.30), rgba(255, 255, 255, 0)),
         repeating-linear-gradient(
           135deg,
           rgba(29, 29, 31, 0.018) 0,
@@ -196,7 +213,7 @@
       padding: 0.2rem 0.58rem 0.22rem;
       border-radius: 999px;
       color: rgba(29, 29, 31, 0.44);
-      background: rgba(255, 255, 255, 0.58);
+      background: rgba(255, 255, 255, 0.66);
       border: 1px solid rgba(29, 29, 31, 0.09);
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.035);
       font-size: 0.68rem;
@@ -211,19 +228,20 @@
       white-space: nowrap;
     }
 
-    .location-showcase-clean {
+    .location-showcase-shell {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
-      gap: 1.15rem;
+      gap: 0.75rem;
       align-items: stretch;
+      padding: 0.75rem;
     }
 
     .location-image-card {
       position: relative;
       min-height: 590px;
       overflow: hidden;
-      border-radius: 40px;
-      background: #f5f5f7;
+      border-radius: var(--card-radius);
+      background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.045);
       box-shadow: none;
     }
@@ -255,7 +273,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.34rem;
-      color: rgba(255, 255, 255, 0.72);
+      color: rgba(255, 255, 255, 0.74);
       font-size: 0.62rem;
       line-height: 1;
       font-weight: 760;
@@ -278,12 +296,10 @@
       flex-direction: column;
       justify-content: center;
       padding: clamp(1.35rem, 3vw, 2.1rem);
-      border-radius: 40px;
-      background: #f5f5f7;
+      border-radius: var(--card-radius);
+      background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.045);
       box-shadow: none;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
     }
 
     .location-info-top {
@@ -315,12 +331,6 @@
       font-weight: 820;
     }
 
-    .location-facts-clean strong.location-open-text,
-    .location-status-pill-clean .location-open-text {
-      color: var(--nf-green);
-      font-weight: 820;
-    }
-
     .location-city-line {
       color: var(--muted);
       font-size: 0.94rem;
@@ -333,8 +343,8 @@
       color: var(--text);
       font-size: clamp(2.55rem, 4.75vw, 4.85rem);
       line-height: 0.94;
-      letter-spacing: -0.06em;
-      font-weight: 760;
+      letter-spacing: -0.064em;
+      font-weight: 790;
       text-wrap: balance;
     }
 
@@ -358,8 +368,8 @@
       display: grid;
       gap: 0.2rem;
       padding: 0.88rem 0.95rem;
-      border-radius: 20px;
-      background: #ffffff;
+      border-radius: 16px;
+      background: #f5f5f7;
       border: 1px solid rgba(0, 0, 0, 0.045);
     }
 
@@ -385,18 +395,8 @@
       margin-top: 1.5rem;
     }
 
-    .location-map-section-clean {
-      margin-top: 1.15rem;
-    }
-
     .map-card-clean {
       padding: clamp(1.25rem, 2.6vw, 1.75rem);
-      border-radius: 40px;
-      background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      box-shadow: none;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
     }
 
     .map-card-head-clean {
@@ -412,7 +412,7 @@
       font-size: clamp(1.8rem, 3vw, 2.7rem);
       line-height: 1;
       letter-spacing: -0.055em;
-      font-weight: 760;
+      font-weight: 790;
     }
 
     .map-route-actions {
@@ -429,7 +429,7 @@
       align-items: center;
       gap: 0.72rem;
       padding: 0.72rem 0.96rem;
-      border-radius: 18px;
+      border-radius: 16px;
       transition:
         transform var(--fast),
         opacity var(--fast),
@@ -455,8 +455,6 @@
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.06);
       box-shadow: none;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
     }
 
     .map-route-button-light:hover {
@@ -502,7 +500,7 @@
     .location-map-frame-clean {
       height: clamp(360px, 42vw, 560px);
       overflow: hidden;
-      border-radius: 30px;
+      border-radius: var(--card-radius);
       border: 1px solid rgba(0, 0, 0, 0.045);
       background: #ffffff;
     }
@@ -519,7 +517,7 @@
         justify-content: flex-start;
       }
 
-      .location-showcase-clean {
+      .location-showcase-shell {
         grid-template-columns: 1fr;
       }
 
@@ -531,8 +529,8 @@
 
     @media (max-width: 768px) {
       .locations-hero {
-        padding-top: 4.75rem;
-        padding-bottom: 3rem;
+        padding-top: max(8.6rem, 15vh);
+        padding-bottom: 3.5rem;
       }
 
       .locations-hero-title {
@@ -541,26 +539,32 @@
         letter-spacing: -0.056em;
       }
 
-      .location-picker-wrap {
-        width: auto;
-        margin: -0.65rem calc(50% - 50vw) 1.75rem;
+      .locations-hero-text {
+        max-width: 34ch;
+        font-size: 1.02rem;
+      }
+
+      .locations-module-section {
+        padding: 0.65rem;
+      }
+
+      .locations-module-section + .locations-module-section {
+        padding-top: 0;
+      }
+
+      .location-picker-shell {
+        padding: 0.65rem;
       }
 
       .location-picker-clean {
         justify-content: flex-start;
-        border-radius: 0;
-        border-left: 0;
-        border-right: 0;
-        padding: 0.9rem max(1rem, calc((100vw - 230px) / 2)) 1.1rem;
-        background: #f5f5f7;
-        box-shadow: none;
-        scroll-padding-inline: max(1rem, calc((100vw - 230px) / 2));
+        padding-bottom: 0.1rem;
+        scroll-padding-inline: 0;
       }
 
       .location-choice-clean {
         flex-basis: 230px;
         min-height: 74px;
-        border-radius: 24px;
       }
 
       .location-choice-clean span {
@@ -575,13 +579,13 @@
         font-size: 0.66rem;
       }
 
-      .location-showcase-clean {
-        gap: 1rem;
+      .location-showcase-shell {
+        gap: 0.65rem;
+        padding: 0.65rem;
       }
 
       .location-image-card {
         min-height: 420px;
-        border-radius: 32px;
       }
 
       .location-image-label-clean {
@@ -591,7 +595,6 @@
 
       .location-info-card {
         min-height: auto;
-        border-radius: 32px;
         padding: 1.25rem;
       }
 
@@ -623,7 +626,6 @@
       }
 
       .map-card-clean {
-        border-radius: 32px;
         padding: 1.15rem;
       }
 
@@ -643,7 +645,7 @@
         min-width: 0;
         min-height: 50px;
         padding: 0.58rem 0.7rem;
-        border-radius: 16px;
+        border-radius: 14px;
         gap: 0.52rem;
       }
 
@@ -668,7 +670,6 @@
 
       .location-map-frame-clean {
         height: 345px;
-        border-radius: 24px;
       }
     }
 
@@ -677,9 +678,13 @@
         font-size: clamp(2.35rem, 11.5vw, 3.45rem);
       }
 
-      .location-picker-clean {
-        padding-inline: max(0.9rem, calc((100vw - 220px) / 2));
-        scroll-padding-inline: max(0.9rem, calc((100vw - 220px) / 2));
+      .locations-module-section {
+        padding: 0.5rem;
+      }
+
+      .location-picker-shell,
+      .location-showcase-shell {
+        padding: 0.5rem;
       }
 
       .location-choice-clean {
@@ -692,7 +697,6 @@
 
       .location-image-card {
         min-height: 360px;
-        border-radius: 30px;
       }
 
       .location-info-card h2 {
@@ -724,148 +728,153 @@
             Dein Studio.<br />
             <span>Klar erreichbar.</span>
           </h1>
+
+          <p class="locations-hero-text">
+            Studio Grevesmühlen ist der aktive Nordkern Fitness Standort.
+            Weitere Studios im Norden sind für später vorgemerkt.
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="locations-content" aria-labelledby="location-current-title">
-      <div class="container">
-        <div class="location-picker-wrap">
-          <div class="location-picker-clean" role="group" aria-label="Nordkern Fitness Standorte">
-            <button class="location-choice-clean is-active" type="button" aria-pressed="true">
-              <span>Studio Grevesmühlen</span>
-              <small>Aktiver Standort</small>
-            </button>
+    <section class="locations-module-section" aria-label="Nordkern Fitness Standorte auswählen">
+      <div class="location-picker-shell">
+        <div class="location-picker-clean" role="group" aria-label="Nordkern Fitness Standorte">
+          <button class="location-choice-clean is-active" type="button" aria-pressed="true">
+            <span>Studio Grevesmühlen</span>
+            <small>Aktiver Standort</small>
+          </button>
 
-            <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
-              <span>Studio Lübeck</span>
-              <small>In Planung</small>
-            </button>
+          <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
+            <span>Studio Lübeck</span>
+            <small>In Planung</small>
+          </button>
 
-            <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
-              <span>Studio Wismar</span>
-              <small>In Planung</small>
-            </button>
+          <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
+            <span>Studio Wismar</span>
+            <small>In Planung</small>
+          </button>
 
-            <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
-              <span>Studio Schwerin</span>
-              <small>In Planung</small>
-            </button>
+          <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
+            <span>Studio Schwerin</span>
+            <small>In Planung</small>
+          </button>
 
-            <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
-              <span>Studio Rostock</span>
-              <small>In Planung</small>
-            </button>
-          </div>
+          <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
+            <span>Studio Rostock</span>
+            <small>In Planung</small>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="locations-module-section" aria-labelledby="location-current-title">
+      <div class="location-showcase-shell">
+        <div class="location-image-card">
+          <img
+            src="images/studio-grevesmuehlen.jpg"
+            alt="Trainingsbereich im Nordkern Fitness Studio Grevesmühlen"
+          />
+
+          <span class="location-image-label-clean">
+            Studio Grevesmühlen
+          </span>
         </div>
 
-        <section class="location-showcase-clean" aria-label="Informationen zum Standort Grevesmühlen">
-          <div class="location-image-card">
-            <img
-              src="images/studio-grevesmuehlen.jpg"
-              alt="Trainingsbereich im Nordkern Fitness Studio Grevesmühlen"
-            />
+        <div class="location-info-card">
+          <div class="location-info-top">
+            <p class="location-status-pill-clean">Aktiver Standort</p>
+            <p class="location-city-line">Grevesmühlen, Mecklenburg-Vorpommern</p>
+          </div>
 
-            <span class="location-image-label-clean">
-              Studio Grevesmühlen
+          <h2 id="location-current-title">Studio Grevesmühlen</h2>
+
+          <p>
+            Das Nordkern Fitness Studio Grevesmühlen ist der erste Nordkern Standort:
+            mit digitalem Zugang über die App, klaren Trainingsbereichen und einem
+            ruhigen Studioerlebnis ohne unnötige Ablenkung.
+          </p>
+
+          <div class="location-facts-clean" aria-label="Standortdetails">
+            <div>
+              <span>Status</span>
+              <strong class="location-open-text">Aktiver Standort</strong>
+            </div>
+
+            <div>
+              <span>Zugang</span>
+              <strong>24/7 per App</strong>
+            </div>
+
+            <div>
+              <span>Buchung</span>
+              <strong>über die Nordkern Fitness App</strong>
+            </div>
+          </div>
+
+          <div class="product-actions location-actions-clean" aria-label="Links zu Tarifen und App">
+            <a href="mitgliedschaften.html" class="product-link product-link-primary">
+              Tarife ansehen
+            </a>
+
+            <a href="app.html" class="product-link product-link-secondary">
+              App ansehen
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="locations-module-section" aria-labelledby="location-map-title">
+      <div class="map-card-clean">
+        <div class="map-card-head-clean">
+          <div>
+            <p class="eyebrow">Karte</p>
+            <h2 id="location-map-title">Studio Grevesmühlen</h2>
+          </div>
+
+          <p class="location-status-pill-clean">
+            <span class="location-open-text">Aktiver Standort</span>
+          </p>
+        </div>
+
+        <div class="map-route-actions" aria-label="Route zum Standort öffnen">
+          <a class="map-route-button map-route-button-dark" href="https://maps.apple.com/?q=Grevesm%C3%BChlen%2C%20Mecklenburg-Vorpommern" target="_blank" rel="noopener noreferrer" aria-label="Route nach Grevesmühlen in Apple Karten öffnen">
+            <span class="map-route-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 2.8 20.4 21.2 12.6 17.7 8.9 21.2 12 2.8Z"></path>
+              </svg>
             </span>
-          </div>
 
-          <div class="location-info-card">
-            <div class="location-info-top">
-              <p class="location-status-pill-clean">Aktiver Standort</p>
-              <p class="location-city-line">Grevesmühlen, Mecklenburg-Vorpommern</p>
-            </div>
+            <span class="map-route-text">
+              <span class="map-route-small">Route öffnen in</span>
+              <span class="map-route-big">Apple Karten</span>
+            </span>
+          </a>
 
-            <h2 id="location-current-title">Studio Grevesmühlen</h2>
+          <a class="map-route-button map-route-button-light" href="https://www.google.com/maps/dir/?api=1&destination=Grevesm%C3%BChlen%2C%20Mecklenburg-Vorpommern" target="_blank" rel="noopener noreferrer" aria-label="Route nach Grevesmühlen in Google Maps öffnen">
+            <span class="map-route-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 2.25c-3.33 0-6.05 2.68-6.05 5.98 0 4.48 6.05 13.52 6.05 13.52s6.05-9.04 6.05-13.52c0-3.3-2.72-5.98-6.05-5.98Zm0 8.55a2.55 2.55 0 1 1 0-5.1 2.55 2.55 0 0 1 0 5.1Z"></path>
+              </svg>
+            </span>
 
-            <p>
-              Das Nordkern Fitness Studio Grevesmühlen ist der erste Nordkern Standort:
-              mit digitalem Zugang über die App, klaren Trainingsbereichen und einem
-              ruhigen Studioerlebnis ohne unnötige Ablenkung.
-            </p>
+            <span class="map-route-text">
+              <span class="map-route-small">Route öffnen in</span>
+              <span class="map-route-big">Google Maps</span>
+            </span>
+          </a>
+        </div>
 
-            <div class="location-facts-clean" aria-label="Standortdetails">
-              <div>
-                <span>Status</span>
-                <strong class="location-open-text">Aktiver Standort</strong>
-              </div>
-
-              <div>
-                <span>Zugang</span>
-                <strong>24/7 per App</strong>
-              </div>
-
-              <div>
-                <span>Buchung</span>
-                <strong>über die Nordkern Fitness App</strong>
-              </div>
-            </div>
-
-            <div class="product-actions location-actions-clean" aria-label="Links zu Tarifen und App">
-              <a href="mitgliedschaften.html" class="product-link product-link-primary">
-                Tarife ansehen
-              </a>
-
-              <a href="app.html" class="product-link product-link-secondary">
-                App ansehen
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section class="location-map-section-clean" aria-labelledby="location-map-title">
-          <div class="map-card-clean">
-            <div class="map-card-head-clean">
-              <div>
-                <p class="eyebrow">Karte</p>
-                <h2 id="location-map-title">Studio Grevesmühlen</h2>
-              </div>
-
-              <p class="location-status-pill-clean">
-                <span class="location-open-text">Aktiver Standort</span>
-              </p>
-            </div>
-
-            <div class="map-route-actions" aria-label="Route zum Standort öffnen">
-              <a class="map-route-button map-route-button-dark" href="https://maps.apple.com/?q=Grevesm%C3%BChlen%2C%20Mecklenburg-Vorpommern" target="_blank" rel="noopener noreferrer" aria-label="Route nach Grevesmühlen in Apple Karten öffnen">
-                <span class="map-route-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false">
-                    <path d="M12 2.8 20.4 21.2 12.6 17.7 8.9 21.2 12 2.8Z"></path>
-                  </svg>
-                </span>
-
-                <span class="map-route-text">
-                  <span class="map-route-small">Route öffnen in</span>
-                  <span class="map-route-big">Apple Karten</span>
-                </span>
-              </a>
-
-              <a class="map-route-button map-route-button-light" href="https://www.google.com/maps/dir/?api=1&destination=Grevesm%C3%BChlen%2C%20Mecklenburg-Vorpommern" target="_blank" rel="noopener noreferrer" aria-label="Route nach Grevesmühlen in Google Maps öffnen">
-                <span class="map-route-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false" role="img" aria-label="">
-                    <path d="M12 2.25c-3.33 0-6.05 2.68-6.05 5.98 0 4.48 6.05 13.52 6.05 13.52s6.05-9.04 6.05-13.52c0-3.3-2.72-5.98-6.05-5.98Zm0 8.55a2.55 2.55 0 1 1 0-5.1 2.55 2.55 0 0 1 0 5.1Z"></path>
-                  </svg>
-                </span>
-
-                <span class="map-route-text">
-                  <span class="map-route-small">Route öffnen in</span>
-                  <span class="map-route-big">Google Maps</span>
-                </span>
-              </a>
-            </div>
-
-            <div class="location-map-frame-clean">
-              <iframe
-                title="Karte mit Standort Grevesmühlen in Mecklenburg-Vorpommern"
-                src="https://www.google.com/maps?q=Grevesm%C3%BChlen%2C%20Mecklenburg-Vorpommern&output=embed"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-        </section>
+        <div class="location-map-frame-clean">
+          <iframe
+            title="Karte mit Standort Grevesmühlen in Mecklenburg-Vorpommern"
+            src="https://www.google.com/maps?q=Grevesm%C3%BChlen%2C%20Mecklenburg-Vorpommern&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
     </section>
   </main>
