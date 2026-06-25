@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const selectors = {
     headerSlot: "[data-header]",
     footerSlot: "[data-footer]",
+    contactFormSlot: "[data-contact-form]",
     faqSlot: "[data-faq]",
 
     navLink: ".nav-link",
@@ -45,8 +46,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
 
   const keys = {
-    escape: "Escape",
-    tab: "Tab"
+    escape: "Escape"
   };
 
   const shouldReduceMotion = () => prefersReducedMotion.matches;
@@ -59,6 +59,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     {
       selector: selectors.footerSlot,
       file: "components/footer.html"
+    },
+    {
+      selector: selectors.contactFormSlot,
+      file: "components/contact-form.html"
     },
     {
       selector: selectors.faqSlot,
@@ -80,6 +84,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       target.innerHTML = await response.text();
     } catch (error) {
       console.error(error);
+
+      target.innerHTML = `
+        <section style="padding: 2rem; background: #f5f5f7;">
+          <p style="margin: 0; color: #6e6e73; font-family: system-ui, sans-serif;">
+            Komponente konnte nicht geladen werden: ${file}
+          </p>
+        </section>
+      `;
     }
   };
 
@@ -706,17 +718,37 @@ document.addEventListener("DOMContentLoaded", async () => {
     const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const normalize = (value) => value.toLowerCase().trim();
 
-    const highlightText = (element, query) => {
-      const original = element.dataset.originalText || element.textContent;
-      element.dataset.originalText = original;
+    const getItemCategories = (item) => {
+      const rawCategory = item.dataset.category || "";
+      return rawCategory
+        .split(/\s+/)
+        .map((category) => category.trim())
+        .filter(Boolean);
+    };
+
+    const resetAnswerHtml = (answer) => {
+      if (!answer) return;
+
+      if (!answer.dataset.originalHtml) {
+        answer.dataset.originalHtml = answer.innerHTML;
+      }
+
+      answer.innerHTML = answer.dataset.originalHtml;
+    };
+
+    const highlightQuestionText = (question, query) => {
+      if (!question) return;
+
+      const original = question.dataset.originalText || question.textContent;
+      question.dataset.originalText = original;
 
       if (!query) {
-        element.textContent = original;
+        question.textContent = original;
         return;
       }
 
       const regex = new RegExp(`(${escapeRegExp(query)})`, "gi");
-      element.innerHTML = original.replace(regex, "<mark>$1</mark>");
+      question.innerHTML = original.replace(regex, "<mark>$1</mark>");
     };
 
     const updateFaq = () => {
@@ -724,23 +756,36 @@ document.addEventListener("DOMContentLoaded", async () => {
       let visibleCount = 0;
 
       faqItems.forEach((item) => {
-        const itemCategory = item.dataset.category || "";
+        const itemCategories = getItemCategories(item);
         const question = item.querySelector(".faq-question-text");
         const answer = item.querySelector(".faq-answer");
 
         if (!question || !answer) return;
 
+        if (!answer.dataset.originalHtml) {
+          answer.dataset.originalHtml = answer.innerHTML;
+        }
+
+        if (!question.dataset.originalText) {
+          question.dataset.originalText = question.textContent;
+        }
+
         const questionText = question.dataset.originalText || question.textContent;
-        const answerText = answer.dataset.originalText || answer.textContent;
-        const combined = normalize(`${questionText} ${answerText}`);
-        const categoryMatches = activeCategory === "all" || itemCategory === activeCategory;
+        const answerSearchText = answer.textContent || "";
+        const keywordSearchText = item.dataset.keywords || "";
+        const combined = normalize(`${questionText} ${answerSearchText} ${keywordSearchText}`);
+
+        const categoryMatches =
+          activeCategory === "all" ||
+          itemCategories.includes(activeCategory);
+
         const searchMatches = !query || combined.includes(query);
         const isVisible = categoryMatches && searchMatches;
 
         item.hidden = !isVisible;
 
-        highlightText(question, query);
-        highlightText(answer, query);
+        highlightQuestionText(question, query);
+        resetAnswerHtml(answer);
 
         if (isVisible) {
           visibleCount += 1;
@@ -776,7 +821,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         activeCategory = button.dataset.faqCategory || "all";
 
         categoryButtons.forEach((categoryButton) => {
-          categoryButton.classList.toggle("is-active", categoryButton === button);
+          const isActive = categoryButton === button;
+          categoryButton.classList.toggle("is-active", isActive);
+          categoryButton.setAttribute("aria-pressed", String(isActive));
         });
 
         updateFaq();
