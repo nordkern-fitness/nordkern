@@ -27,7 +27,7 @@
     .home-first-hero {
       min-height: auto;
       padding-top: max(10.4rem, 15vh);
-      padding-bottom: clamp(4.6rem, 7vw, 7rem);
+      padding-bottom: clamp(4.4rem, 6.8vw, 6.8rem);
       background: #ffffff;
     }
 
@@ -46,7 +46,7 @@
       font-size: clamp(4rem, 7vw, 7.25rem);
       line-height: 0.91;
       letter-spacing: -0.076em;
-      font-weight: 760;
+      font-weight: 790;
       text-wrap: balance;
     }
 
@@ -79,7 +79,7 @@
     .home-app-panel {
       width: 100%;
       overflow: hidden;
-      border-radius: 28px;
+      border-radius: var(--module-radius);
       background: #f5f5f7;
       border: 1px solid rgba(0, 0, 0, 0.045);
     }
@@ -106,7 +106,7 @@
       position: relative;
       overflow: hidden;
       min-height: 300px;
-      border-radius: 22px;
+      border-radius: var(--card-radius);
       background: #ffffff;
       isolation: isolate;
     }
@@ -139,9 +139,9 @@
       background:
         linear-gradient(
           180deg,
-          rgba(255, 255, 255, 0.04) 0%,
-          rgba(255, 255, 255, 0) 18%,
-          rgba(0, 0, 0, 0.05) 100%
+          rgba(255, 255, 255, 0.05) 0%,
+          rgba(255, 255, 255, 0) 20%,
+          rgba(0, 0, 0, 0.08) 100%
         );
     }
 
@@ -162,7 +162,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.32rem;
-      color: rgba(245, 245, 247, 0.72);
+      color: rgba(245, 245, 247, 0.76);
       background: transparent;
       border: 0;
       box-shadow: none;
@@ -190,11 +190,11 @@
       right: clamp(1rem, 2vw, 1.7rem);
       bottom: clamp(1rem, 2vw, 1.7rem);
       z-index: 1;
-      color: rgba(29, 29, 31, 0.026);
+      color: rgba(245, 245, 247, 0.06);
       font-size: clamp(5rem, 12vw, 12rem);
       line-height: 0.8;
       letter-spacing: -0.08em;
-      font-weight: 760;
+      font-weight: 790;
       pointer-events: none;
       user-select: none;
     }
@@ -211,17 +211,16 @@
       background:
         radial-gradient(
           ellipse at 50% 0%,
-          rgba(125, 226, 144, 0.44) 0%,
-          rgba(125, 226, 144, 0.28) 20%,
-          rgba(125, 226, 144, 0.10) 42%,
-          rgba(125, 226, 144, 0.03) 64%,
-          rgba(255, 255, 255, 0) 78%
+          rgba(125, 226, 144, 0.52) 0%,
+          rgba(125, 226, 144, 0.30) 25%,
+          rgba(125, 226, 144, 0.12) 47%,
+          rgba(255, 255, 255, 0) 72%
         ),
         linear-gradient(
           180deg,
-          #e6f7ec 0%,
-          #f2faf5 31%,
-          #f5f5f7 70%,
+          #e3f7ea 0%,
+          #f0faf3 28%,
+          #f5f5f7 68%,
           #f5f5f7 100%
         );
     }
@@ -230,19 +229,19 @@
       content: "";
       position: absolute;
       inset: 0;
-      z-index: -2;
+      z-index: -1;
       pointer-events: none;
       background:
         linear-gradient(
           90deg,
-          rgba(255, 255, 255, 0.48),
+          rgba(255, 255, 255, 0.45),
           rgba(255, 255, 255, 0) 18%,
           rgba(255, 255, 255, 0) 82%,
-          rgba(255, 255, 255, 0.48)
+          rgba(255, 255, 255, 0.45)
         ),
         radial-gradient(
           circle at 50% 18%,
-          rgba(255, 255, 255, 0.42),
+          rgba(255, 255, 255, 0.36),
           rgba(255, 255, 255, 0) 36%
         );
     }
@@ -259,7 +258,7 @@
       font-size: clamp(3rem, 5.15vw, 5.85rem);
       line-height: 0.94;
       letter-spacing: -0.068em;
-      font-weight: 760;
+      font-weight: 790;
       text-wrap: balance;
     }
 
@@ -307,7 +306,7 @@
       font-size: clamp(2.1rem, 3.25vw, 3.25rem);
       line-height: 1.05;
       letter-spacing: -0.052em;
-      font-weight: 760;
+      font-weight: 790;
       text-wrap: balance;
     }
 
@@ -333,7 +332,7 @@
     .home-app-links a {
       color: var(--nf-green-dark);
       font-size: 1rem;
-      font-weight: 520;
+      font-weight: 560;
       letter-spacing: -0.012em;
       transition:
         color var(--fast),
@@ -432,7 +431,7 @@
     @media (max-width: 768px) {
       .home-first-hero {
         padding-top: max(9.4rem, 16vh);
-        padding-bottom: 4.2rem;
+        padding-bottom: 3.8rem;
       }
 
       .home-first-hero .product-copy h1 {
@@ -455,10 +454,8 @@
         padding: 0.65rem;
       }
 
-      .home-studio-shell,
-      .home-access-panel,
-      .home-app-panel {
-        border-radius: 24px;
+      .home-module-section + .home-module-section {
+        padding-top: 0;
       }
 
       .home-studio-shell {
@@ -472,10 +469,6 @@
       .home-studio-side {
         grid-template-columns: 1fr;
         gap: 0.65rem;
-      }
-
-      .home-studio-card {
-        border-radius: 18px;
       }
 
       .home-studio-card-large {
@@ -575,12 +568,6 @@
         padding: 0.5rem;
       }
 
-      .home-studio-shell,
-      .home-access-panel,
-      .home-app-panel {
-        border-radius: 22px;
-      }
-
       .home-studio-shell {
         padding: 0.5rem;
       }
@@ -591,10 +578,6 @@
 
       .home-studio-side {
         gap: 0.5rem;
-      }
-
-      .home-studio-card {
-        border-radius: 16px;
       }
 
       .home-studio-card-large {
