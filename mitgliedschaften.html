@@ -10,17 +10,23 @@
     content="Nordkern Fitness Tarife: Basic, Plus, Pro und Tagespass. Klar, digital und flexibel mit Zugang über die App."
   />
 
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=3" />
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=3" />
-<link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png?v=3" />
-<link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png?v=3" />
-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=3" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=3" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=3" />
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png?v=3" />
+  <link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png?v=3" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=3" />
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
+    .pricing-page {
+      display: grid;
+      gap: 0;
+      background: #ffffff;
+    }
+
     .pricing-page-section {
       padding-top: 5.4rem;
-      padding-bottom: 3.8rem;
+      padding-bottom: var(--section-gap);
       background: #ffffff;
     }
 
@@ -67,9 +73,9 @@
       display: grid;
       grid-template-rows: auto auto 1fr auto auto;
       padding: clamp(1.55rem, 2.2vw, 1.9rem);
-      border-radius: 34px;
+      border-radius: var(--card-radius);
       overflow: hidden;
-      background: linear-gradient(180deg, #f7f7f9 0%, #f4f4f6 100%);
+      background: linear-gradient(180deg, #f7f7f9 0%, #f3f3f5 100%);
       border: 1px solid rgba(0, 0, 0, 0.055);
       box-shadow: 0 18px 44px rgba(0, 0, 0, 0.032);
       backdrop-filter: none;
@@ -350,19 +356,20 @@
     }
 
     .drink-info-section {
-      padding-top: 0;
-      padding-bottom: 3.4rem;
+      padding: var(--section-gap);
       background: #ffffff;
     }
 
     .drink-info-card {
+      width: min(100% - 1.5rem, var(--max-width));
+      margin-inline: auto;
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
       gap: 1rem;
-      padding: 1rem 1.35rem;
-      border-radius: 26px;
-      background: #f5f5f7;
+      padding: 1.15rem 1.35rem;
+      border-radius: var(--card-radius);
+      background: var(--surface);
       border: 1px solid rgba(0, 0, 0, 0.045);
     }
 
@@ -419,19 +426,20 @@
     }
 
     .daypass-section {
-      padding-top: 0.45rem;
-      padding-bottom: 5.5rem;
+      padding: var(--section-gap);
       background: #ffffff;
     }
 
     .daypass-layout {
+      width: min(100% - 1.5rem, var(--max-width));
+      margin-inline: auto;
       display: grid;
       grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.55fr);
       gap: 1.15rem;
       align-items: stretch;
       padding: clamp(1.45rem, 3vw, 2.15rem);
-      border-radius: 40px;
-      background: #f5f5f7;
+      border-radius: var(--module-radius);
+      background: var(--surface);
       border: 1px solid rgba(0, 0, 0, 0.045);
       overflow: hidden;
     }
@@ -475,7 +483,7 @@
       display: grid;
       grid-template-rows: auto auto 1fr auto auto;
       padding: clamp(1.5rem, 2.15vw, 1.85rem);
-      border-radius: 34px;
+      border-radius: var(--card-radius);
       overflow: hidden;
       background: linear-gradient(180deg, #ffffff 0%, #f8f8f9 100%);
       border: 1px solid rgba(0, 0, 0, 0.055);
@@ -655,7 +663,7 @@
     @media (max-width: 768px) {
       .pricing-page-section {
         padding-top: 4.65rem;
-        padding-bottom: 3.6rem;
+        padding-bottom: var(--section-gap);
       }
 
       .pricing-page-intro {
@@ -766,7 +774,7 @@
       .tariff-card {
         flex: 0 0 82vw;
         min-height: 570px;
-        border-radius: 30px;
+        border-radius: var(--card-radius);
         padding: 1.25rem;
         scroll-snap-align: center;
       }
@@ -810,14 +818,11 @@
         grid-template-columns: minmax(0, 1fr) 20px;
       }
 
-      .drink-info-section {
-        padding-bottom: 3rem;
-      }
-
       .drink-info-card {
+        width: min(100% - 1rem, var(--max-width));
         grid-template-columns: minmax(0, 1fr);
         align-items: flex-start;
-        border-radius: 26px;
+        border-radius: var(--card-radius);
         padding: 1.05rem 1.1rem;
       }
 
@@ -831,12 +836,9 @@
         margin-top: 0.02rem;
       }
 
-      .daypass-section {
-        padding-bottom: 4.7rem;
-      }
-
       .daypass-layout {
-        border-radius: 30px;
+        width: min(100% - 1rem, var(--max-width));
+        border-radius: var(--module-radius);
         gap: 1.35rem;
         padding: 1.28rem;
         align-items: stretch;
@@ -855,7 +857,7 @@
 
       .daypass-card {
         min-height: 540px;
-        border-radius: 28px;
+        border-radius: var(--card-radius);
         padding: 1.25rem;
       }
 
@@ -927,6 +929,11 @@
         padding: 0.78rem 3rem 0.78rem 0.9rem;
       }
 
+      .drink-info-card,
+      .daypass-layout {
+        width: min(100% - 0.8rem, var(--max-width));
+      }
+
       .drink-info-title-row {
         gap: 0.55rem;
       }
@@ -954,7 +961,7 @@
 <body>
   <div data-header></div>
 
-  <main>
+  <main class="pricing-page">
     <section id="mitgliedschaften" class="section pricing-page-section" aria-labelledby="pricing-page-title">
       <div class="container">
         <div class="section-intro center pricing-page-intro">
@@ -1214,123 +1221,119 @@
     </section>
 
     <section class="drink-info-section" aria-labelledby="drink-info-title">
-      <div class="container">
-        <div class="drink-info-card">
-          <div class="drink-info-copy">
-            <p class="drink-info-label">Getränkeautomat</p>
+      <div class="drink-info-card">
+        <div class="drink-info-copy">
+          <p class="drink-info-label">Getränkeautomat</p>
 
-            <div class="drink-info-title-row">
-              <h2 class="drink-info-title" id="drink-info-title">
-                Wie funktioniert der Getränkeautomat?
-              </h2>
+          <div class="drink-info-title-row">
+            <h2 class="drink-info-title" id="drink-info-title">
+              Wie funktioniert der Getränkeautomat?
+            </h2>
 
-              <button
-                class="extra-info-button drink-main-info-button"
-                type="button"
-                aria-label="Information zum Getränkeautomaten"
-                data-info-title="So funktioniert der Getränkeautomat"
-                data-info-text="Der Getränkeautomat läuft über deinen normalen Nordkern Fitness QR-Code. Du scannst denselben QR-Code, den du auch für den Studio-Zutritt nutzt. Danach erkennt das System dein App-Konto und zeigt, welche Freigetränke und Extras in deinem Tarif noch verfügbar sind. Du wählst Getränk, Größe, Geschmack und verfügbare Zusätze wie Kreatin aus. Inklusive Kontingente werden automatisch abgezogen. Wenn deine enthaltenen Getränke oder Zusätze aufgebraucht sind, kannst du weitere Getränke oder Extras in der App kaufen und anschließend am Automaten einlösen."
-              >
-                <span aria-hidden="true">?</span>
-              </button>
-            </div>
-
-            <p class="drink-info-text">
-              Dein QR-Code verbindet den Automaten mit deinem App-Konto. Freigetränke, Größen und Extras werden automatisch erkannt und sauber zugeordnet.
-            </p>
+            <button
+              class="extra-info-button drink-main-info-button"
+              type="button"
+              aria-label="Information zum Getränkeautomaten"
+              data-info-title="So funktioniert der Getränkeautomat"
+              data-info-text="Der Getränkeautomat läuft über deinen normalen Nordkern Fitness QR-Code. Du scannst denselben QR-Code, den du auch für den Studio-Zutritt nutzt. Danach erkennt das System dein App-Konto und zeigt, welche Freigetränke und Extras in deinem Tarif noch verfügbar sind. Du wählst Getränk, Größe, Geschmack und verfügbare Zusätze wie Kreatin aus. Inklusive Kontingente werden automatisch abgezogen. Wenn deine enthaltenen Getränke oder Zusätze aufgebraucht sind, kannst du weitere Getränke oder Extras in der App kaufen und anschließend am Automaten einlösen."
+            >
+              <span aria-hidden="true">?</span>
+            </button>
           </div>
+
+          <p class="drink-info-text">
+            Dein QR-Code verbindet den Automaten mit deinem App-Konto. Freigetränke, Größen und Extras werden automatisch erkannt und sauber zugeordnet.
+          </p>
         </div>
       </div>
     </section>
 
     <section id="tagespass" class="section daypass-section" aria-labelledby="daypass-title">
-      <div class="container">
-        <div class="daypass-layout">
-          <div class="daypass-copy">
-            <p class="eyebrow">Tagespass</p>
+      <div class="daypass-layout">
+        <div class="daypass-copy">
+          <p class="eyebrow">Tagespass</p>
 
-            <h2 id="daypass-title">Nordkern <span>Tagespass</span></h2>
+          <h2 id="daypass-title">Nordkern <span>Tagespass</span></h2>
 
-            <p>
-              Zum Testen: einmal trainieren, 24 Stunden Zugang nutzen, ein Freigetränk einlösen und Nordkern Fitness kennenlernen.
-            </p>
+          <p>
+            Zum Testen: einmal trainieren, 24 Stunden Zugang nutzen, ein Freigetränk einlösen und Nordkern Fitness kennenlernen.
+          </p>
+        </div>
+
+        <article class="daypass-card" aria-labelledby="daypass-card-title">
+          <div class="daypass-card-main">
+            <h3 class="tariff-name" id="daypass-card-title">Nordkern <span>Tagespass</span></h3>
+
+            <div class="tariff-price-area">
+              <div class="tariff-price-row">
+                <p class="tariff-price">9,00 €</p>
+                <p class="tariff-price-unit">einmalig</p>
+              </div>
+            </div>
           </div>
 
-          <article class="daypass-card" aria-labelledby="daypass-card-title">
-            <div class="daypass-card-main">
-              <h3 class="tariff-name" id="daypass-card-title">Nordkern <span>Tagespass</span></h3>
+          <div class="daypass-card-details">
+            <div class="tariff-feature-block">
+              <ul class="tariff-checks">
+                <li>24 Stunden Zugang</li>
+                <li>QR-Code-Zutritt über die App</li>
+              </ul>
 
-              <div class="tariff-price-area">
-                <div class="tariff-price-row">
-                  <p class="tariff-price">9,00 €</p>
-                  <p class="tariff-price-unit">einmalig</p>
-                </div>
-              </div>
+              <p class="tariff-extra-title">Getränkeautomat</p>
+
+              <ul class="tariff-extras">
+                <li>
+                  <span class="tariff-extra-row">
+                    <span>1× Freigetränk à 330 ml</span>
+                    <button
+                      class="extra-info-button"
+                      type="button"
+                      aria-label="Information zu 1× Freigetränk beim Tagespass"
+                      data-info-title="1× Freigetränk à 330 ml"
+                      data-info-text="Beim Tagespass ist 1× Freigetränk à 330 ml enthalten. Das Freigetränk wird über deinen QR-Code am Getränkeautomaten eingelöst. Weitere Getränke kannst du zusätzlich in der App kaufen und im Studio einlösen."
+                    >
+                      <span aria-hidden="true">?</span>
+                    </button>
+                  </span>
+                </li>
+
+                <li>
+                  <span class="tariff-extra-row">
+                    <span>1× Kreatin-Auswahl inklusive</span>
+                    <button
+                      class="extra-info-button"
+                      type="button"
+                      aria-label="Information zu 1× Kreatin-Auswahl beim Tagespass"
+                      data-info-title="1× Kreatin-Auswahl inklusive"
+                      data-info-text="Beim Tagespass ist 1× Kreatin-Auswahl inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst. Weitere Kreatin-Auswahlen können zusätzlich in der App gekauft werden."
+                    >
+                      <span aria-hidden="true">?</span>
+                    </button>
+                  </span>
+                </li>
+              </ul>
             </div>
 
-            <div class="daypass-card-details">
-              <div class="tariff-feature-block">
-                <ul class="tariff-checks">
-                  <li>24 Stunden Zugang</li>
-                  <li>QR-Code-Zutritt über die App</li>
-                </ul>
+            <div class="tariff-runtime">
+              <span>Zugang</span>
+              <strong>24 Stunden</strong>
 
-                <p class="tariff-extra-title">Getränkeautomat</p>
-
-                <ul class="tariff-extras">
-                  <li>
-                    <span class="tariff-extra-row">
-                      <span>1× Freigetränk à 330 ml</span>
-                      <button
-                        class="extra-info-button"
-                        type="button"
-                        aria-label="Information zu 1× Freigetränk beim Tagespass"
-                        data-info-title="1× Freigetränk à 330 ml"
-                        data-info-text="Beim Tagespass ist 1× Freigetränk à 330 ml enthalten. Das Freigetränk wird über deinen QR-Code am Getränkeautomaten eingelöst. Weitere Getränke kannst du zusätzlich in der App kaufen und im Studio einlösen."
-                      >
-                        <span aria-hidden="true">?</span>
-                      </button>
-                    </span>
-                  </li>
-
-                  <li>
-                    <span class="tariff-extra-row">
-                      <span>1× Kreatin-Auswahl inklusive</span>
-                      <button
-                        class="extra-info-button"
-                        type="button"
-                        aria-label="Information zu 1× Kreatin-Auswahl beim Tagespass"
-                        data-info-title="1× Kreatin-Auswahl inklusive"
-                        data-info-text="Beim Tagespass ist 1× Kreatin-Auswahl inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst. Weitere Kreatin-Auswahlen können zusätzlich in der App gekauft werden."
-                      >
-                        <span aria-hidden="true">?</span>
-                      </button>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="tariff-runtime">
-                <span>Zugang</span>
-                <strong>24 Stunden</strong>
-
-                <button
-                  class="runtime-info-button"
-                  type="button"
-                  aria-label="Information zum Tagespass-Zugang"
-                  data-info-title="Zugang: 24 Stunden"
-                  data-info-text="Der Tagespass wird nach dem Kauf in deinem Profil hinterlegt und startet nicht automatisch. Die 24 Stunden beginnen erst, wenn du den Tagespass beim Betreten des Studios über die Nordkern Fitness App aktivierst und den QR-Code für den Zutritt nutzt. Danach endet der Zugang automatisch. Aus dem Tagespass entsteht keine Mitgliedschaft."
-                >
-                  <span aria-hidden="true">?</span>
-                </button>
-              </div>
-
-              <a href="app.html" class="btn btn-primary">
-                In der App ansehen
-              </a>
+              <button
+                class="runtime-info-button"
+                type="button"
+                aria-label="Information zum Tagespass-Zugang"
+                data-info-title="Zugang: 24 Stunden"
+                data-info-text="Der Tagespass wird nach dem Kauf in deinem Profil hinterlegt und startet nicht automatisch. Die 24 Stunden beginnen erst, wenn du den Tagespass beim Betreten des Studios über die Nordkern Fitness App aktivierst und den QR-Code für den Zutritt nutzt. Danach endet der Zugang automatisch. Aus dem Tagespass entsteht keine Mitgliedschaft."
+              >
+                <span aria-hidden="true">?</span>
+              </button>
             </div>
-          </article>
-        </div>
+
+            <a href="app.html" class="btn btn-primary">
+              In der App ansehen
+            </a>
+          </div>
+        </article>
       </div>
     </section>
   </main>
