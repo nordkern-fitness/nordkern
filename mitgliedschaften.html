@@ -26,7 +26,7 @@
       min-height: 72vh;
       display: grid;
       place-items: center;
-      padding: max(9rem, 14vh) 1rem clamp(4rem, 6vw, 6rem);
+      padding: max(8.4rem, 13vh) 1rem clamp(3.6rem, 5.6vw, 5.6rem);
       text-align: center;
       background: #ffffff;
     }
@@ -38,7 +38,7 @@
 
     .pricing-hero-v3 h1 {
       color: var(--text);
-      font-size: clamp(3.6rem, 6.8vw, 7rem);
+      font-size: clamp(3.6rem, 6.5vw, 6.9rem);
       line-height: 0.92;
       letter-spacing: -0.074em;
       font-weight: 790;
@@ -46,10 +46,10 @@
     }
 
     .pricing-hero-v3 p:not(.eyebrow) {
-      max-width: 720px;
+      max-width: 700px;
       margin: 1rem auto 0;
       color: var(--text-soft);
-      font-size: clamp(1.05rem, 1.32vw, 1.22rem);
+      font-size: clamp(1.04rem, 1.26vw, 1.2rem);
       line-height: 1.48;
       letter-spacing: -0.018em;
       text-wrap: balance;
@@ -61,10 +61,10 @@
     }
 
     .pricing-stage-v3 {
-      min-height: clamp(700px, 78vh, 900px);
+      min-height: clamp(760px, 82vh, 920px);
       display: grid;
       align-content: center;
-      padding: clamp(2.8rem, 5vw, 5.4rem) clamp(1.25rem, 3vw, 2.4rem);
+      padding: clamp(2.8rem, 5vw, 5rem) clamp(1.25rem, 4vw, 3rem);
       background: #f5f5f7;
       overflow: hidden;
     }
@@ -72,7 +72,7 @@
     .pricing-tabs-wrap-v3 {
       display: flex;
       justify-content: center;
-      margin-bottom: clamp(2.2rem, 4vw, 3.7rem);
+      margin-bottom: clamp(2.4rem, 4.5vw, 4.4rem);
     }
 
     .pricing-tabs {
@@ -82,10 +82,9 @@
       width: min(100%, 540px);
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0;
       padding: 0.28rem;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.9);
       border: 1px solid rgba(0, 0, 0, 0.06);
       overflow: hidden;
     }
@@ -142,14 +141,14 @@
 
     .pricing-plan.is-active {
       display: block;
-      animation: planFadeV3 0.52s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation: planFadeV3 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
     @keyframes planFadeV3 {
       from {
         opacity: 0;
-        transform: translateY(14px);
-        filter: blur(3px);
+        transform: translateY(10px);
+        filter: blur(2px);
       }
 
       to {
@@ -160,6 +159,7 @@
     }
 
     .pricing-plan-layout-v3 {
+      min-height: 560px;
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(300px, 0.42fr);
       gap: clamp(2.2rem, 4vw, 4.2rem);
@@ -172,40 +172,30 @@
     }
 
     .pricing-plan-kicker-v3 {
-      margin-bottom: 0.65rem;
-      color: var(--muted);
-      font-size: 0.75rem;
+      margin-bottom: 0.85rem;
+      color: var(--text-soft);
+      font-size: clamp(0.9rem, 1.1vw, 1rem);
       font-weight: 850;
-      letter-spacing: 0.06em;
+      letter-spacing: -0.02em;
       text-transform: uppercase;
     }
 
-    .pricing-plan-main-v3 h2 {
-      max-width: 740px;
+    .pricing-plan-name-v3 {
       color: var(--text);
-      font-size: clamp(4rem, 7.2vw, 7.5rem);
+      font-size: clamp(4.2rem, 7.2vw, 7rem);
       line-height: 0.9;
       letter-spacing: -0.078em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .pricing-plan-main-v3 h2 span {
+    .pricing-plan-name-v3 span {
+      display: block;
       color: var(--nf-green);
     }
 
-    .pricing-plan-main-v3 > p {
-      max-width: 660px;
-      margin-top: 1.1rem;
-      color: var(--text-soft);
-      font-size: clamp(1.06rem, 1.35vw, 1.22rem);
-      line-height: 1.52;
-      letter-spacing: -0.018em;
-      text-wrap: balance;
-    }
-
     .pricing-price-area-v3 {
-      margin-top: clamp(2.4rem, 5vw, 4.6rem);
+      margin-top: clamp(3.2rem, 5.4vw, 5rem);
     }
 
     .pricing-price-row-v3 {
@@ -217,17 +207,17 @@
 
     .pricing-price-v3 {
       color: var(--text);
-      font-size: clamp(4rem, 6.4vw, 6.6rem);
-      line-height: 0.84;
-      letter-spacing: -0.078em;
+      font-size: clamp(3.25rem, 5.45vw, 5.35rem);
+      line-height: 0.86;
+      letter-spacing: -0.072em;
       font-weight: 560;
       font-variant-numeric: tabular-nums;
     }
 
     .pricing-price-unit-v3 {
-      padding-bottom: 0.48rem;
+      padding-bottom: 0.42rem;
       color: var(--muted);
-      font-size: 1rem;
+      font-size: 0.98rem;
       line-height: 1.1;
       letter-spacing: -0.012em;
     }
@@ -237,8 +227,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-top: 1rem;
-      padding: 0.54rem 0.8rem;
+      margin-top: 1.55rem;
+      padding: 0.56rem 0.86rem;
       border-radius: 999px;
       color: var(--nf-green-dark);
       background: rgba(46, 145, 63, 0.09);
@@ -252,7 +242,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
-      margin-top: 1.35rem;
+      margin-top: 1.45rem;
     }
 
     .pricing-side-v3 {
@@ -262,6 +252,7 @@
     }
 
     .pricing-side-card-v3 {
+      min-height: 128px;
       padding: 1.05rem;
       border-radius: 14px;
       background: #ffffff;
@@ -347,6 +338,7 @@
     }
 
     .pricing-note-v3 {
+      min-height: 72px;
       color: var(--muted);
       font-size: 0.92rem;
       line-height: 1.48;
@@ -464,6 +456,7 @@
 
     @media (max-width: 980px) {
       .pricing-plan-layout-v3 {
+        min-height: auto;
         grid-template-columns: 1fr;
         gap: 2.4rem;
       }
@@ -479,8 +472,9 @@
 
     @media (max-width: 720px) {
       .pricing-hero-v3 {
-        min-height: 66vh;
-        padding-top: max(8.6rem, 15vh);
+        min-height: 68vh;
+        padding-top: max(8.2rem, 14vh);
+        padding-bottom: 3.2rem;
       }
 
       .pricing-hero-v3 h1 {
@@ -502,11 +496,11 @@
 
       .pricing-stage-v3 {
         min-height: auto;
-        padding: 3.8rem 1rem;
+        padding: 3.6rem 1rem;
       }
 
       .pricing-tabs-wrap-v3 {
-        margin-bottom: 2.4rem;
+        margin-bottom: 2.6rem;
       }
 
       .pricing-tabs {
@@ -529,17 +523,19 @@
         text-align: center;
       }
 
-      .pricing-plan-main-v3 h2 {
+      .pricing-plan-kicker-v3 {
+        font-size: 0.82rem;
+      }
+
+      .pricing-plan-name-v3 {
         max-width: 9.5ch;
         margin-inline: auto;
         font-size: clamp(3rem, 14vw, 4.6rem);
         line-height: 0.92;
       }
 
-      .pricing-plan-main-v3 > p {
-        max-width: 34ch;
-        margin-inline: auto;
-        font-size: 1rem;
+      .pricing-price-area-v3 {
+        margin-top: 3rem;
       }
 
       .pricing-price-row-v3 {
@@ -547,11 +543,12 @@
       }
 
       .pricing-price-v3 {
-        font-size: clamp(3.35rem, 15vw, 4.8rem);
+        font-size: clamp(3rem, 13.6vw, 4.4rem);
       }
 
       .pricing-runtime-pill {
         margin-inline: auto;
+        margin-top: 1.4rem;
       }
 
       .pricing-actions-v3 {
@@ -569,8 +566,16 @@
         grid-template-columns: 1fr;
       }
 
+      .pricing-side-card-v3 {
+        min-height: auto;
+      }
+
       .pricing-side-card-v3:last-child {
         grid-column: auto;
+      }
+
+      .pricing-note-v3 {
+        min-height: auto;
       }
 
       .pricing-drink-panel-v3 {
@@ -634,11 +639,7 @@
             <div class="pricing-plan-layout-v3">
               <div class="pricing-plan-main-v3">
                 <p class="pricing-plan-kicker-v3">Nordkern Mitgliedschaft</p>
-                <h2>Nordkern <span>Basic.</span></h2>
-
-                <p>
-                  Der klare Einstieg: 24/7 trainieren, per App ins Studio und monatlich deine ersten Getränke- und Kreatin-Kontingente nutzen.
-                </p>
+                <h2 class="pricing-plan-name-v3">Nordkern <span>Basic.</span></h2>
 
                 <div class="pricing-price-area-v3">
                   <div class="pricing-price-row-v3">
@@ -699,11 +700,7 @@
             <div class="pricing-plan-layout-v3">
               <div class="pricing-plan-main-v3">
                 <p class="pricing-plan-kicker-v3">Nordkern Mitgliedschaft</p>
-                <h2>Nordkern <span>Plus.</span></h2>
-
-                <p>
-                  Der ausgewogene Tarif: kürzere Laufzeit als Basic und mehr Getränke- und Kreatin-Kontingente für regelmäßiges Training.
-                </p>
+                <h2 class="pricing-plan-name-v3">Nordkern <span>Plus.</span></h2>
 
                 <div class="pricing-price-area-v3">
                   <div class="pricing-price-row-v3">
@@ -764,11 +761,7 @@
             <div class="pricing-plan-layout-v3">
               <div class="pricing-plan-main-v3">
                 <p class="pricing-plan-kicker-v3">Nordkern Mitgliedschaft</p>
-                <h2>Nordkern <span>Pro.</span></h2>
-
-                <p>
-                  Für alle, die oft trainieren und maximal flexibel bleiben möchten: kürzeste Mindestlaufzeit und die größten monatlichen Kontingente.
-                </p>
+                <h2 class="pricing-plan-name-v3">Nordkern <span>Pro.</span></h2>
 
                 <div class="pricing-price-area-v3">
                   <div class="pricing-price-row-v3">
@@ -834,11 +827,7 @@
             <div class="pricing-plan-layout-v3">
               <div class="pricing-plan-main-v3">
                 <p class="pricing-plan-kicker-v3">Einmaliger Zugang</p>
-                <h2>Nordkern <span>Tagespass.</span></h2>
-
-                <p>
-                  Zum Testen ohne Mitgliedschaft: 24 Stunden Zugang nutzen, ein Freigetränk einlösen und Nordkern Fitness kennenlernen.
-                </p>
+                <h2 class="pricing-plan-name-v3">Nordkern <span>Tagespass.</span></h2>
 
                 <div class="pricing-price-area-v3">
                   <div class="pricing-price-row-v3">
