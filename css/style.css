@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap");
+
 :root {
   --nf-green: #2e913f;
   --nf-green-dark: #1f6f2e;
@@ -8,17 +10,19 @@
   --bg: #ffffff;
   --bg-soft: #f5f5f7;
   --bg-soft-2: #fbfbfd;
-  --bg-elevated: rgba(255, 255, 255, 0.78);
+  --bg-elevated: rgba(255, 255, 255, 0.82);
 
   --surface: #f5f5f7;
   --surface-soft: #fbfbfd;
   --surface-white: #ffffff;
   --surface-line: rgba(0, 0, 0, 0.045);
-  --section-gap: clamp(0.72rem, 1.15vw, 0.95rem);
+
+  --section-gap: clamp(0.7rem, 1.1vw, 0.95rem);
   --section-pad: clamp(4.8rem, 7vw, 7.4rem);
-  --section-pad-tight: clamp(3.4rem, 5.4vw, 5.4rem);
-  --module-radius: clamp(28px, 3vw, 44px);
-  --card-radius: clamp(24px, 2.2vw, 34px);
+  --section-pad-tight: clamp(3.3rem, 5.2vw, 5.2rem);
+
+  --module-radius: clamp(20px, 2.2vw, 30px);
+  --card-radius: clamp(16px, 1.7vw, 24px);
 
   --text: #1d1d1f;
   --text-soft: #3a3a3c;
@@ -29,19 +33,19 @@
   --line-soft: rgba(0, 0, 0, 0.045);
   --line-strong: rgba(0, 0, 0, 0.13);
 
-  --shadow-xs: 0 8px 24px rgba(0, 0, 0, 0.035);
-  --shadow-sm: 0 18px 48px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 34px 84px rgba(0, 0, 0, 0.10);
-  --shadow-green: 0 18px 42px rgba(46, 145, 63, 0.22);
+  --shadow-xs: 0 8px 24px rgba(0, 0, 0, 0.032);
+  --shadow-sm: 0 18px 48px rgba(0, 0, 0, 0.052);
+  --shadow-md: 0 34px 84px rgba(0, 0, 0, 0.08);
+  --shadow-green: 0 18px 42px rgba(46, 145, 63, 0.20);
 
-  --radius-xl: 44px;
-  --radius-lg: 32px;
-  --radius-md: 24px;
-  --radius-sm: 18px;
+  --radius-xl: 32px;
+  --radius-lg: 28px;
+  --radius-md: 22px;
+  --radius-sm: 16px;
   --radius-pill: 999px;
 
   --max-width: 1240px;
-  --font-main: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-main: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --fast: 0.16s var(--ease);
@@ -74,7 +78,8 @@ body {
   font-family: var(--font-main);
   font-size: 16px;
   line-height: 1.52;
-  letter-spacing: -0.011em;
+  letter-spacing: -0.014em;
+  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   font-synthesis-weight: none;
@@ -289,8 +294,8 @@ main > section:first-child {
   color: var(--text);
   font-size: clamp(3.15rem, 7.7vw, 7.55rem);
   line-height: 0.91;
-  letter-spacing: -0.064em;
-  font-weight: 760;
+  letter-spacing: -0.067em;
+  font-weight: 790;
   text-wrap: balance;
 }
 
@@ -299,7 +304,7 @@ main > section:first-child {
   margin-inline: auto;
   font-size: clamp(4.1rem, 6.35vw, 7rem);
   line-height: 0.92;
-  letter-spacing: -0.072em;
+  letter-spacing: -0.074em;
   white-space: nowrap;
   text-wrap: nowrap;
 }
@@ -351,8 +356,8 @@ main > section:first-child {
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-pill);
-  font-weight: 700;
-  letter-spacing: -0.014em;
+  font-weight: 720;
+  letter-spacing: -0.016em;
   transition:
     background-color var(--fast),
     color var(--fast),
@@ -382,13 +387,13 @@ main > section:first-child {
 .btn-primary {
   color: var(--white);
   background: linear-gradient(180deg, var(--nf-green-light), var(--nf-green));
-  box-shadow: 0 14px 34px rgba(46, 145, 63, 0.26);
+  box-shadow: 0 14px 34px rgba(46, 145, 63, 0.22);
 }
 
 .product-link-primary:hover,
 .btn-primary:hover {
   opacity: 0.94;
-  box-shadow: 0 18px 40px rgba(46, 145, 63, 0.30);
+  box-shadow: 0 18px 40px rgba(46, 145, 63, 0.26);
 }
 
 .product-link-secondary,
@@ -398,7 +403,7 @@ main > section:first-child {
   border: 1px solid var(--nf-green-line);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.72),
-    0 10px 24px rgba(0, 0, 0, 0.035);
+    0 10px 24px rgba(0, 0, 0, 0.032);
   backdrop-filter: blur(22px) saturate(160%);
   -webkit-backdrop-filter: blur(22px) saturate(160%);
 }
@@ -481,12 +486,12 @@ main > section:first-child {
   z-index: 2;
   width: min(100% - 2rem, 1180px);
   margin: 4.15rem auto 0;
-  border-radius: 46px;
+  border-radius: var(--module-radius);
   overflow: hidden;
   background: var(--bg-soft);
   border: 1px solid rgba(255, 255, 255, 0.78);
   box-shadow:
-    0 34px 90px rgba(0, 0, 0, 0.12),
+    0 34px 90px rgba(0, 0, 0, 0.10),
     0 0 0 1px rgba(0, 0, 0, 0.035);
 }
 
@@ -566,8 +571,8 @@ main > section:first-child {
   max-height: 760px;
   object-fit: contain;
   filter:
-    drop-shadow(0 38px 70px rgba(0, 0, 0, 0.18))
-    drop-shadow(0 10px 22px rgba(0, 0, 0, 0.10));
+    drop-shadow(0 38px 70px rgba(0, 0, 0, 0.16))
+    drop-shadow(0 10px 22px rgba(0, 0, 0, 0.09));
 }
 
 /* Typografie */
@@ -576,6 +581,7 @@ main > section:first-child {
   font-size: clamp(3.4rem, 8vw, 7.2rem);
   line-height: 0.91;
   letter-spacing: -0.062em;
+  font-weight: 790;
   text-wrap: balance;
 }
 
@@ -597,6 +603,7 @@ main > section:first-child {
   font-size: clamp(2.1rem, 3.3vw, 3.25rem);
   line-height: 1;
   letter-spacing: -0.046em;
+  font-weight: 790;
   text-wrap: balance;
 }
 
@@ -604,12 +611,13 @@ main > section:first-child {
   font-size: clamp(2.65rem, 5.6vw, 5.65rem);
   line-height: 0.94;
   letter-spacing: -0.06em;
+  font-weight: 790;
 }
 
 .eyebrow {
   margin-bottom: 0.85rem;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 840;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -744,7 +752,7 @@ main > section:first-child {
   position: relative;
   overflow: hidden;
   padding: 1.35rem 1.45rem;
-  border-radius: 28px;
+  border-radius: var(--card-radius);
   background: var(--bg-soft);
   border: 1px solid var(--line-soft);
   box-shadow: none;
@@ -892,7 +900,7 @@ main > section:first-child {
   color: var(--white);
   background: linear-gradient(180deg, var(--nf-green-light), var(--nf-green));
   border-color: rgba(46, 145, 63, 0.16);
-  box-shadow: 0 12px 26px rgba(46, 145, 63, 0.22);
+  box-shadow: 0 12px 26px rgba(46, 145, 63, 0.20);
 }
 
 .pricing-check-list {
@@ -962,7 +970,7 @@ main > section:first-child {
   font-weight: 850;
   letter-spacing: 0.018em;
   background: linear-gradient(180deg, var(--nf-green-light), var(--nf-green));
-  box-shadow: 0 10px 24px rgba(46, 145, 63, 0.22);
+  box-shadow: 0 10px 24px rgba(46, 145, 63, 0.20);
 }
 
 .pricing-note {
@@ -997,7 +1005,7 @@ main > section:first-child {
   align-content: center;
   gap: 1rem;
   padding: 1.15rem;
-  border-radius: 28px;
+  border-radius: var(--card-radius);
   background: var(--bg);
   border: 1px solid var(--line-soft);
 }
@@ -1064,7 +1072,7 @@ main > section:first-child {
   text-align: left;
   scroll-snap-align: center;
   padding: 1rem 1.05rem;
-  border-radius: 24px;
+  border-radius: var(--card-radius);
   color: var(--text);
   background: var(--bg-soft);
   border: 1px solid var(--line-soft);
@@ -1086,7 +1094,7 @@ main > section:first-child {
   color: var(--white);
   background: linear-gradient(180deg, var(--nf-green-light), var(--nf-green));
   border-color: rgba(46, 145, 63, 0.32);
-  box-shadow: 0 20px 46px rgba(46, 145, 63, 0.18);
+  box-shadow: 0 20px 46px rgba(46, 145, 63, 0.16);
 }
 
 .location-choice.is-planned,
@@ -1139,7 +1147,7 @@ main > section:first-child {
   position: relative;
   min-height: 610px;
   overflow: hidden;
-  border-radius: 40px;
+  border-radius: var(--module-radius);
   background: var(--bg-soft);
   border: 1px solid var(--line-soft);
 }
@@ -1174,7 +1182,7 @@ main > section:first-child {
   color: var(--text);
   background: rgba(255, 255, 255, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.78);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.11);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
   font-size: 0.84rem;
@@ -1188,7 +1196,7 @@ main > section:first-child {
   flex-direction: column;
   justify-content: center;
   padding: clamp(1.35rem, 3vw, 2.1rem);
-  border-radius: 40px;
+  border-radius: var(--module-radius);
   background: var(--bg-soft);
   border: 1px solid var(--line-soft);
 }
@@ -1245,7 +1253,7 @@ main > section:first-child {
   display: grid;
   gap: 0.22rem;
   padding: 0.9rem 1rem;
-  border-radius: 20px;
+  border-radius: var(--radius-sm);
   background: var(--bg);
   border: 1px solid rgba(0, 0, 0, 0.04);
 }
@@ -1293,7 +1301,7 @@ main > section:first-child {
 .map-frame {
   overflow: hidden;
   height: clamp(360px, 42vw, 560px);
-  border-radius: 30px;
+  border-radius: var(--card-radius);
   border: 1px solid var(--line-soft);
   background: var(--bg-soft);
 }
@@ -1360,7 +1368,7 @@ iframe {
 .house-principle-card,
 .house-applies-card {
   padding: clamp(1.35rem, 3vw, 2rem);
-  border-radius: 36px;
+  border-radius: var(--module-radius);
   background: var(--bg-soft);
 }
 
@@ -1408,7 +1416,7 @@ iframe {
   align-items: center;
   min-height: 52px;
   padding: 0.8rem 1rem;
-  border-radius: 18px;
+  border-radius: var(--radius-sm);
   color: var(--text);
   background: var(--bg);
   border: 1px solid var(--line-soft);
@@ -1505,7 +1513,7 @@ iframe {
   gap: 0.78rem;
   min-height: 58px;
   padding: 0.78rem 1rem;
-  border-radius: 20px;
+  border-radius: 18px;
   transition:
     background-color var(--fast),
     border-color var(--fast),
@@ -1522,7 +1530,7 @@ iframe {
   background: linear-gradient(180deg, #1d1d1f, #0f0f10);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.09),
-    0 16px 30px rgba(0, 0, 0, 0.18);
+    0 16px 30px rgba(0, 0, 0, 0.16);
 }
 
 .store-badge-light {
@@ -1591,7 +1599,7 @@ iframe {
 .contact-info-item,
 .legal-info-row {
   padding: 1rem 1.05rem;
-  border-radius: 20px;
+  border-radius: var(--radius-sm);
   background: var(--bg);
   border: 1px solid var(--line-soft);
 }
@@ -1651,7 +1659,7 @@ select {
   color: var(--text);
   background: var(--bg);
   border: 1px solid var(--line-strong);
-  border-radius: 18px;
+  border-radius: var(--radius-sm);
   padding: 1rem;
   transition:
     border-color var(--fast),
@@ -1811,10 +1819,10 @@ select[aria-invalid="true"] {
   max-height: min(86vh, 820px);
   overflow-y: auto;
   padding: 2rem;
-  border-radius: 30px;
+  border-radius: var(--module-radius);
   background: var(--bg);
   border: 1px solid var(--line);
-  box-shadow: 0 44px 120px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 44px 120px rgba(0, 0, 0, 0.16);
 }
 
 .modal-close {
@@ -1932,7 +1940,7 @@ select[aria-invalid="true"] {
   position: relative;
   min-height: 340px;
   overflow: hidden;
-  border-radius: 30px;
+  border-radius: var(--card-radius);
   background: var(--bg-soft);
   border: 1px solid var(--line-soft);
 }
@@ -2083,6 +2091,49 @@ html body main .tariff-card.is-plus {
   border-color: rgba(46, 145, 63, 0.24);
 }
 
+/* V2 global page cleanup */
+
+html body main .home-studio-shell,
+html body main .home-access-panel,
+html body main .home-app-panel,
+html body main .app-feature-shell,
+html body main .app-flow-shell,
+html body main .app-final-copy,
+html body main .daypass-layout,
+html body main .location-picker-clean,
+html body main .location-image-card,
+html body main .location-info-card,
+html body main .map-card-clean,
+html body main .contact-form-shell-clean,
+html body main .contact-methods-copy-clean,
+html body main .contact-method-card-clean,
+html body main .contact-faq-shell-clean,
+html body main .house-start-note,
+html body main .house-rule-card-clean,
+html body main .house-note-card,
+html body main .legal-document {
+  border-radius: var(--module-radius);
+}
+
+html body main .home-studio-card,
+html body main .app-feature-card,
+html body main .app-flow-item,
+html body main .tariff-card,
+html body main .daypass-card,
+html body main .drink-info-card,
+html body main .location-choice-clean,
+html body main .location-facts-clean div,
+html body main .location-map-frame-clean,
+html body main .contact-field input,
+html body main .contact-field select,
+html body main .contact-field textarea,
+html body main .faq-item,
+html body main .faq-empty,
+html body main .legal-card,
+html body main .legal-text-card {
+  border-radius: var(--card-radius);
+}
+
 /* Reveal */
 
 .reveal,
@@ -2229,8 +2280,8 @@ html body main .tariff-card.is-plus {
 @media (max-width: 768px) {
   :root {
     --section-gap: 0.62rem;
-    --module-radius: 30px;
-    --card-radius: 26px;
+    --module-radius: 24px;
+    --card-radius: 18px;
   }
 
   main > section:first-child {
@@ -2331,7 +2382,7 @@ html body main .tariff-card.is-plus {
   .home-hero-image-wrap {
     width: min(100%, 1180px);
     margin-top: 3.2rem;
-    border-radius: 32px;
+    border-radius: var(--module-radius);
   }
 
   .home-hero-image {
@@ -2408,7 +2459,7 @@ html body main .tariff-card.is-plus {
   .legal-shell,
   .rule-card,
   .rules-intro-card {
-    border-radius: 28px;
+    border-radius: var(--card-radius);
   }
 
   .card,
@@ -2487,7 +2538,7 @@ html body main .tariff-card.is-plus {
   .location-choice {
     min-width: 205px;
     padding: 0.92rem;
-    border-radius: 22px;
+    border-radius: var(--card-radius);
   }
 
   .location-showcase {
@@ -2496,7 +2547,7 @@ html body main .tariff-card.is-plus {
 
   .location-image-panel {
     min-height: 360px;
-    border-radius: 30px;
+    border-radius: var(--module-radius);
   }
 
   .location-info-panel {
@@ -2538,7 +2589,7 @@ html body main .tariff-card.is-plus {
 
   .location-map-frame {
     height: 360px;
-    border-radius: 24px;
+    border-radius: var(--card-radius);
   }
 
   .locations-final-section {
@@ -2558,7 +2609,7 @@ html body main .tariff-card.is-plus {
 
   .house-principle-card,
   .house-applies-card {
-    border-radius: 28px;
+    border-radius: var(--module-radius);
     padding: 1.25rem;
   }
 
@@ -2635,12 +2686,12 @@ html body main .tariff-card.is-plus {
 
   .gallery-image {
     min-height: 230px;
-    border-radius: 24px;
+    border-radius: var(--card-radius);
   }
 
   .modal-box {
     padding: 1.35rem;
-    border-radius: 24px;
+    border-radius: var(--module-radius);
   }
 
   html body main .app-feature-section > .container {
@@ -2657,8 +2708,8 @@ html body main .tariff-card.is-plus {
 @media (max-width: 480px) {
   :root {
     --section-gap: 0.5rem;
-    --module-radius: 28px;
-    --card-radius: 24px;
+    --module-radius: 22px;
+    --card-radius: 16px;
   }
 
   main > section:first-child {
@@ -2767,7 +2818,7 @@ html body main .tariff-card.is-plus {
 
   .location-image-panel {
     min-height: 300px;
-    border-radius: 28px;
+    border-radius: var(--module-radius);
   }
 
   .location-image-label {
@@ -2813,7 +2864,7 @@ html body main .tariff-card.is-plus {
   }
 
   .daypass-price-box {
-    border-radius: 24px;
+    border-radius: var(--card-radius);
   }
 
   .image-frame {
