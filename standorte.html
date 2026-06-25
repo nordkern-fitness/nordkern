@@ -7,7 +7,7 @@
   <title>Nordkern Fitness – Standorte</title>
   <meta
     name="description"
-    content="Nordkern Fitness Standorte: Studio Grevesmühlen und weitere Studios im Norden. Studioinfos, Zugang, Routenplanung und Karte auf einen Blick."
+    content="Nordkern Fitness Standort Grevesmühlen: ruhiges 24/7-Fitnessstudio im Norden mit digitalem Zugang über die App."
   />
 
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=3" />
@@ -18,362 +18,176 @@
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
-    .locations-page {
+    .locations-page-v3 {
+      background: #ffffff;
+    }
+
+    .locations-hero-v3 {
+      min-height: 72vh;
       display: grid;
-      gap: 0;
-      background: #ffffff;
-    }
-
-    .locations-hero {
-      position: relative;
-      overflow: hidden;
-      padding: max(9rem, 13vh) 0 clamp(3.5rem, 6vw, 5.4rem);
-      background: #ffffff;
-    }
-
-    .locations-hero-inner {
-      max-width: 940px;
-      margin-inline: auto;
+      place-items: center;
+      padding: max(9rem, 14vh) 1rem clamp(4rem, 6vw, 6rem);
       text-align: center;
+      background: #ffffff;
     }
 
-    .locations-hero-title {
+    .locations-hero-inner-v3 {
+      width: min(100%, 980px);
+      margin-inline: auto;
+    }
+
+    .locations-hero-v3 h1 {
       color: var(--text);
-      font-size: clamp(3rem, 6vw, 6rem);
-      line-height: 0.93;
-      letter-spacing: -0.068em;
+      font-size: clamp(3.6rem, 6.8vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: -0.074em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .locations-hero-title span {
-      color: var(--nf-green);
-    }
-
-    .locations-hero-text {
+    .locations-hero-v3 p:not(.eyebrow) {
       max-width: 720px;
       margin: 1rem auto 0;
       color: var(--text-soft);
-      font-size: clamp(1.03rem, 1.35vw, 1.22rem);
-      line-height: 1.5;
+      font-size: clamp(1.05rem, 1.32vw, 1.22rem);
+      line-height: 1.48;
       letter-spacing: -0.018em;
       text-wrap: balance;
     }
 
-    .locations-module-section {
-      padding: 0.75rem;
+    .location-showcase-section-v3 {
+      padding: 0 0.75rem 0.75rem;
       background: #ffffff;
     }
 
-    .locations-module-section + .locations-module-section {
-      padding-top: 0;
-    }
-
-    .location-picker-shell,
-    .location-showcase-shell,
-    .map-card-clean {
-      width: 100%;
-      border-radius: var(--module-radius);
-      background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      overflow: hidden;
-    }
-
-    .location-picker-shell {
-      padding: 0.75rem;
-    }
-
-    .location-picker-clean {
-      display: flex;
-      justify-content: center;
-      gap: 0.62rem;
-      overflow-x: auto;
-      overflow-y: visible;
-      padding: 0.15rem;
-      scroll-snap-type: x proximity;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .location-picker-clean::-webkit-scrollbar {
-      display: none;
-    }
-
-    .location-choice-clean {
-      position: relative;
-      flex: 0 0 205px;
-      min-height: 72px;
+    .location-showcase-v3 {
       display: grid;
-      align-content: center;
-      gap: 0.18rem;
-      text-align: left;
-      padding: 0.9rem 1rem;
-      border-radius: var(--card-radius);
-      color: var(--text);
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      box-shadow: none;
-      scroll-snap-align: center;
-      overflow: hidden;
-      transition:
-        background var(--fast),
-        transform var(--fast),
-        opacity var(--fast),
-        filter var(--fast);
-    }
-
-    .location-choice-clean:hover {
-      background: #eeeeef;
-      transform: translateY(-1px);
-    }
-
-    .location-choice-clean span,
-    .location-choice-clean small {
-      position: relative;
-      z-index: 2;
-    }
-
-    .location-choice-clean span {
-      font-size: 1rem;
-      line-height: 1.15;
-      font-weight: 780;
-      letter-spacing: -0.026em;
-    }
-
-    .location-choice-clean small {
-      color: var(--muted);
-      font-size: 0.82rem;
-      line-height: 1.2;
-      font-weight: 680;
-      letter-spacing: -0.01em;
-    }
-
-    .location-choice-clean.is-active {
-      color: #ffffff;
-      background: linear-gradient(180deg, var(--nf-green-light), var(--nf-green));
-      border-color: rgba(46, 145, 63, 0.28);
-      box-shadow: 0 18px 42px rgba(46, 145, 63, 0.18);
-    }
-
-    .location-choice-clean.is-active small {
-      color: rgba(255, 255, 255, 0.76);
-    }
-
-    .location-choice-clean.is-planned {
-      cursor: not-allowed;
-      color: rgba(29, 29, 31, 0.2);
-      background: rgba(255, 255, 255, 0.46);
-      border-color: rgba(0, 0, 0, 0.028);
-      filter: grayscale(1);
-    }
-
-    .location-choice-clean.is-planned:hover {
-      cursor: not-allowed;
-      background: rgba(255, 255, 255, 0.54);
-      transform: none;
-    }
-
-    .location-choice-clean.is-planned span:not(.planned-stamp) {
-      color: rgba(29, 29, 31, 0.22);
-    }
-
-    .location-choice-clean.is-planned small {
-      color: rgba(110, 110, 115, 0.30);
-    }
-
-    .location-choice-clean.is-planned::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.30), rgba(255, 255, 255, 0)),
-        repeating-linear-gradient(
-          135deg,
-          rgba(29, 29, 31, 0.018) 0,
-          rgba(29, 29, 31, 0.018) 7px,
-          rgba(255, 255, 255, 0) 7px,
-          rgba(255, 255, 255, 0) 15px
-        ),
-        rgba(245, 245, 247, 0.54);
-      pointer-events: none;
-    }
-
-    .location-choice-clean.is-planned::after {
-      content: "IN PLANUNG";
-      position: absolute;
-      z-index: 4;
-      left: 50%;
-      top: 50%;
-      width: max-content;
-      max-width: calc(100% - 1.2rem);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.2rem 0.58rem 0.22rem;
-      border-radius: 999px;
-      color: rgba(29, 29, 31, 0.44);
-      background: rgba(255, 255, 255, 0.66);
-      border: 1px solid rgba(29, 29, 31, 0.09);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.035);
-      font-size: 0.68rem;
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: 0.075em;
-      text-transform: uppercase;
-      transform: translate(-50%, -50%) rotate(10deg);
-      transform-origin: center;
-      pointer-events: none;
-      user-select: none;
-      white-space: nowrap;
-    }
-
-    .location-showcase-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 0.42fr);
       gap: 0.75rem;
       align-items: stretch;
-      padding: 0.75rem;
     }
 
-    .location-image-card {
+    .location-image-v3 {
       position: relative;
-      min-height: 590px;
+      min-height: clamp(620px, 72vh, 860px);
       overflow: hidden;
-      border-radius: var(--card-radius);
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      box-shadow: none;
+      background: #f5f5f7;
+      isolation: isolate;
     }
 
-    .location-image-card img {
+    .location-image-v3 img {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
       width: 100%;
       height: 100%;
-      min-height: inherit;
       object-fit: cover;
       object-position: center;
     }
 
-    .location-image-card::after {
+    .location-image-v3::after {
       content: "";
       position: absolute;
       inset: 0;
+      z-index: 1;
       pointer-events: none;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 26%),
-        linear-gradient(0deg, rgba(0, 0, 0, 0.26), transparent 40%);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 24%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.28), transparent 42%);
     }
 
-    .location-image-label-clean {
+    .location-image-label-v3 {
       position: absolute;
-      left: 1.1rem;
-      bottom: 1.1rem;
+      left: clamp(1rem, 2vw, 1.5rem);
+      bottom: clamp(1rem, 2vw, 1.5rem);
       z-index: 2;
-      max-width: calc(100% - 2.2rem);
       display: inline-flex;
       align-items: center;
-      gap: 0.34rem;
-      color: rgba(255, 255, 255, 0.74);
-      font-size: 0.62rem;
+      gap: 0.35rem;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.66rem;
       line-height: 1;
-      font-weight: 760;
-      letter-spacing: 0.095em;
+      font-weight: 800;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.34);
     }
 
-    .location-image-label-clean::before {
+    .location-image-label-v3::before {
       content: "";
-      width: 0.32rem;
-      height: 0.32rem;
+      width: 0.34rem;
+      height: 0.34rem;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.62);
-      flex: 0 0 auto;
+      background: rgba(255, 255, 255, 0.68);
     }
 
-    .location-info-card {
-      min-height: 590px;
+    .location-info-v3 {
+      min-height: clamp(620px, 72vh, 860px);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: clamp(1.35rem, 3vw, 2.1rem);
-      border-radius: var(--card-radius);
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      box-shadow: none;
+      padding: clamp(1.4rem, 3.6vw, 2.8rem);
+      background: #f5f5f7;
     }
 
-    .location-info-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.8rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .location-status-pill-clean {
+    .location-status-v3 {
       width: fit-content;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      white-space: nowrap;
-      padding: 0.48rem 0.78rem;
-      border-radius: 999px;
+      gap: 0.42rem;
+      margin-bottom: 1rem;
       color: var(--nf-green-dark);
-      background: rgba(46, 145, 63, 0.09);
-      border: 1px solid rgba(46, 145, 63, 0.18);
-      font-size: 0.78rem;
-      font-weight: 830;
-      letter-spacing: -0.01em;
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.055em;
+      text-transform: uppercase;
     }
 
-    .location-open-text {
-      color: var(--nf-green);
-      font-weight: 820;
+    .location-status-v3::before {
+      content: "";
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 999px;
+      background: var(--nf-green);
     }
 
-    .location-city-line {
-      color: var(--muted);
-      font-size: 0.94rem;
-      line-height: 1.35;
-      text-align: right;
-      letter-spacing: -0.01em;
-    }
-
-    .location-info-card h2 {
+    .location-info-v3 h2 {
+      max-width: 520px;
       color: var(--text);
-      font-size: clamp(2.55rem, 4.75vw, 4.85rem);
-      line-height: 0.94;
-      letter-spacing: -0.064em;
+      font-size: clamp(3rem, 5vw, 5.2rem);
+      line-height: 0.93;
+      letter-spacing: -0.07em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .location-info-card > p {
+    .location-info-v3 > p {
+      max-width: 540px;
       margin-top: 1rem;
       color: var(--text-soft);
-      font-size: 1rem;
-      line-height: 1.55;
-      letter-spacing: -0.014em;
+      font-size: clamp(1.02rem, 1.28vw, 1.16rem);
+      line-height: 1.52;
+      letter-spacing: -0.016em;
+      text-wrap: balance;
     }
 
-    .location-facts-clean {
+    .location-facts-v3 {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.72rem;
-      margin-top: 1.5rem;
+      gap: 0.5rem;
+      margin-top: 1.7rem;
     }
 
-    .location-facts-clean div {
-      min-width: 0;
+    .location-fact-v3 {
       display: grid;
-      gap: 0.2rem;
-      padding: 0.88rem 0.95rem;
-      border-radius: 16px;
-      background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.045);
+      grid-template-columns: minmax(7rem, 0.36fr) minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: baseline;
+      padding: 0.95rem 1rem;
+      border-radius: 14px;
+      background: #ffffff;
     }
 
-    .location-facts-clean span {
+    .location-fact-v3 span {
       color: var(--muted);
       font-size: 0.72rem;
       font-weight: 850;
@@ -381,335 +195,243 @@
       text-transform: uppercase;
     }
 
-    .location-facts-clean strong {
+    .location-fact-v3 strong {
       color: var(--text);
-      font-size: 0.94rem;
+      font-size: 0.98rem;
       line-height: 1.35;
-      letter-spacing: -0.012em;
-      font-weight: 720;
-      overflow-wrap: break-word;
+      letter-spacing: -0.014em;
+      font-weight: 690;
     }
 
-    .location-actions-clean {
-      justify-content: flex-start;
-      margin-top: 1.5rem;
-    }
-
-    .map-card-clean {
-      padding: clamp(1.25rem, 2.6vw, 1.75rem);
-    }
-
-    .map-card-head-clean {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .map-card-head-clean h2 {
-      color: var(--text);
-      font-size: clamp(1.8rem, 3vw, 2.7rem);
-      line-height: 1;
-      letter-spacing: -0.055em;
-      font-weight: 790;
-    }
-
-    .map-route-actions {
+    .location-actions-v3 {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.72rem;
-      margin: 1rem 0 1rem;
+      gap: 0.75rem;
+      margin-top: 1.4rem;
     }
 
-    .map-route-button {
-      min-width: 174px;
-      min-height: 58px;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.72rem;
-      padding: 0.72rem 0.96rem;
-      border-radius: 16px;
-      transition:
-        transform var(--fast),
-        opacity var(--fast),
-        box-shadow var(--fast),
-        border-color var(--fast);
-    }
-
-    .map-route-button:hover {
-      transform: translateY(-1px);
-    }
-
-    .map-route-button-dark {
-      color: #ffffff;
-      background: linear-gradient(180deg, #1d1d1f, #09090a);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.12),
-        0 16px 34px rgba(0, 0, 0, 0.18);
-    }
-
-    .map-route-button-light {
-      color: var(--text);
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      box-shadow: none;
-    }
-
-    .map-route-button-light:hover {
-      background: #eeeeef;
-    }
-
-    .map-route-icon {
-      width: 28px;
-      flex: 0 0 28px;
+    .route-button-v3 {
+      min-height: 48px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.35rem;
-      line-height: 1;
-    }
-
-    .map-route-icon svg {
-      width: 22px;
-      height: 22px;
-      display: block;
-      fill: currentColor;
-    }
-
-    .map-route-text {
-      display: grid;
-      gap: 0.04rem;
-      line-height: 1.05;
-    }
-
-    .map-route-small {
-      font-size: 0.68rem;
+      border-radius: 999px;
+      padding: 0.78rem 1.12rem;
+      color: var(--text);
+      background: #ffffff;
+      font-size: 0.98rem;
       font-weight: 650;
-      letter-spacing: 0.02em;
-      opacity: 0.72;
+      letter-spacing: -0.014em;
+      transition:
+        background-color var(--fast),
+        color var(--fast),
+        transform var(--fast);
     }
 
-    .map-route-big {
-      font-size: 1.05rem;
-      font-weight: 820;
-      letter-spacing: -0.026em;
+    .route-button-v3:hover,
+    .route-button-v3:focus-visible {
+      background: #eeeeef;
+      transform: translateY(-1px);
     }
 
-    .location-map-frame-clean {
-      height: clamp(360px, 42vw, 560px);
-      overflow: hidden;
-      border-radius: var(--card-radius);
-      border: 1px solid rgba(0, 0, 0, 0.045);
+    .route-button-v3-primary {
+      color: #ffffff;
+      background: var(--nf-green);
+    }
+
+    .route-button-v3-primary:hover,
+    .route-button-v3-primary:focus-visible {
+      background: var(--nf-green-dark);
+    }
+
+    .location-note-v3 {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.48;
+      letter-spacing: -0.012em;
+    }
+
+    .location-map-section-v3 {
+      padding: 0 0.75rem 0.75rem;
       background: #ffffff;
     }
 
-    .location-map-frame-clean iframe {
+    .location-map-panel-v3 {
+      display: grid;
+      grid-template-columns: minmax(0, 0.38fr) minmax(0, 1fr);
+      gap: 0.75rem;
+      align-items: stretch;
+    }
+
+    .location-map-copy-v3 {
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(1.4rem, 3.6vw, 2.8rem);
+      background: #f5f5f7;
+    }
+
+    .location-map-copy-v3 h2 {
+      max-width: 520px;
+      color: var(--text);
+      font-size: clamp(2.5rem, 4.5vw, 4.8rem);
+      line-height: 0.94;
+      letter-spacing: -0.068em;
+      font-weight: 790;
+      text-wrap: balance;
+    }
+
+    .location-map-copy-v3 p {
+      max-width: 520px;
+      margin-top: 1rem;
+      color: var(--text-soft);
+      font-size: clamp(1.02rem, 1.26vw, 1.14rem);
+      line-height: 1.5;
+      letter-spacing: -0.016em;
+      text-wrap: balance;
+    }
+
+    .location-map-frame-v3 {
+      min-height: 520px;
+      overflow: hidden;
+      background: #f5f5f7;
+    }
+
+    .location-map-frame-v3 iframe {
       width: 100%;
       height: 100%;
+      min-height: inherit;
       border: 0;
       display: block;
+      filter: saturate(0.88) contrast(0.96);
     }
 
-    @media (max-width: 1100px) {
-      .location-picker-clean {
-        justify-content: flex-start;
-      }
+    .location-future-section-v3 {
+      padding: 0 0.75rem 0.75rem;
+      background: #ffffff;
+    }
 
-      .location-showcase-shell {
+    .location-future-panel-v3 {
+      min-height: clamp(460px, 58vh, 680px);
+      display: grid;
+      place-items: center;
+      padding: clamp(4rem, 7vw, 7rem) 1.25rem;
+      text-align: center;
+      background: #f5f5f7;
+    }
+
+    .location-future-panel-v3 h2 {
+      max-width: 900px;
+      margin-inline: auto;
+      color: var(--text);
+      font-size: clamp(2.8rem, 5.4vw, 5.7rem);
+      line-height: 0.93;
+      letter-spacing: -0.07em;
+      font-weight: 790;
+      text-wrap: balance;
+    }
+
+    .location-future-panel-v3 p {
+      max-width: 680px;
+      margin: 1rem auto 0;
+      color: var(--text-soft);
+      font-size: clamp(1.02rem, 1.28vw, 1.16rem);
+      line-height: 1.5;
+      letter-spacing: -0.016em;
+      text-wrap: balance;
+    }
+
+    @media (max-width: 980px) {
+      .location-showcase-v3,
+      .location-map-panel-v3 {
         grid-template-columns: 1fr;
       }
 
-      .location-image-card,
-      .location-info-card {
-        min-height: 500px;
+      .location-image-v3,
+      .location-info-v3 {
+        min-height: 520px;
+      }
+
+      .location-map-copy-v3,
+      .location-map-frame-v3 {
+        min-height: 430px;
       }
     }
 
-    @media (max-width: 768px) {
-      .locations-hero {
+    @media (max-width: 720px) {
+      .locations-hero-v3 {
+        min-height: 66vh;
         padding-top: max(8.6rem, 15vh);
-        padding-bottom: 3.5rem;
       }
 
-      .locations-hero-title {
-        font-size: clamp(2.55rem, 12vw, 4rem);
-        line-height: 0.96;
-        letter-spacing: -0.056em;
+      .locations-hero-v3 h1 {
+        font-size: clamp(2.8rem, 12vw, 4.3rem);
+        line-height: 0.94;
       }
 
-      .locations-hero-text {
+      .locations-hero-v3 p:not(.eyebrow) {
         max-width: 34ch;
-        font-size: 1.02rem;
+        font-size: 1rem;
       }
 
-      .locations-module-section {
-        padding: 0.65rem;
+      .location-showcase-section-v3,
+      .location-map-section-v3,
+      .location-future-section-v3 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-bottom: 0.5rem;
       }
 
-      .locations-module-section + .locations-module-section {
-        padding-top: 0;
+      .location-showcase-v3,
+      .location-map-panel-v3 {
+        gap: 0.5rem;
       }
 
-      .location-picker-shell {
-        padding: 0.65rem;
+      .location-image-v3 {
+        min-height: 380px;
       }
 
-      .location-picker-clean {
-        justify-content: flex-start;
-        padding-bottom: 0.1rem;
-        scroll-padding-inline: 0;
-      }
-
-      .location-choice-clean {
-        flex-basis: 230px;
-        min-height: 74px;
-      }
-
-      .location-choice-clean span {
-        font-size: 0.98rem;
-      }
-
-      .location-choice-clean small {
-        font-size: 0.8rem;
-      }
-
-      .location-choice-clean.is-planned::after {
-        font-size: 0.66rem;
-      }
-
-      .location-showcase-shell {
-        gap: 0.65rem;
-        padding: 0.65rem;
-      }
-
-      .location-image-card {
-        min-height: 420px;
-      }
-
-      .location-image-label-clean {
-        left: 1rem;
-        bottom: 1rem;
-      }
-
-      .location-info-card {
+      .location-info-v3,
+      .location-map-copy-v3 {
         min-height: auto;
-        padding: 1.25rem;
+        padding: 3.4rem 1rem;
       }
 
-      .location-info-top {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 0.55rem;
+      .location-info-v3 h2,
+      .location-map-copy-v3 h2,
+      .location-future-panel-v3 h2 {
+        font-size: clamp(2.35rem, 11vw, 3.75rem);
       }
 
-      .location-city-line {
-        text-align: left;
+      .location-info-v3 > p,
+      .location-map-copy-v3 p,
+      .location-future-panel-v3 p {
+        max-width: 34ch;
+        font-size: 1rem;
       }
 
-      .location-info-card h2 {
-        font-size: clamp(2.35rem, 12vw, 3.65rem);
-      }
-
-      .location-facts-clean {
+      .location-fact-v3 {
         grid-template-columns: 1fr;
-        margin-top: 1.25rem;
+        gap: 0.18rem;
       }
 
-      .location-actions-clean {
+      .location-actions-v3 {
+        width: min(100%, 320px);
+      }
+
+      .route-button-v3 {
         width: 100%;
       }
 
-      .location-actions-clean .product-link {
-        flex: 1 1 100%;
-      }
-
-      .map-card-clean {
-        padding: 1.15rem;
-      }
-
-      .map-card-head-clean {
-        flex-direction: column;
-        gap: 0.65rem;
-      }
-
-      .map-route-actions {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.62rem;
-      }
-
-      .map-route-button {
-        width: 100%;
-        min-width: 0;
-        min-height: 50px;
-        padding: 0.58rem 0.7rem;
-        border-radius: 14px;
-        gap: 0.52rem;
-      }
-
-      .map-route-icon {
-        width: 22px;
-        flex-basis: 22px;
-        font-size: 1.12rem;
-      }
-
-      .map-route-icon svg {
-        width: 18px;
-        height: 18px;
-      }
-
-      .map-route-small {
-        font-size: 0.58rem;
-      }
-
-      .map-route-big {
-        font-size: 0.88rem;
-      }
-
-      .location-map-frame-clean {
-        height: 345px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .locations-hero-title {
-        font-size: clamp(2.35rem, 11.5vw, 3.45rem);
-      }
-
-      .locations-module-section {
-        padding: 0.5rem;
-      }
-
-      .location-picker-shell,
-      .location-showcase-shell {
-        padding: 0.5rem;
-      }
-
-      .location-choice-clean {
-        flex-basis: 220px;
-      }
-
-      .location-choice-clean.is-planned::after {
-        font-size: 0.64rem;
-      }
-
-      .location-image-card {
+      .location-map-frame-v3 {
         min-height: 360px;
       }
 
-      .location-info-card h2 {
-        font-size: clamp(2.05rem, 11.5vw, 3.05rem);
-      }
-
-      .map-route-actions {
-        width: 100%;
-        grid-template-columns: 1fr;
-      }
-
-      .location-map-frame-clean {
-        height: 320px;
+      .location-future-panel-v3 {
+        min-height: 480px;
+        padding: 4rem 1rem;
       }
     }
   </style>
@@ -718,162 +440,131 @@
 <body>
   <div data-header></div>
 
-  <main class="locations-page">
-    <section class="locations-hero" aria-labelledby="locations-page-title">
-      <div class="container">
-        <div class="locations-hero-inner">
-          <p class="eyebrow">Standorte</p>
+  <main class="locations-page-v3">
+    <section class="locations-hero-v3" aria-labelledby="locations-page-title">
+      <div class="locations-hero-inner-v3">
+        <p class="eyebrow">Standorte</p>
 
-          <h1 class="locations-hero-title" id="locations-page-title">
-            Dein Studio.<br />
-            <span>Klar erreichbar.</span>
-          </h1>
+        <h1 id="locations-page-title">Nordkern Fitness im Norden.</h1>
 
-          <p class="locations-hero-text">
-            Studio Grevesmühlen ist der aktive Nordkern Fitness Standort.
-            Weitere Studios im Norden sind für später vorgemerkt.
-          </p>
-        </div>
+        <p>
+          Der erste aktive Standort entsteht in Grevesmühlen:
+          ruhig, digital, 24/7 zugänglich und klar auf Training ausgerichtet.
+        </p>
       </div>
     </section>
 
-    <section class="locations-module-section" aria-label="Nordkern Fitness Standorte auswählen">
-      <div class="location-picker-shell">
-        <div class="location-picker-clean" role="group" aria-label="Nordkern Fitness Standorte">
-          <button class="location-choice-clean is-active" type="button" aria-pressed="true">
-            <span>Studio Grevesmühlen</span>
-            <small>Aktiver Standort</small>
-          </button>
+    <section class="location-showcase-section-v3" aria-labelledby="location-gvm-title">
+      <div class="location-showcase-v3">
+        <article class="location-image-v3">
+          <img src="images/Studio-Grevesmühlen.jpg" alt="" aria-hidden="true" />
+          <span class="location-image-label-v3">Studio Grevesmühlen</span>
+        </article>
 
-          <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
-            <span>Studio Lübeck</span>
-            <small>In Planung</small>
-          </button>
+        <article class="location-info-v3">
+          <p class="location-status-v3">Aktiver Standort</p>
 
-          <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
-            <span>Studio Wismar</span>
-            <small>In Planung</small>
-          </button>
-
-          <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
-            <span>Studio Schwerin</span>
-            <small>In Planung</small>
-          </button>
-
-          <button class="location-choice-clean is-planned" type="button" aria-disabled="true" tabindex="-1">
-            <span>Studio Rostock</span>
-            <small>In Planung</small>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section class="locations-module-section" aria-labelledby="location-current-title">
-      <div class="location-showcase-shell">
-        <div class="location-image-card">
-          <img
-            src="images/studio-grevesmuehlen.jpg"
-            alt="Trainingsbereich im Nordkern Fitness Studio Grevesmühlen"
-          />
-
-          <span class="location-image-label-clean">
-            Studio Grevesmühlen
-          </span>
-        </div>
-
-        <div class="location-info-card">
-          <div class="location-info-top">
-            <p class="location-status-pill-clean">Aktiver Standort</p>
-            <p class="location-city-line">Grevesmühlen, Mecklenburg-Vorpommern</p>
-          </div>
-
-          <h2 id="location-current-title">Studio Grevesmühlen</h2>
+          <h2 id="location-gvm-title">Grevesmühlen.</h2>
 
           <p>
-            Das Nordkern Fitness Studio Grevesmühlen ist der erste Nordkern Standort:
-            mit digitalem Zugang über die App, klaren Trainingsbereichen und einem
-            ruhigen Studioerlebnis ohne unnötige Ablenkung.
+            Der erste Nordkern Fitness Standort liegt in Grevesmühlen.
+            Die genaue Studioadresse wird auf dieser Seite angezeigt, sobald sie final veröffentlicht ist.
           </p>
 
-          <div class="location-facts-clean" aria-label="Standortdetails">
-            <div>
+          <div class="location-facts-v3" aria-label="Standortdetails">
+            <div class="location-fact-v3">
               <span>Status</span>
-              <strong class="location-open-text">Aktiver Standort</strong>
+              <strong>Aktiver Standort</strong>
             </div>
 
-            <div>
+            <div class="location-fact-v3">
               <span>Zugang</span>
-              <strong>24/7 per App</strong>
+              <strong>24/7 per App und QR-Code</strong>
             </div>
 
-            <div>
-              <span>Buchung</span>
-              <strong>über die Nordkern Fitness App</strong>
+            <div class="location-fact-v3">
+              <span>Ausstattung</span>
+              <strong>Trainingsfläche, Umkleiden, Toiletten, Waschbecken und Spinde</strong>
+            </div>
+
+            <div class="location-fact-v3">
+              <span>Hinweis</span>
+              <strong>Keine Duschen im Studio</strong>
             </div>
           </div>
 
-          <div class="product-actions location-actions-clean" aria-label="Links zu Tarifen und App">
-            <a href="mitgliedschaften.html" class="product-link product-link-primary">
+          <div class="location-actions-v3">
+            <a
+              class="route-button-v3 route-button-v3-primary"
+              href="https://www.google.com/maps/search/?api=1&query=Grevesm%C3%BChlen"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Route öffnen
+            </a>
+
+            <a class="route-button-v3" href="mitgliedschaften.html">
               Tarife ansehen
             </a>
 
-            <a href="app.html" class="product-link product-link-secondary">
-              App ansehen
+            <a class="route-button-v3" href="kontakt.html">
+              Kontakt öffnen
             </a>
           </div>
+
+          <p class="location-note-v3">
+            Die Karte zeigt aktuell Grevesmühlen als Standortbereich. Die genaue Adresse wird ergänzt,
+            sobald die Veröffentlichung final ist.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="location-map-section-v3" aria-labelledby="location-map-title">
+      <div class="location-map-panel-v3">
+        <div class="location-map-copy-v3">
+          <p class="eyebrow">Karte</p>
+
+          <h2 id="location-map-title">Grevesmühlen auf der Karte.</h2>
+
+          <p>
+            Der Standort liegt im Norden Mecklenburg-Vorpommerns — nah an Lübeck,
+            Wismar und der Ostsee. Genauere Informationen folgen direkt hier auf der Website.
+          </p>
+        </div>
+
+        <div class="location-map-frame-v3" aria-label="Karte Grevesmühlen">
+          <iframe
+            title="Karte: Grevesmühlen"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Grevesm%C3%BChlen&output=embed"
+          ></iframe>
         </div>
       </div>
     </section>
 
-    <section class="locations-module-section" aria-labelledby="location-map-title">
-      <div class="map-card-clean">
-        <div class="map-card-head-clean">
-          <div>
-            <p class="eyebrow">Karte</p>
-            <h2 id="location-map-title">Studio Grevesmühlen</h2>
-          </div>
+    <section class="location-future-section-v3" aria-labelledby="location-future-title">
+      <div class="location-future-panel-v3">
+        <div>
+          <p class="eyebrow">Nordkern Fitness</p>
 
-          <p class="location-status-pill-clean">
-            <span class="location-open-text">Aktiver Standort</span>
+          <h2 id="location-future-title">Ein Standort zuerst. Eine Marke danach.</h2>
+
+          <p>
+            Grevesmühlen ist der Anfang. Der Fokus liegt zuerst auf einem starken,
+            sauberen Studio — bevor weitere Standorte im Norden dazukommen.
           </p>
-        </div>
 
-        <div class="map-route-actions" aria-label="Route zum Standort öffnen">
-          <a class="map-route-button map-route-button-dark" href="https://maps.apple.com/?q=Grevesm%C3%BChlen%2C%20Mecklenburg-Vorpommern" target="_blank" rel="noopener noreferrer" aria-label="Route nach Grevesmühlen in Apple Karten öffnen">
-            <span class="map-route-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M12 2.8 20.4 21.2 12.6 17.7 8.9 21.2 12 2.8Z"></path>
-              </svg>
-            </span>
+          <div class="product-actions">
+            <a href="app.html" class="product-link product-link-primary">
+              App ansehen
+            </a>
 
-            <span class="map-route-text">
-              <span class="map-route-small">Route öffnen in</span>
-              <span class="map-route-big">Apple Karten</span>
-            </span>
-          </a>
-
-          <a class="map-route-button map-route-button-light" href="https://www.google.com/maps/dir/?api=1&destination=Grevesm%C3%BChlen%2C%20Mecklenburg-Vorpommern" target="_blank" rel="noopener noreferrer" aria-label="Route nach Grevesmühlen in Google Maps öffnen">
-            <span class="map-route-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M12 2.25c-3.33 0-6.05 2.68-6.05 5.98 0 4.48 6.05 13.52 6.05 13.52s6.05-9.04 6.05-13.52c0-3.3-2.72-5.98-6.05-5.98Zm0 8.55a2.55 2.55 0 1 1 0-5.1 2.55 2.55 0 0 1 0 5.1Z"></path>
-              </svg>
-            </span>
-
-            <span class="map-route-text">
-              <span class="map-route-small">Route öffnen in</span>
-              <span class="map-route-big">Google Maps</span>
-            </span>
-          </a>
-        </div>
-
-        <div class="location-map-frame-clean">
-          <iframe
-            title="Karte mit Standort Grevesmühlen in Mecklenburg-Vorpommern"
-            src="https://www.google.com/maps?q=Grevesm%C3%BChlen%2C%20Mecklenburg-Vorpommern&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen
-          ></iframe>
+            <a href="hausordnung.html" class="product-link product-link-secondary">
+              Hausordnung lesen
+            </a>
+          </div>
         </div>
       </div>
     </section>
