@@ -1,0 +1,438 @@
+<style>
+  .contact-main-section-v3 {
+    padding: 0 0.75rem 0.75rem;
+    background: #ffffff;
+    scroll-margin-top: 92px;
+  }
+
+  .contact-main-grid-v3 {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.42fr);
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+
+  .contact-form-panel-v3,
+  .contact-info-panel-v3 {
+    min-height: clamp(650px, 72vh, 860px);
+    background: #f5f5f7;
+  }
+
+  .contact-form-panel-v3 {
+    display: grid;
+    align-content: center;
+    padding: clamp(1.3rem, 3.4vw, 2.8rem);
+  }
+
+  .contact-form-head-v3 {
+    max-width: 760px;
+    margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
+  }
+
+  .contact-form-head-v3 h2 {
+    color: var(--text);
+    font-size: clamp(2.8rem, 5vw, 5.3rem);
+    line-height: 0.93;
+    letter-spacing: -0.07em;
+    font-weight: 790;
+    text-wrap: balance;
+  }
+
+  .contact-form-head-v3 p {
+    max-width: 660px;
+    margin-top: 1rem;
+    color: var(--text-soft);
+    font-size: clamp(1.02rem, 1.26vw, 1.14rem);
+    line-height: 1.5;
+    letter-spacing: -0.016em;
+    text-wrap: balance;
+  }
+
+  .contact-form-v3 {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .contact-error-box-v3 {
+    display: none;
+    white-space: pre-line;
+    padding: 1rem;
+    border-radius: 14px;
+    color: #7a1f17;
+    background: rgba(180, 35, 24, 0.08);
+    border: 1px solid rgba(180, 35, 24, 0.16);
+    font-size: 0.96rem;
+    line-height: 1.45;
+    letter-spacing: -0.012em;
+  }
+
+  .contact-error-box-v3.show {
+    display: block;
+  }
+
+  .contact-field {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-field-full {
+    grid-column: 1 / -1;
+  }
+
+  .contact-field label {
+    margin-bottom: 0.45rem;
+    color: var(--text);
+    font-weight: 710;
+    letter-spacing: -0.014em;
+  }
+
+  .contact-field input,
+  .contact-field select,
+  .contact-field textarea {
+    width: 100%;
+    min-width: 0;
+    color: var(--text);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.13);
+    border-radius: 14px;
+    padding: 1rem;
+    transition:
+      border-color var(--fast),
+      box-shadow var(--fast),
+      background-color var(--fast);
+  }
+
+  .contact-field textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+
+  .contact-field input:focus,
+  .contact-field select:focus,
+  .contact-field textarea:focus {
+    outline: none;
+    border-color: rgba(46, 145, 63, 0.42);
+    box-shadow: 0 0 0 4px rgba(46, 145, 63, 0.12);
+    background: #ffffff;
+  }
+
+  .contact-field input[aria-invalid="true"],
+  .contact-field select[aria-invalid="true"],
+  .contact-field textarea[aria-invalid="true"] {
+    border-color: rgba(180, 35, 24, 0.48);
+    box-shadow: 0 0 0 4px rgba(180, 35, 24, 0.10);
+  }
+
+  .contact-field-help-v3 {
+    margin-top: 0.42rem;
+    color: var(--muted);
+    font-size: 0.84rem;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  .contact-field-help-v3.is-limit {
+    color: #b42318;
+    font-weight: 700;
+  }
+
+  .required-star,
+  .required-note {
+    color: #b42318;
+    font-weight: 760;
+  }
+
+  .required-note {
+    margin-top: -0.2rem;
+    font-size: 0.92rem;
+  }
+
+  .contact-submit-row-v3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.4rem;
+  }
+
+  .contact-submit-row-v3 p {
+    max-width: 560px;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.45;
+    letter-spacing: -0.012em;
+  }
+
+  .contact-info-panel-v3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(1.3rem, 3.4vw, 2.4rem);
+  }
+
+  .contact-info-panel-v3 h2 {
+    color: var(--text);
+    font-size: clamp(2.4rem, 4.5vw, 4.7rem);
+    line-height: 0.94;
+    letter-spacing: -0.068em;
+    font-weight: 790;
+    text-wrap: balance;
+  }
+
+  .contact-info-panel-v3 > p {
+    max-width: 520px;
+    margin-top: 1rem;
+    color: var(--text-soft);
+    font-size: clamp(1rem, 1.22vw, 1.12rem);
+    line-height: 1.5;
+    letter-spacing: -0.016em;
+    text-wrap: balance;
+  }
+
+  .contact-methods-v3 {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 1.6rem;
+  }
+
+  .contact-method-v3 {
+    display: grid;
+    gap: 0.34rem;
+    padding: 0.95rem 1rem;
+    border-radius: 14px;
+    background: #ffffff;
+  }
+
+  .contact-method-v3 span {
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+  }
+
+  .contact-method-v3 a,
+  .contact-method-v3 strong {
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.38;
+    letter-spacing: -0.014em;
+    font-weight: 700;
+    word-break: break-word;
+  }
+
+  .contact-method-v3 a:hover,
+  .contact-method-v3 a:focus-visible {
+    color: var(--nf-green-dark);
+  }
+
+  @media (max-width: 980px) {
+    .contact-main-grid-v3 {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-form-panel-v3,
+    .contact-info-panel-v3 {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .contact-main-section-v3 {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .contact-main-grid-v3 {
+      gap: 0.5rem;
+    }
+
+    .contact-form-panel-v3,
+    .contact-info-panel-v3 {
+      padding: 3.4rem 1rem;
+    }
+
+    .contact-form-head-v3 h2,
+    .contact-info-panel-v3 h2 {
+      font-size: clamp(2.35rem, 11vw, 3.75rem);
+    }
+
+    .contact-form-head-v3 p,
+    .contact-info-panel-v3 > p {
+      max-width: 34ch;
+      font-size: 1rem;
+    }
+
+    .contact-submit-row-v3 {
+      align-items: stretch;
+    }
+
+    .contact-submit-row-v3 .btn {
+      width: 100%;
+    }
+
+    .contact-field-full {
+      grid-column: auto;
+    }
+  }
+</style>
+
+<section class="contact-main-section-v3" id="kontaktformular" aria-labelledby="contact-form-title">
+  <div class="contact-main-grid-v3">
+    <div class="contact-form-panel-v3">
+      <div class="contact-form-head-v3">
+        <p class="eyebrow">Kontaktformular</p>
+
+        <h2 id="contact-form-title">Schreib deine Anfrage.</h2>
+
+        <p>
+          Das Formular bereitet eine E-Mail an Nordkern Fitness vor.
+          Bitte sende keine sensiblen Daten wie Ausweiskopien, Zahlungsdaten oder Gesundheitsdaten.
+        </p>
+      </div>
+
+      <form class="contact-form-v3" data-nordkern-contact-form novalidate>
+        <div class="contact-error-box-v3" id="contact-error-box" role="alert" aria-live="polite"></div>
+
+        <div class="form-grid">
+          <div class="contact-field">
+            <label for="contact-firstname">
+              Vorname <span class="required-star">*</span>
+            </label>
+            <input id="contact-firstname" name="contact-firstname" type="text" autocomplete="given-name" required />
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-lastname">
+              Nachname <span class="required-star">*</span>
+            </label>
+            <input id="contact-lastname" name="contact-lastname" type="text" autocomplete="family-name" required />
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-email">
+              E-Mail <span class="required-star">*</span>
+            </label>
+            <input id="contact-email" name="contact-email" type="email" autocomplete="email" required />
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-topic">
+              Thema <span class="required-star">*</span>
+            </label>
+            <select id="contact-topic" name="contact-topic" required>
+              <option value="">Bitte auswählen</option>
+              <option value="Mitgliedschaft">Mitgliedschaft</option>
+              <option value="Tagespass">Tagespass</option>
+              <option value="App / QR-Code">App / QR-Code</option>
+              <option value="Zugang / Tür / QR-Code">Zugang / Tür / QR-Code</option>
+              <option value="Getränkeautomat">Getränkeautomat</option>
+              <option value="Kreatin-Auswahl">Kreatin-Auswahl</option>
+              <option value="Zahlung / Rechnung">Zahlung / Rechnung</option>
+              <option value="Kündigung / Vertrag">Kündigung / Vertrag</option>
+              <option value="Standort Grevesmühlen">Standort Grevesmühlen</option>
+              <option value="Hausordnung / Sicherheit">Hausordnung / Sicherheit</option>
+              <option value="Sonstiges">Sonstiges</option>
+            </select>
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-postal">Postleitzahl</label>
+            <input
+              id="contact-postal"
+              name="contact-postal"
+              type="text"
+              inputmode="numeric"
+              autocomplete="postal-code"
+              placeholder="z. B. 23936"
+            />
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-street">Straße und Hausnummer</label>
+            <input
+              id="contact-street"
+              name="contact-street"
+              type="text"
+              autocomplete="street-address"
+              placeholder="Optional"
+            />
+          </div>
+
+          <div class="contact-field contact-field-full">
+            <label for="contact-memberid">Member-ID</label>
+            <input id="contact-memberid" name="contact-memberid" type="text" placeholder="z. B. NK-12345" />
+            <small class="contact-field-help-v3">Nur ausfüllen, wenn du schon eine Member-ID hast.</small>
+          </div>
+
+          <div class="contact-field contact-field-full">
+            <label for="contact-message">
+              Nachricht <span class="required-star">*</span>
+            </label>
+            <textarea
+              id="contact-message"
+              name="contact-message"
+              maxlength="2400"
+              data-maxlength="2400"
+              required
+              placeholder="Worum geht es?"
+            ></textarea>
+            <small class="contact-field-help-v3">
+              <span id="message-count">0</span>/2400 Zeichen
+            </small>
+          </div>
+        </div>
+
+        <p class="required-note">* Pflichtfelder</p>
+
+        <div class="contact-submit-row-v3">
+          <p>
+            Nach dem Absenden öffnet sich dein E-Mail-Programm mit einer vorbereiteten Nachricht.
+          </p>
+
+          <button type="submit" class="btn btn-primary">
+            Anfrage vorbereiten
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <aside class="contact-info-panel-v3" aria-labelledby="contact-direct-title">
+      <p class="eyebrow">Direktkontakt</p>
+
+      <h2 id="contact-direct-title">Kurz. Klar. Ohne Umwege.</h2>
+
+      <p>
+        Für allgemeine Fragen, Standortthemen oder Hinweise erreichst du Nordkern Fitness
+        über die geplanten offiziellen Kanäle.
+      </p>
+
+      <div class="contact-methods-v3">
+        <div class="contact-method-v3">
+          <span>E-Mail</span>
+          <a href="mailto:info@nordkern-fitness.de">info@nordkern-fitness.de</a>
+        </div>
+
+        <div class="contact-method-v3">
+          <span>Instagram</span>
+          <a href="https://instagram.com/nordkern.fitness" target="_blank" rel="noopener noreferrer">
+            @nordkern.fitness
+          </a>
+        </div>
+
+        <div class="contact-method-v3">
+          <span>Standort</span>
+          <strong>Grevesmühlen</strong>
+        </div>
+
+        <div class="contact-method-v3">
+          <span>Antwortzeit</span>
+          <strong>In der Regel innerhalb von 1–3 Werktagen</strong>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
