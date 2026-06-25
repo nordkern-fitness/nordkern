@@ -139,6 +139,11 @@
     gap: 0.75rem;
   }
 
+  .faq-item[hidden],
+  .faq-group-v3[hidden] {
+    display: none !important;
+  }
+
   .faq-group-v3 {
     display: grid;
     gap: 0.5rem;
@@ -302,7 +307,6 @@
   <div class="faq-panel-v3">
     <div class="faq-top-v3">
       <div class="faq-head-v3">
-        <p class="eyebrow">FAQ</p>
         <h2 id="faq-title">Häufige Fragen.</h2>
       </div>
 
@@ -318,12 +322,13 @@
     <div class="faq-tools-v3">
       <div class="faq-search-v3">
         <label for="faq-search">FAQ durchsuchen</label>
-        <input id="faq-search" type="search" placeholder="z. B. kündigen, QR-Code, Duschen, Tagespass" autocomplete="off" />
+        <input id="faq-search" type="search" placeholder="z. B. kündigen, QR-Code, Gutscheine, Duschen" autocomplete="off" />
       </div>
 
       <div class="faq-category-row-v3" aria-label="FAQ Kategorien">
         <button class="faq-category-button is-active" type="button" data-faq-category="all">Alle</button>
         <button class="faq-category-button" type="button" data-faq-category="tarife">Tarife</button>
+        <button class="faq-category-button" type="button" data-faq-category="gutscheine">Gutscheine</button>
         <button class="faq-category-button" type="button" data-faq-category="tagespass">Tagespass</button>
         <button class="faq-category-button" type="button" data-faq-category="app">App</button>
         <button class="faq-category-button" type="button" data-faq-category="zugang">Zugang</button>
@@ -421,6 +426,42 @@
             <div class="faq-answer">
               In der Regel ist eine aktive Mitgliedschaft pro Person vorgesehen. Zusätzliche Tagespässe oder Sonderfälle werden in der App geregelt.
               <span class="faq-keywords" aria-hidden="true">mehrere verträge zwei mitgliedschaften doppelt account profil tarif gleichzeitig</span>
+            </div>
+          </details>
+        </section>
+
+        <section class="faq-group-v3" data-faq-group>
+          <h3 class="faq-group-title-v3">Gutscheine & Aktionen</h3>
+
+          <details class="faq-item" data-category="gutscheine">
+            <summary><span class="faq-question-text">Gibt es Gutscheine bei Nordkern Fitness?</span></summary>
+            <div class="faq-answer">
+              Gutscheine sind aktuell nicht als feste Funktion eingeplant. Falls später Gutscheine angeboten werden, werden sie offiziell auf der Website, in der App oder über Nordkern Fitness Kanäle kommuniziert.
+              <span class="faq-keywords" aria-hidden="true">gutschein gutscheine geschenkgutschein geschenkkarte voucher gift card rabatt coupon kupon code aktionscode promo promocode</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="gutscheine">
+            <summary><span class="faq-question-text">Kann ich eine Mitgliedschaft verschenken?</span></summary>
+            <div class="faq-answer">
+              Eine Geschenk-Mitgliedschaft ist aktuell nicht final vorgesehen. Falls diese Funktion später kommt, wird sie über die App oder Website erklärt.
+              <span class="faq-keywords" aria-hidden="true">verschenken geschenk mitgliedschaft gutschein geschenkgutschein freund freundin familie geburtstag weihnachten</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="gutscheine">
+            <summary><span class="faq-question-text">Gibt es Rabattcodes oder Aktionen?</span></summary>
+            <div class="faq-answer">
+              Rabattcodes oder Aktionen sind aktuell nicht dauerhaft vorgesehen. Wenn es zeitlich begrenzte Aktionen gibt, werden sie klar und offiziell kommuniziert.
+              <span class="faq-keywords" aria-hidden="true">rabatt rabattcode aktion angebot sale promo code promocode coupon kupon günstiger sparen discount</span>
+            </div>
+          </details>
+
+          <details class="faq-item" data-category="gutscheine">
+            <summary><span class="faq-question-text">Kann ich einen Gutschein für den Tagespass kaufen?</span></summary>
+            <div class="faq-answer">
+              Ein Gutschein speziell für den Tagespass ist aktuell nicht final geplant. Der Tagespass wird regulär über die App gebucht.
+              <span class="faq-keywords" aria-hidden="true">tagespass gutschein tageskarte tagesticket verschenken voucher geschenkkarte einmaliger zugang</span>
             </div>
           </details>
         </section>
