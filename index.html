@@ -10,22 +10,24 @@
     content="Nordkern Fitness ist ein ruhiges, modernes 24/7-Fitnessstudio im Norden mit digitalem Zugang, klaren Tarifen und einer App für Mitgliedschaft, Tagespass und Zutritt."
   />
 
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=3" />
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=3" />
-<link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png?v=3" />
-<link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png?v=3" />
-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=3" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=3" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=3" />
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png?v=3" />
+  <link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png?v=3" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=3" />
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
     .home-product-page {
+      display: grid;
+      gap: 0;
       background: #ffffff;
     }
 
     .home-first-hero {
       min-height: auto;
       padding-top: max(10.4rem, 15vh);
-      padding-bottom: 4rem;
+      padding-bottom: clamp(4.6rem, 7vw, 7rem);
       background: #ffffff;
     }
 
@@ -62,16 +64,28 @@
       margin-top: 1.7rem;
     }
 
-    .home-section-divider {
+    .home-module-section {
       width: 100%;
-      height: 0.95rem;
+      padding: 0.75rem;
       background: #ffffff;
-      flex-shrink: 0;
     }
 
-    .home-studio-section {
+    .home-module-section + .home-module-section {
+      padding-top: 0;
+    }
+
+    .home-studio-shell,
+    .home-access-panel,
+    .home-app-panel {
       width: 100%;
-      background: #ffffff;
+      overflow: hidden;
+      border-radius: 28px;
+      background: #f5f5f7;
+      border: 1px solid rgba(0, 0, 0, 0.045);
+    }
+
+    .home-studio-shell {
+      padding: 0.75rem;
     }
 
     .home-studio-grid {
@@ -80,8 +94,6 @@
       grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
       gap: 0.75rem;
       align-items: stretch;
-      padding-inline: 0.75rem;
-      background: #ffffff;
     }
 
     .home-studio-side {
@@ -94,8 +106,8 @@
       position: relative;
       overflow: hidden;
       min-height: 300px;
-      border-radius: 0;
-      background: #f5f5f7;
+      border-radius: 22px;
+      background: #ffffff;
       isolation: isolate;
     }
 
@@ -131,10 +143,6 @@
           rgba(255, 255, 255, 0) 18%,
           rgba(0, 0, 0, 0.05) 100%
         );
-    }
-
-    .home-studio-card::after {
-      display: none;
     }
 
     .home-studio-content {
@@ -191,39 +199,30 @@
       user-select: none;
     }
 
-    .home-access-section,
-    .home-app-section {
-      width: 100%;
-      padding: 0;
-      background: #ffffff;
-    }
-
     .home-access-panel {
       position: relative;
-      min-height: clamp(500px, 58vh, 620px);
+      min-height: clamp(520px, 60vh, 660px);
       display: grid;
       place-items: center;
-      margin-inline: 0.75rem;
-      padding: clamp(4.2rem, 6vw, 5.8rem) 1.5rem;
-      overflow: hidden;
+      padding: clamp(4.4rem, 6.4vw, 6.2rem) 1.5rem;
       text-align: center;
       color: var(--text);
       isolation: isolate;
       background:
         radial-gradient(
           ellipse at 50% 0%,
-          rgba(125, 226, 144, 0.52) 0%,
-          rgba(125, 226, 144, 0.36) 22%,
-          rgba(125, 226, 144, 0.16) 43%,
-          rgba(125, 226, 144, 0.04) 64%,
-          rgba(255, 255, 255, 0) 80%
+          rgba(125, 226, 144, 0.44) 0%,
+          rgba(125, 226, 144, 0.28) 20%,
+          rgba(125, 226, 144, 0.10) 42%,
+          rgba(125, 226, 144, 0.03) 64%,
+          rgba(255, 255, 255, 0) 78%
         ),
         linear-gradient(
           180deg,
-          #dff5e6 0%,
-          #eef9f2 28%,
-          #f8fcfa 58%,
-          #ffffff 100%
+          #e6f7ec 0%,
+          #f2faf5 31%,
+          #f5f5f7 70%,
+          #f5f5f7 100%
         );
     }
 
@@ -236,31 +235,16 @@
       background:
         linear-gradient(
           90deg,
-          rgba(255, 255, 255, 0.52),
+          rgba(255, 255, 255, 0.48),
           rgba(255, 255, 255, 0) 18%,
           rgba(255, 255, 255, 0) 82%,
-          rgba(255, 255, 255, 0.52)
+          rgba(255, 255, 255, 0.48)
         ),
         radial-gradient(
           circle at 50% 18%,
-          rgba(255, 255, 255, 0.46),
+          rgba(255, 255, 255, 0.42),
           rgba(255, 255, 255, 0) 36%
         );
-    }
-
-    .home-access-panel::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: -38%;
-      z-index: -1;
-      width: min(94vw, 1180px);
-      height: 58%;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.9);
-      filter: blur(44px);
-      transform: translateX(-50%);
-      pointer-events: none;
     }
 
     .home-access-inner {
@@ -294,13 +278,11 @@
     }
 
     .home-app-panel {
-      min-height: clamp(500px, 58vh, 620px);
+      min-height: clamp(520px, 60vh, 660px);
       display: grid;
       place-items: center;
-      margin-inline: 0.75rem;
-      padding: clamp(4.2rem, 6vw, 5.8rem) 1.5rem;
+      padding: clamp(4.4rem, 6.4vw, 6.2rem) 1.5rem;
       background: #f5f5f7;
-      overflow: hidden;
     }
 
     .home-app-inner {
@@ -450,7 +432,7 @@
     @media (max-width: 768px) {
       .home-first-hero {
         padding-top: max(9.4rem, 16vh);
-        padding-bottom: 3.8rem;
+        padding-bottom: 4.2rem;
       }
 
       .home-first-hero .product-copy h1 {
@@ -469,18 +451,31 @@
         margin-top: 1.55rem;
       }
 
-      .home-section-divider {
-        height: 0.75rem;
+      .home-module-section {
+        padding: 0.65rem;
+      }
+
+      .home-studio-shell,
+      .home-access-panel,
+      .home-app-panel {
+        border-radius: 24px;
+      }
+
+      .home-studio-shell {
+        padding: 0.65rem;
       }
 
       .home-studio-grid {
         gap: 0.65rem;
-        padding-inline: 0.65rem;
       }
 
       .home-studio-side {
         grid-template-columns: 1fr;
         gap: 0.65rem;
+      }
+
+      .home-studio-card {
+        border-radius: 18px;
       }
 
       .home-studio-card-large {
@@ -506,7 +501,6 @@
 
       .home-access-panel {
         min-height: clamp(500px, 58vh, 620px);
-        margin-inline: 0.65rem;
         padding: 4.2rem 1rem;
       }
 
@@ -527,7 +521,6 @@
 
       .home-app-panel {
         min-height: clamp(500px, 58vh, 620px);
-        margin-inline: 0.65rem;
         padding: 4.2rem 1rem;
       }
 
@@ -578,13 +571,30 @@
         flex: 1 1 100%;
       }
 
+      .home-module-section {
+        padding: 0.5rem;
+      }
+
+      .home-studio-shell,
+      .home-access-panel,
+      .home-app-panel {
+        border-radius: 22px;
+      }
+
+      .home-studio-shell {
+        padding: 0.5rem;
+      }
+
       .home-studio-grid {
         gap: 0.5rem;
-        padding-inline: 0.5rem;
       }
 
       .home-studio-side {
         gap: 0.5rem;
+      }
+
+      .home-studio-card {
+        border-radius: 16px;
       }
 
       .home-studio-card-large {
@@ -609,7 +619,6 @@
 
       .home-access-panel {
         min-height: 500px;
-        margin-inline: 0.5rem;
         padding-top: 4rem;
         padding-bottom: 4rem;
       }
@@ -620,7 +629,6 @@
 
       .home-app-panel {
         min-height: 500px;
-        margin-inline: 0.5rem;
         padding-top: 4rem;
         padding-bottom: 4rem;
       }
@@ -664,60 +672,60 @@
       </div>
     </section>
 
-    <section class="home-studio-section" aria-label="Nordkern Fitness Studio Grevesmühlen">
-      <div class="home-studio-grid">
-        <article class="home-studio-card home-studio-card-large">
-          <img
-            src="images/H1.png"
-            alt=""
-            class="home-studio-image"
-            aria-hidden="true"
-          />
+    <section class="home-module-section" aria-label="Nordkern Fitness Studio Grevesmühlen">
+      <div class="home-studio-shell">
+        <div class="home-studio-grid">
+          <article class="home-studio-card home-studio-card-large">
+            <img
+              src="images/H1.png"
+              alt=""
+              class="home-studio-image"
+              aria-hidden="true"
+            />
 
-          <span class="home-studio-number" aria-hidden="true">01</span>
+            <span class="home-studio-number" aria-hidden="true">01</span>
 
-          <div class="home-studio-content">
-            <span class="home-studio-kicker">Studio Grevesmühlen</span>
+            <div class="home-studio-content">
+              <span class="home-studio-kicker">Studio Grevesmühlen</span>
+            </div>
+          </article>
+
+          <div class="home-studio-side">
+            <article class="home-studio-card home-studio-card-small">
+              <img
+                src="images/H2.png"
+                alt=""
+                class="home-studio-image"
+                aria-hidden="true"
+              />
+
+              <span class="home-studio-number" aria-hidden="true">02</span>
+
+              <div class="home-studio-content">
+                <span class="home-studio-kicker">Studio Grevesmühlen</span>
+              </div>
+            </article>
+
+            <article class="home-studio-card home-studio-card-small">
+              <img
+                src="images/H3.png"
+                alt=""
+                class="home-studio-image"
+                aria-hidden="true"
+              />
+
+              <span class="home-studio-number" aria-hidden="true">03</span>
+
+              <div class="home-studio-content">
+                <span class="home-studio-kicker">Studio Grevesmühlen</span>
+              </div>
+            </article>
           </div>
-        </article>
-
-        <div class="home-studio-side">
-          <article class="home-studio-card home-studio-card-small">
-            <img
-              src="images/H2.png"
-              alt=""
-              class="home-studio-image"
-              aria-hidden="true"
-            />
-
-            <span class="home-studio-number" aria-hidden="true">02</span>
-
-            <div class="home-studio-content">
-              <span class="home-studio-kicker">Studio Grevesmühlen</span>
-            </div>
-          </article>
-
-          <article class="home-studio-card home-studio-card-small">
-            <img
-              src="images/H3.png"
-              alt=""
-              class="home-studio-image"
-              aria-hidden="true"
-            />
-
-            <span class="home-studio-number" aria-hidden="true">03</span>
-
-            <div class="home-studio-content">
-              <span class="home-studio-kicker">Studio Grevesmühlen</span>
-            </div>
-          </article>
         </div>
       </div>
     </section>
 
-    <div class="home-section-divider" aria-hidden="true"></div>
-
-    <section class="home-access-section" aria-labelledby="home-access-title">
+    <section class="home-module-section" aria-labelledby="home-access-title">
       <div class="home-access-panel">
         <div class="home-access-inner">
           <h2 id="home-access-title">Studio Grevesmühlen.</h2>
@@ -740,9 +748,7 @@
       </div>
     </section>
 
-    <div class="home-section-divider" aria-hidden="true"></div>
-
-    <section class="home-app-section" aria-labelledby="home-app-title">
+    <section class="home-module-section" aria-labelledby="home-app-title">
       <div class="home-app-panel">
         <div class="home-app-inner">
           <div class="home-app-copy">
