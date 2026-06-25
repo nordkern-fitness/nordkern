@@ -7,7 +7,7 @@
   <title>Nordkern Fitness – Kontakt / FAQ</title>
   <meta
     name="description"
-    content="Kontakt und FAQ von Nordkern Fitness: Fragen zu Mitgliedschaft, App, Zugang, Tagespass, Getränkeautomat, Kreatin, Studio Grevesmühlen, Sicherheit und Kündigung."
+    content="Kontakt zu Nordkern Fitness aufnehmen und Antworten auf häufige Fragen zu Mitgliedschaft, Tagespass, App, Standort, Zugang und Getränkeautomat finden."
   />
 
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=3" />
@@ -18,357 +18,264 @@
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
-    .contact-page {
+    .contact-page-v3 {
+      background: #ffffff;
+    }
+
+    .contact-hero-v3 {
+      min-height: 72vh;
       display: grid;
-      gap: 0;
-      background: #ffffff;
-    }
-
-    .contact-hero-clean {
-      position: relative;
-      overflow: hidden;
-      padding: max(9rem, 13vh) 0 clamp(3.5rem, 6vw, 5.4rem);
-      background: #ffffff;
-    }
-
-    .contact-hero-inner {
-      max-width: 960px;
-      margin-inline: auto;
+      place-items: center;
+      padding: max(9rem, 14vh) 1rem clamp(4rem, 6vw, 6rem);
       text-align: center;
+      background: #ffffff;
     }
 
-    .contact-hero-title {
+    .contact-hero-inner-v3 {
+      width: min(100%, 980px);
+      margin-inline: auto;
+    }
+
+    .contact-hero-v3 h1 {
       color: var(--text);
-      font-size: clamp(3rem, 6vw, 6rem);
-      line-height: 0.93;
-      letter-spacing: -0.068em;
+      font-size: clamp(3.6rem, 6.8vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: -0.074em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .contact-hero-title span {
-      color: var(--nf-green);
-    }
-
-    .contact-hero-text {
-      max-width: 760px;
+    .contact-hero-v3 p:not(.eyebrow) {
+      max-width: 720px;
       margin: 1rem auto 0;
       color: var(--text-soft);
-      font-size: clamp(1.03rem, 1.35vw, 1.22rem);
-      line-height: 1.5;
+      font-size: clamp(1.05rem, 1.32vw, 1.22rem);
+      line-height: 1.48;
       letter-spacing: -0.018em;
       text-wrap: balance;
     }
 
-    .contact-module-section {
-      padding: 0.75rem;
+    .contact-main-section-v3 {
+      padding: 0 0.75rem 0.75rem;
       background: #ffffff;
     }
 
-    .contact-module-section + .contact-module-section {
-      padding-top: 0;
+    .contact-main-grid-v3 {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.42fr);
+      gap: 0.75rem;
+      align-items: stretch;
     }
 
-    .contact-form-shell-clean,
-    .contact-methods-shell-clean,
-    .contact-faq-shell-clean {
-      width: 100%;
-      border-radius: var(--module-radius);
+    .contact-form-panel-v3,
+    .contact-info-panel-v3 {
+      min-height: clamp(650px, 72vh, 860px);
       background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      overflow: hidden;
     }
 
-    .contact-form-shell-clean {
-      padding: clamp(1.25rem, 3vw, 2rem);
+    .contact-form-panel-v3 {
+      display: grid;
+      align-content: center;
+      padding: clamp(1.3rem, 3.4vw, 2.8rem);
     }
 
-    .contact-form-head-clean {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 1.25rem;
-      margin-bottom: 1.8rem;
+    .contact-form-head-v3 {
+      max-width: 760px;
+      margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
     }
 
-    .contact-form-head-clean h2 {
+    .contact-form-head-v3 h2 {
       color: var(--text);
-      font-size: clamp(2.15rem, 4.25vw, 4.35rem);
-      line-height: 0.96;
-      letter-spacing: -0.064em;
+      font-size: clamp(2.8rem, 5vw, 5.3rem);
+      line-height: 0.93;
+      letter-spacing: -0.07em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .contact-form-head-clean p {
-      max-width: 520px;
-      color: var(--muted);
-      font-size: 1rem;
+    .contact-form-head-v3 p {
+      max-width: 660px;
+      margin-top: 1rem;
+      color: var(--text-soft);
+      font-size: clamp(1.02rem, 1.26vw, 1.14rem);
       line-height: 1.5;
-      letter-spacing: -0.014em;
+      letter-spacing: -0.016em;
+      text-wrap: balance;
     }
 
-    .contact-grid-clean {
+    .contact-form-v3 {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.82rem;
+      gap: 1rem;
     }
 
-    .contact-field {
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
+    .contact-error-box-v3 {
+      display: none;
+      white-space: pre-line;
+      padding: 1rem;
+      border-radius: 14px;
+      color: #7a1f17;
+      background: rgba(180, 35, 24, 0.08);
+      border: 1px solid rgba(180, 35, 24, 0.16);
+      font-size: 0.96rem;
+      line-height: 1.45;
+      letter-spacing: -0.012em;
     }
 
-    .contact-field-wide {
-      grid-column: span 2;
+    .contact-error-box-v3.show {
+      display: block;
     }
 
-    .contact-field-full {
-      grid-column: 1 / -1;
-    }
-
-    .contact-field label {
-      margin-bottom: 0.42rem;
-      color: var(--text);
-      font-size: 0.94rem;
-      font-weight: 760;
-      letter-spacing: -0.018em;
-    }
-
-    .contact-field label span {
-      color: #b42318;
-      font-weight: 850;
-    }
-
-    .contact-field input,
-    .contact-field select,
-    .contact-field textarea {
-      min-height: 56px;
-      border-radius: var(--card-radius);
-      color: var(--text);
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      box-shadow: none;
-    }
-
-    .contact-field textarea {
-      min-height: 180px;
-      max-height: 520px;
-      overflow-y: hidden;
-      resize: none;
-      line-height: 1.5;
-    }
-
-    .contact-field small {
-      margin-top: 0.45rem;
+    .contact-field-help-v3 {
+      margin-top: 0.42rem;
       color: var(--muted);
-      font-size: 0.88rem;
+      font-size: 0.84rem;
+      line-height: 1.4;
       letter-spacing: -0.01em;
     }
 
-    .contact-field small.is-limit {
+    .contact-field-help-v3.is-limit {
       color: #b42318;
-      font-weight: 720;
+      font-weight: 700;
     }
 
-    .contact-form-bottom-clean {
+    .contact-submit-row-v3 {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-top: 1.25rem;
+      margin-top: 0.4rem;
     }
 
-    .contact-required-note {
-      color: var(--muted);
-      font-size: 0.94rem;
-      letter-spacing: -0.01em;
-    }
-
-    .contact-required-note strong {
-      color: #b42318;
-    }
-
-    .contact-error-box {
-      display: none;
-      margin-top: 1rem;
-      padding: 1rem 1.1rem;
-      border-radius: var(--card-radius);
-      color: #7a271a;
-      background: rgba(180, 35, 24, 0.08);
-      border: 1px solid rgba(180, 35, 24, 0.14);
-      font-size: 0.95rem;
-      line-height: 1.45;
-      letter-spacing: -0.01em;
-      white-space: pre-line;
-    }
-
-    .contact-error-box.show {
-      display: block;
-    }
-
-    .contact-privacy-note {
-      margin-top: 1.15rem;
+    .contact-submit-row-v3 p {
+      max-width: 560px;
       color: var(--muted);
       font-size: 0.92rem;
       line-height: 1.45;
-      letter-spacing: -0.01em;
-    }
-
-    .contact-privacy-note a {
-      color: var(--nf-green-dark);
-      font-weight: 760;
-    }
-
-    .contact-methods-shell-clean {
-      display: grid;
-      grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
-      gap: 0.75rem;
-      align-items: stretch;
-      padding: 0.75rem;
-    }
-
-    .contact-methods-copy-clean {
-      min-height: 360px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: clamp(1.35rem, 3vw, 2rem);
-      border-radius: var(--card-radius);
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-    }
-
-    .contact-methods-copy-clean h2 {
-      color: var(--text);
-      font-size: clamp(2.15rem, 4.25vw, 4.35rem);
-      line-height: 0.96;
-      letter-spacing: -0.064em;
-      font-weight: 790;
-      text-wrap: balance;
-    }
-
-    .contact-methods-copy-clean p:not(.eyebrow) {
-      max-width: 560px;
-      margin-top: 1rem;
-      color: var(--text-soft);
-      font-size: 1.02rem;
-      line-height: 1.55;
-      letter-spacing: -0.014em;
-    }
-
-    .contact-methods-list-clean {
-      display: grid;
-      gap: 0.75rem;
-    }
-
-    .contact-method-card-clean {
-      display: grid;
-      gap: 0.42rem;
-      padding: 1.2rem;
-      border-radius: var(--card-radius);
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-    }
-
-    .contact-method-card-clean span {
-      color: var(--muted);
-      font-size: 0.76rem;
-      font-weight: 860;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .contact-method-card-clean a,
-    .contact-method-card-clean p,
-    .contact-support-status {
-      color: var(--nf-green-dark);
-      font-size: clamp(1.05rem, 1.45vw, 1.22rem);
-      font-weight: 790;
-      letter-spacing: -0.02em;
-      word-break: break-word;
-    }
-
-    .contact-support-note {
-      margin-top: 0.32rem;
-      color: var(--muted);
-      font-size: 0.94rem;
-      line-height: 1.45;
-      letter-spacing: -0.01em;
-    }
-
-    .contact-faq-shell-clean {
-      padding: clamp(1.25rem, 3vw, 2rem);
-    }
-
-    .contact-faq-head-clean {
-      max-width: 980px;
-      margin-bottom: 1.4rem;
-    }
-
-    .contact-faq-head-clean h2 {
-      color: var(--text);
-      font-size: clamp(2.15rem, 4.25vw, 4.35rem);
-      line-height: 0.96;
-      letter-spacing: -0.064em;
-      font-weight: 790;
-      text-wrap: balance;
-    }
-
-    .contact-faq-head-clean p:not(.eyebrow) {
-      max-width: 760px;
-      margin-top: 0.9rem;
-      color: var(--text-soft);
-      font-size: 1.02rem;
-      line-height: 1.52;
-      letter-spacing: -0.014em;
-    }
-
-    .faq-search-wrap {
-      display: grid;
-      gap: 0.9rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .faq-search-field {
-      position: relative;
-    }
-
-    .faq-search-field input {
-      width: 100%;
-      min-height: 62px;
-      padding: 0 3.3rem 0 1.15rem;
-      border-radius: var(--card-radius);
-      color: var(--text);
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.075);
-      box-shadow: none;
-      font-size: 1rem;
       letter-spacing: -0.012em;
     }
 
-    .faq-search-field input:focus {
-      border-color: rgba(46, 145, 63, 0.35);
-      box-shadow: 0 0 0 4px rgba(46, 145, 63, 0.08);
-      outline: none;
-    }
-
-    .faq-search-icon {
-      position: absolute;
-      right: 1.15rem;
-      top: 50%;
-      color: var(--muted);
-      font-size: 1.15rem;
-      transform: translateY(-50%);
-      pointer-events: none;
-    }
-
-    .faq-category-row {
+    .contact-info-panel-v3 {
       display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(1.3rem, 3.4vw, 2.4rem);
+    }
+
+    .contact-info-panel-v3 h2 {
+      color: var(--text);
+      font-size: clamp(2.4rem, 4.5vw, 4.7rem);
+      line-height: 0.94;
+      letter-spacing: -0.068em;
+      font-weight: 790;
+      text-wrap: balance;
+    }
+
+    .contact-info-panel-v3 > p {
+      max-width: 520px;
+      margin-top: 1rem;
+      color: var(--text-soft);
+      font-size: clamp(1rem, 1.22vw, 1.12rem);
+      line-height: 1.5;
+      letter-spacing: -0.016em;
+      text-wrap: balance;
+    }
+
+    .contact-methods-v3 {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 1.6rem;
+    }
+
+    .contact-method-v3 {
+      display: grid;
+      gap: 0.34rem;
+      padding: 0.95rem 1rem;
+      border-radius: 14px;
+      background: #ffffff;
+    }
+
+    .contact-method-v3 span {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.055em;
+      text-transform: uppercase;
+    }
+
+    .contact-method-v3 a,
+    .contact-method-v3 strong {
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.38;
+      letter-spacing: -0.014em;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .contact-method-v3 a:hover,
+    .contact-method-v3 a:focus-visible {
+      color: var(--nf-green-dark);
+    }
+
+    .faq-section-v3 {
+      padding: 0 0.75rem 0.75rem;
+      background: #ffffff;
+      scroll-margin-top: 92px;
+    }
+
+    .faq-panel-v3 {
+      min-height: clamp(680px, 78vh, 920px);
+      padding: clamp(3.4rem, 6vw, 6rem) clamp(1rem, 4vw, 3rem);
+      background: #f5f5f7;
+    }
+
+    .faq-head-v3 {
+      max-width: 860px;
+      margin-bottom: clamp(1.8rem, 3.4vw, 2.8rem);
+    }
+
+    .faq-head-v3 h2 {
+      color: var(--text);
+      font-size: clamp(3rem, 5.6vw, 5.8rem);
+      line-height: 0.93;
+      letter-spacing: -0.07em;
+      font-weight: 790;
+      text-wrap: balance;
+    }
+
+    .faq-head-v3 p {
+      max-width: 700px;
+      margin-top: 1rem;
+      color: var(--text-soft);
+      font-size: clamp(1.02rem, 1.28vw, 1.16rem);
+      line-height: 1.5;
+      letter-spacing: -0.016em;
+      text-wrap: balance;
+    }
+
+    .faq-tools-v3 {
+      display: grid;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .faq-search-v3 {
+      width: min(100%, 720px);
+    }
+
+    .faq-search-v3 label {
+      display: block;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+      font-weight: 710;
+      letter-spacing: -0.014em;
+    }
+
+    .faq-category-row-v3 {
+      display: flex;
+      gap: 0.45rem;
       flex-wrap: wrap;
-      gap: 0.48rem;
     }
 
     .faq-category-button {
@@ -376,92 +283,122 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.48rem 0.78rem;
+      padding: 0.58rem 0.82rem;
       border-radius: 999px;
-      color: rgba(29, 29, 31, 0.72);
+      color: var(--text-soft);
       background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.055);
-      font-size: 0.86rem;
-      line-height: 1;
-      font-weight: 760;
+      font-size: 0.9rem;
+      font-weight: 650;
       letter-spacing: -0.012em;
       transition:
+        background-color var(--fast),
         color var(--fast),
-        background var(--fast),
-        border-color var(--fast),
         transform var(--fast);
     }
 
     .faq-category-button:hover,
     .faq-category-button:focus-visible {
+      background: #eeeeef;
+      color: var(--text);
       transform: translateY(-1px);
-      border-color: rgba(46, 145, 63, 0.18);
     }
 
     .faq-category-button.is-active {
       color: #ffffff;
-      background: linear-gradient(180deg, var(--nf-green-light), var(--nf-green));
-      border-color: rgba(46, 145, 63, 0.25);
-      box-shadow: 0 12px 28px rgba(46, 145, 63, 0.18);
+      background: #1d1d1f;
     }
 
-    .faq-result-line {
-      min-height: 1.35rem;
+    .faq-result-line-v3 {
+      margin: 0.9rem 0 1rem;
       color: var(--muted);
       font-size: 0.94rem;
+      line-height: 1.4;
+      letter-spacing: -0.012em;
+    }
+
+    .faq-layout-v3 {
+      display: grid;
+      grid-template-columns: minmax(0, 0.32fr) minmax(0, 1fr);
+      gap: 0.75rem;
+      align-items: start;
+    }
+
+    .faq-side-v3 {
+      position: sticky;
+      top: 96px;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .faq-side-card-v3 {
+      padding: 1rem;
+      border-radius: 14px;
+      background: #ffffff;
+    }
+
+    .faq-side-card-v3 span {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.055em;
+      text-transform: uppercase;
+    }
+
+    .faq-side-card-v3 p,
+    .faq-side-card-v3 a {
+      color: var(--text-soft);
+      font-size: 0.96rem;
       line-height: 1.45;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.012em;
     }
 
-    .faq-groups {
+    .faq-side-card-v3 a {
+      color: var(--nf-green-dark);
+      font-weight: 720;
+    }
+
+    .faq-main-v3 {
       display: grid;
-      gap: 1rem;
+      gap: 0.75rem;
     }
 
-    .faq-group {
+    .faq-group-v3 {
       display: grid;
-      gap: 0.62rem;
+      gap: 0.5rem;
     }
 
-    .faq-group-title {
-      margin-top: 0.4rem;
-      color: var(--text);
-      font-size: clamp(1.42rem, 2.35vw, 2.15rem);
-      line-height: 1;
-      letter-spacing: -0.052em;
-      font-weight: 790;
-    }
-
-    .faq-list {
-      display: grid;
-      gap: 0.58rem;
+    .faq-group-title-v3 {
+      margin: 0.4rem 0 0.1rem;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     .faq-item {
-      border-radius: var(--card-radius);
+      border-radius: 14px;
       background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
       overflow: hidden;
     }
 
-    .faq-item[open] {
-      border-color: rgba(46, 145, 63, 0.18);
-    }
-
     .faq-item summary {
+      position: relative;
       min-height: 64px;
-      display: grid;
-      grid-template-columns: 1fr auto;
+      display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 1rem;
-      padding: 1rem 1.12rem;
+      padding: 1rem 3rem 1rem 1rem;
       color: var(--text);
       cursor: pointer;
-      list-style: none;
       font-size: 1.02rem;
-      line-height: 1.35;
+      line-height: 1.3;
       letter-spacing: -0.018em;
-      font-weight: 760;
+      font-weight: 730;
+      list-style: none;
     }
 
     .faq-item summary::-webkit-details-marker {
@@ -470,185 +407,143 @@
 
     .faq-item summary::after {
       content: "+";
-      width: 32px;
-      height: 32px;
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      width: 28px;
+      height: 28px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       border-radius: 999px;
-      color: var(--nf-green-dark);
+      color: var(--text);
       background: #f5f5f7;
-      font-size: 1.28rem;
-      line-height: 1;
-      font-weight: 520;
+      transform: translateY(-50%);
       transition:
         transform var(--fast),
-        background var(--fast),
-        color var(--fast);
+        background-color var(--fast);
     }
 
     .faq-item[open] summary::after {
       content: "–";
-      color: #ffffff;
-      background: var(--nf-green);
-      transform: rotate(180deg);
+      transform: translateY(-50%) rotate(180deg);
     }
 
     .faq-answer {
-      padding: 0 1.12rem 1.1rem;
+      padding: 0 1rem 1rem;
       color: var(--text-soft);
       font-size: 0.98rem;
       line-height: 1.56;
       letter-spacing: -0.012em;
     }
 
-    .faq-answer strong {
-      color: var(--text);
-      font-weight: 760;
-    }
-
-    .faq-answer a {
-      color: var(--nf-green-dark);
-      font-weight: 760;
-    }
-
     .faq-answer mark,
     .faq-question-text mark {
-      padding: 0.05em 0.16em;
-      border-radius: 0.28em;
       color: inherit;
-      background: rgba(125, 226, 144, 0.44);
+      background: rgba(46, 145, 63, 0.18);
+      border-radius: 4px;
+      padding: 0 0.12em;
     }
 
-    .faq-empty {
+    .faq-empty-v3 {
       display: none;
-      padding: 1.15rem;
-      border-radius: var(--card-radius);
+      padding: 1rem;
+      border-radius: 14px;
       background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-    }
-
-    .faq-empty.show {
-      display: block;
-    }
-
-    .faq-empty h3 {
-      color: var(--text);
-      font-size: 1.35rem;
-      line-height: 1.1;
-      letter-spacing: -0.035em;
-      font-weight: 790;
-    }
-
-    .faq-empty p {
-      margin-top: 0.45rem;
-      color: var(--muted);
+      color: var(--text-soft);
       font-size: 0.98rem;
       line-height: 1.5;
       letter-spacing: -0.012em;
     }
 
+    .faq-empty-v3.show {
+      display: block;
+    }
+
     @media (max-width: 980px) {
-      .contact-form-head-clean {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .contact-grid-clean {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .contact-field-wide {
-        grid-column: 1 / -1;
-      }
-
-      .contact-methods-shell-clean {
+      .contact-main-grid-v3,
+      .faq-layout-v3 {
         grid-template-columns: 1fr;
       }
 
-      .contact-methods-copy-clean {
+      .contact-form-panel-v3,
+      .contact-info-panel-v3 {
         min-height: auto;
+      }
+
+      .faq-side-v3 {
+        position: static;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    @media (max-width: 680px) {
-      .contact-hero-clean {
+    @media (max-width: 720px) {
+      .contact-hero-v3 {
+        min-height: 66vh;
         padding-top: max(8.6rem, 15vh);
-        padding-bottom: 3.5rem;
       }
 
-      .contact-hero-title {
-        font-size: clamp(2.45rem, 11.5vw, 3.95rem);
-        line-height: 0.96;
-        letter-spacing: -0.056em;
+      .contact-hero-v3 h1 {
+        font-size: clamp(2.8rem, 12vw, 4.3rem);
+        line-height: 0.94;
       }
 
-      .contact-hero-text {
-        max-width: 35ch;
-        font-size: 1.02rem;
+      .contact-hero-v3 p:not(.eyebrow) {
+        max-width: 34ch;
+        font-size: 1rem;
       }
 
-      .contact-module-section {
-        padding: 0.65rem;
+      .contact-main-section-v3,
+      .faq-section-v3 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-bottom: 0.5rem;
       }
 
-      .contact-module-section + .contact-module-section {
-        padding-top: 0;
+      .contact-main-grid-v3 {
+        gap: 0.5rem;
       }
 
-      .contact-form-shell-clean,
-      .contact-faq-shell-clean {
-        padding: 1.15rem;
+      .contact-form-panel-v3,
+      .contact-info-panel-v3 {
+        padding: 3.4rem 1rem;
       }
 
-      .contact-form-head-clean h2,
-      .contact-methods-copy-clean h2,
-      .contact-faq-head-clean h2 {
-        font-size: clamp(2rem, 9.5vw, 3.2rem);
-        line-height: 1;
+      .contact-form-head-v3 h2,
+      .contact-info-panel-v3 h2,
+      .faq-head-v3 h2 {
+        font-size: clamp(2.35rem, 11vw, 3.75rem);
       }
 
-      .contact-grid-clean {
-        grid-template-columns: 1fr;
+      .contact-form-head-v3 p,
+      .contact-info-panel-v3 > p,
+      .faq-head-v3 p {
+        max-width: 34ch;
+        font-size: 1rem;
       }
 
-      .contact-field-wide,
-      .contact-field-full {
-        grid-column: 1;
-      }
-
-      .contact-form-bottom-clean {
+      .contact-submit-row-v3 {
         align-items: stretch;
-        flex-direction: column;
       }
 
-      .contact-form-bottom-clean .btn {
+      .contact-submit-row-v3 .btn {
         width: 100%;
       }
 
-      .contact-methods-shell-clean {
-        gap: 0.65rem;
-        padding: 0.65rem;
+      .faq-panel-v3 {
+        min-height: auto;
+        padding: 4rem 1rem;
       }
 
-      .contact-methods-copy-clean,
-      .contact-method-card-clean {
-        padding: 1.15rem;
-      }
-
-      .faq-search-field input {
-        min-height: 58px;
-      }
-
-      .faq-category-row {
-        flex-wrap: nowrap;
+      .faq-category-row-v3 {
         overflow-x: auto;
-        padding-bottom: 0.2rem;
+        flex-wrap: nowrap;
+        margin-inline: -1rem;
+        padding: 0 1rem 0.3rem;
         scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
       }
 
-      .faq-category-row::-webkit-scrollbar {
+      .faq-category-row-v3::-webkit-scrollbar {
         display: none;
       }
 
@@ -656,29 +551,18 @@
         flex: 0 0 auto;
       }
 
+      .faq-side-v3 {
+        grid-template-columns: 1fr;
+      }
+
       .faq-item summary {
         min-height: 60px;
-        padding: 0.95rem 1rem;
+        padding: 0.95rem 2.8rem 0.95rem 0.95rem;
         font-size: 0.98rem;
       }
 
       .faq-answer {
-        padding: 0 1rem 1rem;
-        font-size: 0.96rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .contact-hero-title {
-        font-size: clamp(2.25rem, 11vw, 3.35rem);
-      }
-
-      .contact-module-section {
-        padding: 0.5rem;
-      }
-
-      .contact-methods-shell-clean {
-        padding: 0.5rem;
+        padding: 0 0.95rem 0.95rem;
       }
     }
   </style>
@@ -687,650 +571,360 @@
 <body>
   <div data-header></div>
 
-  <main class="contact-page">
-    <section class="contact-hero-clean" aria-labelledby="contact-page-title">
-      <div class="container">
-        <div class="contact-hero-inner">
-          <p class="eyebrow">Kontakt / FAQ</p>
+  <main class="contact-page-v3">
+    <section class="contact-hero-v3" aria-labelledby="contact-page-title">
+      <div class="contact-hero-inner-v3">
+        <p class="eyebrow">Kontakt / FAQ</p>
 
-          <h1 class="contact-hero-title" id="contact-page-title">
-            Schreib uns.<br />
-            <span>Klar und direkt.</span>
-          </h1>
+        <h1 id="contact-page-title">Fragen klären. Einfach melden.</h1>
 
-          <p class="contact-hero-text">
-            Fragen zu Mitgliedschaft, Tagespass, App, Standort, Getränkeautomat oder Nordkern Fitness allgemein?
-            Schick dein Anliegen über das Formular oder finde direkt eine Antwort im FAQ.
-          </p>
+        <p>
+          Schreib Nordkern Fitness direkt über das Kontaktformular oder schau zuerst in die FAQ.
+          Viele Antworten zu App, Tarifen, Tagespass und Studio findest du weiter unten.
+        </p>
+
+        <div class="product-actions">
+          <a href="#kontaktformular" class="product-link product-link-primary">
+            Kontaktformular öffnen
+          </a>
+
+          <a href="#faq" class="product-link product-link-secondary">
+            FAQ ansehen
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="contact-module-section">
-      <section class="contact-form-shell-clean" aria-labelledby="contact-form-title">
-        <div class="contact-form-head-clean">
-          <div>
+    <section class="contact-main-section-v3" id="kontaktformular" aria-labelledby="contact-form-title">
+      <div class="contact-main-grid-v3">
+        <div class="contact-form-panel-v3">
+          <div class="contact-form-head-v3">
             <p class="eyebrow">Kontaktformular</p>
-            <h2 id="contact-form-title">Wobei können wir helfen?</h2>
+
+            <h2 id="contact-form-title">Schreib deine Anfrage.</h2>
+
+            <p>
+              Das Formular bereitet eine E-Mail an Nordkern Fitness vor.
+              Bitte sende keine sensiblen Daten wie Ausweiskopien, Zahlungsdaten oder Gesundheitsdaten.
+            </p>
           </div>
+
+          <form class="contact-form-v3" data-nordkern-contact-form novalidate>
+            <div class="contact-error-box-v3" id="contact-error-box" role="alert" aria-live="polite"></div>
+
+            <div class="form-grid">
+              <div class="contact-field">
+                <label for="contact-firstname">
+                  Vorname <span class="required-star">*</span>
+                </label>
+                <input id="contact-firstname" name="contact-firstname" type="text" autocomplete="given-name" required />
+              </div>
+
+              <div class="contact-field">
+                <label for="contact-lastname">
+                  Nachname <span class="required-star">*</span>
+                </label>
+                <input id="contact-lastname" name="contact-lastname" type="text" autocomplete="family-name" required />
+              </div>
+
+              <div class="contact-field">
+                <label for="contact-email">
+                  E-Mail <span class="required-star">*</span>
+                </label>
+                <input id="contact-email" name="contact-email" type="email" autocomplete="email" required />
+              </div>
+
+              <div class="contact-field">
+                <label for="contact-topic">
+                  Thema <span class="required-star">*</span>
+                </label>
+                <select id="contact-topic" name="contact-topic" required>
+                  <option value="">Bitte auswählen</option>
+                  <option value="Mitgliedschaft">Mitgliedschaft</option>
+                  <option value="Tagespass">Tagespass</option>
+                  <option value="App / QR-Code">App / QR-Code</option>
+                  <option value="Getränkeautomat">Getränkeautomat</option>
+                  <option value="Standort Grevesmühlen">Standort Grevesmühlen</option>
+                  <option value="Sonstiges">Sonstiges</option>
+                </select>
+              </div>
+
+              <div class="contact-field">
+                <label for="contact-postal">Postleitzahl</label>
+                <input id="contact-postal" name="contact-postal" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="z. B. 23936" />
+              </div>
+
+              <div class="contact-field">
+                <label for="contact-street">Straße und Hausnummer</label>
+                <input id="contact-street" name="contact-street" type="text" autocomplete="street-address" placeholder="Optional" />
+              </div>
+
+              <div class="contact-field contact-field-full">
+                <label for="contact-memberid">Member-ID</label>
+                <input id="contact-memberid" name="contact-memberid" type="text" placeholder="z. B. NK-12345" />
+                <small class="contact-field-help-v3">Nur ausfüllen, wenn du schon eine Member-ID hast.</small>
+              </div>
+
+              <div class="contact-field contact-field-full">
+                <label for="contact-message">
+                  Nachricht <span class="required-star">*</span>
+                </label>
+                <textarea
+                  id="contact-message"
+                  name="contact-message"
+                  maxlength="2400"
+                  data-maxlength="2400"
+                  required
+                  placeholder="Worum geht es?"
+                ></textarea>
+                <small class="contact-field-help-v3">
+                  <span id="message-count">0</span>/2400 Zeichen
+                </small>
+              </div>
+            </div>
+
+            <p class="required-note">* Pflichtfelder</p>
+
+            <div class="contact-submit-row-v3">
+              <p>
+                Nach dem Absenden öffnet sich dein E-Mail-Programm mit einer vorbereiteten Nachricht.
+              </p>
+
+              <button type="submit" class="btn btn-primary">
+                Anfrage vorbereiten
+              </button>
+            </div>
+          </form>
         </div>
 
-        <form id="nordkern-contact-form" data-nordkern-contact-form novalidate>
-          <div class="contact-grid-clean">
-            <div class="contact-field">
-              <label for="contact-firstname">Vorname <span>*</span></label>
-              <input id="contact-firstname" name="contact-firstname" type="text" placeholder="Dein Vorname" autocomplete="given-name" minlength="2" maxlength="60" aria-describedby="contact-error-box" required />
-            </div>
+        <aside class="contact-info-panel-v3" aria-labelledby="contact-direct-title">
+          <p class="eyebrow">Direktkontakt</p>
 
-            <div class="contact-field">
-              <label for="contact-lastname">Nachname <span>*</span></label>
-              <input id="contact-lastname" name="contact-lastname" type="text" placeholder="Dein Nachname" autocomplete="family-name" minlength="2" maxlength="80" aria-describedby="contact-error-box" required />
-            </div>
-
-            <div class="contact-field">
-              <label for="contact-email">E-Mail <span>*</span></label>
-              <input id="contact-email" name="contact-email" type="email" placeholder="dein.name@email.de" autocomplete="email" maxlength="120" aria-describedby="contact-error-box" required />
-            </div>
-
-            <div class="contact-field">
-              <label for="contact-postal">Postleitzahl</label>
-              <input id="contact-postal" name="contact-postal" type="text" placeholder="12345" autocomplete="postal-code" inputmode="numeric" maxlength="5" list="postal-suggestions" aria-describedby="contact-error-box" />
-
-              <datalist id="postal-suggestions">
-                <option value="23936" label="Grevesmühlen"></option>
-                <option value="23552" label="Lübeck Innenstadt"></option>
-                <option value="23554" label="Lübeck"></option>
-                <option value="23966" label="Wismar"></option>
-                <option value="19053" label="Schwerin"></option>
-                <option value="18055" label="Rostock"></option>
-              </datalist>
-            </div>
-
-            <div class="contact-field">
-              <label for="contact-street">Straße und Hausnummer</label>
-              <input id="contact-street" name="contact-street" type="text" placeholder="Musterstraße 12" autocomplete="address-line1" minlength="2" maxlength="90" aria-describedby="contact-error-box" />
-            </div>
-
-            <div class="contact-field contact-field-wide">
-              <label for="contact-topic">Thema <span>*</span></label>
-              <select id="contact-topic" name="contact-topic" aria-describedby="contact-error-box" required>
-                <option value="">Bitte Thema auswählen</option>
-                <option value="Mitgliedschaft allgemein">Mitgliedschaft allgemein</option>
-                <option value="Basic Mitgliedschaft">Basic Mitgliedschaft</option>
-                <option value="Plus Mitgliedschaft">Plus Mitgliedschaft</option>
-                <option value="Pro Mitgliedschaft">Pro Mitgliedschaft</option>
-                <option value="Tagespass">Tagespass</option>
-                <option value="App & Zugang">App & Zugang</option>
-                <option value="QR-Code Zutritt">QR-Code Zutritt</option>
-                <option value="Getränkeautomat">Getränkeautomat</option>
-                <option value="Freigetränke / Kreatin-Auswahl">Freigetränke / Kreatin-Auswahl</option>
-                <option value="Standort Grevesmühlen">Standort Grevesmühlen</option>
-                <option value="Weitere Standorte">Weitere Standorte</option>
-                <option value="Hausordnung">Hausordnung</option>
-                <option value="Vertrag / Kündigung">Vertrag / Kündigung</option>
-                <option value="Probetraining">Probetraining</option>
-                <option value="Kooperation / Business">Kooperation / Business</option>
-                <option value="Presse / Medien">Presse / Medien</option>
-                <option value="Allgemeine Frage / anderes Anliegen">Allgemeine Frage / anderes Anliegen</option>
-              </select>
-            </div>
-
-            <div class="contact-field">
-              <label for="contact-memberid">Member-ID</label>
-              <input id="contact-memberid" name="contact-memberid" type="text" placeholder="NK-12345" autocomplete="off" maxlength="8" aria-describedby="contact-error-box" />
-            </div>
-
-            <div class="contact-field contact-field-full">
-              <label for="contact-message">Nachricht <span>*</span></label>
-              <textarea id="contact-message" name="contact-message" placeholder="Schreib hier deine Nachricht an Nordkern Fitness..." maxlength="2400" data-maxlength="2400" aria-describedby="message-count contact-error-box" required></textarea>
-
-              <small>
-                <span id="message-count">0</span>/2400 Zeichen
-              </small>
-            </div>
-          </div>
-
-          <div class="contact-form-bottom-clean">
-            <p class="contact-required-note">
-              <strong>*</strong> Pflichtfelder müssen ausgefüllt werden.
-            </p>
-
-            <button id="contact-submit" class="btn btn-primary" type="submit">
-              Senden
-            </button>
-          </div>
-
-          <div id="contact-error-box" class="contact-error-box" aria-live="polite"></div>
-
-          <p class="contact-privacy-note">
-            Deine Angaben werden zur Bearbeitung deiner Anfrage genutzt. Bitte sende keine besonders sensiblen Daten
-            wie Gesundheitsdaten, Zahlungsdaten, Ausweisdaten oder private Unterlagen über dieses Formular. Weitere Hinweise findest du unter
-            <a href="impressum.html#datenschutz">Impressum / Datenschutz</a>.
-          </p>
-        </form>
-      </section>
-    </section>
-
-    <section class="contact-module-section" aria-labelledby="contact-methods-title">
-      <div class="contact-methods-shell-clean">
-        <article class="contact-methods-copy-clean">
-          <p class="eyebrow">Kontaktmöglichkeiten</p>
-
-          <h2 id="contact-methods-title">Auch direkt erreichbar.</h2>
+          <h2 id="contact-direct-title">Kurz. Klar. Ohne Umwege.</h2>
 
           <p>
-            Du kannst Nordkern Fitness auch per E-Mail oder über Instagram erreichen.
-            Wir bündeln Anfragen sauber und antworten ohne Telefonstress.
+            Für allgemeine Fragen, Standortthemen oder Hinweise erreichst du Nordkern Fitness
+            über die geplanten offiziellen Kanäle.
           </p>
-        </article>
 
-        <div class="contact-methods-list-clean">
-          <article class="contact-method-card-clean">
-            <span>E-Mail</span>
-            <a href="mailto:info@nordkern-fitness.de">info@nordkern-fitness.de</a>
-          </article>
+          <div class="contact-methods-v3">
+            <div class="contact-method-v3">
+              <span>E-Mail</span>
+              <a href="mailto:info@nordkern-fitness.de">info@nordkern-fitness.de</a>
+            </div>
 
-          <article class="contact-method-card-clean">
-            <span>Instagram – Nordkern Fitness</span>
-            <a href="https://instagram.com/nordkern.fitness" target="_blank" rel="noopener noreferrer">
-              @nordkern.fitness
-            </a>
-          </article>
+            <div class="contact-method-v3">
+              <span>Instagram</span>
+              <a href="https://instagram.com/nordkern.fitness" target="_blank" rel="noopener noreferrer">
+                @nordkern.fitness
+              </a>
+            </div>
 
-          <article class="contact-method-card-clean">
-            <span>Supportzeiten</span>
-            <p class="contact-support-status">
-              Montag bis Freitag
-            </p>
+            <div class="contact-method-v3">
+              <span>Standort</span>
+              <strong>Grevesmühlen</strong>
+            </div>
 
-            <p class="contact-support-note">
-              Antwort in der Regel innerhalb von 1–3 Werktagen.
-            </p>
-          </article>
-        </div>
+            <div class="contact-method-v3">
+              <span>Antwortzeit</span>
+              <strong>In der Regel innerhalb von 1–3 Werktagen</strong>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section id="faq" class="contact-module-section" aria-labelledby="contact-faq-title">
-      <div class="contact-faq-shell-clean">
-        <div class="contact-faq-head-clean">
+    <section class="faq-section-v3" id="faq" aria-labelledby="faq-title">
+      <div class="faq-panel-v3">
+        <div class="faq-head-v3">
           <p class="eyebrow">FAQ</p>
 
-          <h2 id="contact-faq-title">Häufige Fragen.</h2>
+          <h2 id="faq-title">Häufige Fragen.</h2>
 
           <p>
-            Suche nach Mitgliedschaft, App, QR-Code, Tagespass, Getränkeautomat, Kreatin, Studio Grevesmühlen,
-            Sicherheit oder Kündigung. Passende Treffer werden automatisch hervorgehoben.
+            Antworten auf die wichtigsten Fragen zu Tarifen, App, Tagespass, Getränkeautomat,
+            Standort Grevesmühlen und Studioablauf.
           </p>
         </div>
 
-        <div class="faq-search-wrap">
-          <div class="faq-search-field">
-            <input id="faq-search" type="search" placeholder="FAQ durchsuchen" autocomplete="off" aria-label="FAQ durchsuchen" />
-            <span class="faq-search-icon" aria-hidden="true">⌕</span>
+        <div class="faq-tools-v3">
+          <div class="faq-search-v3">
+            <label for="faq-search">FAQ durchsuchen</label>
+            <input id="faq-search" type="search" placeholder="z. B. Tagespass, QR-Code, Getränke, Duschen" autocomplete="off" />
           </div>
 
-          <div class="faq-category-row" aria-label="FAQ Kategorien">
+          <div class="faq-category-row-v3" aria-label="FAQ Kategorien">
             <button class="faq-category-button is-active" type="button" data-faq-category="all">Alle</button>
-            <button class="faq-category-button" type="button" data-faq-category="mitgliedschaft">Mitgliedschaft</button>
-            <button class="faq-category-button" type="button" data-faq-category="app">App & Zugang</button>
-            <button class="faq-category-button" type="button" data-faq-category="tagespass">Tagespass</button>
-            <button class="faq-category-button" type="button" data-faq-category="getraenke">Getränke & Kreatin</button>
+            <button class="faq-category-button" type="button" data-faq-category="tarife">Tarife</button>
+            <button class="faq-category-button" type="button" data-faq-category="app">App</button>
             <button class="faq-category-button" type="button" data-faq-category="studio">Studio</button>
-            <button class="faq-category-button" type="button" data-faq-category="sicherheit">Sicherheit</button>
-            <button class="faq-category-button" type="button" data-faq-category="kontakt">Kontakt</button>
+            <button class="faq-category-button" type="button" data-faq-category="getraenke">Getränke</button>
+            <button class="faq-category-button" type="button" data-faq-category="recht">Rechtliches</button>
           </div>
-
-          <p class="faq-result-line" id="faq-result-line">70 Fragen verfügbar.</p>
         </div>
 
-        <div class="faq-empty" id="faq-empty">
-          <h3>Keine passende Frage gefunden.</h3>
-          <p>Versuch einen anderen Suchbegriff oder schreib uns direkt über das Kontaktformular.</p>
-        </div>
+        <p class="faq-result-line-v3" id="faq-result-line">Fragen verfügbar.</p>
 
-        <div class="faq-groups" id="faq-groups">
-          <section class="faq-group" data-faq-group data-faq-category="mitgliedschaft">
-            <h3 class="faq-group-title">Mitgliedschaft & Tarife</h3>
+        <div class="faq-layout-v3">
+          <aside class="faq-side-v3" aria-label="FAQ Hinweise">
+            <div class="faq-side-card-v3">
+              <span>Schnelltest</span>
+              <p>Es gibt kein kostenloses Probetraining. Der Tagespass ist zum Testen gedacht.</p>
+            </div>
 
-            <div class="faq-list">
-              <details class="faq-item" data-category="mitgliedschaft">
+            <div class="faq-side-card-v3">
+              <span>Kontakt</span>
+              <p>
+                Deine Frage fehlt?
+                <a href="#kontaktformular">Kontaktformular öffnen</a>
+              </p>
+            </div>
+          </aside>
+
+          <div class="faq-main-v3">
+            <div class="faq-empty-v3" id="faq-empty">
+              Keine passende Frage gefunden. Versuch einen anderen Suchbegriff oder schreib direkt über das Kontaktformular.
+            </div>
+
+            <section class="faq-group-v3" data-faq-group>
+              <h3 class="faq-group-title-v3">Tarife & Tagespass</h3>
+
+              <details class="faq-item" data-category="tarife">
                 <summary><span class="faq-question-text">Welche Tarife gibt es bei Nordkern Fitness?</span></summary>
-                <p class="faq-answer">Es gibt die Mitgliedschaften Nordkern Basic, Nordkern Plus und Nordkern Pro. Zusätzlich gibt es einen Tagespass für einmaligen Zugang ohne laufende Mitgliedschaft.</p>
+                <div class="faq-answer">
+                  Es gibt Basic, Plus, Pro und den Tagespass. Basic, Plus und Pro sind Mitgliedschaften mit unterschiedlichen Mindestlaufzeiten und Kontingenten. Der Tagespass ist ein einmaliger 24-Stunden-Zugang ohne laufende Mitgliedschaft.
+                </div>
               </details>
 
-              <details class="faq-item" data-category="mitgliedschaft">
-                <summary><span class="faq-question-text">Was ist im Basic Tarif enthalten?</span></summary>
-                <p class="faq-answer">Basic enthält 24/7-Zugang, QR-Code-Zutritt über die App, 3 Freigetränke à 330 ml pro Monat und 1 optionale Kreatin-Auswahl pro Monat.</p>
-              </details>
-
-              <details class="faq-item" data-category="mitgliedschaft">
-                <summary><span class="faq-question-text">Was ist im Plus Tarif enthalten?</span></summary>
-                <p class="faq-answer">Plus enthält 24/7-Zugang, QR-Code-Zutritt über die App, 6 Freigetränke à 330 ml pro Monat und 3 optionale Kreatin-Auswahlen pro Monat.</p>
-              </details>
-
-              <details class="faq-item" data-category="mitgliedschaft">
-                <summary><span class="faq-question-text">Was ist im Pro Tarif enthalten?</span></summary>
-                <p class="faq-answer">Pro enthält 24/7-Zugang, QR-Code-Zutritt über die App, 9 Freigetränke à 330 ml, 2 Freigetränke à 500 ml und 5 optionale Kreatin-Auswahlen pro Monat.</p>
-              </details>
-
-              <details class="faq-item" data-category="mitgliedschaft">
-                <summary><span class="faq-question-text">Wie unterscheiden sich Basic, Plus und Pro?</span></summary>
-                <p class="faq-answer">Die Tarife unterscheiden sich vor allem bei Preis, Mindestlaufzeit und enthaltenen Getränke- und Kreatin-Kontingenten. Alle Tarife nutzen den digitalen Zugang über die App.</p>
-              </details>
-
-              <details class="faq-item" data-category="mitgliedschaft">
-                <summary><span class="faq-question-text">Gibt es eine Mindestlaufzeit?</span></summary>
-                <p class="faq-answer">Ja. Basic hat 12 Monate Mindestlaufzeit, Plus 8 Monate und Pro 4 Monate. Die genauen Angaben findest du auf der Tarifseite und später im Buchungsprozess der App.</p>
-              </details>
-
-              <details class="faq-item" data-category="mitgliedschaft">
-                <summary><span class="faq-question-text">Kann ich meinen Tarif später wechseln?</span></summary>
-                <p class="faq-answer">Tarifwechsel sollen später über die App verwaltet werden. Welche Wechsel sofort möglich sind, hängt vom bestehenden Tarif, der Laufzeit und den App-Regeln ab.</p>
-              </details>
-
-              <details class="faq-item" data-category="mitgliedschaft">
-                <summary><span class="faq-question-text">Wann beginnt meine Mitgliedschaft?</span></summary>
-                <p class="faq-answer">Die Mitgliedschaft beginnt nach erfolgreicher Buchung und Aktivierung in der App. Die konkreten Startinformationen werden im Buchungsprozess angezeigt.</p>
-              </details>
-
-              <details class="faq-item" data-category="mitgliedschaft">
-                <summary><span class="faq-question-text">Wo sehe ich meinen aktuellen Tarif?</span></summary>
-                <p class="faq-answer">Deinen aktuellen Tarif, Laufzeit, Zugang und verfügbare Kontingente siehst du später direkt in deinem App-Konto.</p>
-              </details>
-
-              <details class="faq-item" data-category="mitgliedschaft">
-                <summary><span class="faq-question-text">Kann ich über die Website eine Mitgliedschaft kaufen?</span></summary>
-                <p class="faq-answer">Nein. Über die Website werden keine Mitgliedschaften gekauft. Buchung, Zahlung und Verwaltung laufen über die Nordkern Fitness App.</p>
-              </details>
-
-              <details class="faq-item" data-category="mitgliedschaft">
-                <summary><span class="faq-question-text">Wie kündige ich meine Mitgliedschaft?</span></summary>
-                <p class="faq-answer">Die Kündigung soll über die App möglich sein. Dort kannst du deine Mitgliedschaft verwalten und die vorgesehenen Kündigungsfunktionen nutzen.</p>
-              </details>
-
-              <details class="faq-item" data-category="mitgliedschaft">
-                <summary><span class="faq-question-text">Kann ich schon während der Mindestlaufzeit kündigen?</span></summary>
-                <p class="faq-answer">Ja. Du kannst während der Mindestlaufzeit kündigen. Die Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit, sofern im Vertrag nichts anderes geregelt ist.</p>
-              </details>
-
-              <details class="faq-item" data-category="mitgliedschaft">
-                <summary><span class="faq-question-text">Verlängert sich meine Mitgliedschaft automatisch?</span></summary>
-                <p class="faq-answer">Wenn du nicht kündigst, läuft die Mitgliedschaft nach der Mindestlaufzeit regulär weiter. Die genauen Regeln werden in der App und in den Vertragsunterlagen angezeigt.</p>
-              </details>
-
-              <details class="faq-item" data-category="mitgliedschaft">
-                <summary><span class="faq-question-text">Kann ich meine Mitgliedschaft pausieren?</span></summary>
-                <p class="faq-answer">Pausenfunktionen sind abhängig von der späteren App- und Vertragslogik. Wenn eine Pause möglich ist, wird sie in der App klar angezeigt.</p>
-              </details>
-
-              <details class="faq-item" data-category="mitgliedschaft">
-                <summary><span class="faq-question-text">Sind die Preise monatlich oder einmalig?</span></summary>
-                <p class="faq-answer">Basic, Plus und Pro sind monatliche Mitgliedschaften. Der Tagespass ist einmalig und führt nicht automatisch zu einer Mitgliedschaft.</p>
-              </details>
-            </div>
-          </section>
-
-          <section class="faq-group" data-faq-group data-faq-category="app">
-            <h3 class="faq-group-title">App, Buchung & digitaler Zugang</h3>
-
-            <div class="faq-list">
-              <details class="faq-item" data-category="app">
-                <summary><span class="faq-question-text">Wofür brauche ich die Nordkern Fitness App?</span></summary>
-                <p class="faq-answer">Die App bündelt Mitgliedschaft, Tagespass, Zahlung, QR-Code-Zutritt, Getränkeautomat, Freigetränke und Kreatin-Auswahlen an einem Ort.</p>
-              </details>
-
-              <details class="faq-item" data-category="app">
-                <summary><span class="faq-question-text">Wie funktioniert der QR-Code-Zutritt?</span></summary>
-                <p class="faq-answer">Du öffnest deinen persönlichen QR-Code in der App und scannst ihn am Eingang. Das System prüft deinen Zugang und öffnet den Zutritt, wenn deine Mitgliedschaft oder dein Tagespass aktiv ist.</p>
-              </details>
-
-              <details class="faq-item" data-category="app">
-                <summary><span class="faq-question-text">Kann ich ohne App ins Studio?</span></summary>
-                <p class="faq-answer">Der Zugang ist digital über die App geplant. Ohne App und gültigen QR-Code kann der Zutritt nicht zuverlässig genutzt werden.</p>
-              </details>
-
-              <details class="faq-item" data-category="app">
-                <summary><span class="faq-question-text">Was passiert, wenn mein Handy leer ist?</span></summary>
-                <p class="faq-answer">Ohne funktionsfähiges Handy und QR-Code kann der digitale Zutritt nicht genutzt werden. Lade dein Handy deshalb vor dem Training ausreichend auf.</p>
-              </details>
-
-              <details class="faq-item" data-category="app">
-                <summary><span class="faq-question-text">Kann ich meinen QR-Code weitergeben?</span></summary>
-                <p class="faq-answer">Nein. Dein QR-Code ist persönlich. Eine Weitergabe an andere Personen ist nicht erlaubt und kann zur Sperrung des Zugangs führen.</p>
-              </details>
-
-              <details class="faq-item" data-category="app">
-                <summary><span class="faq-question-text">Wo finde ich meinen QR-Code in der App?</span></summary>
-                <p class="faq-answer">Deinen QR-Code findest du später in deinem App-Konto im Bereich für Zugang oder Check-in. Die genaue Bezeichnung kann je nach App-Version abweichen.</p>
-              </details>
-
-              <details class="faq-item" data-category="app">
-                <summary><span class="faq-question-text">Kann ich mehrere Geräte nutzen?</span></summary>
-                <p class="faq-answer">Die Nutzung auf mehreren Geräten hängt von der späteren App-Logik ab. Wichtig ist, dass dein Zugang persönlich bleibt und nicht an andere Personen weitergegeben wird.</p>
-              </details>
-
-              <details class="faq-item" data-category="app">
-                <summary><span class="faq-question-text">Was mache ich, wenn der QR-Code nicht funktioniert?</span></summary>
-                <p class="faq-answer">Prüfe zuerst Internet, Displayhelligkeit und ob deine Mitgliedschaft oder dein Tagespass aktiv ist. Wenn es weiter nicht klappt, kontaktiere Nordkern Fitness über das Kontaktformular.</p>
-              </details>
-
-              <details class="faq-item" data-category="app">
-                <summary><span class="faq-question-text">Welche Zahlungsmethoden sind geplant?</span></summary>
-                <p class="faq-answer">Geplant sind moderne Zahlungsarten wie Apple Pay, Kartenzahlung mit Mastercard oder Visa und PayPal. Die final verfügbaren Zahlungsarten werden in der App angezeigt.</p>
-              </details>
-
-              <details class="faq-item" data-category="app">
-                <summary><span class="faq-question-text">Kann ich über die Website bezahlen?</span></summary>
-                <p class="faq-answer">Nein. Zahlungen werden nicht über die Website abgewickelt. Mitgliedschaften, Tagespass, Zusatzgetränke und Kreatin-Auswahlen laufen über die App.</p>
-              </details>
-
-              <details class="faq-item" data-category="app">
-                <summary><span class="faq-question-text">Muss ich mein Alter bestätigen?</span></summary>
-                <p class="faq-answer">Ja. Altersprüfung und gegebenenfalls Ausweisprüfung sind vorgesehen, damit Mitgliedschaften und Tagespässe korrekt und sicher gebucht werden können.</p>
-              </details>
-
-              <details class="faq-item" data-category="app">
-                <summary><span class="faq-question-text">Was gilt für Mitglieder unter 18 Jahren?</span></summary>
-                <p class="faq-answer">Minderjährige benötigen eine Zustimmung der Erziehungsberechtigten. Die genauen Altersregeln, Nachweise und Freigaben werden im Buchungsprozess und in den Vertragsbedingungen angezeigt.</p>
-              </details>
-
-              <details class="faq-item" data-category="app">
-                <summary><span class="faq-question-text">Kann ich mit 16 alleine trainieren?</span></summary>
-                <p class="faq-answer">Die finalen Altersregeln werden vor Ort und im Buchungsprozess festgelegt. Für Minderjährige gilt grundsätzlich: Zustimmung der Erziehungsberechtigten und Altersprüfung sind erforderlich.</p>
-              </details>
-
-              <details class="faq-item" data-category="app">
-                <summary><span class="faq-question-text">Sind meine Vorteile in der App sichtbar?</span></summary>
-                <p class="faq-answer">Ja. Verfügbare Freigetränke, Kreatin-Auswahlen, Zusatzkäufe, Tarifinformationen und Zugang sollen übersichtlich in deinem App-Konto sichtbar sein.</p>
-              </details>
-
-              <details class="faq-item" data-category="app">
-                <summary><span class="faq-question-text">Wann ist die App verfügbar?</span></summary>
-                <p class="faq-answer">Die App ist als zentraler Bestandteil von Nordkern Fitness vorgesehen. Sobald die App verfügbar ist, werden die passenden Links und Hinweise auf der Website angezeigt.</p>
-              </details>
-            </div>
-          </section>
-
-          <section class="faq-group" data-faq-group data-faq-category="tagespass">
-            <h3 class="faq-group-title">Tagespass</h3>
-
-            <div class="faq-list">
-              <details class="faq-item" data-category="tagespass">
-                <summary><span class="faq-question-text">Was ist der Nordkern Tagespass?</span></summary>
-                <p class="faq-answer">Der Tagespass ist ein einmaliger Zugang für 24 Stunden. Er ist dafür gedacht, Nordkern Fitness kennenzulernen, ohne direkt eine Mitgliedschaft abzuschließen.</p>
-              </details>
-
-              <details class="faq-item" data-category="tagespass">
+              <details class="faq-item" data-category="tarife">
                 <summary><span class="faq-question-text">Gibt es ein kostenloses Probetraining?</span></summary>
-                <p class="faq-answer">Nein. Es gibt kein kostenloses Probetraining. Dafür ist der Tagespass vorgesehen.</p>
+                <div class="faq-answer">
+                  Nein. Statt eines kostenlosen Probetrainings ist der Tagespass vorgesehen. Damit kannst du das Studio einmalig testen, ohne direkt eine Mitgliedschaft abzuschließen.
+                </div>
               </details>
 
-              <details class="faq-item" data-category="tagespass">
-                <summary><span class="faq-question-text">Wie lange ist ein Tagespass gültig?</span></summary>
-                <p class="faq-answer">Der Tagespass bietet 24 Stunden Zugang. Die 24 Stunden beginnen erst, wenn du ihn beim Betreten des Studios in der App aktivierst.</p>
+              <details class="faq-item" data-category="tarife">
+                <summary><span class="faq-question-text">Wann startet der Tagespass?</span></summary>
+                <div class="faq-answer">
+                  Der Tagespass startet nicht automatisch beim Kauf. Er wird in deinem Profil hinterlegt und beginnt erst, wenn du ihn beim Betreten des Studios über die App aktivierst und den QR-Code nutzt.
+                </div>
               </details>
 
-              <details class="faq-item" data-category="tagespass">
-                <summary><span class="faq-question-text">Startet der Tagespass direkt nach dem Kauf?</span></summary>
-                <p class="faq-answer">Nein. Der Tagespass wird nach dem Kauf in deinem Profil hinterlegt und startet erst, wenn du ihn beim Studiozutritt aktivierst.</p>
+              <details class="faq-item" data-category="tarife">
+                <summary><span class="faq-question-text">Kann ich meine Mitgliedschaft auf der Website kaufen?</span></summary>
+                <div class="faq-answer">
+                  Nein. Mitgliedschaften, Tagespass, zusätzliche Getränke und Kreatin-Auswahlen werden in der App verwaltet und gebucht.
+                </div>
+              </details>
+            </section>
+
+            <section class="faq-group-v3" data-faq-group>
+              <h3 class="faq-group-title-v3">App & Zugang</h3>
+
+              <details class="faq-item" data-category="app">
+                <summary><span class="faq-question-text">Wie komme ich ins Studio?</span></summary>
+                <div class="faq-answer">
+                  Der Zugang läuft digital über die Nordkern Fitness App. Dort findest du deinen persönlichen QR-Code für den Zutritt.
+                </div>
               </details>
 
-              <details class="faq-item" data-category="tagespass">
-                <summary><span class="faq-question-text">Entsteht aus dem Tagespass eine Mitgliedschaft?</span></summary>
-                <p class="faq-answer">Nein. Der Tagespass endet automatisch und wird nicht zu einer laufenden Mitgliedschaft.</p>
+              <details class="faq-item" data-category="app">
+                <summary><span class="faq-question-text">Was passiert, wenn mein QR-Code nicht funktioniert?</span></summary>
+                <div class="faq-answer">
+                  Prüfe zuerst Internetverbindung, App-Login, aktive Mitgliedschaft oder aktiven Tagespass. Wenn es weiterhin nicht funktioniert, melde dich über das Kontaktformular.
+                </div>
               </details>
 
-              <details class="faq-item" data-category="tagespass">
-                <summary><span class="faq-question-text">Was ist im Tagespass enthalten?</span></summary>
-                <p class="faq-answer">Der Tagespass enthält 24 Stunden Zugang, QR-Code-Zutritt über die App, 1 Freigetränk à 330 ml und 1 optionale Kreatin-Auswahl.</p>
+              <details class="faq-item" data-category="app">
+                <summary><span class="faq-question-text">Kann ich meine Mitgliedschaft in der App kündigen?</span></summary>
+                <div class="faq-answer">
+                  Die Verwaltung und Kündigung der Mitgliedschaft soll über die App erfolgen. Die genauen Abläufe werden final in der App und in den Vertragsinformationen angezeigt.
+                </div>
               </details>
+            </section>
 
-              <details class="faq-item" data-category="tagespass">
-                <summary><span class="faq-question-text">Kann ich mit einem Tagespass 24/7 trainieren?</span></summary>
-                <p class="faq-answer">Ja. Während der aktiven 24 Stunden kannst du den digitalen Zugang nutzen, solange die Hausordnung und technischen Zugangsvoraussetzungen eingehalten werden.</p>
-              </details>
-
-              <details class="faq-item" data-category="tagespass">
-                <summary><span class="faq-question-text">Kann ich mehrere Tagespässe kaufen?</span></summary>
-                <p class="faq-answer">Ja, mehrere Tagespässe sollen über die App möglich sein. Die konkrete Verfügbarkeit wird in der App angezeigt.</p>
-              </details>
-
-              <details class="faq-item" data-category="tagespass">
-                <summary><span class="faq-question-text">Kann ich nach dem Tagespass Mitglied werden?</span></summary>
-                <p class="faq-answer">Ja. Wenn dir Nordkern Fitness gefällt, kannst du später in der App eine Mitgliedschaft auswählen und buchen.</p>
-              </details>
-
-              <details class="faq-item" data-category="tagespass">
-                <summary><span class="faq-question-text">Kann ich den Tagespass verschenken?</span></summary>
-                <p class="faq-answer">Der Tagespass ist grundsätzlich an das App-Konto und die berechtigte Person gebunden. Ob Geschenkfunktionen möglich sind, wird später in der App angezeigt.</p>
-              </details>
-            </div>
-          </section>
-
-          <section class="faq-group" data-faq-group data-faq-category="getraenke">
-            <h3 class="faq-group-title">Getränkeautomat & Kreatin</h3>
-
-            <div class="faq-list">
-              <details class="faq-item" data-category="getraenke">
-                <summary><span class="faq-question-text">Wie funktioniert der Getränkeautomat?</span></summary>
-                <p class="faq-answer">Der Getränkeautomat läuft über deinen QR-Code und dein App-Konto. Du scannst deinen QR-Code, wählst Getränk, Größe und optionale Extras aus und das System zieht verfügbare Kontingente sauber ab.</p>
-              </details>
-
-              <details class="faq-item" data-category="getraenke">
-                <summary><span class="faq-question-text">Nutze ich am Automaten denselben QR-Code wie am Eingang?</span></summary>
-                <p class="faq-answer">Ja. Der QR-Code verbindet dich mit deinem App-Konto. Er kann für den Studio-Zutritt und für den Getränkeautomaten genutzt werden.</p>
-              </details>
-
-              <details class="faq-item" data-category="getraenke">
-                <summary><span class="faq-question-text">Was sind Freigetränke?</span></summary>
-                <p class="faq-answer">Freigetränke sind monatlich enthaltene Getränke, die je nach Tarif in deinem App-Konto hinterlegt sind und am Getränkeautomaten eingelöst werden können.</p>
-              </details>
-
-              <details class="faq-item" data-category="getraenke">
-                <summary><span class="faq-question-text">Wie löse ich ein Freigetränk ein?</span></summary>
-                <p class="faq-answer">Du scannst deinen QR-Code am Automaten und wählst aus, ob du ein verfügbares Freigetränk nutzen möchtest. Danach wird es deinem Konto abgezogen.</p>
-              </details>
-
-              <details class="faq-item" data-category="getraenke">
-                <summary><span class="faq-question-text">Was passiert, wenn meine Freigetränke aufgebraucht sind?</span></summary>
-                <p class="faq-answer">Wenn deine Freigetränke aufgebraucht sind, kannst du weitere Getränke in der App kaufen und anschließend am Automaten einlösen.</p>
-              </details>
-
-              <details class="faq-item" data-category="getraenke">
-                <summary><span class="faq-question-text">Was bedeutet Kreatin-Auswahl?</span></summary>
-                <p class="faq-answer">Eine Kreatin-Auswahl bedeutet, dass du Kreatin bewusst als Option zu einem passenden Getränk hinzufügen kannst. Es ist nicht automatisch enthalten.</p>
-              </details>
-
-              <details class="faq-item" data-category="getraenke">
-                <summary><span class="faq-question-text">Ist Kreatin automatisch in jedem Getränk enthalten?</span></summary>
-                <p class="faq-answer">Nein. Kreatin ist optional und wird nur hinzugefügt, wenn du es bewusst auswählst.</p>
-              </details>
-
-              <details class="faq-item" data-category="getraenke">
-                <summary><span class="faq-question-text">Kann ich Kreatin auch zusätzlich kaufen?</span></summary>
-                <p class="faq-answer">Ja. Wenn deine enthaltenen Kreatin-Auswahlen aufgebraucht sind, sollen zusätzliche Kreatin-Auswahlen über die App kaufbar sein.</p>
-              </details>
-
-              <details class="faq-item" data-category="getraenke">
-                <summary><span class="faq-question-text">Werden nicht genutzte Freigetränke übertragen?</span></summary>
-                <p class="faq-answer">Die genaue Monatslogik wird in der App angezeigt. Grundsätzlich sind Freigetränke als monatliche Tarifleistung gedacht.</p>
-              </details>
-
-              <details class="faq-item" data-category="getraenke">
-                <summary><span class="faq-question-text">Funktioniert der Getränkeautomat auch mit Tagespass?</span></summary>
-                <p class="faq-answer">Ja. Beim Tagespass ist 1 Freigetränk à 330 ml und 1 optionale Kreatin-Auswahl enthalten, die über die App und den QR-Code eingelöst werden können.</p>
-              </details>
-            </div>
-          </section>
-
-          <section class="faq-group" data-faq-group data-faq-category="studio">
-            <h3 class="faq-group-title">Studio Grevesmühlen</h3>
-
-            <div class="faq-list">
-              <details class="faq-item" data-category="studio">
-                <summary><span class="faq-question-text">Wo befindet sich das Studio Grevesmühlen?</span></summary>
-                <p class="faq-answer">Die Standortinformationen findest du auf der Seite Standorte. Dort werden Adresse, Karte und Routenlinks sauber aufgeführt.</p>
-              </details>
+            <section class="faq-group-v3" data-faq-group>
+              <h3 class="faq-group-title-v3">Studio Grevesmühlen</h3>
 
               <details class="faq-item" data-category="studio">
-                <summary><span class="faq-question-text">Ist Grevesmühlen ein aktiver Standort?</span></summary>
-                <p class="faq-answer">Ja. Studio Grevesmühlen wird als aktiver Nordkern Fitness Standort geführt.</p>
-              </details>
-
-              <details class="faq-item" data-category="studio">
-                <summary><span class="faq-question-text">Ist Nordkern Fitness 24/7 geöffnet?</span></summary>
-                <p class="faq-answer">Ja. Nordkern Fitness ist als digitales 24/7-Studio geplant und wird über App-Zugang und digitale Zutrittskontrolle genutzt.</p>
-              </details>
-
-              <details class="faq-item" data-category="studio">
-                <summary><span class="faq-question-text">Gibt es Personal vor Ort?</span></summary>
-                <p class="faq-answer">Es gibt keinen klassischen Empfang. Der Betreiber ist regelmäßig vor Ort. Zusätzlich können Reinigung, Wartung oder technische Betreuung zeitweise im Studio sein.</p>
-              </details>
-
-              <details class="faq-item" data-category="studio">
-                <summary><span class="faq-question-text">Gibt es Umkleiden?</span></summary>
-                <p class="faq-answer">Ja. Umkleiden sind vorgesehen.</p>
-              </details>
-
-              <details class="faq-item" data-category="studio">
-                <summary><span class="faq-question-text">Gibt es Toiletten und Waschbecken?</span></summary>
-                <p class="faq-answer">Ja. Toiletten und Waschbecken wird es im Studio geben.</p>
+                <summary><span class="faq-question-text">Wo befindet sich das Studio?</span></summary>
+                <div class="faq-answer">
+                  Der Standort ist Grevesmühlen. Die genaue Studioadresse wird auf der Standortseite veröffentlicht, sobald sie final freigegeben ist.
+                </div>
               </details>
 
               <details class="faq-item" data-category="studio">
                 <summary><span class="faq-question-text">Gibt es Duschen?</span></summary>
-                <p class="faq-answer">Nein. Duschen wird es im Studio Grevesmühlen nicht geben.</p>
+                <div class="faq-answer">
+                  Nein. Im Studio Grevesmühlen sind Umkleiden, Toiletten, Waschbecken und Spinde vorgesehen, aber keine Duschen.
+                </div>
               </details>
 
               <details class="faq-item" data-category="studio">
-                <summary><span class="faq-question-text">Gibt es Schließfächer?</span></summary>
-                <p class="faq-answer">Ja. Schließfächer sind vorgesehen. Wertgegenstände bleiben trotzdem in eigener Verantwortung.</p>
+                <summary><span class="faq-question-text">Ist das Studio wirklich 24/7 geöffnet?</span></summary>
+                <div class="faq-answer">
+                  Ja, der Zugang ist als 24/7-Zugang über App und QR-Code geplant. Einschränkungen können sich aus Wartung, Sicherheit, technischen Gründen oder besonderen Situationen ergeben.
+                </div>
               </details>
 
               <details class="faq-item" data-category="studio">
-                <summary><span class="faq-question-text">Was muss ich beim ersten Besuch beachten?</span></summary>
-                <p class="faq-answer">Bring dein Handy mit der App, deinen aktiven QR-Code, saubere Sportschuhe, ein Handtuch und passende Trainingskleidung mit.</p>
-              </details>
-
-              <details class="faq-item" data-category="studio">
-                <summary><span class="faq-question-text">Darf ich jemanden mit ins Studio nehmen?</span></summary>
-                <p class="faq-answer">Nein. Der Zugang ist persönlich. Das Mitnehmen anderer Personen beim Ein- oder Ausgang ist nicht erlaubt.</p>
-              </details>
-            </div>
-          </section>
-
-          <section class="faq-group" data-faq-group data-faq-category="sicherheit">
-            <h3 class="faq-group-title">Sicherheit & Hausordnung</h3>
-
-            <div class="faq-list">
-              <details class="faq-item" data-category="sicherheit">
-                <summary><span class="faq-question-text">Welche Regeln gelten im Studio?</span></summary>
-                <p class="faq-answer">Es gilt die Hausordnung. Sie regelt Zutritt, Rücksicht, Hygiene, Gerätenutzung, Sicherheit, Privatsphäre und Konsequenzen bei Verstößen.</p>
-              </details>
-
-              <details class="faq-item" data-category="sicherheit">
                 <summary><span class="faq-question-text">Gibt es Videoüberwachung?</span></summary>
-                <p class="faq-answer">Ja. Kameraüberwachung ist vorgesehen. Sie erfolgt nur in gekennzeichneten Bereichen und nicht in Umkleide- oder Sanitärbereichen.</p>
+                <div class="faq-answer">
+                  Ja, Kameraüberwachung, Hausordnung, Hausrecht und digitale Zugangskontrolle sind vorgesehen. Hinweise dazu werden sichtbar im Studio und in den rechtlichen Informationen bereitgestellt.
+                </div>
+              </details>
+            </section>
+
+            <section class="faq-group-v3" data-faq-group>
+              <h3 class="faq-group-title-v3">Getränkeautomat</h3>
+
+              <details class="faq-item" data-category="getraenke">
+                <summary><span class="faq-question-text">Wie funktioniert der Getränkeautomat?</span></summary>
+                <div class="faq-answer">
+                  Der Getränkeautomat läuft über deinen QR-Code beziehungsweise dein App-Konto. Du kannst in der App sehen, welche Freigetränke oder gekauften Getränke verfügbar sind.
+                </div>
               </details>
 
-              <details class="faq-item" data-category="sicherheit">
-                <summary><span class="faq-question-text">Was passiert bei Verstößen gegen die Hausordnung?</span></summary>
-                <p class="faq-answer">Je nach Einzelfall kann es zu Verwarnung, Zugangssperre, Hausverbot oder weiteren angemessenen Maßnahmen kommen.</p>
+              <details class="faq-item" data-category="getraenke">
+                <summary><span class="faq-question-text">Ist Kreatin automatisch enthalten?</span></summary>
+                <div class="faq-answer">
+                  Nein. Kreatin ist optional und wird nie automatisch hinzugefügt. Du entscheidest bewusst, ob du eine Kreatin-Auswahl bei einem passenden Getränk nutzt.
+                </div>
               </details>
 
-              <details class="faq-item" data-category="sicherheit">
-                <summary><span class="faq-question-text">Wer hat das Hausrecht?</span></summary>
-                <p class="faq-answer">Das Hausrecht liegt beim Betreiber von Nordkern Fitness und kann bei Verstößen gegen Regeln oder Sicherheit ausgeübt werden.</p>
+              <details class="faq-item" data-category="getraenke">
+                <summary><span class="faq-question-text">Kann ich zusätzliche Getränke kaufen?</span></summary>
+                <div class="faq-answer">
+                  Ja, zusätzliche Getränke sollen über die App beziehungsweise den Getränkeautomaten gekauft werden können. Die genauen Auswahlmöglichkeiten und Preise werden in der App angezeigt.
+                </div>
+              </details>
+            </section>
+
+            <section class="faq-group-v3" data-faq-group>
+              <h3 class="faq-group-title-v3">Rechtliches & Alter</h3>
+
+              <details class="faq-item" data-category="recht">
+                <summary><span class="faq-question-text">Können Minderjährige Mitglied werden?</span></summary>
+                <div class="faq-answer">
+                  Eine Mitgliedschaft unter 18 Jahren erfordert voraussichtlich die Zustimmung beziehungsweise Bestätigung der Erziehungsberechtigten und eine Altersprüfung. Die genauen Mindestalter-Regeln sind noch nicht final festgelegt.
+                </div>
               </details>
 
-              <details class="faq-item" data-category="sicherheit">
-                <summary><span class="faq-question-text">Darf ich im Studio filmen oder fotografieren?</span></summary>
-                <p class="faq-answer">Nur, wenn andere Personen nicht ungefragt aufgenommen werden. In Umkleide- und Sanitärbereichen sind Aufnahmen grundsätzlich verboten.</p>
+              <details class="faq-item" data-category="recht">
+                <summary><span class="faq-question-text">Welche Zahlungsarten sind geplant?</span></summary>
+                <div class="faq-answer">
+                  Geplant sind moderne digitale Zahlungsarten wie Apple Pay, Kartenzahlung und PayPal. Die final verfügbaren Zahlungsarten werden in der App angezeigt.
+                </div>
               </details>
 
-              <details class="faq-item" data-category="sicherheit">
-                <summary><span class="faq-question-text">Was mache ich bei einem Notfall?</span></summary>
-                <p class="faq-answer">Bei akuten Notfällen rufst du sofort den Notruf. Zusätzlich werden im Studio Hinweise und Telefonnummern sichtbar ausgeschildert.</p>
+              <details class="faq-item" data-category="recht">
+                <summary><span class="faq-question-text">Wo finde ich Hausordnung, AGB und Datenschutz?</span></summary>
+                <div class="faq-answer">
+                  Die Hausordnung findest du auf der Seite „Hausordnung“. Impressum, Datenschutz und AGB findest du im rechtlichen Bereich der Website.
+                </div>
               </details>
-
-              <details class="faq-item" data-category="sicherheit">
-                <summary><span class="faq-question-text">Gibt es Notrufhinweise im Studio?</span></summary>
-                <p class="faq-answer">Ja. Notfallnummern und wichtige Hinweise werden sichtbar im Studio angebracht.</p>
-              </details>
-
-              <details class="faq-item" data-category="sicherheit">
-                <summary><span class="faq-question-text">Darf ich mit Straßenschuhen trainieren?</span></summary>
-                <p class="faq-answer">Nein. Training ist nur mit geeigneten und sauberen Sportschuhen vorgesehen.</p>
-              </details>
-
-              <details class="faq-item" data-category="sicherheit">
-                <summary><span class="faq-question-text">Muss ich ein Handtuch nutzen?</span></summary>
-                <p class="faq-answer">Ja. Auf Geräten und Polstern ist ein Handtuch zu nutzen. Geräte und Matten sollen nach der Nutzung sauber hinterlassen werden.</p>
-              </details>
-
-              <details class="faq-item" data-category="sicherheit">
-                <summary><span class="faq-question-text">Was mache ich, wenn ein Gerät defekt ist?</span></summary>
-                <p class="faq-answer">Nutze das Gerät nicht weiter und melde den Defekt über die vorgesehenen Kontaktmöglichkeiten, damit er geprüft werden kann.</p>
-              </details>
-            </div>
-          </section>
-
-          <section class="faq-group" data-faq-group data-faq-category="kontakt">
-            <h3 class="faq-group-title">Kontakt & Support</h3>
-
-            <div class="faq-list">
-              <details class="faq-item" data-category="kontakt">
-                <summary><span class="faq-question-text">Wie schnell bekomme ich eine Antwort?</span></summary>
-                <p class="faq-answer">In der Regel antworten wir innerhalb von 1 bis 3 Werktagen. Bitte schick dein Anliegen möglichst gesammelt, damit wir sauber antworten können.</p>
-              </details>
-
-              <details class="faq-item" data-category="kontakt">
-                <summary><span class="faq-question-text">Wo finde ich meine Member-ID?</span></summary>
-                <p class="faq-answer">Die Member-ID findest du später in deinem App-Konto. Wenn du noch keine hast, kannst du das Feld im Kontaktformular frei lassen.</p>
-              </details>
-
-              <details class="faq-item" data-category="kontakt">
-                <summary><span class="faq-question-text">Kann ich sensible Daten mitsenden?</span></summary>
-                <p class="faq-answer">Nein. Bitte sende keine Gesundheitsdaten, Zahlungsdaten, Ausweisdaten oder private Unterlagen über das Kontaktformular.</p>
-              </details>
-
-              <details class="faq-item" data-category="kontakt">
-                <summary><span class="faq-question-text">Wie kontaktiere ich Nordkern Fitness bei Problemen?</span></summary>
-                <p class="faq-answer">Nutze das Kontaktformular, schreib eine E-Mail an info@nordkern-fitness.de oder kontaktiere Nordkern Fitness über Instagram.</p>
-              </details>
-
-              <details class="faq-item" data-category="kontakt">
-                <summary><span class="faq-question-text">Kann ich Fragen zum Tagespass stellen?</span></summary>
-                <p class="faq-answer">Ja. Wähle im Formular einfach das Thema Tagespass aus und beschreibe kurz dein Anliegen.</p>
-              </details>
-
-              <details class="faq-item" data-category="kontakt">
-                <summary><span class="faq-question-text">Kann ich Fragen zum Getränkeautomaten stellen?</span></summary>
-                <p class="faq-answer">Ja. Wähle im Formular Getränkeautomat oder Freigetränke / Kreatin-Auswahl aus.</p>
-              </details>
-
-              <details class="faq-item" data-category="kontakt">
-                <summary><span class="faq-question-text">Kann ich wegen Kooperationen schreiben?</span></summary>
-                <p class="faq-answer">Ja. Für Kooperationen oder Business-Anfragen kannst du im Kontaktformular das Thema Kooperation / Business auswählen.</p>
-              </details>
-
-              <details class="faq-item" data-category="kontakt">
-                <summary><span class="faq-question-text">Gibt es telefonischen Support?</span></summary>
-                <p class="faq-answer">Der Support ist aktuell auf schriftliche Anfragen ausgelegt. So können Anliegen sauber gesammelt und ohne Telefonstress beantwortet werden.</p>
-              </details>
-
-              <details class="faq-item" data-category="kontakt">
-                <summary><span class="faq-question-text">Wo finde ich Datenschutzinformationen?</span></summary>
-                <p class="faq-answer">Datenschutzinformationen findest du auf der Seite Impressum / Datenschutz.</p>
-              </details>
-
-              <details class="faq-item" data-category="kontakt">
-                <summary><span class="faq-question-text">Was mache ich, wenn ich keine passende FAQ-Frage finde?</span></summary>
-                <p class="faq-answer">Dann schreib uns direkt über das Kontaktformular. Beschreibe dein Anliegen möglichst klar, damit wir schnell helfen können.</p>
-              </details>
-            </div>
-          </section>
+            </section>
+          </div>
         </div>
       </div>
     </section>
@@ -1339,139 +933,5 @@
   <div data-footer></div>
 
   <script src="js/main.js"></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const messageField = document.getElementById("contact-message");
-      const messageCount = document.getElementById("message-count");
-
-      if (!messageField || !messageCount) return;
-
-      const maxLength = Number(messageField.dataset.maxlength || messageField.maxLength || 2400);
-      const countWrap = messageCount.closest("small");
-
-      const updateMessageCount = () => {
-        if (messageField.value.length > maxLength) {
-          messageField.value = messageField.value.slice(0, maxLength);
-        }
-
-        messageCount.textContent = String(messageField.value.length);
-
-        if (countWrap) {
-          countWrap.classList.toggle("is-limit", messageField.value.length >= maxLength);
-        }
-      };
-
-      messageField.addEventListener("input", updateMessageCount);
-
-      messageField.addEventListener("paste", () => {
-        window.setTimeout(updateMessageCount, 0);
-      });
-
-      messageField.addEventListener("drop", () => {
-        window.setTimeout(updateMessageCount, 0);
-      });
-
-      updateMessageCount();
-    });
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const searchInput = document.getElementById("faq-search");
-      const categoryButtons = Array.from(document.querySelectorAll(".faq-category-button"));
-      const faqItems = Array.from(document.querySelectorAll(".faq-item"));
-      const faqGroups = Array.from(document.querySelectorAll("[data-faq-group]"));
-      const resultLine = document.getElementById("faq-result-line");
-      const emptyState = document.getElementById("faq-empty");
-
-      if (!searchInput || categoryButtons.length === 0 || faqItems.length === 0 || !resultLine || !emptyState) return;
-
-      let activeCategory = "all";
-
-      const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-      const normalize = (value) => value.toLowerCase().trim();
-
-      const highlightText = (element, query) => {
-        const original = element.dataset.originalText || element.textContent;
-        element.dataset.originalText = original;
-
-        if (!query) {
-          element.textContent = original;
-          return;
-        }
-
-        const regex = new RegExp(`(${escapeRegExp(query)})`, "gi");
-        element.innerHTML = original.replace(regex, "<mark>$1</mark>");
-      };
-
-      const updateFaq = () => {
-        const query = normalize(searchInput.value);
-        let visibleCount = 0;
-
-        faqItems.forEach((item) => {
-          const itemCategory = item.dataset.category || "";
-          const question = item.querySelector(".faq-question-text");
-          const answer = item.querySelector(".faq-answer");
-
-          if (!question || !answer) return;
-
-          const questionText = question.dataset.originalText || question.textContent;
-          const answerText = answer.dataset.originalText || answer.textContent;
-          const combined = normalize(`${questionText} ${answerText}`);
-          const categoryMatches = activeCategory === "all" || itemCategory === activeCategory;
-          const searchMatches = !query || combined.includes(query);
-          const isVisible = categoryMatches && searchMatches;
-
-          item.hidden = !isVisible;
-
-          highlightText(question, query);
-          highlightText(answer, query);
-
-          if (isVisible) {
-            visibleCount += 1;
-
-            if (query) {
-              item.open = true;
-            }
-          } else {
-            item.open = false;
-          }
-        });
-
-        faqGroups.forEach((group) => {
-          const visibleItems = Array.from(group.querySelectorAll(".faq-item")).filter((item) => !item.hidden);
-          group.hidden = visibleItems.length === 0;
-        });
-
-        emptyState.classList.toggle("show", visibleCount === 0);
-
-        if (visibleCount === 0) {
-          resultLine.textContent = "Keine passende Frage gefunden.";
-        } else if (visibleCount === 1) {
-          resultLine.textContent = "1 passende Frage gefunden.";
-        } else if (query || activeCategory !== "all") {
-          resultLine.textContent = `${visibleCount} passende Fragen gefunden.`;
-        } else {
-          resultLine.textContent = `${visibleCount} Fragen verfügbar.`;
-        }
-      };
-
-      categoryButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          activeCategory = button.dataset.faqCategory || "all";
-
-          categoryButtons.forEach((categoryButton) => {
-            categoryButton.classList.toggle("is-active", categoryButton === button);
-          });
-
-          updateFaq();
-        });
-      });
-
-      searchInput.addEventListener("input", updateFaq);
-
-      updateFaq();
-    });
-  </script>
 </body>
 </html>
