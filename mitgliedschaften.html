@@ -24,516 +24,424 @@
       background: #ffffff;
     }
 
-    .pricing-page-section {
-      padding-top: 5.4rem;
-      padding-bottom: var(--section-gap);
+    .pricing-hero {
+      padding: max(9rem, 13vh) 0 clamp(3.6rem, 6vw, 5.6rem);
       background: #ffffff;
+      text-align: center;
     }
 
-    .pricing-page-intro {
-      max-width: 980px;
-      margin-bottom: clamp(2.4rem, 4vw, 3.5rem);
-    }
-
-    .pricing-page-intro .eyebrow {
-      margin-bottom: 0.58rem;
+    .pricing-hero-inner {
+      max-width: 1040px;
+      margin-inline: auto;
     }
 
     .pricing-main-title {
       max-width: 980px;
       margin-inline: auto;
       color: var(--text);
-      font-size: clamp(3rem, 5.4vw, 5.6rem);
-      line-height: 0.94;
-      letter-spacing: -0.052em;
-      font-weight: 760;
+      font-size: clamp(3.2rem, 6.2vw, 6.35rem);
+      line-height: 0.92;
+      letter-spacing: -0.068em;
+      font-weight: 790;
       text-wrap: balance;
-      white-space: nowrap;
     }
 
-    .tariff-mobile-nav {
+    .pricing-hero-text {
+      max-width: 720px;
+      margin: 1rem auto 0;
+      color: var(--text-soft);
+      font-size: clamp(1.04rem, 1.36vw, 1.22rem);
+      line-height: 1.48;
+      letter-spacing: -0.018em;
+      text-wrap: balance;
+    }
+
+    .pricing-module-section {
+      padding: 0.75rem;
+      background: #ffffff;
+    }
+
+    .pricing-module {
+      min-height: clamp(680px, 74vh, 860px);
+      display: grid;
+      align-items: center;
+      padding: clamp(1.25rem, 2.8vw, 2.1rem);
+      border-radius: var(--module-radius);
+      background: #f5f5f7;
+      border: 1px solid rgba(0, 0, 0, 0.045);
+      overflow: hidden;
+    }
+
+    .pricing-tabs-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: clamp(1.5rem, 3vw, 2.3rem);
+    }
+
+    .pricing-tabs {
+      --active-left: 0px;
+      --active-width: 0px;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      width: min(100%, 560px);
+      gap: 0.32rem;
+      padding: 0.34rem;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.055);
+      box-shadow: none;
+      overflow: hidden;
+    }
+
+    .pricing-tabs::before {
+      content: "";
+      position: absolute;
+      top: 0.34rem;
+      bottom: 0.34rem;
+      left: var(--active-left);
+      width: var(--active-width);
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--nf-green-light), var(--nf-green));
+      box-shadow: 0 12px 28px rgba(46, 145, 63, 0.18);
+      transition:
+        left 0.32s var(--ease),
+        width 0.32s var(--ease);
+    }
+
+    .pricing-tab-button {
+      position: relative;
+      z-index: 2;
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      color: rgba(29, 29, 31, 0.72);
+      font-size: 0.94rem;
+      line-height: 1;
+      font-weight: 760;
+      letter-spacing: -0.016em;
+      transition:
+        color var(--fast),
+        transform var(--fast);
+    }
+
+    .pricing-tab-button:hover,
+    .pricing-tab-button:focus-visible {
+      transform: translateY(-1px);
+    }
+
+    .pricing-tab-button.is-active {
+      color: #ffffff;
+    }
+
+    .pricing-stage {
+      position: relative;
+      width: min(100%, 1120px);
+      margin-inline: auto;
+    }
+
+    .pricing-plan {
       display: none;
     }
 
-    .tariff-scroll-wrap {
-      width: 100%;
+    .pricing-plan.is-active {
+      display: block;
+      animation: pricingPlanIn 0.34s var(--ease) both;
     }
 
-    .tariff-grid {
+    @keyframes pricingPlanIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .pricing-plan-card {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.15rem;
+      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.72fr);
+      gap: 0.9rem;
       align-items: stretch;
     }
 
-    .tariff-card {
-      position: relative;
+    .pricing-plan-copy,
+    .pricing-plan-details {
       min-width: 0;
-      min-height: 590px;
-      display: grid;
-      grid-template-rows: auto auto 1fr auto auto;
-      padding: clamp(1.55rem, 2.2vw, 1.9rem);
       border-radius: var(--card-radius);
-      overflow: hidden;
-      background: linear-gradient(180deg, #f7f7f9 0%, #f3f3f5 100%);
-      border: 1px solid rgba(0, 0, 0, 0.055);
-      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.032);
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-    }
-
-    .tariff-card.is-plus {
-      border-color: rgba(46, 145, 63, 0.24);
-      box-shadow:
-        0 22px 52px rgba(46, 145, 63, 0.08),
-        0 18px 44px rgba(0, 0, 0, 0.024);
-    }
-
-    .tariff-name {
-      align-self: start;
-      padding-right: 0;
-      color: var(--text);
-      font-size: clamp(2.24rem, 2.85vw, 3.08rem);
-      line-height: 0.96;
-      letter-spacing: -0.065em;
-      font-weight: 760;
-      white-space: nowrap;
-      text-wrap: nowrap;
-    }
-
-    .tariff-name span {
-      color: var(--nf-green);
-    }
-
-    .tariff-price-area {
-      align-self: start;
-      display: grid;
-      align-content: start;
-      gap: 0.45rem;
-      margin-top: 1.55rem;
-    }
-
-    .tariff-price-row {
-      display: flex;
-      align-items: flex-end;
-      flex-wrap: nowrap;
-      gap: 0.5rem;
-      min-width: 0;
-    }
-
-    .tariff-price {
-      color: var(--text);
-      font-size: clamp(2.9rem, 3.85vw, 4.05rem);
-      line-height: 0.9;
-      letter-spacing: -0.06em;
-      font-weight: 540;
-      font-variant-numeric: tabular-nums;
-      white-space: nowrap;
-    }
-
-    .tariff-price-unit {
-      flex: 0 0 auto;
-      padding-bottom: 0.36rem;
-      color: var(--muted);
-      font-size: 0.8rem;
-      line-height: 1.1;
-      letter-spacing: -0.008em;
-      white-space: nowrap;
-    }
-
-    .tariff-feature-block {
-      align-self: start;
-      padding-top: 2.8rem;
-      min-width: 0;
-    }
-
-    .tariff-checks {
-      display: grid;
-      gap: 0.56rem;
-    }
-
-    .tariff-checks li {
-      position: relative;
-      padding-left: 1.42rem;
-      color: var(--text-soft);
-      font-size: 0.88rem;
-      line-height: 1.32;
-      letter-spacing: -0.008em;
-      white-space: nowrap;
-    }
-
-    .tariff-checks li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      top: 0.09rem;
-      width: 0.86rem;
-      height: 0.86rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      color: #ffffff;
-      background: var(--nf-green);
-      font-size: 0.56rem;
-      font-weight: 900;
-    }
-
-    .tariff-extra-title {
-      width: fit-content;
-      margin-top: 3.05rem;
-      margin-bottom: 0.7rem;
-      color: rgba(29, 29, 31, 0.7);
-      font-size: 0.66rem;
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: 0.075em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .tariff-extras {
-      display: grid;
-      gap: 0.52rem;
-      min-width: 0;
-    }
-
-    .tariff-extras li {
-      position: relative;
-      min-width: 0;
-      display: flex;
-      align-items: center;
-      min-height: 1.12rem;
-      padding-left: 1.42rem;
-      color: var(--text-soft);
-      font-size: 0.82rem;
-      line-height: 1.26;
-      letter-spacing: -0.009em;
-    }
-
-    .tariff-extras li::before {
-      content: "+";
-      position: absolute;
-      left: 0;
-      top: 0.1rem;
-      width: 0.86rem;
-      height: 0.86rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      color: #ffffff;
-      background: var(--nf-green);
-      font-size: 0.68rem;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .tariff-extra-row {
-      width: 100%;
-      min-width: 0;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 20px;
-      align-items: center;
-      gap: 0.46rem;
-    }
-
-    .tariff-extra-row > span {
-      min-width: 0;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .extra-info-button {
-      width: 20px;
-      height: 20px;
-      flex: 0 0 auto;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      color: var(--nf-green-dark);
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(46, 145, 63, 0.14);
-      box-shadow: none;
-      transition:
-        background var(--fast),
-        transform var(--fast),
-        border-color var(--fast);
-    }
-
-    .extra-info-button:hover {
-      border-color: rgba(46, 145, 63, 0.32);
       background: #ffffff;
-      transform: scale(1.04);
-    }
-
-    .extra-info-button span {
-      color: var(--nf-green-dark);
-      font-size: 0.74rem;
-      line-height: 1;
-      font-weight: 800;
-      transform: translateY(-0.4px);
-    }
-
-    .tariff-runtime {
-      position: relative;
-      align-self: end;
-      width: 100%;
-      margin-top: 1.55rem;
-      padding: 0.86rem 3.25rem 0.86rem 1rem;
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.74);
       border: 1px solid rgba(0, 0, 0, 0.045);
     }
 
-    .tariff-runtime span {
-      display: block;
-      color: var(--nf-green-dark);
-      font-size: 0.72rem;
-      font-weight: 850;
-      letter-spacing: 0.05em;
+    .pricing-plan-copy {
+      min-height: 540px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(1.4rem, 3vw, 2.15rem);
+      overflow: hidden;
+    }
+
+    .pricing-plan-kicker {
+      margin-bottom: 0.65rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 860;
+      letter-spacing: 0.055em;
       text-transform: uppercase;
     }
 
-    .tariff-runtime strong {
-      display: block;
-      margin-top: 0.18rem;
+    .pricing-plan-title {
+      max-width: 10ch;
       color: var(--text);
-      font-size: 1rem;
-      line-height: 1.35;
-      letter-spacing: -0.012em;
-      font-weight: 720;
+      font-size: clamp(3.25rem, 6.4vw, 6.2rem);
+      line-height: 0.9;
+      letter-spacing: -0.074em;
+      font-weight: 790;
+      text-wrap: balance;
     }
 
-    .runtime-info-button {
+    .pricing-plan-title span {
+      color: var(--nf-green);
+    }
+
+    .pricing-plan-description {
+      max-width: 650px;
+      margin-top: 1rem;
+      color: var(--text-soft);
+      font-size: clamp(1.02rem, 1.35vw, 1.18rem);
+      line-height: 1.54;
+      letter-spacing: -0.014em;
+    }
+
+    .pricing-price-block {
+      margin-top: clamp(2.5rem, 6vw, 5rem);
+    }
+
+    .pricing-price-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+    }
+
+    .pricing-price {
+      color: var(--text);
+      font-size: clamp(3.2rem, 6vw, 6rem);
+      line-height: 0.86;
+      letter-spacing: -0.075em;
+      font-weight: 560;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pricing-price-unit {
+      padding-bottom: 0.44rem;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.1;
+      letter-spacing: -0.012em;
+    }
+
+    .pricing-runtime-pill {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 1rem;
+      padding: 0.52rem 0.78rem;
+      border-radius: 999px;
+      color: var(--nf-green-dark);
+      background: rgba(46, 145, 63, 0.09);
+      border: 1px solid rgba(46, 145, 63, 0.18);
+      font-size: 0.86rem;
+      font-weight: 760;
+      letter-spacing: -0.012em;
+    }
+
+    .pricing-plan-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.35rem;
+    }
+
+    .pricing-plan-details {
+      min-height: 540px;
+      display: flex;
+      flex-direction: column;
+      padding: clamp(1.25rem, 2.4vw, 1.75rem);
+    }
+
+    .pricing-detail-title {
+      color: var(--text);
+      font-size: clamp(1.45rem, 2.4vw, 2.2rem);
+      line-height: 1;
+      letter-spacing: -0.052em;
+      font-weight: 790;
+    }
+
+    .pricing-feature-list {
+      display: grid;
+      gap: 0.66rem;
+      margin-top: 1.4rem;
+    }
+
+    .pricing-feature-list li {
+      position: relative;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      padding: 0.72rem 0.8rem 0.72rem 2.35rem;
+      border-radius: 16px;
+      color: var(--text-soft);
+      background: #f5f5f7;
+      border: 1px solid rgba(0, 0, 0, 0.035);
+      font-size: 0.96rem;
+      line-height: 1.32;
+      letter-spacing: -0.012em;
+    }
+
+    .pricing-feature-list li::before {
+      content: "✓";
       position: absolute;
+      left: 0.85rem;
       top: 50%;
-      right: 0.82rem;
-      width: 34px;
-      height: 34px;
+      width: 1rem;
+      height: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      color: #ffffff;
+      background: var(--nf-green);
+      font-size: 0.66rem;
+      font-weight: 900;
+      transform: translateY(-50%);
+    }
+
+    .pricing-extra-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.9rem;
+      margin-top: 1.55rem;
+      padding-top: 1.35rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.07);
+    }
+
+    .pricing-extra-title {
+      color: rgba(29, 29, 31, 0.72);
+      font-size: 0.72rem;
+      line-height: 1;
+      font-weight: 880;
+      letter-spacing: 0.072em;
+      text-transform: uppercase;
+    }
+
+    .pricing-info-small {
+      width: 30px;
+      height: 30px;
+      flex: 0 0 auto;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       border-radius: 999px;
       color: var(--nf-green-dark);
-      background: #ffffff;
-      border: 1px solid rgba(46, 145, 63, 0.18);
-      box-shadow: none;
-      transform: translateY(-50%);
+      background: #f5f5f7;
+      border: 1px solid rgba(46, 145, 63, 0.16);
+      font-size: 0.9rem;
+      line-height: 1;
+      font-weight: 780;
       transition:
-        background var(--fast),
         transform var(--fast),
-        border-color var(--fast);
+        border-color var(--fast),
+        background var(--fast);
     }
 
-    .runtime-info-button:hover {
+    .pricing-info-small:hover,
+    .pricing-info-small:focus-visible {
+      transform: scale(1.04);
       border-color: rgba(46, 145, 63, 0.32);
       background: #ffffff;
-      transform: translateY(-50%) scale(1.035);
     }
 
-    .runtime-info-button span {
-      display: inline-flex;
+    .pricing-extra-list {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.82rem;
+    }
+
+    .pricing-extra-list li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 0.8rem;
       align-items: center;
-      justify-content: center;
-      color: var(--nf-green-dark);
-      font-size: 1rem;
-      line-height: 1;
+      min-height: 44px;
+      padding: 0.72rem 0.78rem;
+      border-radius: 16px;
+      color: var(--text-soft);
+      background: #f5f5f7;
+      border: 1px solid rgba(0, 0, 0, 0.035);
+      font-size: 0.94rem;
+      line-height: 1.32;
+      letter-spacing: -0.012em;
+    }
+
+    .pricing-extra-list strong {
+      color: var(--text);
       font-weight: 760;
-      font-style: normal;
-      letter-spacing: -0.02em;
-      text-transform: none;
-      transform: translateY(-0.5px);
     }
 
-    .tariff-card .btn {
-      width: 100%;
-      min-height: 52px;
-      align-self: end;
-      margin-top: 0.9rem;
+    .pricing-detail-note {
+      margin-top: auto;
+      padding-top: 1.35rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
     }
 
-    .drink-info-section {
-      padding: var(--section-gap);
+    .pricing-drink-section {
+      padding: 0 0.75rem 0.75rem;
       background: #ffffff;
     }
 
-    .drink-info-card {
-      width: min(100% - 1.5rem, var(--max-width));
-      margin-inline: auto;
+    .pricing-drink-card {
+      width: 100%;
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
       gap: 1rem;
-      padding: 1.15rem 1.35rem;
-      border-radius: var(--card-radius);
-      background: var(--surface);
+      padding: clamp(1.2rem, 2vw, 1.55rem);
+      border-radius: var(--module-radius);
+      background: #f5f5f7;
       border: 1px solid rgba(0, 0, 0, 0.045);
     }
 
-    .drink-info-copy {
-      min-width: 0;
-    }
-
-    .drink-info-label {
-      margin-bottom: 0.38rem;
-      color: rgba(29, 29, 31, 0.66);
-      font-size: 0.66rem;
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: 0.075em;
-      text-transform: uppercase;
-    }
-
-    .drink-info-title-row {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      flex-wrap: nowrap;
-    }
-
-    .drink-info-title {
+    .pricing-drink-card h2 {
       color: var(--text);
-      font-size: clamp(1.55rem, 2.35vw, 2.15rem);
+      font-size: clamp(1.75rem, 2.9vw, 2.7rem);
       line-height: 1;
       letter-spacing: -0.058em;
-      font-weight: 760;
+      font-weight: 790;
       text-wrap: balance;
     }
 
-    .drink-main-info-button {
-      width: 31px;
-      height: 31px;
-      flex: 0 0 auto;
-      background: #ffffff;
-      border-color: rgba(46, 145, 63, 0.18);
-    }
-
-    .drink-main-info-button span {
-      font-size: 0.94rem;
-      font-weight: 760;
-    }
-
-    .drink-info-text {
-      max-width: 760px;
-      margin-top: 0.48rem;
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.42;
-      letter-spacing: -0.01em;
-    }
-
-    .daypass-section {
-      padding: var(--section-gap);
-      background: #ffffff;
-    }
-
-    .daypass-layout {
-      width: min(100% - 1.5rem, var(--max-width));
-      margin-inline: auto;
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.55fr);
-      gap: 1.15rem;
-      align-items: stretch;
-      padding: clamp(1.45rem, 3vw, 2.15rem);
-      border-radius: var(--module-radius);
-      background: var(--surface);
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      overflow: hidden;
-    }
-
-    .daypass-copy {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-width: 0;
-      padding-right: clamp(0rem, 1.6vw, 1.4rem);
-    }
-
-    .daypass-copy h2 {
+    .pricing-drink-card p {
       max-width: 780px;
-      color: var(--text);
-      font-size: clamp(2.5rem, 4.55vw, 4.9rem);
-      line-height: 0.94;
-      letter-spacing: -0.06em;
-      font-weight: 760;
-      text-wrap: balance;
+      margin-top: 0.55rem;
+      color: var(--text-soft);
+      font-size: 0.98rem;
+      line-height: 1.5;
+      letter-spacing: -0.012em;
     }
 
-    .daypass-copy h2 span {
-      color: var(--nf-green);
-    }
-
-    .daypass-copy p:not(.eyebrow) {
-      max-width: 540px;
-      margin-top: 0.85rem;
-      color: var(--muted);
-      font-size: 1.02rem;
-      line-height: 1.48;
-      letter-spacing: -0.008em;
-    }
-
-    .daypass-card {
-      justify-self: end;
-      width: min(100%, 430px);
-      min-width: 0;
-      min-height: 490px;
-      display: grid;
-      grid-template-rows: auto auto 1fr auto auto;
-      padding: clamp(1.5rem, 2.15vw, 1.85rem);
-      border-radius: var(--card-radius);
-      overflow: hidden;
-      background: linear-gradient(180deg, #ffffff 0%, #f8f8f9 100%);
-      border: 1px solid rgba(0, 0, 0, 0.055);
-      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.035);
-    }
-
-    .daypass-card-main,
-    .daypass-card-details {
-      min-width: 0;
-      display: contents;
-    }
-
-    .daypass-card .tariff-name {
-      white-space: normal;
-      text-wrap: balance;
-      font-size: clamp(2.24rem, 2.85vw, 3.08rem);
-      line-height: 0.96;
-      letter-spacing: -0.065em;
-    }
-
-    .daypass-card .tariff-price-area {
-      margin-top: 1.55rem;
-    }
-
-    .daypass-card .tariff-price {
-      font-size: clamp(2.9rem, 3.85vw, 4.05rem);
-    }
-
-    .daypass-card .tariff-feature-block {
-      margin-top: 0;
-      padding-top: 2.8rem;
-    }
-
-    .daypass-card .tariff-extra-title {
-      margin-top: 3.05rem;
-    }
-
-    .daypass-card .tariff-runtime {
-      width: 100%;
-      margin-top: 1.55rem;
-      background: rgba(245, 245, 247, 0.82);
-    }
-
-    .daypass-card .btn {
-      width: 100%;
-      min-height: 52px;
-      margin-top: 0.9rem;
-    }
-
-    .tariff-info-modal {
+    .pricing-info-modal {
       position: fixed;
       inset: 0;
       z-index: 12000;
@@ -546,24 +454,22 @@
       -webkit-backdrop-filter: blur(18px) saturate(160%);
     }
 
-    .tariff-info-modal.show {
+    .pricing-info-modal.show {
       display: flex;
     }
 
-    .tariff-info-box {
+    .pricing-info-box {
       width: min(100%, 620px);
       max-height: min(86vh, 760px);
       overflow-y: auto;
       padding: clamp(1.35rem, 3vw, 2rem);
-      border-radius: 34px;
+      border-radius: var(--module-radius);
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.06);
       box-shadow: 0 34px 100px rgba(0, 0, 0, 0.18);
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
     }
 
-    .tariff-info-head {
+    .pricing-info-head {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
@@ -571,7 +477,7 @@
       margin-bottom: 1rem;
     }
 
-    .tariff-info-label {
+    .pricing-info-label {
       margin-bottom: 0.5rem;
       color: var(--nf-green-dark);
       font-size: 0.78rem;
@@ -580,16 +486,16 @@
       text-transform: uppercase;
     }
 
-    .tariff-info-title {
+    .pricing-info-title {
       color: var(--text);
       font-size: clamp(1.9rem, 4vw, 3.1rem);
       line-height: 0.98;
       letter-spacing: -0.048em;
-      font-weight: 760;
+      font-weight: 790;
       text-wrap: balance;
     }
 
-    .tariff-info-close {
+    .pricing-info-close {
       width: 42px;
       height: 42px;
       flex: 0 0 auto;
@@ -600,359 +506,139 @@
       color: var(--text);
       background: #f5f5f7;
       border: 1px solid rgba(0, 0, 0, 0.06);
-      box-shadow: none;
       font-size: 1.25rem;
       line-height: 1;
     }
 
-    .tariff-info-text {
+    .pricing-info-text {
       color: var(--text-soft);
       font-size: 1.03rem;
       line-height: 1.58;
       letter-spacing: -0.01em;
     }
 
-    .tariff-info-text strong {
-      color: var(--text);
-      font-weight: 750;
-    }
-
-    @media (max-width: 1100px) {
-      .tariff-grid {
+    @media (max-width: 980px) {
+      .pricing-plan-card {
         grid-template-columns: 1fr;
-        max-width: 640px;
-        margin-inline: auto;
       }
 
-      .tariff-card {
+      .pricing-plan-copy,
+      .pricing-plan-details {
         min-height: auto;
-        grid-template-rows: auto auto auto auto auto;
       }
 
-      .tariff-name {
-        font-size: clamp(2.1rem, 5.2vw, 3rem);
+      .pricing-plan-title {
+        max-width: 12ch;
       }
 
-      .tariff-price-area {
-        margin-top: 1.15rem;
-      }
-
-      .tariff-feature-block {
-        margin-top: 1.35rem;
-        padding-top: 0;
-        transform: none;
-      }
-
-      .tariff-checks li,
-      .tariff-extras li {
-        font-size: 0.95rem;
-      }
-
-      .daypass-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .daypass-card {
-        justify-self: stretch;
-        width: 100%;
-        max-width: 640px;
-        margin-inline: auto;
+      .pricing-price-block {
+        margin-top: 2.3rem;
       }
     }
 
     @media (max-width: 768px) {
-      .pricing-page-section {
-        padding-top: 4.65rem;
-        padding-bottom: var(--section-gap);
-      }
-
-      .pricing-page-intro {
-        margin-bottom: 1.15rem;
+      .pricing-hero {
+        padding-top: max(8.6rem, 15vh);
+        padding-bottom: 3.5rem;
       }
 
       .pricing-main-title {
-        font-size: clamp(2.55rem, 12vw, 4rem);
-        white-space: normal;
+        font-size: clamp(2.7rem, 12.5vw, 4.2rem);
+        line-height: 0.94;
+        letter-spacing: -0.058em;
       }
 
-      .tariff-mobile-nav {
-        --indicator-left: 0.34rem;
-        --indicator-width: 33.333%;
-        position: relative;
-        width: min(100%, 390px);
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0.28rem;
-        margin: 1.35rem auto 0;
-        padding: 0.34rem;
-        border-radius: 999px;
-        background: #f5f5f7;
-        border: 1px solid rgba(0, 0, 0, 0.045);
-        overflow: hidden;
-      }
-
-      .tariff-mobile-nav::before {
-        content: "";
-        position: absolute;
-        top: 0.34rem;
-        bottom: 0.34rem;
-        left: var(--indicator-left);
-        width: var(--indicator-width);
-        border-radius: 999px;
-        background: linear-gradient(180deg, var(--nf-green-light), var(--nf-green));
-        box-shadow: 0 10px 24px rgba(46, 145, 63, 0.18);
-        transition:
-          left 0.28s var(--ease),
-          width 0.28s var(--ease);
-      }
-
-      .tariff-mobile-nav button {
-        position: relative;
-        z-index: 2;
-        min-height: 38px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 999px;
-        color: var(--muted);
-        background: transparent;
-        font-size: 0.82rem;
-        line-height: 1;
-        font-weight: 780;
-        letter-spacing: -0.012em;
-        transition:
-          color var(--fast),
-          transform var(--fast);
-      }
-
-      .tariff-mobile-nav button.is-active {
-        color: #ffffff;
-      }
-
-      .tariff-mobile-nav button:hover,
-      .tariff-mobile-nav button:focus-visible {
-        transform: translateY(-1px);
-      }
-
-      .tariff-scroll-wrap {
-        position: relative;
-        width: auto;
-        margin-inline: calc(50% - 50vw);
-        overflow-x: auto;
-        overflow-y: visible;
-        scroll-snap-type: x mandatory;
-        scroll-padding-inline: max(1rem, calc((100vw - 82vw) / 2));
-        padding: 1.05rem max(1rem, calc((100vw - 82vw) / 2)) 1.25rem;
-        scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .tariff-scroll-wrap::after {
-        content: "";
-        position: sticky;
-        right: 0;
-        top: 0;
-        z-index: 3;
-        width: 42px;
-        flex: 0 0 42px;
-        pointer-events: none;
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 82%);
-      }
-
-      .tariff-scroll-wrap::-webkit-scrollbar {
-        display: none;
-      }
-
-      .tariff-grid {
-        display: flex;
-        max-width: none;
-        margin-inline: 0;
-        gap: 0.9rem;
-        align-items: stretch;
-      }
-
-      .tariff-card {
-        flex: 0 0 82vw;
-        min-height: 570px;
-        border-radius: var(--card-radius);
-        padding: 1.25rem;
-        scroll-snap-align: center;
-      }
-
-      .tariff-name {
-        font-size: clamp(2rem, 7.2vw, 2.55rem);
-        letter-spacing: -0.05em;
-      }
-
-      .tariff-price-area {
-        margin-top: 1.25rem;
-      }
-
-      .tariff-price {
-        font-size: clamp(2.75rem, 12vw, 3.8rem);
-      }
-
-      .tariff-price-unit {
-        font-size: 0.88rem;
-      }
-
-      .tariff-feature-block {
-        margin-top: 1.2rem;
-      }
-
-      .tariff-checks,
-      .tariff-extras {
-        gap: 0.5rem;
-      }
-
-      .tariff-checks li,
-      .tariff-extras li {
-        font-size: 0.92rem;
-      }
-
-      .tariff-extra-title {
-        margin-top: 2.45rem;
-      }
-
-      .tariff-extra-row {
-        grid-template-columns: minmax(0, 1fr) 20px;
-      }
-
-      .drink-info-card {
-        width: min(100% - 1rem, var(--max-width));
-        grid-template-columns: minmax(0, 1fr);
-        align-items: flex-start;
-        border-radius: var(--card-radius);
-        padding: 1.05rem 1.1rem;
-      }
-
-      .drink-info-title-row {
-        align-items: flex-start;
-      }
-
-      .drink-main-info-button {
-        width: 32px;
-        height: 32px;
-        margin-top: 0.02rem;
-      }
-
-      .daypass-layout {
-        width: min(100% - 1rem, var(--max-width));
-        border-radius: var(--module-radius);
-        gap: 1.35rem;
-        padding: 1.28rem;
-        align-items: stretch;
-      }
-
-      .daypass-copy h2 {
-        font-size: clamp(2.05rem, 9.6vw, 3rem);
-        line-height: 0.98;
-      }
-
-      .daypass-copy p:not(.eyebrow) {
+      .pricing-hero-text {
         max-width: 34ch;
-        font-size: 0.98rem;
-        line-height: 1.48;
+        font-size: 1.02rem;
       }
 
-      .daypass-card {
-        min-height: 540px;
-        border-radius: var(--card-radius);
-        padding: 1.25rem;
+      .pricing-module-section {
+        padding: 0.65rem;
       }
 
-      .daypass-card .tariff-name {
-        font-size: clamp(2rem, 9vw, 2.8rem);
+      .pricing-module {
+        min-height: auto;
+        padding: 0.65rem;
       }
 
-      .daypass-card .tariff-feature-block {
-        margin-top: 1.2rem;
-        padding-top: 0;
+      .pricing-tabs-wrap {
+        margin-bottom: 0.65rem;
       }
 
-      .daypass-card .tariff-extra-title {
-        margin-top: 2.45rem;
+      .pricing-tabs {
+        width: 100%;
+        gap: 0.22rem;
+        padding: 0.28rem;
       }
 
-      .daypass-card .tariff-runtime {
-        margin-top: 1rem;
-        margin-bottom: 0;
+      .pricing-tabs::before {
+        top: 0.28rem;
+        bottom: 0.28rem;
       }
 
-      .daypass-card .btn {
-        margin-top: 0.9rem;
+      .pricing-tab-button {
+        min-height: 38px;
+        font-size: 0.78rem;
       }
 
-      .tariff-info-box {
-        border-radius: 28px;
+      .pricing-plan-copy,
+      .pricing-plan-details {
+        padding: 1.15rem;
+      }
+
+      .pricing-plan-title {
+        font-size: clamp(2.55rem, 12vw, 4rem);
+      }
+
+      .pricing-price {
+        font-size: clamp(3rem, 14vw, 4.3rem);
+      }
+
+      .pricing-plan-actions .btn,
+      .pricing-plan-actions .product-link {
+        width: 100%;
+      }
+
+      .pricing-feature-list li,
+      .pricing-extra-list li {
+        font-size: 0.9rem;
+      }
+
+      .pricing-drink-section {
+        padding: 0 0.65rem 0.65rem;
+      }
+
+      .pricing-drink-card {
+        grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 480px) {
-      .tariff-card {
-        flex-basis: 84vw;
-        min-height: 558px;
+      .pricing-module-section {
+        padding: 0.5rem;
       }
 
-      .tariff-scroll-wrap {
-        scroll-padding-inline: max(0.9rem, calc((100vw - 84vw) / 2));
-        padding-inline: max(0.9rem, calc((100vw - 84vw) / 2));
+      .pricing-module {
+        padding: 0.5rem;
       }
 
-      .tariff-mobile-nav {
-        width: min(100%, 340px);
+      .pricing-tabs {
+        overflow-x: auto;
+        grid-template-columns: repeat(4, minmax(84px, 1fr));
+        scrollbar-width: none;
       }
 
-      .tariff-mobile-nav button {
-        min-height: 36px;
-        font-size: 0.78rem;
+      .pricing-tabs::-webkit-scrollbar {
+        display: none;
       }
 
-      .tariff-name {
-        font-size: clamp(1.78rem, 7.1vw, 2.22rem);
+      .pricing-tab-button {
+        font-size: 0.75rem;
       }
 
-      .tariff-price {
-        font-size: clamp(2.65rem, 12vw, 3.55rem);
-      }
-
-      .tariff-checks li,
-      .tariff-extras li {
-        font-size: 0.86rem;
-      }
-
-      .tariff-extra-row {
-        gap: 0.42rem;
-      }
-
-      .tariff-runtime {
-        padding: 0.78rem 3rem 0.78rem 0.9rem;
-      }
-
-      .drink-info-card,
-      .daypass-layout {
-        width: min(100% - 0.8rem, var(--max-width));
-      }
-
-      .drink-info-title-row {
-        gap: 0.55rem;
-      }
-
-      .drink-info-title {
-        font-size: clamp(1.72rem, 8vw, 2.25rem);
-      }
-
-      .drink-info-text {
-        font-size: 0.94rem;
-      }
-
-      .daypass-layout {
-        padding: 1.15rem;
-      }
-
-      .daypass-card {
-        padding: 1.25rem;
-        min-height: 540px;
+      .pricing-drink-section {
+        padding: 0 0.5rem 0.5rem;
       }
     }
   </style>
@@ -962,403 +648,403 @@
   <div data-header></div>
 
   <main class="pricing-page">
-    <section id="mitgliedschaften" class="section pricing-page-section" aria-labelledby="pricing-page-title">
+    <section class="pricing-hero" aria-labelledby="pricing-page-title">
       <div class="container">
-        <div class="section-intro center pricing-page-intro">
+        <div class="pricing-hero-inner">
           <p class="eyebrow">Mitgliedschaften</p>
 
           <h1 class="pricing-main-title" id="pricing-page-title">
-            Tarife und Tagespass.
+            Wähle deinen Tarif.
           </h1>
 
-          <div class="tariff-mobile-nav" aria-label="Tarife schnell auswählen">
-            <button class="is-active" type="button" data-tariff-target="basic-card">
+          <p class="pricing-hero-text">
+            Basic, Plus, Pro oder Tagespass. Alles läuft digital über die Nordkern Fitness App:
+            buchen, verwalten, QR-Code öffnen und trainieren.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-module-section" aria-label="Nordkern Fitness Tarife">
+      <div class="pricing-module">
+        <div class="pricing-tabs-wrap">
+          <div class="pricing-tabs" role="tablist" aria-label="Tarife auswählen">
+            <button class="pricing-tab-button is-active" type="button" role="tab" aria-selected="true" aria-controls="plan-basic" id="tab-basic" data-plan="basic">
               Basic
             </button>
 
-            <button type="button" data-tariff-target="plus-card">
+            <button class="pricing-tab-button" type="button" role="tab" aria-selected="false" aria-controls="plan-plus" id="tab-plus" data-plan="plus">
               Plus
             </button>
 
-            <button type="button" data-tariff-target="pro-card">
+            <button class="pricing-tab-button" type="button" role="tab" aria-selected="false" aria-controls="plan-pro" id="tab-pro" data-plan="pro">
               Pro
+            </button>
+
+            <button class="pricing-tab-button" type="button" role="tab" aria-selected="false" aria-controls="plan-tagespass" id="tab-tagespass" data-plan="tagespass">
+              Tagespass
             </button>
           </div>
         </div>
 
-        <div class="tariff-scroll-wrap" aria-label="Nordkern Fitness Mitgliedschaften">
-          <div class="tariff-grid">
-            <article class="tariff-card" id="basic-card" aria-labelledby="basic-title">
-              <h2 class="tariff-name" id="basic-title">Nordkern <span>Basic</span></h2>
+        <div class="pricing-stage">
+          <article class="pricing-plan is-active" id="plan-basic" role="tabpanel" aria-labelledby="tab-basic" data-plan-panel="basic">
+            <div class="pricing-plan-card">
+              <div class="pricing-plan-copy">
+                <div>
+                  <p class="pricing-plan-kicker">Nordkern Mitgliedschaft</p>
+                  <h2 class="pricing-plan-title">Nordkern <span>Basic</span></h2>
 
-              <div class="tariff-price-area">
-                <div class="tariff-price-row">
-                  <p class="tariff-price">29,99 €</p>
-                  <p class="tariff-price-unit">pro Monat</p>
+                  <p class="pricing-plan-description">
+                    Der klare Einstieg: 24/7 trainieren, per App ins Studio und monatlich deine ersten Getränke- und Kreatin-Kontingente nutzen.
+                  </p>
+                </div>
+
+                <div class="pricing-price-block">
+                  <div class="pricing-price-row">
+                    <p class="pricing-price">29,99 €</p>
+                    <p class="pricing-price-unit">pro Monat</p>
+                  </div>
+
+                  <button
+                    class="pricing-runtime-pill"
+                    type="button"
+                    data-info-title="Mindestlaufzeit: 12 Monate"
+                    data-info-text="Der Basic-Tarif hat eine Mindestlaufzeit von 12 Monaten. Du kannst schon während dieser Zeit kündigen; deine Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit. Wenn du nicht kündigst, läuft sie danach regulär weiter und kann anschließend monatlich gekündigt werden."
+                  >
+                    Mindestlaufzeit: 12 Monate
+                  </button>
+
+                  <div class="pricing-plan-actions">
+                    <a href="app.html" class="btn btn-primary">In der App ansehen</a>
+                    <a href="kontakt.html#faq" class="product-link product-link-secondary">Fragen klären</a>
+                  </div>
                 </div>
               </div>
 
-              <div class="tariff-feature-block">
-                <ul class="tariff-checks">
+              <div class="pricing-plan-details">
+                <h3 class="pricing-detail-title">Enthalten</h3>
+
+                <ul class="pricing-feature-list">
                   <li>24/7-Zugang</li>
                   <li>QR-Code-Zutritt über die App</li>
                 </ul>
 
-                <p class="tariff-extra-title">Getränkeautomat</p>
+                <div class="pricing-extra-head">
+                  <p class="pricing-extra-title">Getränkeautomat</p>
 
-                <ul class="tariff-extras">
+                  <button
+                    class="pricing-info-small"
+                    type="button"
+                    aria-label="Info zum Getränkeautomaten"
+                    data-info-title="So funktioniert der Getränkeautomat"
+                    data-info-text="Der Getränkeautomat läuft über deinen normalen Nordkern Fitness QR-Code. Du scannst denselben QR-Code, den du auch für den Studio-Zutritt nutzt. Danach erkennt das System dein App-Konto und zeigt, welche Freigetränke und Extras in deinem Tarif noch verfügbar sind."
+                  >
+                    ?
+                  </button>
+                </div>
+
+                <ul class="pricing-extra-list">
                   <li>
-                    <span class="tariff-extra-row">
-                      <span>3× Freigetränke à 330 ml / Monat</span>
-                      <button
-                        class="extra-info-button"
-                        type="button"
-                        aria-label="Information zu 3× Freigetränke im Basic-Tarif"
-                        data-info-title="3× Freigetränke à 330 ml"
-                        data-info-text="Im Basic-Tarif sind jeden Monat 3× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen. Weitere Getränke kannst du zusätzlich in der App kaufen und im Studio einlösen."
-                      >
-                        <span aria-hidden="true">?</span>
-                      </button>
-                    </span>
+                    <span><strong>3×</strong> Freigetränke à 330 ml / Monat</span>
+                    <button class="pricing-info-small" type="button" aria-label="Info zu Freigetränken" data-info-title="3× Freigetränke à 330 ml" data-info-text="Im Basic-Tarif sind jeden Monat 3× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen.">?</button>
                   </li>
 
                   <li>
-                    <span class="tariff-extra-row">
-                      <span>1× Kreatin-Auswahl inklusive / Monat</span>
-                      <button
-                        class="extra-info-button"
-                        type="button"
-                        aria-label="Information zu 1× Kreatin-Auswahl im Basic-Tarif"
-                        data-info-title="1× Kreatin-Auswahl inklusive"
-                        data-info-text="Im Basic-Tarif ist jeden Monat 1× Kreatin-Auswahl inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst. Weitere Kreatin-Auswahlen können zusätzlich in der App gekauft werden."
-                      >
-                        <span aria-hidden="true">?</span>
-                      </button>
-                    </span>
+                    <span><strong>1×</strong> Kreatin-Auswahl inklusive / Monat</span>
+                    <button class="pricing-info-small" type="button" aria-label="Info zu Kreatin-Auswahl" data-info-title="1× Kreatin-Auswahl inklusive" data-info-text="Im Basic-Tarif ist jeden Monat 1× Kreatin-Auswahl inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst.">?</button>
                   </li>
                 </ul>
+
+                <p class="pricing-detail-note">
+                  Kreatin ist nie automatisch enthalten. Du entscheidest bewusst in der App beziehungsweise am Automaten, ob du es auswählst.
+                </p>
               </div>
+            </div>
+          </article>
 
-              <div class="tariff-runtime">
-                <span>Mindestlaufzeit</span>
-                <strong>12 Monate</strong>
+          <article class="pricing-plan" id="plan-plus" role="tabpanel" aria-labelledby="tab-plus" data-plan-panel="plus" hidden>
+            <div class="pricing-plan-card">
+              <div class="pricing-plan-copy">
+                <div>
+                  <p class="pricing-plan-kicker">Nordkern Mitgliedschaft</p>
+                  <h2 class="pricing-plan-title">Nordkern <span>Plus</span></h2>
 
-                <button
-                  class="runtime-info-button"
-                  type="button"
-                  aria-label="Information zur Mindestlaufzeit im Basic-Tarif"
-                  data-info-title="Mindestlaufzeit: 12 Monate"
-                  data-info-text="Der Basic-Tarif hat eine Mindestlaufzeit von 12 Monaten. Du kannst schon während dieser Zeit kündigen; deine Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit. Wenn du nicht kündigst, läuft sie danach regulär weiter und kann anschließend monatlich gekündigt werden."
-                >
-                  <span aria-hidden="true">?</span>
-                </button>
-              </div>
+                  <p class="pricing-plan-description">
+                    Der ausgewogene Tarif: kürzere Laufzeit als Basic und mehr Getränke- und Kreatin-Kontingente für regelmäßiges Training.
+                  </p>
+                </div>
 
-              <a href="app.html" class="btn btn-primary">
-                In der App ansehen
-              </a>
-            </article>
+                <div class="pricing-price-block">
+                  <div class="pricing-price-row">
+                    <p class="pricing-price">34,99 €</p>
+                    <p class="pricing-price-unit">pro Monat</p>
+                  </div>
 
-            <article class="tariff-card is-plus" id="plus-card" aria-labelledby="plus-title">
-              <h2 class="tariff-name" id="plus-title">Nordkern <span>Plus</span></h2>
+                  <button
+                    class="pricing-runtime-pill"
+                    type="button"
+                    data-info-title="Mindestlaufzeit: 8 Monate"
+                    data-info-text="Der Plus-Tarif hat eine Mindestlaufzeit von 8 Monaten. Du kannst schon während dieser Zeit kündigen; deine Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit. Wenn du nicht kündigst, läuft sie danach regulär weiter und kann anschließend monatlich gekündigt werden."
+                  >
+                    Mindestlaufzeit: 8 Monate
+                  </button>
 
-              <div class="tariff-price-area">
-                <div class="tariff-price-row">
-                  <p class="tariff-price">34,99 €</p>
-                  <p class="tariff-price-unit">pro Monat</p>
+                  <div class="pricing-plan-actions">
+                    <a href="app.html" class="btn btn-primary">In der App ansehen</a>
+                    <a href="kontakt.html#faq" class="product-link product-link-secondary">Fragen klären</a>
+                  </div>
                 </div>
               </div>
 
-              <div class="tariff-feature-block">
-                <ul class="tariff-checks">
+              <div class="pricing-plan-details">
+                <h3 class="pricing-detail-title">Enthalten</h3>
+
+                <ul class="pricing-feature-list">
                   <li>24/7-Zugang</li>
                   <li>QR-Code-Zutritt über die App</li>
                 </ul>
 
-                <p class="tariff-extra-title">Getränkeautomat</p>
+                <div class="pricing-extra-head">
+                  <p class="pricing-extra-title">Getränkeautomat</p>
 
-                <ul class="tariff-extras">
+                  <button
+                    class="pricing-info-small"
+                    type="button"
+                    aria-label="Info zum Getränkeautomaten"
+                    data-info-title="So funktioniert der Getränkeautomat"
+                    data-info-text="Der Getränkeautomat läuft über deinen normalen Nordkern Fitness QR-Code. Dein App-Konto erkennt verfügbare Freigetränke, Größen und Kreatin-Auswahlen automatisch."
+                  >
+                    ?
+                  </button>
+                </div>
+
+                <ul class="pricing-extra-list">
                   <li>
-                    <span class="tariff-extra-row">
-                      <span>6× Freigetränke à 330 ml / Monat</span>
-                      <button
-                        class="extra-info-button"
-                        type="button"
-                        aria-label="Information zu 6× Freigetränke im Plus-Tarif"
-                        data-info-title="6× Freigetränke à 330 ml"
-                        data-info-text="Im Plus-Tarif sind jeden Monat 6× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen. Weitere Getränke kannst du zusätzlich in der App kaufen und im Studio einlösen."
-                      >
-                        <span aria-hidden="true">?</span>
-                      </button>
-                    </span>
+                    <span><strong>6×</strong> Freigetränke à 330 ml / Monat</span>
+                    <button class="pricing-info-small" type="button" aria-label="Info zu Freigetränken" data-info-title="6× Freigetränke à 330 ml" data-info-text="Im Plus-Tarif sind jeden Monat 6× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen.">?</button>
                   </li>
 
                   <li>
-                    <span class="tariff-extra-row">
-                      <span>3× Kreatin-Auswahlen inklusive / Monat</span>
-                      <button
-                        class="extra-info-button"
-                        type="button"
-                        aria-label="Information zu 3× Kreatin-Auswahlen im Plus-Tarif"
-                        data-info-title="3× Kreatin-Auswahlen inklusive"
-                        data-info-text="Im Plus-Tarif sind jeden Monat 3× Kreatin-Auswahlen inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst. Weitere Kreatin-Auswahlen können zusätzlich in der App gekauft werden."
-                      >
-                        <span aria-hidden="true">?</span>
-                      </button>
-                    </span>
+                    <span><strong>3×</strong> Kreatin-Auswahlen inklusive / Monat</span>
+                    <button class="pricing-info-small" type="button" aria-label="Info zu Kreatin-Auswahlen" data-info-title="3× Kreatin-Auswahlen inklusive" data-info-text="Im Plus-Tarif sind jeden Monat 3× Kreatin-Auswahlen inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst.">?</button>
                   </li>
                 </ul>
+
+                <p class="pricing-detail-note">
+                  Plus ist als ruhiger Mittelweg gedacht: nicht zu lang gebunden, aber schon deutlich mehr Kontingente als Basic.
+                </p>
               </div>
+            </div>
+          </article>
 
-              <div class="tariff-runtime">
-                <span>Mindestlaufzeit</span>
-                <strong>8 Monate</strong>
+          <article class="pricing-plan" id="plan-pro" role="tabpanel" aria-labelledby="tab-pro" data-plan-panel="pro" hidden>
+            <div class="pricing-plan-card">
+              <div class="pricing-plan-copy">
+                <div>
+                  <p class="pricing-plan-kicker">Nordkern Mitgliedschaft</p>
+                  <h2 class="pricing-plan-title">Nordkern <span>Pro</span></h2>
 
-                <button
-                  class="runtime-info-button"
-                  type="button"
-                  aria-label="Information zur Mindestlaufzeit im Plus-Tarif"
-                  data-info-title="Mindestlaufzeit: 8 Monate"
-                  data-info-text="Der Plus-Tarif hat eine Mindestlaufzeit von 8 Monaten. Du kannst schon während dieser Zeit kündigen; deine Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit. Wenn du nicht kündigst, läuft sie danach regulär weiter und kann anschließend monatlich gekündigt werden."
-                >
-                  <span aria-hidden="true">?</span>
-                </button>
-              </div>
+                  <p class="pricing-plan-description">
+                    Für alle, die oft trainieren und maximal flexibel bleiben möchten: kürzeste Mindestlaufzeit und die größten monatlichen Kontingente.
+                  </p>
+                </div>
 
-              <a href="app.html" class="btn btn-primary">
-                In der App ansehen
-              </a>
-            </article>
+                <div class="pricing-price-block">
+                  <div class="pricing-price-row">
+                    <p class="pricing-price">39,99 €</p>
+                    <p class="pricing-price-unit">pro Monat</p>
+                  </div>
 
-            <article class="tariff-card" id="pro-card" aria-labelledby="pro-title">
-              <h2 class="tariff-name" id="pro-title">Nordkern <span>Pro</span></h2>
+                  <button
+                    class="pricing-runtime-pill"
+                    type="button"
+                    data-info-title="Mindestlaufzeit: 4 Monate"
+                    data-info-text="Der Pro-Tarif hat eine Mindestlaufzeit von 4 Monaten. Du kannst schon während dieser Zeit kündigen; deine Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit. Wenn du nicht kündigst, läuft sie danach regulär weiter und kann anschließend monatlich gekündigt werden."
+                  >
+                    Mindestlaufzeit: 4 Monate
+                  </button>
 
-              <div class="tariff-price-area">
-                <div class="tariff-price-row">
-                  <p class="tariff-price">39,99 €</p>
-                  <p class="tariff-price-unit">pro Monat</p>
+                  <div class="pricing-plan-actions">
+                    <a href="app.html" class="btn btn-primary">In der App ansehen</a>
+                    <a href="kontakt.html#faq" class="product-link product-link-secondary">Fragen klären</a>
+                  </div>
                 </div>
               </div>
 
-              <div class="tariff-feature-block">
-                <ul class="tariff-checks">
+              <div class="pricing-plan-details">
+                <h3 class="pricing-detail-title">Enthalten</h3>
+
+                <ul class="pricing-feature-list">
                   <li>24/7-Zugang</li>
                   <li>QR-Code-Zutritt über die App</li>
                 </ul>
 
-                <p class="tariff-extra-title">Getränkeautomat</p>
+                <div class="pricing-extra-head">
+                  <p class="pricing-extra-title">Getränkeautomat</p>
 
-                <ul class="tariff-extras">
+                  <button
+                    class="pricing-info-small"
+                    type="button"
+                    aria-label="Info zum Getränkeautomaten"
+                    data-info-title="So funktioniert der Getränkeautomat"
+                    data-info-text="Der Getränkeautomat läuft über deinen QR-Code und dein App-Konto. Du wählst Getränk, Größe und verfügbare Extras aus. Inklusive Kontingente werden automatisch abgezogen."
+                  >
+                    ?
+                  </button>
+                </div>
+
+                <ul class="pricing-extra-list">
                   <li>
-                    <span class="tariff-extra-row">
-                      <span>9× Freigetränke à 330 ml / Monat</span>
-                      <button
-                        class="extra-info-button"
-                        type="button"
-                        aria-label="Information zu 9× Freigetränke im Pro-Tarif"
-                        data-info-title="9× Freigetränke à 330 ml"
-                        data-info-text="Im Pro-Tarif sind jeden Monat 9× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen. Weitere Getränke kannst du zusätzlich in der App kaufen und im Studio einlösen."
-                      >
-                        <span aria-hidden="true">?</span>
-                      </button>
-                    </span>
+                    <span><strong>9×</strong> Freigetränke à 330 ml / Monat</span>
+                    <button class="pricing-info-small" type="button" aria-label="Info zu Freigetränken" data-info-title="9× Freigetränke à 330 ml" data-info-text="Im Pro-Tarif sind jeden Monat 9× Freigetränke à 330 ml enthalten. Sie werden deinem Konto in der App zugeordnet und beim Einlösen am Getränkeautomaten über deinen QR-Code abgezogen.">?</button>
                   </li>
 
                   <li>
-                    <span class="tariff-extra-row">
-                      <span>5× Kreatin-Auswahlen inklusive / Monat</span>
-                      <button
-                        class="extra-info-button"
-                        type="button"
-                        aria-label="Information zu 5× Kreatin-Auswahlen im Pro-Tarif"
-                        data-info-title="5× Kreatin-Auswahlen inklusive"
-                        data-info-text="Im Pro-Tarif sind jeden Monat 5× Kreatin-Auswahlen inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst. Weitere Kreatin-Auswahlen können zusätzlich in der App gekauft werden."
-                      >
-                        <span aria-hidden="true">?</span>
-                      </button>
-                    </span>
+                    <span><strong>5×</strong> Kreatin-Auswahlen inklusive / Monat</span>
+                    <button class="pricing-info-small" type="button" aria-label="Info zu Kreatin-Auswahlen" data-info-title="5× Kreatin-Auswahlen inklusive" data-info-text="Im Pro-Tarif sind jeden Monat 5× Kreatin-Auswahlen inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst.">?</button>
                   </li>
 
                   <li>
-                    <span class="tariff-extra-row">
-                      <span>2× Freigetränke à 500 ml / Monat</span>
-                      <button
-                        class="extra-info-button"
-                        type="button"
-                        aria-label="Information zu 2× Freigetränke à 500 ml im Pro-Tarif"
-                        data-info-title="2× Freigetränke à 500 ml"
-                        data-info-text="Im Pro-Tarif sind zusätzlich jeden Monat 2× Freigetränke à 500 ml enthalten. Diese kommen zu den 9× Freigetränken à 330 ml dazu und werden ebenfalls über deinen QR-Code am Getränkeautomaten eingelöst."
-                      >
-                        <span aria-hidden="true">?</span>
-                      </button>
-                    </span>
+                    <span><strong>2×</strong> Freigetränke à 500 ml / Monat</span>
+                    <button class="pricing-info-small" type="button" aria-label="Info zu 500 ml Freigetränken" data-info-title="2× Freigetränke à 500 ml" data-info-text="Im Pro-Tarif sind zusätzlich jeden Monat 2× Freigetränke à 500 ml enthalten. Diese kommen zu den 9× Freigetränken à 330 ml dazu.">?</button>
                   </li>
                 </ul>
+
+                <p class="pricing-detail-note">
+                  Pro ist der stärkste Tarif im aktuellen Modell: mehr Kontingente, kürzere Mindestlaufzeit, volle App-Nutzung.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="pricing-plan" id="plan-tagespass" role="tabpanel" aria-labelledby="tab-tagespass" data-plan-panel="tagespass" hidden>
+            <div class="pricing-plan-card">
+              <div class="pricing-plan-copy">
+                <div>
+                  <p class="pricing-plan-kicker">Einmaliger Zugang</p>
+                  <h2 class="pricing-plan-title">Nordkern <span>Tagespass</span></h2>
+
+                  <p class="pricing-plan-description">
+                    Zum Testen ohne Mitgliedschaft: 24 Stunden Zugang nutzen, ein Freigetränk einlösen und Nordkern Fitness kennenlernen.
+                  </p>
+                </div>
+
+                <div class="pricing-price-block">
+                  <div class="pricing-price-row">
+                    <p class="pricing-price">9,00 €</p>
+                    <p class="pricing-price-unit">einmalig</p>
+                  </div>
+
+                  <button
+                    class="pricing-runtime-pill"
+                    type="button"
+                    data-info-title="Zugang: 24 Stunden"
+                    data-info-text="Der Tagespass wird nach dem Kauf in deinem Profil hinterlegt und startet nicht automatisch. Die 24 Stunden beginnen erst, wenn du den Tagespass beim Betreten des Studios über die Nordkern Fitness App aktivierst und den QR-Code für den Zutritt nutzt. Danach endet der Zugang automatisch. Aus dem Tagespass entsteht keine Mitgliedschaft."
+                  >
+                    Zugang: 24 Stunden
+                  </button>
+
+                  <div class="pricing-plan-actions">
+                    <a href="app.html" class="btn btn-primary">In der App ansehen</a>
+                    <a href="kontakt.html#faq" class="product-link product-link-secondary">Fragen klären</a>
+                  </div>
+                </div>
               </div>
 
-              <div class="tariff-runtime">
-                <span>Mindestlaufzeit</span>
-                <strong>4 Monate</strong>
+              <div class="pricing-plan-details">
+                <h3 class="pricing-detail-title">Enthalten</h3>
 
-                <button
-                  class="runtime-info-button"
-                  type="button"
-                  aria-label="Information zur Mindestlaufzeit im Pro-Tarif"
-                  data-info-title="Mindestlaufzeit: 4 Monate"
-                  data-info-text="Der Pro-Tarif hat eine Mindestlaufzeit von 4 Monaten. Du kannst schon während dieser Zeit kündigen; deine Mitgliedschaft endet dann zum Ablauf der Mindestlaufzeit. Wenn du nicht kündigst, läuft sie danach regulär weiter und kann anschließend monatlich gekündigt werden."
-                >
-                  <span aria-hidden="true">?</span>
-                </button>
+                <ul class="pricing-feature-list">
+                  <li>24 Stunden Zugang</li>
+                  <li>QR-Code-Zutritt über die App</li>
+                  <li>Keine laufende Mitgliedschaft</li>
+                </ul>
+
+                <div class="pricing-extra-head">
+                  <p class="pricing-extra-title">Getränkeautomat</p>
+
+                  <button
+                    class="pricing-info-small"
+                    type="button"
+                    aria-label="Info zum Tagespass"
+                    data-info-title="Tagespass und Getränkeautomat"
+                    data-info-text="Beim Tagespass ist 1× Freigetränk à 330 ml und 1× Kreatin-Auswahl enthalten. Beides wird über deinen QR-Code und dein App-Konto eingelöst."
+                  >
+                    ?
+                  </button>
+                </div>
+
+                <ul class="pricing-extra-list">
+                  <li>
+                    <span><strong>1×</strong> Freigetränk à 330 ml</span>
+                    <button class="pricing-info-small" type="button" aria-label="Info zu Freigetränk" data-info-title="1× Freigetränk à 330 ml" data-info-text="Beim Tagespass ist 1× Freigetränk à 330 ml enthalten. Das Freigetränk wird über deinen QR-Code am Getränkeautomaten eingelöst.">?</button>
+                  </li>
+
+                  <li>
+                    <span><strong>1×</strong> Kreatin-Auswahl inklusive</span>
+                    <button class="pricing-info-small" type="button" aria-label="Info zu Kreatin-Auswahl" data-info-title="1× Kreatin-Auswahl inklusive" data-info-text="Beim Tagespass ist 1× Kreatin-Auswahl inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst.">?</button>
+                  </li>
+                </ul>
+
+                <p class="pricing-detail-note">
+                  Der Tagespass ersetzt das kostenlose Probetraining. Er ist fair, klar und endet automatisch.
+                </p>
               </div>
-
-              <a href="app.html" class="btn btn-primary">
-                In der App ansehen
-              </a>
-            </article>
-          </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="drink-info-section" aria-labelledby="drink-info-title">
-      <div class="drink-info-card">
-        <div class="drink-info-copy">
-          <p class="drink-info-label">Getränkeautomat</p>
+    <section class="pricing-drink-section" aria-labelledby="drink-info-title">
+      <div class="pricing-drink-card">
+        <div>
+          <p class="eyebrow">Getränkeautomat</p>
 
-          <div class="drink-info-title-row">
-            <h2 class="drink-info-title" id="drink-info-title">
-              Wie funktioniert der Getränkeautomat?
-            </h2>
+          <h2 id="drink-info-title">
+            Ein QR-Code. Studiozugang und Automat.
+          </h2>
 
-            <button
-              class="extra-info-button drink-main-info-button"
-              type="button"
-              aria-label="Information zum Getränkeautomaten"
-              data-info-title="So funktioniert der Getränkeautomat"
-              data-info-text="Der Getränkeautomat läuft über deinen normalen Nordkern Fitness QR-Code. Du scannst denselben QR-Code, den du auch für den Studio-Zutritt nutzt. Danach erkennt das System dein App-Konto und zeigt, welche Freigetränke und Extras in deinem Tarif noch verfügbar sind. Du wählst Getränk, Größe, Geschmack und verfügbare Zusätze wie Kreatin aus. Inklusive Kontingente werden automatisch abgezogen. Wenn deine enthaltenen Getränke oder Zusätze aufgebraucht sind, kannst du weitere Getränke oder Extras in der App kaufen und anschließend am Automaten einlösen."
-            >
-              <span aria-hidden="true">?</span>
-            </button>
-          </div>
-
-          <p class="drink-info-text">
+          <p>
             Dein QR-Code verbindet den Automaten mit deinem App-Konto. Freigetränke, Größen und Extras werden automatisch erkannt und sauber zugeordnet.
           </p>
         </div>
-      </div>
-    </section>
 
-    <section id="tagespass" class="section daypass-section" aria-labelledby="daypass-title">
-      <div class="daypass-layout">
-        <div class="daypass-copy">
-          <p class="eyebrow">Tagespass</p>
-
-          <h2 id="daypass-title">Nordkern <span>Tagespass</span></h2>
-
-          <p>
-            Zum Testen: einmal trainieren, 24 Stunden Zugang nutzen, ein Freigetränk einlösen und Nordkern Fitness kennenlernen.
-          </p>
-        </div>
-
-        <article class="daypass-card" aria-labelledby="daypass-card-title">
-          <div class="daypass-card-main">
-            <h3 class="tariff-name" id="daypass-card-title">Nordkern <span>Tagespass</span></h3>
-
-            <div class="tariff-price-area">
-              <div class="tariff-price-row">
-                <p class="tariff-price">9,00 €</p>
-                <p class="tariff-price-unit">einmalig</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="daypass-card-details">
-            <div class="tariff-feature-block">
-              <ul class="tariff-checks">
-                <li>24 Stunden Zugang</li>
-                <li>QR-Code-Zutritt über die App</li>
-              </ul>
-
-              <p class="tariff-extra-title">Getränkeautomat</p>
-
-              <ul class="tariff-extras">
-                <li>
-                  <span class="tariff-extra-row">
-                    <span>1× Freigetränk à 330 ml</span>
-                    <button
-                      class="extra-info-button"
-                      type="button"
-                      aria-label="Information zu 1× Freigetränk beim Tagespass"
-                      data-info-title="1× Freigetränk à 330 ml"
-                      data-info-text="Beim Tagespass ist 1× Freigetränk à 330 ml enthalten. Das Freigetränk wird über deinen QR-Code am Getränkeautomaten eingelöst. Weitere Getränke kannst du zusätzlich in der App kaufen und im Studio einlösen."
-                    >
-                      <span aria-hidden="true">?</span>
-                    </button>
-                  </span>
-                </li>
-
-                <li>
-                  <span class="tariff-extra-row">
-                    <span>1× Kreatin-Auswahl inklusive</span>
-                    <button
-                      class="extra-info-button"
-                      type="button"
-                      aria-label="Information zu 1× Kreatin-Auswahl beim Tagespass"
-                      data-info-title="1× Kreatin-Auswahl inklusive"
-                      data-info-text="Beim Tagespass ist 1× Kreatin-Auswahl inklusive. Kreatin ist optional und wird nur hinzugefügt, wenn du es bei einem passenden Getränk bewusst auswählst. Weitere Kreatin-Auswahlen können zusätzlich in der App gekauft werden."
-                    >
-                      <span aria-hidden="true">?</span>
-                    </button>
-                  </span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="tariff-runtime">
-              <span>Zugang</span>
-              <strong>24 Stunden</strong>
-
-              <button
-                class="runtime-info-button"
-                type="button"
-                aria-label="Information zum Tagespass-Zugang"
-                data-info-title="Zugang: 24 Stunden"
-                data-info-text="Der Tagespass wird nach dem Kauf in deinem Profil hinterlegt und startet nicht automatisch. Die 24 Stunden beginnen erst, wenn du den Tagespass beim Betreten des Studios über die Nordkern Fitness App aktivierst und den QR-Code für den Zutritt nutzt. Danach endet der Zugang automatisch. Aus dem Tagespass entsteht keine Mitgliedschaft."
-              >
-                <span aria-hidden="true">?</span>
-              </button>
-            </div>
-
-            <a href="app.html" class="btn btn-primary">
-              In der App ansehen
-            </a>
-          </div>
-        </article>
+        <button
+          class="pricing-info-small"
+          type="button"
+          aria-label="Information zum Getränkeautomaten"
+          data-info-title="So funktioniert der Getränkeautomat"
+          data-info-text="Der Getränkeautomat läuft über deinen normalen Nordkern Fitness QR-Code. Du scannst denselben QR-Code, den du auch für den Studio-Zutritt nutzt. Danach erkennt das System dein App-Konto und zeigt, welche Freigetränke und Extras in deinem Tarif noch verfügbar sind. Du wählst Getränk, Größe, Geschmack und verfügbare Zusätze wie Kreatin aus. Inklusive Kontingente werden automatisch abgezogen. Wenn deine enthaltenen Getränke oder Zusätze aufgebraucht sind, kannst du weitere Getränke oder Extras in der App kaufen und anschließend am Automaten einlösen."
+        >
+          ?
+        </button>
       </div>
     </section>
   </main>
 
-  <div class="tariff-info-modal" id="tariff-info-modal" aria-hidden="true">
+  <div class="pricing-info-modal" id="pricing-info-modal" aria-hidden="true">
     <div
-      class="tariff-info-box"
+      class="pricing-info-box"
       role="dialog"
       aria-modal="true"
-      aria-labelledby="tariff-info-title"
-      aria-describedby="tariff-info-text"
+      aria-labelledby="pricing-info-title"
+      aria-describedby="pricing-info-text"
       tabindex="-1"
     >
-      <div class="tariff-info-head">
+      <div class="pricing-info-head">
         <div>
-          <p class="tariff-info-label">Info</p>
-          <h3 class="tariff-info-title" id="tariff-info-title">Information</h3>
+          <p class="pricing-info-label">Info</p>
+          <h3 class="pricing-info-title" id="pricing-info-title">Information</h3>
         </div>
 
-        <button class="tariff-info-close" type="button" aria-label="Fenster schließen">
+        <button class="pricing-info-close" type="button" aria-label="Fenster schließen">
           ×
         </button>
       </div>
 
-      <p class="tariff-info-text" id="tariff-info-text"></p>
+      <p class="pricing-info-text" id="pricing-info-text"></p>
     </div>
   </div>
 
@@ -1368,97 +1054,138 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const tariffNav = document.querySelector(".tariff-mobile-nav");
-      const tariffScrollWrap = document.querySelector(".tariff-scroll-wrap");
-      const tariffCards = Array.from(document.querySelectorAll(".tariff-card"));
-      const tariffButtons = Array.from(document.querySelectorAll(".tariff-mobile-nav button"));
+      const tabs = document.querySelector(".pricing-tabs");
+      const tabButtons = Array.from(document.querySelectorAll(".pricing-tab-button"));
+      const panels = Array.from(document.querySelectorAll("[data-plan-panel]"));
 
-      if (!tariffNav || !tariffScrollWrap || tariffCards.length === 0 || tariffButtons.length === 0) return;
-
-      let isButtonScroll = false;
-      let scrollTimeout;
+      if (!tabs || tabButtons.length === 0 || panels.length === 0) return;
 
       const moveIndicator = (button) => {
         if (!button) return;
 
-        tariffNav.style.setProperty("--indicator-left", `${button.offsetLeft}px`);
-        tariffNav.style.setProperty("--indicator-width", `${button.offsetWidth}px`);
+        tabs.style.setProperty("--active-left", `${button.offsetLeft}px`);
+        tabs.style.setProperty("--active-width", `${button.offsetWidth}px`);
       };
 
-      const setActiveButton = (targetId) => {
-        tariffButtons.forEach((button) => {
-          const isActive = button.dataset.tariffTarget === targetId;
+      const activatePlan = (plan) => {
+        const activeButton = tabButtons.find((button) => button.dataset.plan === plan) || tabButtons[0];
+
+        tabButtons.forEach((button) => {
+          const isActive = button === activeButton;
           button.classList.toggle("is-active", isActive);
+          button.setAttribute("aria-selected", String(isActive));
+          button.tabIndex = isActive ? 0 : -1;
         });
 
-        const activeButton = tariffButtons.find((button) => button.dataset.tariffTarget === targetId);
+        panels.forEach((panel) => {
+          const isActive = panel.dataset.planPanel === activeButton.dataset.plan;
+          panel.classList.toggle("is-active", isActive);
+          panel.hidden = !isActive;
+        });
+
         moveIndicator(activeButton);
       };
 
-      const getClosestCard = () => {
-        const wrapRect = tariffScrollWrap.getBoundingClientRect();
-        const wrapCenter = wrapRect.left + wrapRect.width / 2;
-
-        return tariffCards.reduce((closest, card) => {
-          const cardRect = card.getBoundingClientRect();
-          const cardCenter = cardRect.left + cardRect.width / 2;
-          const distance = Math.abs(cardCenter - wrapCenter);
-
-          if (!closest || distance < closest.distance) {
-            return { card, distance };
-          }
-
-          return closest;
-        }, null)?.card;
-      };
-
-      const updateActiveByScroll = () => {
-        const closestCard = getClosestCard();
-        if (!closestCard) return;
-
-        setActiveButton(closestCard.id);
-      };
-
-      const scrollToCard = (targetId) => {
-        const targetCard = document.getElementById(targetId);
-        if (!targetCard) return;
-
-        isButtonScroll = true;
-
-        const targetLeft =
-          targetCard.offsetLeft -
-          (tariffScrollWrap.clientWidth - targetCard.offsetWidth) / 2;
-
-        tariffScrollWrap.scrollTo({
-          left: targetLeft,
-          behavior: "smooth"
+      tabButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+          activatePlan(button.dataset.plan);
         });
 
-        setActiveButton(targetId);
+        button.addEventListener("keydown", (event) => {
+          const key = event.key;
 
-        window.clearTimeout(scrollTimeout);
-        scrollTimeout = window.setTimeout(() => {
-          isButtonScroll = false;
-          updateActiveByScroll();
-        }, 520);
-      };
+          if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(key)) return;
 
-      tariffButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          scrollToCard(button.dataset.tariffTarget);
+          event.preventDefault();
+
+          let nextIndex = index;
+
+          if (key === "ArrowLeft") {
+            nextIndex = index === 0 ? tabButtons.length - 1 : index - 1;
+          }
+
+          if (key === "ArrowRight") {
+            nextIndex = index === tabButtons.length - 1 ? 0 : index + 1;
+          }
+
+          if (key === "Home") {
+            nextIndex = 0;
+          }
+
+          if (key === "End") {
+            nextIndex = tabButtons.length - 1;
+          }
+
+          const nextButton = tabButtons[nextIndex];
+          if (!nextButton) return;
+
+          nextButton.focus();
+          activatePlan(nextButton.dataset.plan);
         });
       });
 
-      tariffScrollWrap.addEventListener("scroll", () => {
-        if (isButtonScroll) return;
+      window.addEventListener("resize", () => {
+        const activeButton = tabButtons.find((button) => button.classList.contains("is-active"));
+        moveIndicator(activeButton);
+      });
 
-        window.clearTimeout(scrollTimeout);
-        scrollTimeout = window.setTimeout(updateActiveByScroll, 80);
-      }, { passive: true });
+      activatePlan("basic");
+    });
 
-      window.addEventListener("resize", updateActiveByScroll);
+    document.addEventListener("DOMContentLoaded", () => {
+      const modal = document.getElementById("pricing-info-modal");
+      const modalBox = modal?.querySelector(".pricing-info-box");
+      const modalTitle = document.getElementById("pricing-info-title");
+      const modalText = document.getElementById("pricing-info-text");
+      const closeButton = modal?.querySelector(".pricing-info-close");
+      const infoButtons = Array.from(document.querySelectorAll("[data-info-title][data-info-text]"));
 
-      updateActiveByScroll();
+      if (!modal || !modalBox || !modalTitle || !modalText || !closeButton || infoButtons.length === 0) return;
+
+      let lastFocusedElement = null;
+
+      const openModal = (button) => {
+        lastFocusedElement = document.activeElement;
+
+        modalTitle.textContent = button.dataset.infoTitle || "Information";
+        modalText.textContent = button.dataset.infoText || "";
+
+        modal.classList.add("show");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+
+        window.setTimeout(() => {
+          modalBox.focus();
+        }, 0);
+      };
+
+      const closeModal = () => {
+        modal.classList.remove("show");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+
+        if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+          lastFocusedElement.focus();
+        }
+      };
+
+      infoButtons.forEach((button) => {
+        button.addEventListener("click", () => openModal(button));
+      });
+
+      closeButton.addEventListener("click", closeModal);
+
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modal.classList.contains("show")) {
+          closeModal();
+        }
+      });
     });
   </script>
 </body>
