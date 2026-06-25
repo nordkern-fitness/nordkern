@@ -10,14 +10,37 @@ document.addEventListener("DOMContentLoaded", async () => {
   const selectors = {
     headerSlot: "[data-header]",
     footerSlot: "[data-footer]",
+
     navLink: ".nav-link",
     siteHeaderInner: ".site-header-inner",
     burger: "#burger",
     siteNav: ".site-nav",
+
     modal: ".modal",
     modalTrigger: "[data-modal-target]",
     modalClose: ".modal-close",
-    contactForm: "[data-nordkern-contact-form]"
+
+    contactForm: "[data-nordkern-contact-form]",
+
+    pricingTabs: ".pricing-tabs",
+    pricingTabButton: ".pricing-tab-button",
+    pricingPanel: "[data-plan-panel]",
+    pricingInfoModal: "#pricing-info-modal",
+    pricingInfoBox: ".pricing-info-box",
+    pricingInfoTitle: "#pricing-info-title",
+    pricingInfoText: "#pricing-info-text",
+    pricingInfoClose: ".pricing-info-close",
+    pricingInfoButton: "[data-info-title][data-info-text]",
+
+    faqSearch: "#faq-search",
+    faqCategoryButton: ".faq-category-button",
+    faqItem: ".faq-item",
+    faqGroup: "[data-faq-group]",
+    faqResultLine: "#faq-result-line",
+    faqEmpty: "#faq-empty",
+
+    legalTabButton: ".legal-tab-button",
+    legalPanel: ".legal-panel"
   };
 
   const keys = {
@@ -280,7 +303,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         window.setTimeout(() => {
           window.location.href = href;
-        }, 160);
+        }, 140);
       });
     });
 
@@ -340,9 +363,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     modal.classList.remove("show");
     modal.setAttribute("aria-hidden", "true");
 
-    const openModals = Array.from(document.querySelectorAll(selectors.modal)).filter((item) =>
-      item.classList.contains("show")
-    );
+    const openModals = Array.from(document.querySelectorAll(`${selectors.modal}.show`));
 
     if (openModals.length === 0) {
       body.classList.remove("modal-open");
@@ -357,15 +378,19 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
 
   const closeAllModals = () => {
-    document.querySelectorAll(selectors.modal).forEach((modal) => closeModal(modal));
-
-    document.querySelectorAll("[aria-hidden='false'].show").forEach((modal) => {
+    document.querySelectorAll(".show[aria-hidden='false']").forEach((modal) => {
       modal.classList.remove("show");
       modal.setAttribute("aria-hidden", "true");
     });
 
     body.classList.remove("modal-open");
     activeModal = null;
+
+    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+      lastFocusedElement.focus({ preventScroll: true });
+    }
+
+    lastFocusedElement = null;
   };
 
   const trapModalFocus = (event) => {
@@ -418,14 +443,147 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   };
 
-  const setupGlobalKeyboardShortcuts = () => {
-    document.addEventListener("keydown", (event) => {
-      if (event.key === keys.escape) {
-        closeMobileMenu();
-        closeAllModals();
+  const setupPricingTabs = () => {
+    const tabs = document.querySelector(selectors.pricingTabs);
+    const tabButtons = Array.from(document.querySelectorAll(selectors.pricingTabButton));
+    const panels = Array.from(document.querySelectorAll(selectors.pricingPanel));
+
+    if (!tabs || tabButtons.length === 0 || panels.length === 0) return;
+
+    const moveIndicator = (button) => {
+      if (!button) return;
+
+      tabs.style.setProperty("--active-left", `${button.offsetLeft}px`);
+      tabs.style.setProperty("--active-width", `${button.offsetWidth}px`);
+    };
+
+    const activatePlan = (plan) => {
+      const activeButton =
+        tabButtons.find((button) => button.dataset.plan === plan) ||
+        tabButtons[0];
+
+      tabButtons.forEach((button) => {
+        const isActive = button === activeButton;
+
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-selected", String(isActive));
+        button.tabIndex = isActive ? 0 : -1;
+      });
+
+      panels.forEach((panel) => {
+        const isActive = panel.dataset.planPanel === activeButton.dataset.plan;
+
+        panel.classList.toggle("is-active", isActive);
+        panel.hidden = !isActive;
+      });
+
+      moveIndicator(activeButton);
+    };
+
+    tabButtons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        activatePlan(button.dataset.plan);
+      });
+
+      button.addEventListener("keydown", (event) => {
+        const key = event.key;
+
+        if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(key)) return;
+
+        event.preventDefault();
+
+        let nextIndex = index;
+
+        if (key === "ArrowLeft") {
+          nextIndex = index === 0 ? tabButtons.length - 1 : index - 1;
+        }
+
+        if (key === "ArrowRight") {
+          nextIndex = index === tabButtons.length - 1 ? 0 : index + 1;
+        }
+
+        if (key === "Home") {
+          nextIndex = 0;
+        }
+
+        if (key === "End") {
+          nextIndex = tabButtons.length - 1;
+        }
+
+        const nextButton = tabButtons[nextIndex];
+        if (!nextButton) return;
+
+        nextButton.focus();
+        activatePlan(nextButton.dataset.plan);
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      const activeButton = tabButtons.find((button) => button.classList.contains("is-active"));
+      moveIndicator(activeButton);
+    });
+
+    const hashPlan = window.location.hash.replace("#", "");
+    const firstPlan = tabButtons[0]?.dataset.plan || "basic";
+    const initialPlan = tabButtons.some((button) => button.dataset.plan === hashPlan)
+      ? hashPlan
+      : firstPlan;
+
+    activatePlan(initialPlan);
+  };
+
+  const setupPricingInfoModal = () => {
+    const modal = document.querySelector(selectors.pricingInfoModal);
+    const modalBox = modal?.querySelector(selectors.pricingInfoBox);
+    const modalTitle = document.querySelector(selectors.pricingInfoTitle);
+    const modalText = document.querySelector(selectors.pricingInfoText);
+    const closeButton = modal?.querySelector(selectors.pricingInfoClose);
+    const infoButtons = Array.from(document.querySelectorAll(selectors.pricingInfoButton));
+
+    if (!modal || !modalBox || !modalTitle || !modalText || !closeButton || infoButtons.length === 0) return;
+
+    const openPricingModal = (button) => {
+      lastFocusedElement = button || document.activeElement;
+      activeModal = modal;
+
+      modalTitle.textContent = button.dataset.infoTitle || "Information";
+      modalText.textContent = button.dataset.infoText || "";
+
+      modal.classList.add("show");
+      modal.setAttribute("aria-hidden", "false");
+      body.classList.add("modal-open");
+
+      window.setTimeout(() => {
+        closeButton.focus({ preventScroll: true });
+      }, shouldReduceMotion() ? 0 : 80);
+    };
+
+    const closePricingModal = () => {
+      modal.classList.remove("show");
+      modal.setAttribute("aria-hidden", "true");
+      body.classList.remove("modal-open");
+
+      if (activeModal === modal) {
+        activeModal = null;
       }
 
-      trapModalFocus(event);
+      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+        lastFocusedElement.focus({ preventScroll: true });
+      }
+
+      lastFocusedElement = null;
+    };
+
+    infoButtons.forEach((button) => {
+      button.addEventListener("click", () => openPricingModal(button));
+    });
+
+    closeButton.addEventListener("click", closePricingModal);
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closePricingModal();
+      }
     });
   };
 
@@ -579,7 +737,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     const updateCounter = () => {
       if (!messageField || !messageCount) return;
 
+      const maxLength = Number(messageField.dataset.maxlength || messageField.maxLength || 2400);
+
+      if (messageField.value.length > maxLength) {
+        messageField.value = messageField.value.slice(0, maxLength);
+      }
+
       messageCount.textContent = String(messageField.value.length);
+
+      const countWrap = messageCount.closest("small");
+      if (countWrap) {
+        countWrap.classList.toggle("is-limit", messageField.value.length >= maxLength);
+      }
     };
 
     const liveValidate = () => {
@@ -603,6 +772,20 @@ document.addEventListener("DOMContentLoaded", async () => {
       messageField.addEventListener("input", () => {
         autoResizeTextarea();
         updateCounter();
+      });
+
+      messageField.addEventListener("paste", () => {
+        window.setTimeout(() => {
+          autoResizeTextarea();
+          updateCounter();
+        }, 0);
+      });
+
+      messageField.addEventListener("drop", () => {
+        window.setTimeout(() => {
+          autoResizeTextarea();
+          updateCounter();
+        }, 0);
       });
     }
 
@@ -678,15 +861,206 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   };
 
+  const setupFaqSearch = () => {
+    const searchInput = document.querySelector(selectors.faqSearch);
+    const categoryButtons = Array.from(document.querySelectorAll(selectors.faqCategoryButton));
+    const faqItems = Array.from(document.querySelectorAll(selectors.faqItem));
+    const faqGroups = Array.from(document.querySelectorAll(selectors.faqGroup));
+    const resultLine = document.querySelector(selectors.faqResultLine);
+    const emptyState = document.querySelector(selectors.faqEmpty);
+
+    if (!searchInput || categoryButtons.length === 0 || faqItems.length === 0 || !resultLine || !emptyState) return;
+
+    let activeCategory = "all";
+
+    const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const normalize = (value) => value.toLowerCase().trim();
+
+    const highlightText = (element, query) => {
+      const original = element.dataset.originalText || element.textContent;
+      element.dataset.originalText = original;
+
+      if (!query) {
+        element.textContent = original;
+        return;
+      }
+
+      const regex = new RegExp(`(${escapeRegExp(query)})`, "gi");
+      element.innerHTML = original.replace(regex, "<mark>$1</mark>");
+    };
+
+    const updateFaq = () => {
+      const query = normalize(searchInput.value);
+      let visibleCount = 0;
+
+      faqItems.forEach((item) => {
+        const itemCategory = item.dataset.category || "";
+        const question = item.querySelector(".faq-question-text");
+        const answer = item.querySelector(".faq-answer");
+
+        if (!question || !answer) return;
+
+        const questionText = question.dataset.originalText || question.textContent;
+        const answerText = answer.dataset.originalText || answer.textContent;
+        const combined = normalize(`${questionText} ${answerText}`);
+        const categoryMatches = activeCategory === "all" || itemCategory === activeCategory;
+        const searchMatches = !query || combined.includes(query);
+        const isVisible = categoryMatches && searchMatches;
+
+        item.hidden = !isVisible;
+
+        highlightText(question, query);
+        highlightText(answer, query);
+
+        if (isVisible) {
+          visibleCount += 1;
+
+          if (query) {
+            item.open = true;
+          }
+        } else {
+          item.open = false;
+        }
+      });
+
+      faqGroups.forEach((group) => {
+        const visibleItems = Array.from(group.querySelectorAll(selectors.faqItem)).filter((item) => !item.hidden);
+        group.hidden = visibleItems.length === 0;
+      });
+
+      emptyState.classList.toggle("show", visibleCount === 0);
+
+      if (visibleCount === 0) {
+        resultLine.textContent = "Keine passende Frage gefunden.";
+      } else if (visibleCount === 1) {
+        resultLine.textContent = "1 passende Frage gefunden.";
+      } else if (query || activeCategory !== "all") {
+        resultLine.textContent = `${visibleCount} passende Fragen gefunden.`;
+      } else {
+        resultLine.textContent = `${visibleCount} Fragen verfügbar.`;
+      }
+    };
+
+    categoryButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeCategory = button.dataset.faqCategory || "all";
+
+        categoryButtons.forEach((categoryButton) => {
+          categoryButton.classList.toggle("is-active", categoryButton === button);
+        });
+
+        updateFaq();
+      });
+    });
+
+    searchInput.addEventListener("input", updateFaq);
+
+    updateFaq();
+  };
+
+  const setupLegalTabs = () => {
+    const tabButtons = Array.from(document.querySelectorAll(selectors.legalTabButton));
+    const panels = Array.from(document.querySelectorAll(selectors.legalPanel));
+
+    if (tabButtons.length === 0 || panels.length === 0) return;
+
+    const allowedTabs = tabButtons
+      .map((button) => button.dataset.tab)
+      .filter(Boolean);
+
+    const activateTab = (tabName, updateHash = false) => {
+      const selectedTab = allowedTabs.includes(tabName) ? tabName : allowedTabs[0];
+
+      tabButtons.forEach((button) => {
+        const isActive = button.dataset.tab === selectedTab;
+
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-selected", String(isActive));
+        button.tabIndex = isActive ? 0 : -1;
+      });
+
+      panels.forEach((panel) => {
+        const isActive = panel.id === `panel-${selectedTab}`;
+
+        panel.classList.toggle("is-active", isActive);
+        panel.hidden = !isActive;
+      });
+
+      if (updateHash) {
+        window.history.pushState(null, "", `#${selectedTab}`);
+      }
+    };
+
+    tabButtons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        activateTab(button.dataset.tab, true);
+      });
+
+      button.addEventListener("keydown", (event) => {
+        const key = event.key;
+
+        if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(key)) return;
+
+        event.preventDefault();
+
+        let nextIndex = index;
+
+        if (key === "ArrowLeft") {
+          nextIndex = index === 0 ? tabButtons.length - 1 : index - 1;
+        }
+
+        if (key === "ArrowRight") {
+          nextIndex = index === tabButtons.length - 1 ? 0 : index + 1;
+        }
+
+        if (key === "Home") {
+          nextIndex = 0;
+        }
+
+        if (key === "End") {
+          nextIndex = tabButtons.length - 1;
+        }
+
+        const nextButton = tabButtons[nextIndex];
+        if (!nextButton) return;
+
+        nextButton.focus();
+        activateTab(nextButton.dataset.tab, true);
+      });
+    });
+
+    const readHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      activateTab(hash || allowedTabs[0], false);
+    };
+
+    readHash();
+
+    window.addEventListener("hashchange", readHash);
+  };
+
   const setupInitialHashScroll = () => {
     if (!window.location.hash) return;
 
     const target = document.querySelector(window.location.hash);
     if (!target) return;
 
+    const hash = window.location.hash;
+
     window.setTimeout(() => {
-      scrollToHashTarget(target, window.location.hash);
+      scrollToHashTarget(target, hash);
     }, shouldReduceMotion() ? 0 : 140);
+  };
+
+  const setupGlobalKeyboardShortcuts = () => {
+    document.addEventListener("keydown", (event) => {
+      if (event.key === keys.escape) {
+        closeMobileMenu();
+        closeAllModals();
+      }
+
+      trapModalFocus(event);
+    });
   };
 
   setActiveNavLink();
@@ -695,7 +1069,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupHeaderScrollState();
   setupPageTransitions();
   setupGenericModals();
-  setupGlobalKeyboardShortcuts();
+  setupPricingTabs();
+  setupPricingInfoModal();
   setupContactForm();
+  setupFaqSearch();
+  setupLegalTabs();
+  setupGlobalKeyboardShortcuts();
   setupInitialHashScroll();
 });
