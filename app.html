@@ -7,7 +7,7 @@
   <title>Nordkern Fitness – App</title>
   <meta
     name="description"
-    content="Die Nordkern Fitness App bündelt Zugang, Mitgliedschaften, Tagespass, QR-Code-Zutritt und Kontingente für Freigetränke und Kreatin-Auswahlen."
+    content="Die Nordkern Fitness App für Mitgliedschaft, Tagespass, QR-Code-Zutritt, Getränkeautomat und Verwaltung deines Trainingszugangs."
   />
 
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=3" />
@@ -18,593 +18,528 @@
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
-    .app-page {
-      display: grid;
-      gap: 0;
+    .app-page-v3 {
       background: #ffffff;
     }
 
-    .app-hero {
-      position: relative;
+    .app-hero-v3 {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: max(9rem, 14vh) 1rem clamp(4.5rem, 7vw, 7rem);
+      text-align: center;
+      background: #ffffff;
       overflow: hidden;
-      min-height: calc(100vh - 88px);
-      display: flex;
-      align-items: center;
-      padding: 6.6rem 0 5.8rem;
-      background: #ffffff;
     }
 
-    .app-hero-grid {
+    .app-hero-inner-v3 {
+      width: min(100%, 1120px);
+      margin-inline: auto;
       display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(340px, 0.8fr);
-      align-items: center;
-      gap: clamp(2.2rem, 6vw, 6rem);
+      justify-items: center;
     }
 
-    .app-hero-copy {
-      max-width: 710px;
+    .app-icon-v3 {
+      width: clamp(78px, 7.4vw, 116px);
+      height: clamp(78px, 7.4vw, 116px);
+      margin-bottom: clamp(1.35rem, 2.6vw, 2.2rem);
+      overflow: hidden;
+      border-radius: 22%;
+      background: #111111;
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.14);
     }
 
-    .app-hero-title {
+    .app-icon-v3 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .app-hero-v3 h1 {
+      max-width: 1040px;
+      margin-inline: auto;
       color: var(--text);
-      font-size: clamp(3.1rem, 6.4vw, 6.7rem);
+      font-size: clamp(4rem, 7vw, 7.3rem);
       line-height: 0.92;
-      letter-spacing: -0.066em;
+      letter-spacing: -0.074em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .app-hero-title span {
-      color: var(--nf-green);
+    .app-hero-v3 p:not(.eyebrow) {
+      max-width: 720px;
+      margin: 1.05rem auto 0;
+      color: var(--text-soft);
+      font-size: clamp(1.05rem, 1.34vw, 1.24rem);
+      line-height: 1.48;
+      letter-spacing: -0.018em;
+      text-wrap: balance;
     }
 
-    .app-store-row-clean {
+    .app-store-row-v3 {
       display: flex;
+      justify-content: center;
+      gap: 0.75rem;
       flex-wrap: wrap;
-      gap: 0.82rem;
-      margin-top: 1.65rem;
+      margin-top: 1.55rem;
     }
 
-    .store-badge-clean {
-      min-width: 174px;
-      min-height: 58px;
+    .store-button-v3 {
+      min-height: 54px;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.72rem;
-      padding: 0.72rem 0.96rem;
-      border-radius: 16px;
+      padding: 0.72rem 1rem;
+      border-radius: 12px;
       transition:
+        background-color var(--fast),
         transform var(--fast),
-        opacity var(--fast),
-        box-shadow var(--fast),
-        border-color var(--fast),
-        background var(--fast);
+        opacity var(--fast);
     }
 
-    .store-badge-clean:hover {
+    .store-button-v3:hover,
+    .store-button-v3:focus-visible {
       transform: translateY(-1px);
     }
 
-    .store-badge-clean-dark {
+    .store-button-v3-dark {
       color: #ffffff;
-      background: linear-gradient(180deg, #1d1d1f, #09090a);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.12),
-        0 16px 34px rgba(0, 0, 0, 0.18);
+      background: #1d1d1f;
     }
 
-    .store-badge-clean-light {
+    .store-button-v3-dark:hover,
+    .store-button-v3-dark:focus-visible {
+      background: #000000;
+    }
+
+    .store-button-v3-light {
       color: var(--text);
       background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      box-shadow: none;
     }
 
-    .store-badge-clean-light:hover {
+    .store-button-v3-light:hover,
+    .store-button-v3-light:focus-visible {
       background: #eeeeef;
     }
 
-    .store-badge-clean-icon {
-      width: 28px;
-      flex: 0 0 28px;
+    .store-symbol-v3 {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 20px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.45rem;
-      line-height: 1;
     }
 
-    .store-badge-clean-icon svg {
-      width: 22px;
-      height: 22px;
-      display: block;
+    .store-symbol-v3 svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
     }
 
-    .store-badge-clean-text {
-      display: grid;
-      gap: 0.04rem;
-      line-height: 1.05;
+    .store-text-v3 {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.02;
     }
 
-    .store-badge-clean-small {
-      font-size: 0.68rem;
-      font-weight: 650;
-      letter-spacing: 0.02em;
+    .store-small-v3 {
+      font-size: 0.62rem;
+      letter-spacing: 0.025em;
       opacity: 0.72;
     }
 
-    .store-badge-clean-big {
-      font-size: 1.05rem;
-      font-weight: 820;
-      letter-spacing: -0.026em;
+    .store-big-v3 {
+      margin-top: 0.08rem;
+      font-size: 0.98rem;
+      font-weight: 780;
+      letter-spacing: -0.014em;
     }
 
-    .app-hero-visual {
-      position: relative;
-      min-height: 620px;
-      display: grid;
-      place-items: center;
-      isolation: isolate;
-    }
-
-    .app-phone {
-      width: min(38vw, 470px);
-      max-height: 720px;
-      object-fit: contain;
-      filter:
-        drop-shadow(0 38px 72px rgba(0, 0, 0, 0.18))
-        drop-shadow(0 10px 22px rgba(0, 0, 0, 0.08));
-    }
-
-    .app-module-section {
-      padding: 0.75rem;
+    .app-preview-section-v3 {
+      padding: 0 0.75rem 0.75rem;
       background: #ffffff;
     }
 
-    .app-module-section + .app-module-section {
-      padding-top: 0;
-    }
-
-    .app-feature-shell,
-    .app-flow-shell,
-    .app-final-copy {
-      width: 100%;
-      border-radius: var(--module-radius);
-      background: #f5f5f7;
-      border: 1px solid rgba(0, 0, 0, 0.045);
+    .app-preview-panel-v3 {
+      min-height: clamp(680px, 82vh, 940px);
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.78fr);
+      align-items: center;
+      gap: clamp(2.5rem, 6vw, 6rem);
+      padding: clamp(4rem, 7vw, 7rem) clamp(1.25rem, 5vw, 5rem);
+      background:
+        radial-gradient(
+          ellipse at 80% 30%,
+          rgba(46, 145, 63, 0.16) 0%,
+          rgba(46, 145, 63, 0.08) 24%,
+          rgba(245, 245, 247, 0) 56%
+        ),
+        #f5f5f7;
       overflow: hidden;
     }
 
-    .app-feature-shell {
-      padding: clamp(3.4rem, 5.5vw, 5.6rem);
+    .app-preview-copy-v3 {
+      max-width: 680px;
     }
 
-    .app-section-intro {
-      max-width: 860px;
-      margin: 0 auto 3rem;
-      text-align: center;
-    }
-
-    .app-section-title {
+    .app-preview-copy-v3 h2 {
       color: var(--text);
-      font-size: clamp(2.45rem, 4.7vw, 5rem);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
+      font-size: clamp(3rem, 5.8vw, 6rem);
+      line-height: 0.93;
+      letter-spacing: -0.07em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .app-section-intro p:not(.eyebrow) {
-      max-width: 690px;
-      margin: 1rem auto 0;
+    .app-preview-copy-v3 p {
+      max-width: 620px;
+      margin-top: 1rem;
       color: var(--text-soft);
-      font-size: clamp(1.02rem, 1.32vw, 1.16rem);
-      line-height: 1.5;
+      font-size: clamp(1.05rem, 1.32vw, 1.2rem);
+      line-height: 1.52;
+      letter-spacing: -0.016em;
+      text-wrap: balance;
+    }
+
+    .app-preview-links-v3 {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.35rem;
+    }
+
+    .app-preview-links-v3 a {
+      color: var(--nf-green-dark);
+      font-size: 1rem;
+      font-weight: 560;
       letter-spacing: -0.012em;
     }
 
-    .app-feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.9rem;
+    .app-preview-links-v3 a::after {
+      content: "›";
+      padding-left: 0.28rem;
     }
 
-    .app-feature-card {
-      min-height: 330px;
+    .app-preview-links-v3 a:hover,
+    .app-preview-links-v3 a:focus-visible {
+      color: var(--nf-green);
+    }
+
+    .app-phone-stage-v3 {
+      position: relative;
+      min-height: clamp(520px, 62vw, 760px);
+      display: grid;
+      place-items: center;
+    }
+
+    .app-phone-glow-v3 {
+      position: absolute;
+      width: min(82%, 440px);
+      aspect-ratio: 1;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(46, 145, 63, 0.20), rgba(46, 145, 63, 0.06) 48%, transparent 70%);
+      filter: blur(16px);
+      opacity: 0.9;
+    }
+
+    .app-phone-v3 {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 420px);
+      max-height: 760px;
+      object-fit: contain;
+      filter:
+        drop-shadow(0 34px 62px rgba(0, 0, 0, 0.16))
+        drop-shadow(0 8px 20px rgba(0, 0, 0, 0.08));
+    }
+
+    .app-features-section-v3 {
+      padding: 0 0.75rem 0.75rem;
+      background: #ffffff;
+    }
+
+    .app-features-grid-v3 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .app-feature-tile-v3 {
+      min-height: clamp(420px, 42vw, 620px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: clamp(1.25rem, 3vw, 2.4rem);
+      background: #f5f5f7;
+      overflow: hidden;
+    }
+
+    .app-feature-tile-v3 h3 {
+      max-width: 560px;
+      color: var(--text);
+      font-size: clamp(2.3rem, 4vw, 4.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.064em;
+      font-weight: 790;
+      text-wrap: balance;
+    }
+
+    .app-feature-tile-v3 p {
+      max-width: 560px;
+      margin-top: 0.9rem;
+      color: var(--text-soft);
+      font-size: clamp(1rem, 1.22vw, 1.12rem);
+      line-height: 1.5;
+      letter-spacing: -0.014em;
+      text-wrap: balance;
+    }
+
+    .app-feature-number-v3 {
+      width: fit-content;
+      margin-bottom: auto;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .app-flow-section-v3 {
+      padding: 0 0.75rem 0.75rem;
+      background: #ffffff;
+    }
+
+    .app-flow-panel-v3 {
+      min-height: clamp(540px, 68vh, 760px);
+      display: grid;
+      align-content: center;
+      padding: clamp(3.5rem, 6vw, 6rem) clamp(1.25rem, 4vw, 4rem);
+      background: #f5f5f7;
+    }
+
+    .app-flow-head-v3 {
+      max-width: 880px;
+      margin-bottom: clamp(2.2rem, 4vw, 3.4rem);
+    }
+
+    .app-flow-head-v3 h2 {
+      color: var(--text);
+      font-size: clamp(2.7rem, 5vw, 5.2rem);
+      line-height: 0.94;
+      letter-spacing: -0.068em;
+      font-weight: 790;
+      text-wrap: balance;
+    }
+
+    .app-flow-head-v3 p {
+      max-width: 680px;
+      margin-top: 1rem;
+      color: var(--text-soft);
+      font-size: clamp(1.02rem, 1.28vw, 1.16rem);
+      line-height: 1.52;
+      letter-spacing: -0.016em;
+      text-wrap: balance;
+    }
+
+    .app-flow-list-v3 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .app-flow-item-v3 {
+      min-height: 250px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: clamp(1.25rem, 2vw, 1.65rem);
-      border-radius: var(--card-radius);
+      padding: 1.05rem;
+      border-radius: 14px;
       background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-      box-shadow: none;
     }
 
-    .app-feature-number {
-      width: fit-content;
-      margin-bottom: 2.4rem;
+    .app-flow-item-v3 span {
       color: var(--nf-green);
       font-size: 0.78rem;
-      font-weight: 860;
-      letter-spacing: 0.06em;
-    }
-
-    .app-feature-card h3 {
-      color: var(--text);
-      font-size: clamp(1.85rem, 2.65vw, 2.65rem);
-      line-height: 1;
-      letter-spacing: -0.052em;
-      font-weight: 790;
-      text-wrap: balance;
-    }
-
-    .app-feature-card p {
-      margin-top: 0.85rem;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.52;
-      letter-spacing: -0.012em;
-    }
-
-    .app-flow-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 0.88fr) minmax(340px, 0.72fr);
-      gap: clamp(1.25rem, 4vw, 4rem);
-      align-items: center;
-      padding: clamp(1.35rem, 3vw, 2.2rem);
-    }
-
-    .app-flow-copy h2 {
-      color: var(--text);
-      font-size: clamp(2.35rem, 4.4vw, 4.8rem);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
-      font-weight: 790;
-      text-wrap: balance;
-    }
-
-    .app-flow-copy > p {
-      max-width: 650px;
-      margin-top: 1rem;
-      color: var(--text-soft);
-      font-size: 1.05rem;
-      line-height: 1.55;
-      letter-spacing: -0.012em;
-    }
-
-    .app-flow-list {
-      display: grid;
-      gap: 0.72rem;
-      margin-top: 1.9rem;
-    }
-
-    .app-flow-item {
-      display: grid;
-      grid-template-columns: 38px 1fr;
-      gap: 0.92rem;
-      align-items: start;
-      padding: 1rem;
-      border-radius: var(--card-radius);
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.045);
-    }
-
-    .app-flow-dot {
-      width: 38px;
-      height: 38px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      color: #ffffff;
-      background: linear-gradient(180deg, var(--nf-green-light), var(--nf-green));
-      box-shadow: 0 10px 22px rgba(46, 145, 63, 0.18);
-      font-size: 0.86rem;
       font-weight: 850;
+      letter-spacing: 0.05em;
     }
 
-    .app-flow-item strong {
-      display: block;
+    .app-flow-item-v3 h3 {
+      margin-top: 2.8rem;
       color: var(--text);
-      font-size: 1.04rem;
-      line-height: 1.25;
-      letter-spacing: -0.018em;
-      font-weight: 780;
-    }
-
-    .app-flow-item span:not(.app-flow-dot) {
-      display: block;
-      margin-top: 0.28rem;
-      color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.46;
-      letter-spacing: -0.01em;
-    }
-
-    .app-flow-visual {
-      min-height: 520px;
-      display: grid;
-      place-items: center;
-      position: relative;
-    }
-
-    .app-flow-visual img {
-      position: relative;
-      z-index: 1;
-      width: min(82%, 400px);
-      max-height: 600px;
-      object-fit: contain;
-      filter:
-        drop-shadow(0 34px 68px rgba(0, 0, 0, 0.16))
-        drop-shadow(0 8px 18px rgba(0, 0, 0, 0.08));
-    }
-
-    .app-final-copy {
-      min-height: clamp(440px, 54vh, 640px);
-      display: grid;
-      place-items: center;
-      align-content: center;
-      padding: clamp(3.8rem, 6vw, 6rem) 1.5rem;
-      text-align: center;
-    }
-
-    .app-final-copy h2 {
-      color: var(--text);
-      font-size: clamp(2.8rem, 5.8vw, 6rem);
-      line-height: 0.93;
-      letter-spacing: -0.066em;
+      font-size: clamp(1.35rem, 2vw, 1.9rem);
+      line-height: 1.02;
+      letter-spacing: -0.046em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .app-final-copy .app-store-row-clean {
-      justify-content: center;
+    .app-flow-item-v3 p {
+      margin-top: 0.75rem;
+      color: var(--text-soft);
+      font-size: 0.96rem;
+      line-height: 1.45;
+      letter-spacing: -0.012em;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .store-badge-clean,
-      .store-badge-clean:hover {
-        transform: none;
-      }
+    .app-final-section-v3 {
+      padding: 0 0.75rem 0.75rem;
+      background: #ffffff;
     }
 
-    @media (max-width: 1100px) {
-      .app-hero-grid,
-      .app-flow-shell {
+    .app-final-panel-v3 {
+      min-height: clamp(520px, 66vh, 760px);
+      display: grid;
+      place-items: center;
+      padding: clamp(4rem, 7vw, 7rem) 1.25rem;
+      text-align: center;
+      background: #f5f5f7;
+    }
+
+    .app-final-panel-v3 h2 {
+      max-width: 900px;
+      margin-inline: auto;
+      color: var(--text);
+      font-size: clamp(2.8rem, 5.5vw, 5.8rem);
+      line-height: 0.93;
+      letter-spacing: -0.07em;
+      font-weight: 790;
+      text-wrap: balance;
+    }
+
+    .app-final-panel-v3 p {
+      max-width: 680px;
+      margin: 1rem auto 0;
+      color: var(--text-soft);
+      font-size: clamp(1.02rem, 1.28vw, 1.16rem);
+      line-height: 1.5;
+      letter-spacing: -0.016em;
+      text-wrap: balance;
+    }
+
+    @media (max-width: 980px) {
+      .app-preview-panel-v3 {
         grid-template-columns: 1fr;
         text-align: center;
       }
 
-      .app-hero-copy,
-      .app-flow-copy {
+      .app-preview-copy-v3 {
         margin-inline: auto;
       }
 
-      .app-flow-copy > p {
-        margin-left: auto;
-        margin-right: auto;
+      .app-preview-copy-v3 p {
+        margin-inline: auto;
       }
 
-      .app-store-row-clean {
+      .app-preview-links-v3 {
         justify-content: center;
       }
 
-      .app-hero-visual {
-        min-height: 540px;
+      .app-phone-stage-v3 {
+        min-height: 520px;
       }
 
-      .app-phone {
-        width: min(70vw, 440px);
+      .app-phone-v3 {
+        width: min(88vw, 390px);
       }
 
-      .app-feature-grid {
-        grid-template-columns: 1fr;
-        max-width: 680px;
-        margin-inline: auto;
-      }
-
-      .app-feature-card {
-        min-height: 260px;
+      .app-flow-list-v3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    @media (max-width: 768px) {
-      .app-hero {
-        min-height: auto;
-        padding: 5rem 0 0.8rem;
-        align-items: start;
-        overflow: hidden;
-        background: #ffffff;
+    @media (max-width: 720px) {
+      .app-hero-v3 {
+        padding-top: max(8.6rem, 15vh);
       }
 
-      .app-hero-grid {
-        gap: 0.65rem;
+      .app-hero-v3 h1 {
+        max-width: 10ch;
+        font-size: clamp(2.8rem, 12vw, 4.3rem);
+        line-height: 0.94;
       }
 
-      .app-hero-copy {
-        text-align: center;
+      .app-hero-v3 p:not(.eyebrow) {
+        max-width: 34ch;
+        font-size: 1rem;
       }
 
-      .app-hero-title {
-        max-width: 9.5ch;
+      .app-store-row-v3 {
+        width: min(100%, 320px);
         margin-inline: auto;
-        font-size: clamp(2.72rem, 12.8vw, 4.35rem);
-        line-height: 0.93;
-        letter-spacing: -0.056em;
       }
 
-      .app-hero-title br {
-        display: none;
-      }
-
-      .app-store-row-clean {
-        width: min(100%, 430px);
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.62rem;
-        margin: 1.35rem auto 0;
-      }
-
-      .store-badge-clean {
+      .store-button-v3 {
         width: 100%;
-        min-width: 0;
-        min-height: 50px;
-        margin-inline: 0;
-        padding: 0.58rem 0.7rem;
-        border-radius: 14px;
-        gap: 0.52rem;
+        justify-content: flex-start;
       }
 
-      .store-badge-clean-icon {
-        width: 22px;
-        flex-basis: 22px;
-        font-size: 1.16rem;
+      .app-preview-section-v3,
+      .app-features-section-v3,
+      .app-flow-section-v3,
+      .app-final-section-v3 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-bottom: 0.5rem;
       }
 
-      .store-badge-clean-icon svg {
-        width: 18px;
-        height: 18px;
+      .app-preview-panel-v3 {
+        min-height: auto;
+        padding: 4rem 1rem;
+        gap: 2.4rem;
       }
 
-      .store-badge-clean-small {
-        font-size: 0.58rem;
+      .app-preview-copy-v3 h2,
+      .app-flow-head-v3 h2,
+      .app-final-panel-v3 h2 {
+        font-size: clamp(2.35rem, 11vw, 3.75rem);
       }
 
-      .store-badge-clean-big {
-        font-size: 0.88rem;
+      .app-preview-copy-v3 p,
+      .app-flow-head-v3 p,
+      .app-final-panel-v3 p {
+        max-width: 34ch;
+        font-size: 1rem;
       }
 
-      .app-hero-visual {
-        min-height: 355px;
-        margin-top: 1.2rem;
-        overflow: visible;
-        align-items: start;
-      }
-
-      .app-phone {
-        width: min(78vw, 310px);
-        transform: translateY(0);
-      }
-
-      .app-module-section {
-        padding: 0.65rem;
-      }
-
-      .app-module-section + .app-module-section {
-        padding-top: 0;
-      }
-
-      .app-feature-shell {
-        padding: 3.2rem 1rem;
-      }
-
-      .app-section-title,
-      .app-flow-copy h2 {
-        font-size: clamp(2.25rem, 10vw, 3.55rem);
-      }
-
-      .app-section-intro {
-        margin-bottom: 2.2rem;
-      }
-
-      .app-flow-shell {
-        padding: 1.15rem;
-      }
-
-      .app-flow-list {
-        gap: 0.65rem;
-        margin-top: 1.5rem;
-        text-align: left;
-      }
-
-      .app-flow-item {
-        grid-template-columns: 36px 1fr;
-        gap: 0.82rem;
-        padding: 1rem;
-      }
-
-      .app-flow-dot {
-        width: 36px;
-        height: 36px;
-      }
-
-      .app-flow-visual {
+      .app-phone-stage-v3 {
         min-height: 430px;
       }
 
-      .app-flow-visual img {
-        width: min(88vw, 330px);
+      .app-phone-v3 {
+        width: min(90vw, 320px);
       }
 
-      .app-final-copy {
-        min-height: 460px;
-        padding: 4.8rem 1rem;
+      .app-features-grid-v3,
+      .app-flow-list-v3 {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
       }
 
-      .app-final-copy h2 {
-        font-size: clamp(2.55rem, 12vw, 4.1rem);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .app-hero {
-        padding-top: 4.5rem;
+      .app-feature-tile-v3 {
+        min-height: 390px;
+        padding: 1rem;
       }
 
-      .app-hero-title {
-        font-size: clamp(2.58rem, 12.4vw, 3.9rem);
+      .app-feature-tile-v3 h3 {
+        font-size: clamp(2.2rem, 10vw, 3.35rem);
       }
 
-      .app-store-row-clean {
-        width: min(100%, 395px);
-        gap: 0.55rem;
+      .app-flow-panel-v3 {
+        padding: 4rem 1rem;
       }
 
-      .store-badge-clean {
-        min-height: 48px;
-        padding: 0.55rem 0.62rem;
+      .app-flow-item-v3 {
+        min-height: 220px;
       }
 
-      .store-badge-clean-icon {
-        width: 20px;
-        flex-basis: 20px;
-        font-size: 1.05rem;
-      }
-
-      .store-badge-clean-icon svg {
-        width: 17px;
-        height: 17px;
-      }
-
-      .store-badge-clean-small {
-        font-size: 0.54rem;
-      }
-
-      .store-badge-clean-big {
-        font-size: 0.8rem;
-      }
-
-      .app-hero-visual {
-        min-height: 350px;
-        margin-top: 1.1rem;
-      }
-
-      .app-phone {
-        width: min(78vw, 295px);
-      }
-
-      .app-module-section {
-        padding: 0.5rem;
-      }
-
-      .app-feature-shell {
-        padding: 2.8rem 0.82rem;
-      }
-
-      .app-feature-card {
-        min-height: 240px;
+      .app-final-panel-v3 {
+        min-height: 480px;
+        padding: 4rem 1rem;
       }
     }
   </style>
@@ -613,188 +548,193 @@
 <body>
   <div data-header></div>
 
-  <main class="app-page">
-    <section class="app-hero" aria-labelledby="app-page-title">
-      <div class="container app-hero-grid">
-        <div class="app-hero-copy">
-          <p class="eyebrow">Nordkern Fitness App</p>
+  <main class="app-page-v3">
+    <section class="app-hero-v3" aria-labelledby="app-page-title">
+      <div class="app-hero-inner-v3">
+        <div class="app-icon-v3" aria-hidden="true">
+          <img src="images/app-logo.png" alt="" />
+        </div>
 
-          <h1 class="app-hero-title" id="app-page-title">
-            Dein Zugang.<br />
-            Alles in <span>einer App.</span>
-          </h1>
+        <p class="eyebrow">Nordkern Fitness App</p>
 
-          <div class="app-store-row-clean" aria-label="Nordkern Fitness App suchen">
-            <a class="store-badge-clean store-badge-clean-dark" href="https://search.itunes.apple.com/WebObjects/MZSearch.woa/wa/search?media=software&term=Nordkern%20Fitness" target="_blank" rel="noopener noreferrer" aria-label="Nordkern Fitness im App Store suchen, öffnet in neuem Tab">
-              <span class="store-badge-clean-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path d="M8.2 18.2 12 5.4l3.8 12.8M9.5 14.1h5M6.8 19.2h10.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-              </span>
+        <h1 id="app-page-title">Dein Studio in einer App.</h1>
 
-              <span class="store-badge-clean-text">
-                <span class="store-badge-clean-small">Suchen im</span>
-                <span class="store-badge-clean-big">App Store</span>
-              </span>
-            </a>
+        <p>
+          Mitgliedschaft buchen, Tagespass aktivieren, QR-Code öffnen,
+          Getränke verwalten und alles Wichtige an einem Ort behalten.
+        </p>
 
-            <a class="store-badge-clean store-badge-clean-light" href="https://play.google.com/store/search?q=Nordkern%20Fitness&c=apps" target="_blank" rel="noopener noreferrer" aria-label="Nordkern Fitness bei Google Play suchen, öffnet in neuem Tab">
-              <span class="store-badge-clean-icon" aria-hidden="true">▶</span>
+        <div class="app-store-row-v3" aria-label="App herunterladen">
+          <a href="#" class="store-button-v3 store-button-v3-dark" aria-label="Nordkern Fitness App im App Store öffnen">
+            <span class="store-symbol-v3" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M16.5 2.2c.1 1.1-.3 2.2-1.1 3-.8.9-2 1.5-3.1 1.4-.1-1.1.4-2.2 1.1-3 .8-.9 2-1.5 3.1-1.4Zm3.8 16.3c-.6 1.3-.9 1.9-1.7 3.1-1.1 1.6-2.6 3.5-4.5 3.5-1.7 0-2.1-1.1-4.4-1.1s-2.8 1.1-4.4 1.1c-1.9.1-3.3-1.7-4.4-3.3-2.4-3.5-2.6-7.7-1.2-9.9 1-1.6 2.6-2.5 4.1-2.5 1.6 0 2.6 1.1 4 1.1 1.3 0 2.1-1.1 4-1.1 1.4 0 2.9.8 3.9 2.1-3.4 1.9-2.8 6.7.6 7Z" transform="scale(.82) translate(2.6 -1)" />
+              </svg>
+            </span>
 
-              <span class="store-badge-clean-text">
-                <span class="store-badge-clean-small">Suchen bei</span>
-                <span class="store-badge-clean-big">Google Play</span>
-              </span>
-            </a>
+            <span class="store-text-v3">
+              <span class="store-small-v3">Laden im</span>
+              <span class="store-big-v3">App Store</span>
+            </span>
+          </a>
+
+          <a href="#" class="store-button-v3 store-button-v3-light" aria-label="Nordkern Fitness App bei Google Play öffnen">
+            <span class="store-symbol-v3" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M3.6 2.6c-.3.3-.5.8-.5 1.4v16c0 .6.2 1.1.5 1.4l9.4-9.4L3.6 2.6Zm10.4 8.4 2.5-2.5L5.3 2.2 14 11Zm2.5 4.5L14 13 5.3 21.8l11.2-6.3Zm1.1-.6 2.7-1.5c1-.6 1-1.9 0-2.5l-2.7-1.5-3 3 3 2.5Z" />
+              </svg>
+            </span>
+
+            <span class="store-text-v3">
+              <span class="store-small-v3">Bald bei</span>
+              <span class="store-big-v3">Google Play</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-preview-section-v3" aria-labelledby="app-preview-title">
+      <div class="app-preview-panel-v3">
+        <div class="app-preview-copy-v3">
+          <p class="eyebrow">Digitaler Zugang</p>
+
+          <h2 id="app-preview-title">Öffnen. Scannen. Trainieren.</h2>
+
+          <p>
+            Dein QR-Code ist dein Schlüssel fürs Studio. Du findest ihn direkt in der App —
+            zusammen mit deiner Mitgliedschaft, deinem Tagespass und deinen Kontingenten.
+          </p>
+
+          <div class="app-preview-links-v3">
+            <a href="mitgliedschaften.html">Tarife ansehen</a>
+            <a href="standorte.html">Standort ansehen</a>
           </div>
         </div>
 
-        <div class="app-hero-visual" aria-hidden="true">
-          <img src="images/app-screen.png" alt="" class="app-phone" />
+        <div class="app-phone-stage-v3" aria-hidden="true">
+          <div class="app-phone-glow-v3"></div>
+          <img class="app-phone-v3" src="images/App-Screen.png" alt="" />
         </div>
       </div>
     </section>
 
-    <section class="app-module-section" aria-labelledby="app-features-title">
-      <div class="app-feature-shell">
-        <div class="app-section-intro">
-          <p class="eyebrow">Funktionen</p>
-
-          <h2 class="app-section-title" id="app-features-title">
-            Alles für dein Studio-Erlebnis.
-          </h2>
-
-          <p>
-            Die App verbindet Zugang, Tarif, Tagespass und Getränkeautomat an einem Ort.
-            So bleibt dein Training klar, digital und ohne unnötigen Papierkram.
-          </p>
-        </div>
-
-        <div class="app-feature-grid">
-          <article class="app-feature-card">
-            <div>
-              <span class="app-feature-number">01</span>
-
-              <h3>QR-Code für Studio und Automat.</h3>
-
-              <p>
-                Dein QR-Code dient für den Studio-Zutritt und später auch für den Getränkeautomaten.
-                Öffnen, scannen und dein Konto wird automatisch erkannt.
-              </p>
-            </div>
-          </article>
-
-          <article class="app-feature-card">
-            <div>
-              <span class="app-feature-number">02</span>
-
-              <h3>Tarif und Kontingente im Blick.</h3>
-
-              <p>
-                Du siehst deinen Tarif, deinen Zugang und verfügbare Extras wie Freigetränke,
-                Getränkengrößen oder Kreatin-Auswahlen übersichtlich in deinem App-Konto.
-              </p>
-            </div>
-          </article>
-
-          <article class="app-feature-card">
-            <div>
-              <span class="app-feature-number">03</span>
-
-              <h3>Tagespass ohne Mitgliedschaft.</h3>
-
-              <p>
-                Bereite deinen Tagespass digital vor, aktiviere ihn erst beim Eintritt
-                und teste Nordkern Fitness für 24 Stunden ohne laufenden Vertrag.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="app-module-section" aria-labelledby="app-flow-title">
-      <div class="app-flow-shell">
-        <div class="app-flow-copy">
-          <p class="eyebrow">Ablauf</p>
-
-          <h2 id="app-flow-title">
-            Buchen. Einchecken. Einlösen.
-          </h2>
-
-          <p>
-            Nordkern Fitness soll ruhig und klar funktionieren. Du bereitest deinen Zugang digital vor,
-            kommst per QR-Code ins Studio und behältst deine Extras direkt in der App im Blick.
-          </p>
-
-          <div class="app-flow-list" aria-label="Ablauf in der Nordkern Fitness App">
-            <div class="app-flow-item">
-              <span class="app-flow-dot" aria-hidden="true">1</span>
-
-              <div>
-                <strong>Tarif oder Tagespass wählen</strong>
-                <span>
-                  Wähle Basic, Plus, Pro oder einen Tagespass. Preise, Laufzeiten und enthaltene Leistungen werden vor der Buchung klar angezeigt.
-                </span>
-              </div>
-            </div>
-
-            <div class="app-flow-item">
-              <span class="app-flow-dot" aria-hidden="true">2</span>
-
-              <div>
-                <strong>QR-Code am Eingang nutzen</strong>
-                <span>
-                  Beim Studioeingang öffnest du deinen QR-Code in der App. Dein Zugang wird geprüft und du kannst direkt ins Training.
-                </span>
-              </div>
-            </div>
-
-            <div class="app-flow-item">
-              <span class="app-flow-dot" aria-hidden="true">3</span>
-
-              <div>
-                <strong>Freigetränke und Extras einlösen</strong>
-                <span>
-                  Am Getränkeautomaten erkennt dein App-Konto verfügbare Freigetränke, Größen und Kreatin-Auswahlen. Verbrauchte Kontingente werden automatisch abgezogen.
-                </span>
-              </div>
-            </div>
+    <section class="app-features-section-v3" aria-label="Funktionen der Nordkern Fitness App">
+      <div class="app-features-grid-v3">
+        <article class="app-feature-tile-v3">
+          <span class="app-feature-number-v3">Mitgliedschaft</span>
+          <div>
+            <h3>Tarif buchen und verwalten.</h3>
+            <p>
+              Basic, Plus oder Pro in der App auswählen, Zahlungsart hinterlegen
+              und deine Mitgliedschaft digital verwalten.
+            </p>
           </div>
+        </article>
+
+        <article class="app-feature-tile-v3">
+          <span class="app-feature-number-v3">Tagespass</span>
+          <div>
+            <h3>Einmal testen ohne Abo.</h3>
+            <p>
+              Der Tagespass wird in deinem Profil hinterlegt und startet erst,
+              wenn du ihn beim Betreten des Studios aktivierst.
+            </p>
+          </div>
+        </article>
+
+        <article class="app-feature-tile-v3">
+          <span class="app-feature-number-v3">Getränkeautomat</span>
+          <div>
+            <h3>Kontingente sauber einlösen.</h3>
+            <p>
+              Freigetränke, gekaufte Getränke und Kreatin-Auswahlen werden
+              über deinen QR-Code deinem App-Konto zugeordnet.
+            </p>
+          </div>
+        </article>
+
+        <article class="app-feature-tile-v3">
+          <span class="app-feature-number-v3">Konto</span>
+          <div>
+            <h3>Alles Wichtige an einem Ort.</h3>
+            <p>
+              Mitgliedschaft, Zahlungsdaten, Zugang, Tagespass und Kontingente:
+              übersichtlich, ruhig und ohne Papierkram.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="app-flow-section-v3" aria-labelledby="app-flow-title">
+      <div class="app-flow-panel-v3">
+        <div class="app-flow-head-v3">
+          <p class="eyebrow">So funktioniert es</p>
+
+          <h2 id="app-flow-title">Vom Download bis zum Training.</h2>
+
+          <p>
+            Die App soll den Studiozugang so einfach machen wie möglich.
+            Nicht mehr Schritte als nötig. Kein komplizierter Kram.
+          </p>
         </div>
 
-        <div class="app-flow-visual" aria-hidden="true">
-          <img src="images/app-screen.png" alt="" />
+        <div class="app-flow-list-v3">
+          <article class="app-flow-item-v3">
+            <span>01</span>
+            <div>
+              <h3>App laden</h3>
+              <p>Nordkern Fitness App öffnen und dein Konto anlegen.</p>
+            </div>
+          </article>
+
+          <article class="app-flow-item-v3">
+            <span>02</span>
+            <div>
+              <h3>Tarif wählen</h3>
+              <p>Mitgliedschaft oder Tagespass auswählen und digital buchen.</p>
+            </div>
+          </article>
+
+          <article class="app-flow-item-v3">
+            <span>03</span>
+            <div>
+              <h3>QR-Code öffnen</h3>
+              <p>Deinen persönlichen Code direkt in der App anzeigen.</p>
+            </div>
+          </article>
+
+          <article class="app-flow-item-v3">
+            <span>04</span>
+            <div>
+              <h3>Trainieren</h3>
+              <p>Studio betreten, trainieren und Getränke bei Bedarf einlösen.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="app-module-section" aria-labelledby="app-final-title">
-      <div class="app-final-copy">
+    <section class="app-final-section-v3" aria-labelledby="app-final-title">
+      <div class="app-final-panel-v3">
         <div>
-          <h2 id="app-final-title">Bereit, wenn du es bist.</h2>
+          <p class="eyebrow">Nordkern Fitness</p>
 
-          <div class="app-store-row-clean" aria-label="Nordkern Fitness App in Stores suchen">
-            <a class="store-badge-clean store-badge-clean-dark" href="https://search.itunes.apple.com/WebObjects/MZSearch.woa/wa/search?media=software&term=Nordkern%20Fitness" target="_blank" rel="noopener noreferrer" aria-label="Nordkern Fitness im App Store suchen, öffnet in neuem Tab">
-              <span class="store-badge-clean-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path d="M8.2 18.2 12 5.4l3.8 12.8M9.5 14.1h5M6.8 19.2h10.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-              </span>
+          <h2 id="app-final-title">Eine App, die Training einfacher macht.</h2>
 
-              <span class="store-badge-clean-text">
-                <span class="store-badge-clean-small">Suchen im</span>
-                <span class="store-badge-clean-big">App Store</span>
-              </span>
+          <p>
+            Der digitale Mittelpunkt für Zugang, Mitgliedschaft, Tagespass und Automat.
+            Entwickelt für ein ruhiges Studioerlebnis — nicht für Chaos.
+          </p>
+
+          <div class="product-actions">
+            <a href="mitgliedschaften.html" class="product-link product-link-primary">
+              Tarife ansehen
             </a>
 
-            <a class="store-badge-clean store-badge-clean-light" href="https://play.google.com/store/search?q=Nordkern%20Fitness&c=apps" target="_blank" rel="noopener noreferrer" aria-label="Nordkern Fitness bei Google Play suchen, öffnet in neuem Tab">
-              <span class="store-badge-clean-icon" aria-hidden="true">▶</span>
-
-              <span class="store-badge-clean-text">
-                <span class="store-badge-clean-small">Suchen bei</span>
-                <span class="store-badge-clean-big">Google Play</span>
-              </span>
+            <a href="kontakt.html" class="product-link product-link-secondary">
+              Kontakt öffnen
             </a>
           </div>
         </div>
