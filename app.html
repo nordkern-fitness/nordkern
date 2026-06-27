@@ -7,7 +7,7 @@
   <title>Nordkern Fitness – App</title>
   <meta
     name="description"
-    content="Die Nordkern Fitness App für Mitgliedschaft, Tagespass, QR-Code-Zutritt, Getränkeautomat und Verwaltung deines Trainingszugangs."
+    content="Die Nordkern Fitness App für Mitgliedschaft, Tagespass, Urlaubspass, QR-Code-Zutritt, Getränkeautomat und Verwaltung deines Trainingszugangs."
   />
 
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=3" />
@@ -67,7 +67,7 @@
     }
 
     .app-hero-v3 p:not(.eyebrow) {
-      max-width: 700px;
+      max-width: 720px;
       margin: 1rem auto 0;
       color: var(--text-soft);
       font-size: clamp(1.04rem, 1.26vw, 1.2rem);
@@ -294,6 +294,11 @@
       text-transform: uppercase;
     }
 
+    .app-feature-tile-v3-wide {
+      grid-column: 1 / -1;
+      min-height: clamp(360px, 34vw, 520px);
+    }
+
     .app-flow-section-v3 {
       padding: 0 0.75rem 0.75rem;
       background: #ffffff;
@@ -512,6 +517,10 @@
         padding: 1rem;
       }
 
+      .app-feature-tile-v3-wide {
+        grid-column: auto;
+      }
+
       .app-feature-tile-v3 h3 {
         font-size: clamp(2.2rem, 10vw, 3.35rem);
       }
@@ -547,7 +556,7 @@
         <h1 id="app-page-title">Dein Studio in einer App.</h1>
 
         <p>
-          Mitgliedschaft buchen, Tagespass aktivieren, QR-Code öffnen,
+          Mitgliedschaft buchen, Tagespass oder Urlaubspass aktivieren, QR-Code öffnen,
           Getränke verwalten und alles Wichtige an einem Ort behalten.
         </p>
 
@@ -578,7 +587,7 @@
 
           <p>
             Dein QR-Code ist dein Schlüssel fürs Studio. Du findest ihn direkt in der App —
-            zusammen mit deiner Mitgliedschaft, deinem Tagespass und deinen Kontingenten.
+            zusammen mit deiner Mitgliedschaft, deinem Tagespass, deinem Urlaubspass und deinen Kontingenten.
           </p>
 
           <div class="app-preview-links-v3">
@@ -619,6 +628,17 @@
         </article>
 
         <article class="app-feature-tile-v3">
+          <span class="app-feature-number-v3">Urlaubspass</span>
+          <div>
+            <h3>Eine Woche Training ohne Vertrag.</h3>
+            <p>
+              Der Urlaubspass läuft 7 Tage, ist für kurze Aufenthalte gedacht
+              und endet automatisch — ohne Abo und ohne Verlängerung.
+            </p>
+          </div>
+        </article>
+
+        <article class="app-feature-tile-v3">
           <span class="app-feature-number-v3">Getränkeautomat</span>
           <div>
             <h3>Kontingente sauber einlösen.</h3>
@@ -629,12 +649,12 @@
           </div>
         </article>
 
-        <article class="app-feature-tile-v3">
+        <article class="app-feature-tile-v3 app-feature-tile-v3-wide">
           <span class="app-feature-number-v3">Konto</span>
           <div>
             <h3>Alles Wichtige an einem Ort.</h3>
             <p>
-              Mitgliedschaft, Zahlungsdaten, Zugang, Tagespass und Kontingente:
+              Mitgliedschaft, Zahlungsdaten, Zugang, Tagespass, Urlaubspass und Kontingente:
               übersichtlich, ruhig und ohne Papierkram.
             </p>
           </div>
@@ -668,7 +688,7 @@
             <span>02</span>
             <div>
               <h3>Tarif wählen</h3>
-              <p>Mitgliedschaft oder Tagespass auswählen und digital buchen.</p>
+              <p>Mitgliedschaft, Tagespass oder Urlaubspass auswählen und digital buchen.</p>
             </div>
           </article>
 
@@ -699,7 +719,7 @@
           <h2 id="app-final-title">Eine App, die Training einfacher macht.</h2>
 
           <p>
-            Der digitale Mittelpunkt für Zugang, Mitgliedschaft, Tagespass und Automat.
+            Der digitale Mittelpunkt für Zugang, Mitgliedschaft, Tagespass, Urlaubspass und Automat.
             Entwickelt für ein ruhiges Studioerlebnis — nicht für Chaos.
           </p>
 
@@ -708,7 +728,7 @@
               Tarife ansehen
             </a>
 
-            <a href="kontakt.html" class="product-link product-link-secondary">
+            <a href="kontakt.html#kontaktformular" class="product-link product-link-secondary">
               Kontakt öffnen
             </a>
           </div>
