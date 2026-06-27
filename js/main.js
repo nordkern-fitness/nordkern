@@ -13,6 +13,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     contactFormSlot: "[data-contact-form]",
     faqSlot: "[data-faq]",
 
+    tarifBasicSlot: "[data-tarif-basic]",
+    tarifPlusSlot: "[data-tarif-plus]",
+    tarifProSlot: "[data-tarif-pro]",
+    tarifTagespassSlot: "[data-tarif-tagespass]",
+    tarifUrlaubspassSlot: "[data-tarif-urlaubspass]",
+
     navLink: ".nav-link",
     siteHeaderInner: ".site-header-inner",
     burger: "#burger",
@@ -67,6 +73,26 @@ document.addEventListener("DOMContentLoaded", async () => {
     {
       selector: selectors.faqSlot,
       file: "components/faq.html"
+    },
+    {
+      selector: selectors.tarifBasicSlot,
+      file: "components/tarif-basic.html"
+    },
+    {
+      selector: selectors.tarifPlusSlot,
+      file: "components/tarif-plus.html"
+    },
+    {
+      selector: selectors.tarifProSlot,
+      file: "components/tarif-pro.html"
+    },
+    {
+      selector: selectors.tarifTagespassSlot,
+      file: "components/tarif-tagespass.html"
+    },
+    {
+      selector: selectors.tarifUrlaubspassSlot,
+      file: "components/tarif-urlaubspass.html"
     }
   ];
 
@@ -347,7 +373,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       tabs.style.setProperty("--active-width", `${button.offsetWidth}px`);
     };
 
-    const activatePlan = (plan) => {
+    const activatePlan = (plan, updateHash = false) => {
       const activeButton =
         tabButtons.find((button) => button.dataset.plan === plan) ||
         tabButtons[0];
@@ -368,11 +394,15 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
 
       moveIndicator(activeButton);
+
+      if (updateHash) {
+        window.history.pushState(null, "", `#${activeButton.dataset.plan}`);
+      }
     };
 
     tabButtons.forEach((button, index) => {
       button.addEventListener("click", () => {
-        activatePlan(button.dataset.plan);
+        activatePlan(button.dataset.plan, true);
       });
 
       button.addEventListener("keydown", (event) => {
@@ -404,7 +434,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (!nextButton) return;
 
         nextButton.focus();
-        activatePlan(nextButton.dataset.plan);
+        activatePlan(nextButton.dataset.plan, true);
       });
     });
 
@@ -413,13 +443,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       moveIndicator(activeButton);
     });
 
+    window.addEventListener("hashchange", () => {
+      const hashPlan = window.location.hash.replace("#", "");
+      const planExists = tabButtons.some((button) => button.dataset.plan === hashPlan);
+
+      if (planExists) {
+        activatePlan(hashPlan, false);
+      }
+    });
+
     const hashPlan = window.location.hash.replace("#", "");
     const firstPlan = tabButtons[0]?.dataset.plan || "basic";
     const initialPlan = tabButtons.some((button) => button.dataset.plan === hashPlan)
       ? hashPlan
       : firstPlan;
 
-    activatePlan(initialPlan);
+    activatePlan(initialPlan, false);
   };
 
   const setupPricingInfoModal = () => {
@@ -919,10 +958,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   const setupInitialHashScroll = () => {
     if (!window.location.hash) return;
 
-    const target = document.querySelector(window.location.hash);
+    const hash = window.location.hash;
+    const target = document.querySelector(hash);
+
     if (!target) return;
 
-    const hash = window.location.hash;
+    const isPricingPlanHash = document.querySelector(`${selectors.pricingTabButton}[data-plan="${hash.replace("#", "")}"]`);
+
+    if (isPricingPlanHash) return;
 
     window.setTimeout(() => {
       scrollToHashTarget(target, hash);
