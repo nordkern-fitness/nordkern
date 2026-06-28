@@ -18,229 +18,92 @@
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
-    .home-page-v4 {
+    .home-page-v5 {
       background: #ffffff;
     }
 
-    .home-hero-v4 {
-      padding: max(7.8rem, 12vh) 0.75rem 0.75rem;
+    .home-section-v5 {
+      padding: 0 0.75rem 0.75rem;
       background: #ffffff;
     }
 
-    .home-hero-panel-v4 {
-      position: relative;
-      min-height: clamp(720px, 84vh, 920px);
+    .home-hero-v5 {
+      padding: max(8rem, 12vh) 0.75rem 0.75rem;
+      background: #ffffff;
+    }
+
+    .home-hero-panel-v5 {
+      min-height: clamp(620px, 76vh, 820px);
       display: grid;
-      grid-template-rows: auto minmax(0, 1fr);
-      align-items: center;
+      align-items: end;
       overflow: hidden;
       background:
         radial-gradient(
-          ellipse 92% 58% at 50% -8%,
-          rgba(125, 226, 144, 0.68) 0%,
-          rgba(125, 226, 144, 0.48) 24%,
-          rgba(125, 226, 144, 0.22) 48%,
-          rgba(245, 245, 247, 0) 78%
-        ),
-        radial-gradient(
-          ellipse 70% 44% at 50% 24%,
-          rgba(46, 145, 63, 0.14) 0%,
-          rgba(46, 145, 63, 0.06) 48%,
-          rgba(245, 245, 247, 0) 80%
+          ellipse 82% 58% at 50% 0%,
+          rgba(125, 226, 144, 0.48) 0%,
+          rgba(125, 226, 144, 0.24) 36%,
+          rgba(245, 245, 247, 0) 76%
         ),
         #f5f5f7;
-      isolation: isolate;
     }
 
-    .home-hero-copy-v4 {
-      position: relative;
-      z-index: 3;
-      width: min(100% - 2rem, 1100px);
+    .home-hero-copy-v5 {
+      width: min(100% - 2rem, 1040px);
       margin: 0 auto;
-      padding: clamp(4.2rem, 7vw, 7rem) 0 clamp(2rem, 3.4vw, 3.4rem);
+      padding: clamp(4.2rem, 7vw, 7rem) 0 clamp(2.6rem, 4.4vw, 4.2rem);
       text-align: center;
     }
 
-    .home-hero-copy-v4 h1 {
-      max-width: 1050px;
+    .home-hero-copy-v5 h1 {
+      max-width: 980px;
       margin-inline: auto;
       color: var(--text);
-      font-size: clamp(3.65rem, 7.1vw, 7.6rem);
+      font-size: clamp(3.5rem, 6.8vw, 7.2rem);
       line-height: 0.9;
       letter-spacing: -0.082em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .home-hero-copy-v4 p:not(.eyebrow) {
-      max-width: 700px;
+    .home-hero-copy-v5 p:not(.eyebrow) {
+      max-width: 690px;
       margin: 1rem auto 0;
       color: var(--text-soft);
-      font-size: clamp(1.05rem, 1.28vw, 1.2rem);
+      font-size: clamp(1.04rem, 1.25vw, 1.18rem);
       line-height: 1.48;
       letter-spacing: -0.018em;
       text-wrap: balance;
     }
 
-    .home-hero-copy-v4 .product-actions {
+    .home-hero-copy-v5 .product-actions {
+      justify-content: center;
       margin-top: 1.45rem;
     }
 
-    .home-hero-visual-v4 {
-      position: relative;
-      z-index: 2;
-      width: min(100% - 2rem, 1180px);
-      min-height: clamp(360px, 42vw, 560px);
-      margin: 0 auto clamp(1rem, 1.8vw, 1.5rem);
-      overflow: hidden;
-      background: #111111;
-      box-shadow:
-        0 44px 110px rgba(0, 0, 0, 0.18),
-        0 1px 0 rgba(255, 255, 255, 0.26) inset;
-    }
-
-    .home-hero-visual-v4 img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transform: scale(1.012);
-    }
-
-    .home-hero-visual-v4::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(ellipse 64% 52% at 50% 18%, rgba(46, 145, 63, 0.14), transparent 66%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 28%),
-        linear-gradient(0deg, rgba(0, 0, 0, 0.34), transparent 46%);
-    }
-
-    .home-hero-floating-v4 {
-      position: absolute;
-      left: clamp(1rem, 2vw, 1.5rem);
-      right: clamp(1rem, 2vw, 1.5rem);
-      bottom: clamp(1rem, 2vw, 1.5rem);
-      z-index: 3;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 1rem;
-      pointer-events: none;
-    }
-
-    .home-hero-label-v4,
-    .home-hero-pill-v4 {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.42rem;
-      width: fit-content;
-      min-height: 38px;
-      padding: 0.62rem 0.82rem;
-      border-radius: 999px;
-      color: rgba(255, 255, 255, 0.9);
-      background: rgba(20, 22, 20, 0.42);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      backdrop-filter: blur(18px) saturate(150%);
-      -webkit-backdrop-filter: blur(18px) saturate(150%);
-      font-size: 0.72rem;
-      line-height: 1;
-      font-weight: 850;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.34);
-    }
-
-    .home-hero-label-v4::before {
-      content: "";
-      width: 0.38rem;
-      height: 0.38rem;
-      border-radius: 999px;
-      background: rgba(143, 211, 74, 0.96);
-      box-shadow: 0 0 16px rgba(143, 211, 74, 0.5);
-    }
-
-    .home-feature-strip-v4 {
-      padding: 0 0.75rem 0.75rem;
-      background: #ffffff;
-    }
-
-    .home-feature-grid-v4 {
+    .home-image-wall-v5 {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
       gap: 0.75rem;
     }
 
-    .home-feature-card-v4 {
-      min-height: 330px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: clamp(1.2rem, 2.8vw, 2.1rem);
-      background: #f5f5f7;
-      overflow: hidden;
-    }
-
-    .home-feature-card-v4 span {
-      margin-bottom: auto;
-      color: var(--muted);
-      font-size: 0.72rem;
-      font-weight: 850;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .home-feature-card-v4 h2 {
-      color: var(--text);
-      font-size: clamp(2.25rem, 4vw, 4.15rem);
-      line-height: 0.94;
-      letter-spacing: -0.07em;
-      font-weight: 790;
-      text-wrap: balance;
-    }
-
-    .home-feature-card-v4 p {
-      max-width: 420px;
-      margin-top: 0.8rem;
-      color: var(--text-soft);
-      font-size: 1rem;
-      line-height: 1.48;
-      letter-spacing: -0.014em;
-      text-wrap: balance;
-    }
-
-    .home-studio-v4,
-    .home-app-v4,
-    .home-tariffs-v4,
-    .home-final-v4 {
-      padding: 0 0.75rem 0.75rem;
-      background: #ffffff;
-    }
-
-    .home-studio-panel-v4 {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.55fr);
-      gap: 0.75rem;
-      align-items: stretch;
-    }
-
-    .home-studio-image-v4,
-    .home-studio-copy-v4 {
-      min-height: clamp(620px, 70vh, 820px);
-      overflow: hidden;
-      background: #f5f5f7;
-    }
-
-    .home-studio-image-v4 {
+    .home-image-tile-v5 {
       position: relative;
+      min-height: clamp(560px, 54vw, 760px);
+      overflow: hidden;
+      background: #f5f5f7;
       isolation: isolate;
     }
 
-    .home-studio-image-v4 img {
+    .home-image-stack-v5 {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .home-image-stack-v5 .home-image-tile-v5 {
+      min-height: clamp(274px, 26.65vw, 374px);
+    }
+
+    .home-image-tile-v5 img {
       position: absolute;
       inset: 0;
       z-index: 1;
@@ -248,52 +111,101 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      transform: scale(1.012);
+      transform: scale(1.01);
     }
 
-    .home-studio-image-v4::after {
+    .home-image-tile-v5::after {
       content: "";
       position: absolute;
       inset: 0;
       z-index: 2;
       pointer-events: none;
       background:
-        radial-gradient(ellipse 70% 46% at 50% 18%, rgba(46, 145, 63, 0.14), transparent 64%),
-        linear-gradient(0deg, rgba(0, 0, 0, 0.36), transparent 44%);
+        radial-gradient(ellipse 70% 46% at 50% 20%, rgba(46, 145, 63, 0.14), transparent 66%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 26%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.38), transparent 48%);
     }
 
-    .home-studio-copy-v4 {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: clamp(1.4rem, 3.6vw, 2.8rem);
+    .home-image-label-v5 {
+      position: absolute;
+      left: clamp(1rem, 2vw, 1.5rem);
+      bottom: clamp(1rem, 2vw, 1.5rem);
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.38rem;
+      min-height: 34px;
+      padding: 0.56rem 0.74rem;
+      border-radius: 999px;
+      color: rgba(255, 255, 255, 0.9);
+      background: rgba(16, 18, 16, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(18px) saturate(150%);
+      -webkit-backdrop-filter: blur(18px) saturate(150%);
+      font-size: 0.68rem;
+      line-height: 1;
+      font-weight: 850;
+      letter-spacing: 0.075em;
+      text-transform: uppercase;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.32);
+    }
+
+    .home-image-label-v5::before {
+      content: "";
+      width: 0.36rem;
+      height: 0.36rem;
+      border-radius: 999px;
+      background: rgba(143, 211, 74, 0.94);
+      box-shadow: 0 0 16px rgba(143, 211, 74, 0.46);
+    }
+
+    .home-feature-panel-v5 {
+      min-height: clamp(460px, 58vh, 640px);
+      display: grid;
+      place-items: center;
+      padding: clamp(4rem, 7vw, 7rem) 1.25rem;
+      text-align: center;
+      overflow: hidden;
       background:
         radial-gradient(
-          ellipse 92% 62% at 50% -10%,
-          rgba(125, 226, 144, 0.48) 0%,
-          rgba(125, 226, 144, 0.24) 34%,
-          rgba(245, 245, 247, 0) 72%
+          ellipse 88% 62% at 50% -14%,
+          rgba(125, 226, 144, 0.68) 0%,
+          rgba(125, 226, 144, 0.44) 26%,
+          rgba(125, 226, 144, 0.18) 52%,
+          rgba(245, 245, 247, 0) 84%
         ),
         #f5f5f7;
     }
 
-    .home-studio-copy-v4 h2,
-    .home-app-copy-v4 h2,
-    .home-tariffs-head-v4 h2,
-    .home-final-panel-v4 h2 {
+    .home-feature-content-v5 {
+      width: min(100%, 980px);
+      margin-inline: auto;
+    }
+
+    .home-feature-panel-v5 h2,
+    .home-studio-copy-v5 h2,
+    .home-app-copy-v5 h2,
+    .home-tariffs-head-v5 h2,
+    .home-final-panel-v5 h2 {
       color: var(--text);
-      font-size: clamp(2.8rem, 5.4vw, 5.65rem);
-      line-height: 0.93;
-      letter-spacing: -0.07em;
+      font-size: clamp(2.75rem, 5.4vw, 5.8rem);
+      line-height: 0.92;
+      letter-spacing: -0.074em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .home-studio-copy-v4 > p,
-    .home-app-copy-v4 > p,
-    .home-tariffs-head-v4 p,
-    .home-final-panel-v4 p {
-      max-width: 680px;
+    .home-feature-panel-v5 h2 {
+      max-width: 940px;
+      margin-inline: auto;
+    }
+
+    .home-feature-panel-v5 p:not(.eyebrow),
+    .home-studio-copy-v5 > p,
+    .home-app-copy-v5 > p,
+    .home-tariffs-head-v5 p,
+    .home-final-panel-v5 p {
+      max-width: 700px;
       margin-top: 1rem;
       color: var(--text-soft);
       font-size: clamp(1.03rem, 1.25vw, 1.16rem);
@@ -302,55 +214,73 @@
       text-wrap: balance;
     }
 
-    .home-studio-facts-v4 {
-      display: grid;
-      gap: 0.5rem;
-      margin-top: 1.6rem;
+    .home-feature-chips-v5 {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.55rem;
     }
 
-    .home-studio-fact-v4 {
-      display: grid;
-      grid-template-columns: minmax(6.5rem, 0.32fr) minmax(0, 1fr);
-      gap: 0.8rem;
-      align-items: baseline;
-      padding: 0.95rem 1rem;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(255, 255, 255, 0.68);
+    .home-feature-chip-v5 {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.62rem 0.94rem;
+      border-radius: 999px;
+      color: var(--nf-green-dark);
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(46, 145, 63, 0.14);
+      font-size: 0.88rem;
+      font-weight: 730;
+      letter-spacing: -0.012em;
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
     }
 
-    .home-studio-fact-v4 span {
-      color: var(--muted);
-      font-size: 0.72rem;
-      font-weight: 850;
-      letter-spacing: 0.055em;
-      text-transform: uppercase;
-    }
-
-    .home-studio-fact-v4 strong {
-      color: var(--text);
-      font-size: 0.98rem;
-      line-height: 1.35;
-      letter-spacing: -0.014em;
-      font-weight: 700;
-    }
-
-    .home-studio-copy-v4 .product-actions {
-      margin-top: 1.45rem;
-    }
-
-    .home-app-panel-v4 {
-      min-height: clamp(640px, 76vh, 900px);
+    .home-studio-panel-v5 {
       display: grid;
-      grid-template-columns: minmax(360px, 0.46fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.46fr);
       gap: 0.75rem;
       align-items: stretch;
-      background: #ffffff;
     }
 
-    .home-app-copy-v4 {
+    .home-studio-image-v5,
+    .home-studio-copy-v5 {
+      min-height: clamp(600px, 68vh, 820px);
+      overflow: hidden;
+      background: #f5f5f7;
+    }
+
+    .home-studio-image-v5 {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .home-studio-image-v5 img {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.01);
+    }
+
+    .home-studio-image-v5::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 72% 46% at 50% 20%, rgba(46, 145, 63, 0.12), transparent 66%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.34), transparent 46%);
+    }
+
+    .home-studio-copy-v5 {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -358,61 +288,67 @@
       background: #f5f5f7;
     }
 
-    .home-app-visual-v4 {
-      position: relative;
+    .home-studio-facts-v5 {
       display: grid;
-      place-items: center;
-      min-height: inherit;
-      padding: clamp(3rem, 6vw, 6rem) 1.25rem;
-      overflow: hidden;
-      background:
-        radial-gradient(
-          ellipse 86% 66% at 50% 6%,
-          rgba(125, 226, 144, 0.58) 0%,
-          rgba(125, 226, 144, 0.34) 28%,
-          rgba(125, 226, 144, 0.12) 58%,
-          rgba(245, 245, 247, 0) 82%
-        ),
-        #f5f5f7;
-      isolation: isolate;
+      gap: 0.5rem;
+      margin-top: 1.6rem;
     }
 
-    .home-app-phone-v4 {
-      position: relative;
-      z-index: 2;
-      width: min(72vw, 330px);
-      aspect-ratio: 0.52;
-      border-radius: 42px;
-      padding: 0.72rem;
-      background: #111111;
-      box-shadow:
-        0 44px 110px rgba(0, 0, 0, 0.22),
-        0 1px 0 rgba(255, 255, 255, 0.18) inset;
-      overflow: hidden;
-    }
-
-    .home-app-phone-v4::before {
-      content: "";
-      position: absolute;
-      top: 0.7rem;
-      left: 50%;
-      z-index: 4;
-      width: 34%;
-      height: 22px;
-      border-radius: 999px;
-      background: #050505;
-      transform: translateX(-50%);
-    }
-
-    .home-app-phone-v4 img {
-      width: 100%;
-      height: 100%;
-      border-radius: 32px;
-      object-fit: cover;
+    .home-studio-fact-v5 {
+      display: grid;
+      grid-template-columns: minmax(6.4rem, 0.34fr) minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: baseline;
+      padding: 0.95rem 1rem;
+      border-radius: 16px;
       background: #ffffff;
     }
 
-    .home-app-icon-v4 {
+    .home-studio-fact-v5 span {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.055em;
+      text-transform: uppercase;
+    }
+
+    .home-studio-fact-v5 strong {
+      color: var(--text);
+      font-size: 0.98rem;
+      line-height: 1.35;
+      letter-spacing: -0.014em;
+      font-weight: 700;
+    }
+
+    .home-studio-copy-v5 .product-actions,
+    .home-app-copy-v5 .product-actions,
+    .home-tariffs-panel-v5 .product-actions,
+    .home-final-panel-v5 .product-actions {
+      margin-top: 1.45rem;
+    }
+
+    .home-app-panel-v5 {
+      display: grid;
+      grid-template-columns: minmax(360px, 0.46fr) minmax(0, 1fr);
+      gap: 0.75rem;
+      align-items: stretch;
+    }
+
+    .home-app-copy-v5,
+    .home-app-visual-v5 {
+      min-height: clamp(600px, 68vh, 780px);
+      overflow: hidden;
+      background: #f5f5f7;
+    }
+
+    .home-app-copy-v5 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(1.4rem, 3.6vw, 2.8rem);
+    }
+
+    .home-app-icon-v5 {
       width: clamp(66px, 6vw, 96px);
       height: clamp(66px, 6vw, 96px);
       margin-bottom: 1.35rem;
@@ -422,19 +358,19 @@
       box-shadow: 0 18px 38px rgba(0, 0, 0, 0.14);
     }
 
-    .home-app-icon-v4 img {
+    .home-app-icon-v5 img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .home-app-features-v4 {
+    .home-app-features-v5 {
       display: grid;
       gap: 0.5rem;
       margin-top: 1.6rem;
     }
 
-    .home-app-feature-v4 {
+    .home-app-feature-v5 {
       display: grid;
       grid-template-columns: auto minmax(0, 1fr);
       gap: 0.78rem;
@@ -444,7 +380,7 @@
       background: #ffffff;
     }
 
-    .home-app-feature-v4 span {
+    .home-app-feature-v5 span {
       width: 2rem;
       height: 2rem;
       display: inline-flex;
@@ -457,7 +393,7 @@
       font-weight: 850;
     }
 
-    .home-app-feature-v4 strong {
+    .home-app-feature-v5 strong {
       color: var(--text);
       font-size: 0.98rem;
       line-height: 1.35;
@@ -465,22 +401,50 @@
       font-weight: 700;
     }
 
-    .home-app-copy-v4 .product-actions {
-      margin-top: 1.45rem;
+    .home-app-visual-v5 {
+      display: grid;
+      place-items: center;
+      padding: clamp(3rem, 6vw, 6rem) 1.25rem;
+      background:
+        radial-gradient(
+          ellipse 84% 64% at 50% 0%,
+          rgba(125, 226, 144, 0.58) 0%,
+          rgba(125, 226, 144, 0.34) 30%,
+          rgba(125, 226, 144, 0.11) 62%,
+          rgba(245, 245, 247, 0) 84%
+        ),
+        #f5f5f7;
     }
 
-    .home-tariffs-panel-v4 {
+    .home-app-screen-v5 {
+      width: min(100%, 460px);
+      display: grid;
+      justify-items: center;
+    }
+
+    .home-app-screen-v5 img {
+      width: min(100%, 380px);
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 34px 70px rgba(0, 0, 0, 0.2));
+    }
+
+    .home-tariffs-panel-v5 {
       padding: clamp(4rem, 7vw, 7rem) clamp(1rem, 3vw, 2.8rem);
       background: #f5f5f7;
     }
 
-    .home-tariffs-head-v4 {
+    .home-tariffs-head-v5 {
       max-width: 980px;
       margin: 0 auto clamp(2rem, 4vw, 3.2rem);
       text-align: center;
     }
 
-    .home-tariff-grid-v4 {
+    .home-tariffs-head-v5 p {
+      margin-inline: auto;
+    }
+
+    .home-tariff-grid-v5 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 0.75rem;
@@ -488,8 +452,8 @@
       margin-inline: auto;
     }
 
-    .home-tariff-card-v4 {
-      min-height: 360px;
+    .home-tariff-card-v5 {
+      min-height: 320px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -497,7 +461,7 @@
       background: #ffffff;
     }
 
-    .home-tariff-card-v4 span {
+    .home-tariff-card-v5 span {
       margin-bottom: auto;
       color: var(--nf-green-dark);
       font-size: 0.72rem;
@@ -506,16 +470,16 @@
       text-transform: uppercase;
     }
 
-    .home-tariff-card-v4 h3 {
+    .home-tariff-card-v5 h3 {
       color: var(--text);
-      font-size: clamp(2.1rem, 3.4vw, 3.6rem);
+      font-size: clamp(2.1rem, 3.35vw, 3.45rem);
       line-height: 0.94;
       letter-spacing: -0.066em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .home-tariff-card-v4 p {
+    .home-tariff-card-v5 p {
       margin-top: 0.8rem;
       color: var(--text-soft);
       font-size: 1rem;
@@ -524,211 +488,191 @@
       text-wrap: balance;
     }
 
-    .home-tariffs-panel-v4 .product-actions {
+    .home-tariffs-panel-v5 .product-actions,
+    .home-final-panel-v5 .product-actions {
       justify-content: center;
-      margin-top: 2rem;
     }
 
-    .home-final-panel-v4 {
-      min-height: clamp(500px, 62vh, 720px);
+    .home-final-panel-v5 {
+      min-height: clamp(460px, 58vh, 660px);
       display: grid;
       place-items: center;
       padding: clamp(4rem, 7vw, 7rem) 1.25rem;
       text-align: center;
       background:
         radial-gradient(
-          ellipse 90% 62% at 50% -14%,
-          rgba(125, 226, 144, 0.58) 0%,
-          rgba(125, 226, 144, 0.32) 30%,
-          rgba(245, 245, 247, 0) 76%
+          ellipse 88% 62% at 50% -16%,
+          rgba(125, 226, 144, 0.54) 0%,
+          rgba(125, 226, 144, 0.3) 34%,
+          rgba(245, 245, 247, 0) 78%
         ),
         #f5f5f7;
     }
 
-    .home-final-panel-v4 h2 {
-      max-width: 960px;
+    .home-final-panel-v5 h2 {
+      max-width: 940px;
       margin-inline: auto;
     }
 
-    .home-final-panel-v4 p {
+    .home-final-panel-v5 p {
       margin-inline: auto;
-    }
-
-    .home-final-panel-v4 .product-actions {
-      justify-content: center;
-      margin-top: 1.45rem;
     }
 
     @media (max-width: 1060px) {
-      .home-studio-panel-v4,
-      .home-app-panel-v4 {
+      .home-image-wall-v5,
+      .home-studio-panel-v5,
+      .home-app-panel-v5 {
         grid-template-columns: 1fr;
       }
 
-      .home-studio-image-v4,
-      .home-studio-copy-v4,
-      .home-app-copy-v4,
-      .home-app-visual-v4 {
+      .home-image-stack-v5 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .home-image-tile-v5,
+      .home-studio-image-v5,
+      .home-studio-copy-v5,
+      .home-app-copy-v5,
+      .home-app-visual-v5 {
         min-height: 520px;
       }
 
-      .home-app-copy-v4 {
-        order: 2;
-      }
-
-      .home-app-visual-v4 {
-        order: 1;
-      }
-
-      .home-tariff-grid-v4 {
+      .home-tariff-grid-v5 {
         grid-template-columns: 1fr;
       }
 
-      .home-tariff-card-v4 {
-        min-height: 300px;
+      .home-tariff-card-v5 {
+        min-height: 260px;
       }
     }
 
-    @media (max-width: 900px) {
-      .home-feature-grid-v4 {
-        grid-template-columns: 1fr;
-      }
-
-      .home-feature-card-v4 {
-        min-height: 280px;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .home-hero-v4 {
+    @media (max-width: 720px) {
+      .home-hero-v5 {
         padding: max(7.4rem, 12vh) 0.5rem 0.5rem;
       }
 
-      .home-hero-panel-v4 {
-        min-height: auto;
-      }
-
-      .home-hero-copy-v4 {
-        width: min(100% - 2rem, 1100px);
-        padding: 3.8rem 0 2rem;
-      }
-
-      .home-hero-copy-v4 h1 {
-        font-size: clamp(2.75rem, 13vw, 4rem);
-        line-height: 0.92;
-      }
-
-      .home-hero-copy-v4 p:not(.eyebrow) {
-        max-width: 34ch;
-        font-size: 1rem;
-      }
-
-      .home-hero-copy-v4 .product-actions,
-      .home-studio-copy-v4 .product-actions,
-      .home-app-copy-v4 .product-actions,
-      .home-tariffs-panel-v4 .product-actions,
-      .home-final-panel-v4 .product-actions {
-        width: min(100%, 320px);
-        margin-inline: auto;
-      }
-
-      .home-hero-copy-v4 .product-link,
-      .home-studio-copy-v4 .product-link,
-      .home-app-copy-v4 .product-link,
-      .home-tariffs-panel-v4 .product-link,
-      .home-final-panel-v4 .product-link {
-        width: 100%;
-      }
-
-      .home-hero-visual-v4 {
-        width: calc(100% - 1rem);
-        min-height: 360px;
-        margin-bottom: 0.5rem;
-      }
-
-      .home-hero-floating-v4 {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .home-feature-strip-v4,
-      .home-studio-v4,
-      .home-app-v4,
-      .home-tariffs-v4,
-      .home-final-v4 {
+      .home-section-v5 {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         padding-bottom: 0.5rem;
       }
 
-      .home-feature-grid-v4,
-      .home-studio-panel-v4,
-      .home-app-panel-v4,
-      .home-tariff-grid-v4 {
-        gap: 0.5rem;
+      .home-hero-panel-v5 {
+        min-height: auto;
       }
 
-      .home-feature-card-v4,
-      .home-studio-copy-v4,
-      .home-app-copy-v4 {
-        padding: 3.4rem 1rem;
-        text-align: center;
+      .home-hero-copy-v5 {
+        width: min(100% - 2rem, 1040px);
+        padding: 3.8rem 0 3rem;
       }
 
-      .home-feature-card-v4 h2,
-      .home-studio-copy-v4 h2,
-      .home-app-copy-v4 h2,
-      .home-tariffs-head-v4 h2,
-      .home-final-panel-v4 h2 {
-        font-size: clamp(2.35rem, 11vw, 3.7rem);
+      .home-hero-copy-v5 h1,
+      .home-feature-panel-v5 h2,
+      .home-studio-copy-v5 h2,
+      .home-app-copy-v5 h2,
+      .home-tariffs-head-v5 h2,
+      .home-final-panel-v5 h2 {
+        font-size: clamp(2.65rem, 12vw, 3.9rem);
+        line-height: 0.94;
       }
 
-      .home-studio-copy-v4 > p,
-      .home-app-copy-v4 > p,
-      .home-tariffs-head-v4 p,
-      .home-final-panel-v4 p {
+      .home-hero-copy-v5 p:not(.eyebrow),
+      .home-feature-panel-v5 p:not(.eyebrow),
+      .home-studio-copy-v5 > p,
+      .home-app-copy-v5 > p,
+      .home-tariffs-head-v5 p,
+      .home-final-panel-v5 p {
         max-width: 34ch;
         margin-inline: auto;
         font-size: 1rem;
       }
 
-      .home-studio-image-v4 {
-        min-height: 390px;
+      .home-hero-copy-v5 .product-actions,
+      .home-studio-copy-v5 .product-actions,
+      .home-app-copy-v5 .product-actions,
+      .home-tariffs-panel-v5 .product-actions,
+      .home-final-panel-v5 .product-actions {
+        width: min(100%, 320px);
+        margin-inline: auto;
       }
 
-      .home-studio-copy-v4,
-      .home-app-copy-v4,
-      .home-app-visual-v4 {
+      .home-hero-copy-v5 .product-link,
+      .home-studio-copy-v5 .product-link,
+      .home-app-copy-v5 .product-link,
+      .home-tariffs-panel-v5 .product-link,
+      .home-final-panel-v5 .product-link {
+        width: 100%;
+      }
+
+      .home-image-wall-v5,
+      .home-image-stack-v5,
+      .home-studio-panel-v5,
+      .home-app-panel-v5,
+      .home-tariff-grid-v5 {
+        gap: 0.5rem;
+      }
+
+      .home-image-stack-v5 {
+        grid-template-columns: 1fr;
+      }
+
+      .home-image-tile-v5,
+      .home-image-stack-v5 .home-image-tile-v5 {
+        min-height: 330px;
+      }
+
+      .home-feature-panel-v5,
+      .home-final-panel-v5 {
+        min-height: 460px;
+        padding: 4rem 1rem;
+      }
+
+      .home-feature-chips-v5 {
+        width: min(100%, 320px);
+        margin-inline: auto;
+      }
+
+      .home-feature-chip-v5 {
+        width: 100%;
+      }
+
+      .home-studio-image-v5 {
+        min-height: 360px;
+      }
+
+      .home-studio-copy-v5,
+      .home-app-copy-v5 {
         min-height: auto;
+        padding: 3.4rem 1rem;
+        text-align: center;
       }
 
-      .home-studio-fact-v4 {
+      .home-studio-fact-v5 {
         grid-template-columns: 1fr;
         gap: 0.18rem;
         text-align: left;
       }
 
-      .home-app-phone-v4 {
-        width: min(72vw, 270px);
-        border-radius: 36px;
+      .home-app-feature-v5 {
+        text-align: left;
       }
 
-      .home-app-phone-v4 img {
-        border-radius: 28px;
+      .home-app-visual-v5 {
+        min-height: 420px;
+        padding: 3rem 1rem;
       }
 
-      .home-tariffs-panel-v4 {
+      .home-app-screen-v5 img {
+        width: min(100%, 280px);
+      }
+
+      .home-tariffs-panel-v5 {
         padding: 4rem 1rem;
       }
 
-      .home-tariff-card-v4 {
-        min-height: 280px;
+      .home-tariff-card-v5 {
+        min-height: 260px;
         padding: 1rem;
-      }
-
-      .home-final-panel-v4 {
-        min-height: 480px;
-        padding: 4rem 1rem;
       }
     }
   </style>
@@ -737,10 +681,10 @@
 <body>
   <div data-header></div>
 
-  <main class="home-page-v4">
-    <section class="home-hero-v4" aria-labelledby="home-hero-title">
-      <div class="home-hero-panel-v4">
-        <div class="home-hero-copy-v4">
+  <main class="home-page-v5">
+    <section class="home-hero-v5" aria-labelledby="home-hero-title">
+      <div class="home-hero-panel-v5">
+        <div class="home-hero-copy-v5">
           <p class="eyebrow">Nordkern Fitness</p>
 
           <h1 id="home-hero-title">Für deinen Weg nach vorn.</h1>
@@ -764,65 +708,59 @@
             </a>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="home-hero-visual-v4" aria-hidden="true">
-          <img src="images/H1.png" alt="" />
+    <section class="home-section-v5" aria-label="Nordkern Fitness Studio Bilder">
+      <div class="home-image-wall-v5">
+        <article class="home-image-tile-v5">
+          <img src="images/H1.png" alt="" aria-hidden="true" />
+          <span class="home-image-label-v5">Studio Grevesmühlen</span>
+        </article>
 
-          <div class="home-hero-floating-v4">
-            <span class="home-hero-label-v4">Studio Grevesmühlen</span>
-            <span class="home-hero-pill-v4">24/7 · App · QR-Code</span>
+        <div class="home-image-stack-v5">
+          <article class="home-image-tile-v5">
+            <img src="images/H2.png" alt="" aria-hidden="true" />
+            <span class="home-image-label-v5">Training</span>
+          </article>
+
+          <article class="home-image-tile-v5">
+            <img src="images/H3.png" alt="" aria-hidden="true" />
+            <span class="home-image-label-v5">24/7 · App · QR-Code</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section-v5" aria-labelledby="home-feature-title">
+      <div class="home-feature-panel-v5">
+        <div class="home-feature-content-v5">
+          <p class="eyebrow">Ruhig. Digital. Klar.</p>
+
+          <h2 id="home-feature-title">Alles, was du brauchst. Ohne alles, was nervt.</h2>
+
+          <p>
+            Nordkern Fitness ist auf einen einfachen Studioalltag ausgelegt:
+            digital buchen, QR-Code öffnen, trainieren und weiterziehen.
+          </p>
+
+          <div class="home-feature-chips-v5" aria-label="Nordkern Vorteile">
+            <span class="home-feature-chip-v5">24/7 Zugang</span>
+            <span class="home-feature-chip-v5">App-Zutritt</span>
+            <span class="home-feature-chip-v5">Tagespass</span>
+            <span class="home-feature-chip-v5">Urlaubspass</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="home-feature-strip-v4" aria-label="Nordkern Fitness Merkmale">
-      <div class="home-feature-grid-v4">
-        <article class="home-feature-card-v4">
-          <span>01</span>
-
-          <div>
-            <h2>Ruhig trainieren.</h2>
-            <p>
-              Nordkern ist auf einen klaren Studioalltag ausgelegt:
-              sauber, reduziert und ohne unnötige Ablenkung.
-            </p>
-          </div>
+    <section class="home-section-v5" aria-labelledby="home-studio-title">
+      <div class="home-studio-panel-v5">
+        <article class="home-studio-image-v5" aria-hidden="true">
+          <img src="images/studio-grevesmuehlen.jpg" alt="" />
         </article>
 
-        <article class="home-feature-card-v4">
-          <span>02</span>
-
-          <div>
-            <h2>Digital öffnen.</h2>
-            <p>
-              Dein QR-Code in der App ist dein Zugang zum Studio und verbindet
-              auch den Getränkeautomaten mit deinem Konto.
-            </p>
-          </div>
-        </article>
-
-        <article class="home-feature-card-v4">
-          <span>03</span>
-
-          <div>
-            <h2>24/7 bereit.</h2>
-            <p>
-              Trainiere früh, spät oder zwischendurch. Mitgliedschaft, Tagespass
-              und Urlaubspass laufen digital.
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="home-studio-v4" aria-labelledby="home-studio-title">
-      <div class="home-studio-panel-v4">
-        <article class="home-studio-image-v4" aria-hidden="true">
-          <img src="images/H2.png" alt="" />
-        </article>
-
-        <article class="home-studio-copy-v4">
+        <article class="home-studio-copy-v5">
           <p class="eyebrow">Erster Standort</p>
 
           <h2 id="home-studio-title">Studio Grevesmühlen.</h2>
@@ -832,23 +770,23 @@
             digital zugänglich, klar strukturiert und auf ruhiges Training im Norden ausgelegt.
           </p>
 
-          <div class="home-studio-facts-v4" aria-label="Studio Fakten">
-            <div class="home-studio-fact-v4">
+          <div class="home-studio-facts-v5" aria-label="Studio Fakten">
+            <div class="home-studio-fact-v5">
               <span>Zugang</span>
               <strong>24/7 per Nordkern Fitness App und QR-Code</strong>
             </div>
 
-            <div class="home-studio-fact-v4">
+            <div class="home-studio-fact-v5">
               <span>Für wen</span>
               <strong>Mitglieder, Tagesgäste und kurze Aufenthalte in der Region</strong>
             </div>
 
-            <div class="home-studio-fact-v4">
+            <div class="home-studio-fact-v5">
               <span>Ausstattung</span>
               <strong>Trainingsfläche, Umkleiden, Toiletten, Waschbecken und Spinde</strong>
             </div>
 
-            <div class="home-studio-fact-v4">
+            <div class="home-studio-fact-v5">
               <span>Hinweis</span>
               <strong>Keine Duschen im Studio</strong>
             </div>
@@ -867,10 +805,10 @@
       </div>
     </section>
 
-    <section class="home-app-v4" aria-labelledby="home-app-title">
-      <div class="home-app-panel-v4">
-        <article class="home-app-copy-v4">
-          <div class="home-app-icon-v4" aria-hidden="true">
+    <section class="home-section-v5" aria-labelledby="home-app-title">
+      <div class="home-app-panel-v5">
+        <article class="home-app-copy-v5">
+          <div class="home-app-icon-v5" aria-hidden="true">
             <img src="images/app-logo.png" alt="" />
           </div>
 
@@ -879,22 +817,22 @@
           <h2 id="home-app-title">Buchen. Öffnen. Trainieren.</h2>
 
           <p>
-            Die App bündelt alles Wichtige: Mitgliedschaft, Tagespass, Urlaubspass,
+            Die App bündelt Mitgliedschaft, Tagespass, Urlaubspass,
             QR-Code-Zutritt und deine Kontingente am Getränkeautomaten.
           </p>
 
-          <div class="home-app-features-v4" aria-label="App Funktionen">
-            <div class="home-app-feature-v4">
+          <div class="home-app-features-v5" aria-label="App Funktionen">
+            <div class="home-app-feature-v5">
               <span>01</span>
               <strong>Tarif digital buchen und verwalten</strong>
             </div>
 
-            <div class="home-app-feature-v4">
+            <div class="home-app-feature-v5">
               <span>02</span>
               <strong>QR-Code öffnen und Studio betreten</strong>
             </div>
 
-            <div class="home-app-feature-v4">
+            <div class="home-app-feature-v5">
               <span>03</span>
               <strong>Freigetränke und Kreatin-Auswahlen nutzen</strong>
             </div>
@@ -911,29 +849,29 @@
           </div>
         </article>
 
-        <article class="home-app-visual-v4" aria-hidden="true">
-          <div class="home-app-phone-v4">
+        <article class="home-app-visual-v5" aria-hidden="true">
+          <div class="home-app-screen-v5">
             <img src="images/app-screen.png" alt="" />
           </div>
         </article>
       </div>
     </section>
 
-    <section class="home-tariffs-v4" aria-labelledby="home-tariffs-title">
-      <div class="home-tariffs-panel-v4">
-        <div class="home-tariffs-head-v4">
+    <section class="home-section-v5" aria-labelledby="home-tariffs-title">
+      <div class="home-tariffs-panel-v5">
+        <div class="home-tariffs-head-v5">
           <p class="eyebrow">Tarife</p>
 
           <h2 id="home-tariffs-title">Ein Zugang für jede Situation.</h2>
 
           <p>
             Ob regelmäßig, einmalig oder für eine Woche in der Region:
-            Nordkern Fitness bleibt klar, digital und einfach verständlich.
+            Nordkern bleibt klar, digital und einfach verständlich.
           </p>
         </div>
 
-        <div class="home-tariff-grid-v4">
-          <article class="home-tariff-card-v4">
+        <div class="home-tariff-grid-v5">
+          <article class="home-tariff-card-v5">
             <span>Mitgliedschaft</span>
 
             <div>
@@ -944,7 +882,7 @@
             </div>
           </article>
 
-          <article class="home-tariff-card-v4">
+          <article class="home-tariff-card-v5">
             <span>24 Stunden</span>
 
             <div>
@@ -955,7 +893,7 @@
             </div>
           </article>
 
-          <article class="home-tariff-card-v4">
+          <article class="home-tariff-card-v5">
             <span>7 Tage</span>
 
             <div>
@@ -975,8 +913,8 @@
       </div>
     </section>
 
-    <section class="home-final-v4" aria-labelledby="home-final-title">
-      <div class="home-final-panel-v4">
+    <section class="home-section-v5" aria-labelledby="home-final-title">
+      <div class="home-final-panel-v5">
         <div>
           <p class="eyebrow">Nordkern Fitness</p>
 
