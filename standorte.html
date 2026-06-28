@@ -23,53 +23,58 @@
     }
 
     .locations-hero-v3 {
-      min-height: 72vh;
+      min-height: 64vh;
       display: grid;
       place-items: center;
-      padding: max(8.4rem, 13vh) 1rem clamp(3.6rem, 5.6vw, 5.6rem);
+      padding: max(7.6rem, 12vh) 1rem clamp(2.8rem, 4.6vw, 4.8rem);
       text-align: center;
       background: #ffffff;
     }
 
     .locations-hero-inner-v3 {
-      width: min(100%, 980px);
+      width: min(100%, 1040px);
       margin-inline: auto;
     }
 
     .locations-hero-v3 h1 {
+      max-width: 980px;
+      margin-inline: auto;
       color: var(--text);
-      font-size: clamp(3.6rem, 6.5vw, 6.9rem);
-      line-height: 0.92;
-      letter-spacing: -0.074em;
+      font-size: clamp(3.5rem, 6.35vw, 6.8rem);
+      line-height: 0.91;
+      letter-spacing: -0.078em;
       font-weight: 790;
       text-wrap: balance;
     }
 
     .locations-hero-v3 p:not(.eyebrow) {
-      max-width: 720px;
+      max-width: 700px;
       margin: 1rem auto 0;
       color: var(--text-soft);
-      font-size: clamp(1.04rem, 1.26vw, 1.2rem);
+      font-size: clamp(1.04rem, 1.24vw, 1.18rem);
       line-height: 1.48;
       letter-spacing: -0.018em;
       text-wrap: balance;
     }
 
-    .location-showcase-section-v3 {
+    .location-showcase-section-v3,
+    .location-feature-section-v3,
+    .location-map-section-v3,
+    .location-future-section-v3 {
       padding: 0 0.75rem 0.75rem;
       background: #ffffff;
     }
 
     .location-showcase-v3 {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(340px, 0.42fr);
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.43fr);
       gap: 0.75rem;
       align-items: stretch;
     }
 
     .location-image-v3 {
       position: relative;
-      min-height: clamp(600px, 68vh, 820px);
+      min-height: clamp(620px, 70vh, 860px);
       overflow: hidden;
       background:
         linear-gradient(135deg, rgba(245, 245, 247, 0.92), rgba(230, 232, 235, 0.96)),
@@ -84,7 +89,7 @@
       top: clamp(1rem, 2vw, 1.5rem);
       z-index: 0;
       max-width: 28ch;
-      color: rgba(29, 29, 31, 0.32);
+      color: rgba(29, 29, 31, 0.3);
       font-size: 0.78rem;
       font-weight: 800;
       letter-spacing: 0.045em;
@@ -99,6 +104,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
+      transform: scale(1.01);
     }
 
     .location-image-v3 img[src=""],
@@ -113,8 +119,9 @@
       z-index: 2;
       pointer-events: none;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 24%),
-        linear-gradient(0deg, rgba(0, 0, 0, 0.28), transparent 42%);
+        radial-gradient(ellipse 72% 48% at 48% 18%, rgba(46, 145, 63, 0.16), transparent 62%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 24%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.46), transparent 48%);
     }
 
     .location-image-label-v3 {
@@ -125,7 +132,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      color: rgba(255, 255, 255, 0.82);
+      color: rgba(255, 255, 255, 0.86);
       font-size: 0.66rem;
       line-height: 1;
       font-weight: 800;
@@ -139,16 +146,26 @@
       width: 0.34rem;
       height: 0.34rem;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(143, 211, 74, 0.92);
+      box-shadow: 0 0 14px rgba(143, 211, 74, 0.44);
     }
 
     .location-info-v3 {
-      min-height: clamp(600px, 68vh, 820px);
+      position: relative;
+      min-height: clamp(620px, 70vh, 860px);
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: clamp(1.4rem, 3.6vw, 2.8rem);
-      background: #f5f5f7;
+      background:
+        radial-gradient(
+          ellipse 92% 62% at 54% -10%,
+          rgba(125, 226, 144, 0.46) 0%,
+          rgba(125, 226, 144, 0.22) 36%,
+          rgba(245, 245, 247, 0) 72%
+        ),
+        #f5f5f7;
+      overflow: hidden;
     }
 
     .location-status-v3 {
@@ -170,10 +187,11 @@
       height: 0.45rem;
       border-radius: 999px;
       background: var(--nf-green);
+      box-shadow: 0 0 18px rgba(46, 145, 63, 0.34);
     }
 
     .location-info-v3 h2 {
-      max-width: 520px;
+      max-width: 560px;
       color: var(--text);
       font-size: clamp(3rem, 5vw, 5.2rem);
       line-height: 0.93;
@@ -200,12 +218,16 @@
 
     .location-fact-v3 {
       display: grid;
-      grid-template-columns: minmax(7rem, 0.36fr) minmax(0, 1fr);
+      grid-template-columns: minmax(7rem, 0.34fr) minmax(0, 1fr);
       gap: 0.8rem;
       align-items: baseline;
       padding: 0.95rem 1rem;
-      border-radius: 14px;
-      background: #ffffff;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.66);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
 
     .location-fact-v3 span {
@@ -239,25 +261,29 @@
       border-radius: 999px;
       padding: 0.78rem 1.12rem;
       color: var(--text);
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(255, 255, 255, 0.72);
       font-size: 0.98rem;
       font-weight: 650;
       letter-spacing: -0.014em;
       transition:
         background-color var(--fast),
         color var(--fast),
-        transform var(--fast);
+        transform var(--fast),
+        border-color var(--fast);
     }
 
     .route-button-v3:hover,
     .route-button-v3:focus-visible {
-      background: #eeeeef;
+      background: #ffffff;
       transform: translateY(-1px);
     }
 
     .route-button-v3-primary {
       color: #ffffff;
       background: var(--nf-green);
+      border-color: rgba(46, 145, 63, 0.35);
+      box-shadow: 0 16px 34px rgba(46, 145, 63, 0.18);
     }
 
     .route-button-v3-primary:hover,
@@ -265,14 +291,87 @@
       background: var(--nf-green-dark);
     }
 
-    .location-map-section-v3 {
-      padding: 0 0.75rem 0.75rem;
-      background: #ffffff;
+    .location-feature-panel-v3 {
+      position: relative;
+      min-height: clamp(520px, 62vh, 720px);
+      display: grid;
+      place-items: center;
+      padding: clamp(4rem, 7vw, 7rem) 1.25rem;
+      text-align: center;
+      background:
+        radial-gradient(
+          ellipse 88% 64% at 50% -12%,
+          rgba(125, 226, 144, 0.72) 0%,
+          rgba(125, 226, 144, 0.52) 23%,
+          rgba(125, 226, 144, 0.25) 48%,
+          rgba(125, 226, 144, 0.08) 70%,
+          rgba(245, 245, 247, 0) 88%
+        ),
+        radial-gradient(
+          ellipse 72% 44% at 50% 24%,
+          rgba(46, 145, 63, 0.16) 0%,
+          rgba(46, 145, 63, 0.06) 52%,
+          rgba(245, 245, 247, 0) 82%
+        ),
+        #f5f5f7;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .location-feature-content-v3 {
+      width: min(100%, 980px);
+      margin-inline: auto;
+    }
+
+    .location-feature-panel-v3 h2 {
+      max-width: 920px;
+      margin-inline: auto;
+      color: var(--text);
+      font-size: clamp(2.8rem, 5.6vw, 6rem);
+      line-height: 0.92;
+      letter-spacing: -0.074em;
+      font-weight: 790;
+      text-wrap: balance;
+    }
+
+    .location-feature-panel-v3 p:not(.eyebrow) {
+      max-width: 720px;
+      margin: 1rem auto 0;
+      color: var(--text-soft);
+      font-size: clamp(1.04rem, 1.28vw, 1.18rem);
+      line-height: 1.5;
+      letter-spacing: -0.016em;
+      text-wrap: balance;
+    }
+
+    .location-feature-chips-v3 {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.55rem;
+    }
+
+    .location-feature-chip-v3 {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.62rem 0.92rem;
+      border-radius: 999px;
+      color: var(--nf-green-dark);
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(46, 145, 63, 0.14);
+      font-size: 0.88rem;
+      font-weight: 730;
+      letter-spacing: -0.012em;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
 
     .location-map-panel-v3 {
       display: grid;
-      grid-template-columns: minmax(0, 0.38fr) minmax(0, 1fr);
+      grid-template-columns: minmax(360px, 0.44fr) minmax(0, 1fr);
       gap: 0.75rem;
       align-items: stretch;
     }
@@ -284,12 +383,13 @@
       justify-content: center;
       padding: clamp(1.4rem, 3.6vw, 2.8rem);
       background: #f5f5f7;
+      overflow: hidden;
     }
 
     .location-map-copy-v3 h2 {
       max-width: 520px;
       color: var(--text);
-      font-size: clamp(2.5rem, 4.5vw, 4.8rem);
+      font-size: clamp(2.65rem, 4.1vw, 4.5rem);
       line-height: 0.94;
       letter-spacing: -0.068em;
       font-weight: 790;
@@ -297,10 +397,10 @@
     }
 
     .location-map-copy-v3 p {
-      max-width: 540px;
+      max-width: 500px;
       margin-top: 1rem;
       color: var(--text-soft);
-      font-size: clamp(1.02rem, 1.26vw, 1.14rem);
+      font-size: clamp(1.02rem, 1.2vw, 1.12rem);
       line-height: 1.5;
       letter-spacing: -0.016em;
       text-wrap: balance;
@@ -318,12 +418,7 @@
       min-height: inherit;
       border: 0;
       display: block;
-      filter: saturate(0.88) contrast(0.96);
-    }
-
-    .location-future-section-v3 {
-      padding: 0 0.75rem 0.75rem;
-      background: #ffffff;
+      filter: saturate(0.9) contrast(0.96);
     }
 
     .location-future-panel-v3 {
@@ -356,7 +451,7 @@
       text-wrap: balance;
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 1100px) {
       .location-showcase-v3,
       .location-map-panel-v3 {
         grid-template-columns: 1fr;
@@ -364,20 +459,24 @@
 
       .location-image-v3,
       .location-info-v3 {
-        min-height: 520px;
+        min-height: 560px;
       }
 
       .location-map-copy-v3,
       .location-map-frame-v3 {
         min-height: 430px;
       }
+
+      .location-map-copy-v3 h2 {
+        max-width: 760px;
+      }
     }
 
     @media (max-width: 720px) {
       .locations-hero-v3 {
-        min-height: 68vh;
-        padding-top: max(8.2rem, 14vh);
-        padding-bottom: 3.2rem;
+        min-height: 60vh;
+        padding-top: max(7.8rem, 13vh);
+        padding-bottom: 2.8rem;
       }
 
       .locations-hero-v3 h1 {
@@ -391,6 +490,7 @@
       }
 
       .location-showcase-section-v3,
+      .location-feature-section-v3,
       .location-map-section-v3,
       .location-future-section-v3 {
         padding-left: 0.5rem;
@@ -404,7 +504,11 @@
       }
 
       .location-image-v3 {
-        min-height: 380px;
+        min-height: 390px;
+      }
+
+      .location-image-v3 img {
+        object-position: center;
       }
 
       .location-info-v3,
@@ -415,12 +519,14 @@
 
       .location-info-v3 h2,
       .location-map-copy-v3 h2,
+      .location-feature-panel-v3 h2,
       .location-future-panel-v3 h2 {
         font-size: clamp(2.35rem, 11vw, 3.75rem);
       }
 
       .location-info-v3 > p,
       .location-map-copy-v3 p,
+      .location-feature-panel-v3 p:not(.eyebrow),
       .location-future-panel-v3 p {
         max-width: 34ch;
         font-size: 1rem;
@@ -436,6 +542,20 @@
       }
 
       .route-button-v3 {
+        width: 100%;
+      }
+
+      .location-feature-panel-v3 {
+        min-height: 480px;
+        padding: 4rem 1rem;
+      }
+
+      .location-feature-chips-v3 {
+        width: min(100%, 320px);
+        margin-inline: auto;
+      }
+
+      .location-feature-chip-v3 {
         width: 100%;
       }
 
@@ -462,8 +582,8 @@
         <h1 id="locations-page-title">Nordkern Fitness im Norden.</h1>
 
         <p>
-          Der erste aktive Standort entsteht in Grevesmühlen:
-          ruhig, digital, 24/7 zugänglich — für Mitgliedschaften, Tagespass und Urlaubspass.
+          Der erste Standort entsteht in Grevesmühlen: ruhig, digital und 24/7 zugänglich —
+          für Mitglieder, Tagesgäste und kurze Aufenthalte in der Region.
         </p>
       </div>
     </section>
@@ -471,7 +591,7 @@
     <section class="location-showcase-section-v3" aria-labelledby="location-gvm-title">
       <div class="location-showcase-v3">
         <article class="location-image-v3">
-          <img src="images/Studio-Grevesmühlen.jpg" alt="" aria-hidden="true" />
+          <img src="images/studio-grevesmuehlen.jpg" alt="" aria-hidden="true" />
           <span class="location-image-label-v3">Studio Grevesmühlen</span>
         </article>
 
@@ -482,8 +602,8 @@
 
           <p>
             Der erste Nordkern Fitness Standort liegt in Grevesmühlen.
-            Für Mitglieder, Tagesgäste und kurze Aufenthalte in der Nähe soll der Zugang digital
-            über die App laufen.
+            Der Zugang läuft digital über die App — mit Mitgliedschaft, Tagespass
+            oder Urlaubspass.
           </p>
 
           <div class="location-facts-v3" aria-label="Standortdetails">
@@ -499,7 +619,7 @@
 
             <div class="location-fact-v3">
               <span>Kurzzeit</span>
-              <strong>Tagespass und Urlaubspass über die App geplant</strong>
+              <strong>Tagespass und Urlaubspass über die App</strong>
             </div>
 
             <div class="location-fact-v3">
@@ -532,6 +652,29 @@
             </a>
           </div>
         </article>
+      </div>
+    </section>
+
+    <section class="location-feature-section-v3" aria-labelledby="location-feature-title">
+      <div class="location-feature-panel-v3">
+        <div class="location-feature-content-v3">
+          <p class="eyebrow">Digitaler Zugang</p>
+
+          <h2 id="location-feature-title">Ein Studio. Immer dann, wenn dein Tag passt.</h2>
+
+          <p>
+            Mitgliedschaft buchen, QR-Code öffnen, trainieren. Nordkern Fitness ist auf
+            einen ruhigen Ablauf ausgelegt — ohne Empfangstheke, ohne Papierkram,
+            ohne komplizierte Wege.
+          </p>
+
+          <div class="location-feature-chips-v3" aria-label="Nordkern Standortvorteile">
+            <span class="location-feature-chip-v3">24/7 Zugang</span>
+            <span class="location-feature-chip-v3">QR-Code per App</span>
+            <span class="location-feature-chip-v3">Tagespass</span>
+            <span class="location-feature-chip-v3">Urlaubspass</span>
+          </div>
+        </div>
       </div>
     </section>
 
