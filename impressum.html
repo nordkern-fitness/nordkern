@@ -373,11 +373,11 @@
       <div class="legal-hero-inner-v3">
         <p class="eyebrow">Rechtliches</p>
 
-        <h1 id="legal-page-title">Impressum. Datenschutz. AGB.</h1>
+        <h1 id="legal-page-title" data-legal-hero-title>Impressum.</h1>
 
-        <p>
-          Hier findest du die rechtlichen Informationen zu Nordkern Fitness.
-          Fehlende Betreiberangaben müssen vor der echten Veröffentlichung vollständig ergänzt werden.
+        <p data-legal-hero-text>
+          Angaben zum Anbieter von Nordkern Fitness. Fehlende Betreiberangaben müssen
+          vor der echten Veröffentlichung vollständig ergänzt werden.
         </p>
       </div>
     </section>
@@ -512,7 +512,7 @@
 
                   <div class="legal-info-line-v3">
                     <span>Formular</span>
-                    <a href="kontakt.html">Kontaktformular öffnen</a>
+                    <a href="kontakt.html#kontaktformular">Kontaktformular öffnen</a>
                   </div>
 
                   <div class="legal-info-line-v3">
@@ -938,5 +938,63 @@
   <div data-footer></div>
 
   <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const heroTitle = document.querySelector("[data-legal-hero-title]");
+      const heroText = document.querySelector("[data-legal-hero-text]");
+      const tabButtons = Array.from(document.querySelectorAll(".legal-tab-button"));
+
+      const heroContent = {
+        impressum: {
+          title: "Impressum.",
+          text: "Angaben zum Anbieter von Nordkern Fitness. Fehlende Betreiberangaben müssen vor der echten Veröffentlichung vollständig ergänzt werden."
+        },
+        datenschutz: {
+          title: "Datenschutz.",
+          text: "Informationen zur Verarbeitung personenbezogener Daten auf der Nordkern Fitness Website."
+        },
+        agb: {
+          title: "AGB.",
+          text: "Allgemeine Geschäftsbedingungen für Angebote von Nordkern Fitness. Der aktuelle Text ist ein Entwurf und muss vor echter Nutzung final geprüft werden."
+        }
+      };
+
+      const getActiveTab = () => {
+        const hash = window.location.hash.replace("#", "");
+
+        if (heroContent[hash]) {
+          return hash;
+        }
+
+        const activeButton = document.querySelector(".legal-tab-button.is-active");
+        const activeTab = activeButton?.dataset.tab;
+
+        return heroContent[activeTab] ? activeTab : "impressum";
+      };
+
+      const updateLegalHero = () => {
+        const activeTab = getActiveTab();
+        const content = heroContent[activeTab];
+
+        if (!heroTitle || !heroText || !content) return;
+
+        heroTitle.textContent = content.title;
+        heroText.textContent = content.text;
+      };
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          window.setTimeout(updateLegalHero, 0);
+        });
+      });
+
+      window.addEventListener("hashchange", () => {
+        window.setTimeout(updateLegalHero, 0);
+      });
+
+      window.setTimeout(updateLegalHero, 80);
+    });
+  </script>
 </body>
 </html>
