@@ -23,46 +23,53 @@
     }
 
     .home-hero-v3 {
-      min-height: 72vh;
+      min-height: 68vh;
       display: grid;
       place-items: center;
-      padding: max(8.4rem, 13vh) 1rem clamp(3.6rem, 5.6vw, 5.6rem);
+      padding: max(8rem, 12vh) 1rem clamp(3rem, 4.8vw, 4.8rem);
       text-align: center;
-      background: #ffffff;
+      background:
+        radial-gradient(
+          ellipse 78% 48% at 50% 0%,
+          rgba(46, 145, 63, 0.07) 0%,
+          rgba(46, 145, 63, 0.025) 42%,
+          rgba(255, 255, 255, 0) 74%
+        ),
+        #ffffff;
     }
 
     .home-hero-v3-inner {
-      width: min(100%, 1120px);
+      width: min(100%, 1040px);
       margin-inline: auto;
     }
 
     .home-hero-v3 .eyebrow {
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.72rem;
     }
 
     .home-hero-v3 h1 {
-      max-width: 1100px;
+      max-width: 960px;
       margin-inline: auto;
       color: var(--text);
-      font-size: clamp(3.6rem, 6.5vw, 6.9rem);
-      line-height: 0.92;
-      letter-spacing: -0.074em;
+      font-size: clamp(3.35rem, 5.9vw, 6.25rem);
+      line-height: 0.94;
+      letter-spacing: -0.072em;
       font-weight: 790;
       text-wrap: balance;
     }
 
     .home-hero-v3 p:not(.eyebrow) {
-      max-width: 680px;
+      max-width: 610px;
       margin: 1rem auto 0;
       color: var(--text-soft);
-      font-size: clamp(1.04rem, 1.26vw, 1.2rem);
-      line-height: 1.45;
-      letter-spacing: -0.018em;
+      font-size: clamp(1.03rem, 1.2vw, 1.16rem);
+      line-height: 1.48;
+      letter-spacing: -0.017em;
       text-wrap: balance;
     }
 
     .home-hero-v3 .product-actions {
-      margin-top: 1.45rem;
+      margin-top: 1.35rem;
     }
 
     .home-tile-section {
@@ -212,12 +219,12 @@
 
     .home-app-content-v3 {
       width: fit-content;
-      max-width: min(100%, 780px);
+      max-width: min(100%, 820px);
       display: grid;
       grid-template-columns: auto minmax(0, 560px);
       align-items: center;
       justify-content: center;
-      gap: clamp(1.35rem, 2.8vw, 2.4rem);
+      gap: clamp(2rem, 3.8vw, 3.5rem);
       margin-inline: auto;
     }
 
@@ -289,7 +296,7 @@
 
     @media (max-width: 900px) {
       .home-hero-v3 {
-        min-height: 70vh;
+        min-height: 66vh;
       }
 
       .home-hero-v3 h1 {
@@ -324,7 +331,7 @@
         width: min(100%, 680px);
         grid-template-columns: 1fr;
         justify-items: center;
-        gap: 1.2rem;
+        gap: 1.35rem;
       }
 
       .home-app-panel-v3 h2,
@@ -339,9 +346,9 @@
 
     @media (max-width: 560px) {
       .home-hero-v3 {
-        min-height: 68vh;
-        padding-top: max(8.2rem, 14vh);
-        padding-bottom: 3.2rem;
+        min-height: 66vh;
+        padding-top: max(8rem, 13vh);
+        padding-bottom: 3rem;
       }
 
       .home-hero-v3 h1 {
@@ -428,8 +435,8 @@
         <h1 id="home-hero-title">Für deinen Weg nach vorn.</h1>
 
         <p>
-          Ein modernes Studio. Digitaler Zugang.
-          Klare Tarife, Tagespass und Urlaubspass. 24/7 bereit für dein Training.
+          Trainiere in einem modernen 24/7-Studio mit digitalem Zugang,
+          klaren Tarifen und flexiblen Pässen — ruhig, direkt und jederzeit bereit.
         </p>
 
         <div class="product-actions" aria-label="Wichtige Links">
