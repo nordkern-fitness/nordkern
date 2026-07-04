@@ -208,15 +208,28 @@
       text-wrap: balance;
     }
 
+    .home-app-panel-v3 {
+      min-height: clamp(360px, 42vh, 480px);
+      padding: clamp(2.7rem, 4.4vw, 4.5rem) 1.25rem;
+      text-align: left;
+    }
+
     .home-app-content-v3 {
+      width: min(100%, 980px);
       display: grid;
-      justify-items: center;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+      justify-content: center;
+      gap: clamp(1.6rem, 3.6vw, 3.4rem);
+    }
+
+    .home-app-text-v3 {
+      min-width: 0;
     }
 
     .home-app-icon-v3 {
-      width: clamp(70px, 7vw, 102px);
-      height: clamp(70px, 7vw, 102px);
-      margin-bottom: clamp(1.35rem, 2.8vw, 2.2rem);
+      width: clamp(86px, 8vw, 116px);
+      height: clamp(86px, 8vw, 116px);
       overflow: hidden;
       border-radius: 22%;
       background: #111111;
@@ -229,10 +242,20 @@
       object-fit: cover;
     }
 
+    .home-app-panel-v3 h2 {
+      max-width: 720px;
+      margin-inline: 0;
+    }
+
+    .home-app-panel-v3 p {
+      max-width: 610px;
+      margin-inline: 0;
+    }
+
     .home-app-links-v3 {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 1.5rem;
       flex-wrap: wrap;
       margin-top: 1.35rem;
@@ -282,6 +305,27 @@
       .home-access-panel-v3 h2,
       .home-app-panel-v3 h2 {
         font-size: clamp(2.6rem, 11vw, 4.4rem);
+      }
+
+      .home-app-panel-v3 {
+        min-height: 430px;
+        text-align: center;
+      }
+
+      .home-app-content-v3 {
+        width: min(100%, 760px);
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 1.5rem;
+      }
+
+      .home-app-panel-v3 h2,
+      .home-app-panel-v3 p {
+        margin-inline: auto;
+      }
+
+      .home-app-links-v3 {
+        justify-content: center;
       }
     }
 
@@ -333,6 +377,11 @@
         padding: 4rem 1rem;
       }
 
+      .home-app-panel-v3 {
+        min-height: 430px;
+        padding: 3.6rem 1rem;
+      }
+
       .home-access-panel-v3 h2,
       .home-app-panel-v3 h2 {
         font-size: clamp(2.35rem, 12vw, 3.55rem);
@@ -342,6 +391,11 @@
       .home-app-panel-v3 p {
         max-width: 34ch;
         font-size: 1rem;
+      }
+
+      .home-app-icon-v3 {
+        width: 78px;
+        height: 78px;
       }
     }
   </style>
@@ -428,16 +482,18 @@
             <img src="images/app-logo.png" alt="" />
           </div>
 
-          <h2 id="home-app-title">Mit der Nordkern Fitness App trainieren.</h2>
+          <div class="home-app-text-v3">
+            <h2 id="home-app-title">Mit der Nordkern Fitness App trainieren.</h2>
 
-          <p>
-            Mitgliedschaft buchen, Tagespass oder Urlaubspass aktivieren, QR-Code öffnen.
-            Alles Wichtige liegt an einem Ort — damit dein Training nicht mit Papierkram beginnt.
-          </p>
+            <p>
+              Mitgliedschaft buchen, Tagespass oder Urlaubspass aktivieren, QR-Code öffnen.
+              Alles Wichtige liegt an einem Ort — damit dein Training nicht mit Papierkram beginnt.
+            </p>
 
-          <div class="home-app-links-v3" aria-label="Links zur App und zum Kontakt">
-            <a href="app.html">App ansehen</a>
-            <a href="kontakt.html#faq">FAQ öffnen</a>
+            <div class="home-app-links-v3" aria-label="Links zur App und zum Kontakt">
+              <a href="app.html">App ansehen</a>
+              <a href="kontakt.html#faq">FAQ öffnen</a>
+            </div>
           </div>
         </div>
       </div>
