@@ -363,33 +363,97 @@
     }
 
     .pricing-drink-panel-v3 {
-      min-height: 440px;
+      min-height: 620px;
       display: grid;
       place-items: center;
-      padding: clamp(3.4rem, 6vw, 6rem) 1.25rem;
+      padding: clamp(4rem, 7vw, 7rem) clamp(1rem, 3vw, 2rem);
       text-align: center;
-      background: #f5f5f7;
+      background:
+        radial-gradient(
+          ellipse 80% 58% at 50% 0%,
+          rgba(46, 145, 63, 0.11) 0%,
+          rgba(46, 145, 63, 0.045) 38%,
+          rgba(245, 245, 247, 0) 72%
+        ),
+        #f5f5f7;
+      overflow: hidden;
+    }
+
+    .pricing-drink-inner-v3 {
+      width: min(100%, 980px);
+      margin-inline: auto;
     }
 
     .pricing-drink-panel-v3 h2 {
-      max-width: 860px;
+      max-width: 820px;
       margin-inline: auto;
       color: var(--text);
-      font-size: clamp(2.7rem, 5vw, 5.2rem);
-      line-height: 0.94;
-      letter-spacing: -0.068em;
+      font-size: clamp(3rem, 5.8vw, 6rem);
+      line-height: 0.92;
+      letter-spacing: -0.074em;
       font-weight: 790;
       text-wrap: balance;
     }
 
     .pricing-drink-panel-v3 p:not(.eyebrow) {
       max-width: 720px;
-      margin: 1rem auto 0;
+      margin: 1.1rem auto 0;
       color: var(--text-soft);
-      font-size: clamp(1.02rem, 1.28vw, 1.18rem);
+      font-size: clamp(1.05rem, 1.32vw, 1.22rem);
       line-height: 1.5;
-      letter-spacing: -0.016em;
+      letter-spacing: -0.017em;
       text-wrap: balance;
+    }
+
+    .pricing-drink-cards-v3 {
+      width: min(100%, 900px);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin: clamp(2rem, 4vw, 3rem) auto 0;
+      text-align: left;
+    }
+
+    .pricing-drink-card-v3 {
+      min-height: 172px;
+      padding: 1.05rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(0, 0, 0, 0.045);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.035);
+    }
+
+    .pricing-drink-card-icon-v3 {
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.05rem;
+      border-radius: 999px;
+      color: var(--nf-green-dark);
+      background: rgba(46, 145, 63, 0.09);
+      border: 1px solid rgba(46, 145, 63, 0.14);
+      font-size: 1rem;
+      font-weight: 850;
+      line-height: 1;
+    }
+
+    .pricing-drink-card-v3 h3 {
+      color: var(--text);
+      font-size: 1.18rem;
+      line-height: 1.08;
+      letter-spacing: -0.034em;
+      font-weight: 780;
+      text-wrap: balance;
+    }
+
+    .pricing-drink-card-v3 p {
+      margin-top: 0.62rem;
+      color: var(--text-soft);
+      font-size: 0.96rem;
+      line-height: 1.48;
+      letter-spacing: -0.012em;
     }
 
     .pricing-info-modal {
@@ -482,6 +546,15 @@
 
       .pricing-side-card-v3:last-child {
         grid-column: 1 / -1;
+      }
+
+      .pricing-drink-cards-v3 {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .pricing-drink-card-v3 {
+        min-height: auto;
       }
     }
 
@@ -600,17 +673,26 @@
       }
 
       .pricing-drink-panel-v3 {
-        min-height: 430px;
-        padding: 4rem 1rem;
+        min-height: auto;
+        padding: 4.2rem 1rem;
       }
 
       .pricing-drink-panel-v3 h2 {
-        font-size: clamp(2.35rem, 11vw, 3.6rem);
+        font-size: clamp(2.45rem, 11.5vw, 3.85rem);
+        line-height: 0.94;
       }
 
       .pricing-drink-panel-v3 p:not(.eyebrow) {
-        max-width: 34ch;
+        max-width: 35ch;
         font-size: 1rem;
+      }
+
+      .pricing-drink-cards-v3 {
+        margin-top: 2rem;
+      }
+
+      .pricing-drink-card-v3 {
+        padding: 1rem;
       }
     }
   </style>
@@ -671,15 +753,47 @@
 
     <section class="pricing-drink-section-v3" aria-labelledby="drink-info-title">
       <div class="pricing-drink-panel-v3">
-        <div>
+        <div class="pricing-drink-inner-v3">
           <p class="eyebrow">Getränkeautomat</p>
 
-          <h2 id="drink-info-title">Ein QR-Code. Studiozugang und Automat.</h2>
+          <h2 id="drink-info-title">Dein Getränk. Passend zu deinem Tarif.</h2>
 
           <p>
-            Dein QR-Code verbindet den Automaten mit deinem App-Konto.
-            Freigetränke, Größen und Extras werden automatisch erkannt und sauber zugeordnet.
+            Der Getränkeautomat ist mit deinem App-Konto verbunden.
+            Freigetränke, Kreatin-Auswahlen und zusätzliche Extras werden automatisch deinem Tarif oder Pass zugeordnet.
           </p>
+
+          <div class="pricing-drink-cards-v3" aria-label="Funktionen des Getränkeautomaten">
+            <article class="pricing-drink-card-v3">
+              <span class="pricing-drink-card-icon-v3">1</span>
+
+              <h3>Automatisch erkannt.</h3>
+
+              <p>
+                Dein Tarif oder Pass bestimmt, welche Getränke und Auswahlen für dich verfügbar sind.
+              </p>
+            </article>
+
+            <article class="pricing-drink-card-v3">
+              <span class="pricing-drink-card-icon-v3">2</span>
+
+              <h3>Direkt ausgewählt.</h3>
+
+              <p>
+                Freigetränke und Kreatin-Auswahlen lassen sich direkt am Automaten einlösen.
+              </p>
+            </article>
+
+            <article class="pricing-drink-card-v3">
+              <span class="pricing-drink-card-icon-v3">3</span>
+
+              <h3>Sauber zugeordnet.</h3>
+
+              <p>
+                Einlösungen und Extras werden in deinem App-Konto geführt und nachvollziehbar aktualisiert.
+              </p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
