@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     tarifProSlot: "[data-tarif-pro]",
     tarifTagespassSlot: "[data-tarif-tagespass]",
     tarifUrlaubspassSlot: "[data-tarif-urlaubspass]",
+    tarifSectionGetraenkeautomatSlot: "[data-tarif-section-getraenkeautomat]",
 
     navLink: ".nav-link",
     siteHeaderInner: ".site-header-inner",
@@ -93,6 +94,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     {
       selector: selectors.tarifUrlaubspassSlot,
       file: "components/tarif-urlaubspass.html"
+    },
+    {
+      selector: selectors.tarifSectionGetraenkeautomatSlot,
+      file: "components/tarif-section-getraenkeautomat.html"
     }
   ];
 
