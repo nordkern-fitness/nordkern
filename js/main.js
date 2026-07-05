@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     contactFormSlot: "[data-contact-form]",
     faqSlot: "[data-faq]",
 
+    homeSectionStudioSlot: "[data-home-section-studio]",
+    homeSectionAppSlot: "[data-home-section-app]",
+
     tarifBasicSlot: "[data-tarif-basic]",
     tarifPlusSlot: "[data-tarif-plus]",
     tarifProSlot: "[data-tarif-pro]",
@@ -74,6 +77,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     {
       selector: selectors.faqSlot,
       file: "components/faq.html"
+    },
+    {
+      selector: selectors.homeSectionStudioSlot,
+      file: "components/home-section-studio.html"
+    },
+    {
+      selector: selectors.homeSectionAppSlot,
+      file: "components/home-section-app.html"
     },
     {
       selector: selectors.tarifBasicSlot,
