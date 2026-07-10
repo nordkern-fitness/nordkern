@@ -14,7 +14,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     faqSlot: "[data-faq]",
 
     homeSectionStudioSlot: "[data-home-section-studio]",
+    homeSectionTagespassSlot: "[data-home-section-tagespass]",
     homeSectionAppSlot: "[data-home-section-app]",
+    homeSectionUrlaubspassSlot: "[data-home-section-urlaubspass]",
 
     tarifBasicSlot: "[data-tarif-basic]",
     tarifPlusSlot: "[data-tarif-plus]",
@@ -83,8 +85,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       file: "components/home-section-studio.html"
     },
     {
+      selector: selectors.homeSectionTagespassSlot,
+      file: "components/home-section-tagespass.html"
+    },
+    {
       selector: selectors.homeSectionAppSlot,
       file: "components/home-section-app.html"
+    },
+    {
+      selector: selectors.homeSectionUrlaubspassSlot,
+      file: "components/home-section-urlaubspass.html"
     },
     {
       selector: selectors.tarifBasicSlot,
@@ -979,7 +989,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (!target) return;
 
-    const isPricingPlanHash = document.querySelector(`${selectors.pricingTabButton}[data-plan="${hash.replace("#", "")}"]`);
+    const isPricingPlanHash = document.querySelector(
+      `${selectors.pricingTabButton}[data-plan="${hash.replace("#", "")}"]`
+    );
 
     if (isPricingPlanHash) return;
 
