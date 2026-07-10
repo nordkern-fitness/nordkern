@@ -145,153 +145,188 @@
       background: rgba(255, 255, 255, 0.68);
     }
 
-    .home-access-v3,
-    .home-app-v3 {
+    .home-feature-row-v4 {
       padding: 0 0.75rem 0.75rem;
       background: #ffffff;
     }
 
-    .home-access-panel-v3 {
-      min-height: clamp(440px, 50vh, 600px);
+    .home-feature-grid-v4 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .home-feature-slot-v4 {
+      min-width: 0;
+      display: grid;
+    }
+
+    .home-feature-card-v4 {
+      position: relative;
+      min-height: clamp(500px, 49vw, 690px);
       display: grid;
       place-items: center;
-      padding: clamp(3.2rem, 5.2vw, 5.2rem) 1.25rem;
-      text-align: center;
+      padding: clamp(3rem, 5vw, 5rem) clamp(1.25rem, 3vw, 2.5rem);
       overflow: hidden;
+      text-align: center;
+      background: #f5f5f7;
+      isolation: isolate;
+    }
+
+    .home-feature-card-v4::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .home-feature-card-studio-v4::before {
       background:
         radial-gradient(
-          ellipse 92% 64% at 50% -8%,
+          ellipse 96% 65% at 50% -4%,
           rgba(125, 226, 144, 0.72) 0%,
-          rgba(125, 226, 144, 0.54) 24%,
-          rgba(125, 226, 144, 0.28) 46%,
-          rgba(125, 226, 144, 0.08) 68%,
-          rgba(245, 245, 247, 0) 86%
-        ),
-        radial-gradient(
-          ellipse 74% 46% at 50% 18%,
-          rgba(46, 145, 63, 0.18) 0%,
-          rgba(46, 145, 63, 0.08) 42%,
-          rgba(245, 245, 247, 0) 78%
-        ),
-        linear-gradient(
-          180deg,
-          rgba(246, 255, 247, 0.72) 0%,
-          rgba(245, 245, 247, 0) 58%
+          rgba(125, 226, 144, 0.34) 34%,
+          rgba(245, 245, 247, 0) 74%
         ),
         #f5f5f7;
     }
 
-    .home-access-content-v3 {
-      width: min(100%, 900px);
+    .home-feature-card-day-v4::before {
+      background:
+        radial-gradient(
+          ellipse 85% 62% at 50% 0%,
+          rgba(255, 205, 112, 0.34) 0%,
+          rgba(255, 205, 112, 0.14) 42%,
+          rgba(245, 245, 247, 0) 74%
+        ),
+        #f5f5f7;
+    }
+
+    .home-feature-card-app-v4::before {
+      background:
+        radial-gradient(
+          ellipse 82% 62% at 50% 0%,
+          rgba(46, 145, 63, 0.18) 0%,
+          rgba(46, 145, 63, 0.07) 44%,
+          rgba(245, 245, 247, 0) 75%
+        ),
+        #f5f5f7;
+    }
+
+    .home-feature-card-holiday-v4::before {
+      background:
+        radial-gradient(
+          ellipse 88% 64% at 50% 0%,
+          rgba(112, 181, 255, 0.28) 0%,
+          rgba(112, 181, 255, 0.11) 42%,
+          rgba(245, 245, 247, 0) 74%
+        ),
+        #f5f5f7;
+    }
+
+    .home-feature-content-v4 {
+      width: min(100%, 590px);
       margin-inline: auto;
     }
 
-    .home-access-panel-v3 h2 {
-      max-width: 780px;
+    .home-feature-eyebrow-v4 {
+      margin-bottom: 0.78rem;
+      color: var(--nf-green-dark);
+      font-size: 0.76rem;
+      line-height: 1;
+      font-weight: 850;
+      letter-spacing: 0.085em;
+      text-transform: uppercase;
+    }
+
+    .home-feature-title-v4 {
+      max-width: 580px;
       margin-inline: auto;
       color: var(--text);
-      font-size: clamp(2.55rem, 4.65vw, 4.9rem);
+      font-size: clamp(2.65rem, 4.55vw, 4.85rem);
       line-height: 0.94;
-      letter-spacing: -0.064em;
+      letter-spacing: -0.067em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .home-access-panel-v3 p {
-      max-width: 650px;
-      margin: 0.95rem auto 0;
+    .home-feature-title-v4 span {
+      display: block;
+      color: var(--nf-green);
+    }
+
+    .home-feature-copy-v4 {
+      max-width: 520px;
+      margin: 1rem auto 0;
       color: var(--text-soft);
-      font-size: clamp(1rem, 1.18vw, 1.12rem);
-      line-height: 1.48;
-      letter-spacing: -0.016em;
+      font-size: clamp(1rem, 1.16vw, 1.12rem);
+      line-height: 1.5;
+      letter-spacing: -0.015em;
       text-wrap: balance;
     }
 
-    .home-app-panel-v3 {
-      min-height: clamp(300px, 34vh, 390px);
-      display: grid;
-      place-items: center;
-      padding: clamp(2rem, 3.4vw, 3.4rem) 1.25rem;
-      text-align: left;
-      background: #f5f5f7;
-      overflow: hidden;
-    }
-
-    .home-app-content-v3 {
+    .home-feature-meta-v4 {
       width: fit-content;
-      max-width: min(100%, 820px);
-      display: grid;
-      grid-template-columns: auto minmax(0, 560px);
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: clamp(2rem, 3.8vw, 3.5rem);
-      margin-inline: auto;
-    }
-
-    .home-app-icon-v3 {
-      width: clamp(58px, 4.6vw, 72px);
-      height: clamp(58px, 4.6vw, 72px);
-      overflow: hidden;
-      border-radius: 22%;
-      background: #111111;
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
-    }
-
-    .home-app-icon-v3 img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .home-app-text-v3 {
-      min-width: 0;
-    }
-
-    .home-app-panel-v3 h2 {
-      max-width: 560px;
-      margin: 0;
-      color: var(--text);
-      font-size: clamp(2.15rem, 3.35vw, 3.45rem);
-      line-height: 0.98;
-      letter-spacing: -0.058em;
-      font-weight: 790;
-      text-wrap: balance;
-    }
-
-    .home-app-panel-v3 p {
-      max-width: 540px;
-      margin: 0.78rem 0 0;
-      color: var(--text-soft);
-      font-size: clamp(0.98rem, 1.12vw, 1.07rem);
-      line-height: 1.45;
-      letter-spacing: -0.014em;
-      text-wrap: balance;
-    }
-
-    .home-app-links-v3 {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 1.35rem;
-      flex-wrap: wrap;
-      margin-top: 1.05rem;
-    }
-
-    .home-app-links-v3 a {
+      gap: 0.42rem;
+      margin-top: 1.15rem;
+      padding: 0.55rem 0.82rem;
+      border-radius: 999px;
       color: var(--nf-green-dark);
-      font-size: 0.98rem;
-      font-weight: 560;
+      background: rgba(46, 145, 63, 0.08);
+      border: 1px solid rgba(46, 145, 63, 0.14);
+      font-size: 0.84rem;
+      font-weight: 720;
       letter-spacing: -0.012em;
     }
 
-    .home-app-links-v3 a::after {
+    .home-feature-actions-v4 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.3rem;
+      flex-wrap: wrap;
+      margin-top: 1.3rem;
+    }
+
+    .home-feature-link-v4 {
+      color: var(--nf-green-dark);
+      font-size: 1rem;
+      font-weight: 590;
+      letter-spacing: -0.014em;
+      transition:
+        color var(--fast),
+        transform var(--fast);
+    }
+
+    .home-feature-link-v4::after {
       content: "›";
       padding-left: 0.28rem;
     }
 
-    .home-app-links-v3 a:hover,
-    .home-app-links-v3 a:focus-visible {
+    .home-feature-link-v4:hover,
+    .home-feature-link-v4:focus-visible {
       color: var(--nf-green);
+      transform: translateY(-1px);
+    }
+
+    .home-feature-app-icon-v4 {
+      width: clamp(64px, 5.4vw, 82px);
+      height: clamp(64px, 5.4vw, 82px);
+      margin: 0 auto 1.35rem;
+      overflow: hidden;
+      border-radius: 22%;
+      background: #111111;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.13);
+    }
+
+    .home-feature-app-icon-v4 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     @media (max-width: 900px) {
@@ -305,7 +340,8 @@
         line-height: 0.94;
       }
 
-      .home-studio-grid-v3 {
+      .home-studio-grid-v3,
+      .home-feature-grid-v4 {
         grid-template-columns: 1fr;
       }
 
@@ -318,29 +354,8 @@
         min-height: 430px;
       }
 
-      .home-access-panel-v3 h2 {
-        font-size: clamp(2.45rem, 9.6vw, 4.1rem);
-      }
-
-      .home-app-panel-v3 {
-        min-height: 360px;
-        text-align: center;
-      }
-
-      .home-app-content-v3 {
-        width: min(100%, 680px);
-        grid-template-columns: 1fr;
-        justify-items: center;
-        gap: 1.35rem;
-      }
-
-      .home-app-panel-v3 h2,
-      .home-app-panel-v3 p {
-        margin-inline: auto;
-      }
-
-      .home-app-links-v3 {
-        justify-content: center;
+      .home-feature-card-v4 {
+        min-height: 520px;
       }
     }
 
@@ -370,14 +385,14 @@
       }
 
       .home-tile-section,
-      .home-access-v3,
-      .home-app-v3 {
+      .home-feature-row-v4 {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         padding-bottom: 0.5rem;
       }
 
-      .home-studio-grid-v3 {
+      .home-studio-grid-v3,
+      .home-feature-grid-v4 {
         gap: 0.5rem;
       }
 
@@ -386,39 +401,23 @@
         min-height: 330px;
       }
 
-      .home-access-panel-v3 {
-        min-height: 430px;
+      .home-feature-card-v4 {
+        min-height: 450px;
         padding: 3.5rem 1rem;
       }
 
-      .home-access-panel-v3 h2 {
-        font-size: clamp(2.25rem, 11vw, 3.35rem);
+      .home-feature-title-v4 {
+        max-width: 11ch;
+        font-size: clamp(2.35rem, 11.5vw, 3.45rem);
       }
 
-      .home-access-panel-v3 p {
+      .home-feature-copy-v4 {
         max-width: 34ch;
         font-size: 1rem;
       }
 
-      .home-app-panel-v3 {
-        min-height: 340px;
-        padding: 3rem 1rem;
-      }
-
-      .home-app-panel-v3 h2 {
-        max-width: 12ch;
-        font-size: clamp(2rem, 10vw, 2.75rem);
-        line-height: 1;
-      }
-
-      .home-app-panel-v3 p {
-        max-width: 34ch;
-        font-size: 0.98rem;
-      }
-
-      .home-app-icon-v3 {
-        width: 58px;
-        height: 58px;
+      .home-feature-actions-v4 {
+        gap: 1rem;
       }
     }
   </style>
@@ -474,13 +473,23 @@
       </div>
     </section>
 
-    <div data-home-section-studio></div>
+    <section class="home-feature-row-v4" aria-label="Studio und Tagespass">
+      <div class="home-feature-grid-v4">
+        <div class="home-feature-slot-v4" data-home-section-studio></div>
+        <div class="home-feature-slot-v4" data-home-section-tagespass></div>
+      </div>
+    </section>
 
-    <div data-home-section-app></div>
+    <section class="home-feature-row-v4" aria-label="App und Urlaubspass">
+      <div class="home-feature-grid-v4">
+        <div class="home-feature-slot-v4" data-home-section-app></div>
+        <div class="home-feature-slot-v4" data-home-section-urlaubspass></div>
+      </div>
+    </section>
   </main>
 
   <div data-footer></div>
 
-  <script src="js/main.js?v=4"></script>
+  <script src="js/main.js?v=5"></script>
 </body>
 </html>
