@@ -243,6 +243,11 @@
 
     .home-pass-content-v4 {
       width: min(100%, 560px);
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       margin-inline: auto;
     }
 
@@ -271,16 +276,27 @@
       max-width: 540px;
       margin-inline: auto;
       color: var(--text);
-      font-size: clamp(2.55rem, 4.25vw, 4.5rem);
+      font-size: clamp(2.75rem, 4.4vw, 4.65rem);
       line-height: 0.94;
-      letter-spacing: -0.066em;
+      letter-spacing: -0.067em;
       font-weight: 790;
       text-wrap: balance;
     }
 
-    .home-large-title-v4 span,
-    .home-pass-title-v4 span {
+    .home-large-title-v4 span {
       color: var(--nf-green);
+    }
+
+    .home-pass-title-v4 span {
+      display: block;
+      max-width: 18ch;
+      margin: 0.9rem auto 0;
+      color: var(--text-soft);
+      font-size: clamp(1.45rem, 2vw, 2.05rem);
+      line-height: 1.12;
+      letter-spacing: -0.042em;
+      font-weight: 650;
+      text-wrap: balance;
     }
 
     .home-large-copy-v4 {
@@ -294,10 +310,10 @@
     }
 
     .home-pass-copy-v4 {
-      max-width: 500px;
-      margin: 1rem auto 0;
+      max-width: 480px;
+      margin: 1.15rem auto 0;
       color: var(--text-soft);
-      font-size: clamp(0.98rem, 1.08vw, 1.08rem);
+      font-size: clamp(0.98rem, 1.08vw, 1.07rem);
       line-height: 1.5;
       letter-spacing: -0.014em;
       text-wrap: balance;
@@ -325,7 +341,7 @@
       justify-content: center;
       gap: 1.25rem;
       flex-wrap: wrap;
-      margin-top: 1.25rem;
+      margin-top: 1.4rem;
     }
 
     .home-feature-link-v4 {
@@ -426,6 +442,10 @@
         min-height: 500px;
       }
 
+      .home-pass-content-v4 {
+        min-height: 320px;
+      }
+
       .home-app-layout-v4 {
         grid-template-columns: 1fr;
         justify-items: center;
@@ -493,8 +513,12 @@
       }
 
       .home-pass-card-v4 {
-        min-height: 460px;
-        padding: 3.5rem 1rem;
+        min-height: 450px;
+        padding: 3.3rem 1rem;
+      }
+
+      .home-pass-content-v4 {
+        min-height: 300px;
       }
 
       .home-large-title-v4 {
@@ -503,8 +527,15 @@
       }
 
       .home-pass-title-v4 {
-        max-width: 11ch;
-        font-size: clamp(2.35rem, 11vw, 3.4rem);
+        max-width: 12ch;
+        font-size: clamp(2.55rem, 12vw, 3.65rem);
+      }
+
+      .home-pass-title-v4 span {
+        max-width: 14ch;
+        margin-top: 0.75rem;
+        font-size: clamp(1.3rem, 6vw, 1.65rem);
+        line-height: 1.14;
       }
 
       .home-large-copy-v4,
@@ -593,6 +624,6 @@
 
   <div data-footer></div>
 
-  <script src="js/main.js?v=6"></script>
+  <script src="js/main.js?v=7"></script>
 </body>
 </html>
